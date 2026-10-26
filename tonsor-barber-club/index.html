@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tonsor Barber Club | Barbería, café y tienda en Los Palos Grandes</title>
+<meta name="description" content="Barbería para caballeros con café y tienda de productos en Los Palos Grandes, Caracas. Reserva tu hora en línea.">
+<!-- cabecera:inicio -->
+<meta property="og:title" content="Tonsor Barber Club | Barbería, café y tienda en Los Palos Grandes">
+<meta property="og:description" content="Barbería para caballeros con café y tienda de productos en Los Palos Grandes, Caracas. Reserva tu hora en línea.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_VE">
+<meta name="theme-color" content="#1C3FA0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231C3FA0%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22%23FFFFFF%22%20text-anchor%3D%22middle%22%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- cabecera:fin -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cobalto:#1C3FA0;--cobalto2:#14307D;--nogal:#7A4B2A;--nogal2:#5C3820;--blanco:#FFFFFF;--hueso:#F4F1EA;--tinta:#16203A;--suave:#4B5568}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible{outline:3px solid #F3C969;outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+header{background:var(--cobalto);color:#fff}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.sello{width:52px;height:52px;border-radius:50%;background:#fff;color:var(--cobalto);display:grid;place-items:center;font-family:'Playfair Display SC',serif;font-weight:900;font-size:1.3rem;box-shadow:0 0 0 3px var(--cobalto),0 0 0 5px #fff}
+.marca span{font-family:'Playfair Display SC',serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;line-height:1.1}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:6px;background:#fff;color:var(--cobalto);font-weight:700;text-decoration:none}
+.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem}
+.btn.nogal{background:var(--nogal);color:#fff}
+.btn.borde{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+.hero{padding:54px 0 80px}
+.hero h1{font-family:'Playfair Display SC',serif;font-weight:900;font-size:clamp(2.5rem,9vw,5rem);line-height:1.02;max-width:13ch}
+.hero p{margin-top:20px;max-width:38ch;font-size:1.13rem;color:#D9E1F6}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.franja{height:16px;background:repeating-linear-gradient(90deg,var(--nogal) 0 70px,var(--nogal2) 70px 72px)}
+section{padding:64px 0}
+h2{font-family:'Playfair Display SC',serif;font-weight:900;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.08;margin-bottom:12px}
+.lead{color:var(--suave);max-width:50ch;margin-bottom:30px}
+.tres{display:grid;gap:14px}
+@media(min-width:760px){.tres{grid-template-columns:repeat(3,1fr)}}
+.pilar{background:#fff;border-top:6px solid var(--cobalto);border-radius:8px;padding:24px;box-shadow:0 1px 0 #E3DED3}
+.pilar h3{font-family:'Playfair Display SC',serif;font-size:1.35rem;margin-bottom:6px}
+.pilar p{color:var(--suave);font-size:.97rem}
+.pilar small{display:block;margin-top:10px;font-weight:600;color:var(--nogal)}
+.estante{background:var(--nogal);color:#fff;border-top:10px solid var(--nogal2);border-bottom:10px solid var(--nogal2)}
+.estante .lead{color:#F1E3D6}
+.lista{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.35)}
+.fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;padding:18px 2px;border-bottom:1px solid rgba(255,255,255,.35)}
+.fila h3{font-size:1.08rem}
+.fila small{display:block;color:#F1E3D6}
+.fila .pc{font-weight:600;color:#FFE2B8;font-size:.9rem}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cuadro{aspect-ratio:3/4;background:#11131a;border:8px solid #2a2a2a;outline:2px solid #6B6B6B;display:grid;place-items:center;text-align:center;color:#C7CBD6;font-size:.82rem;padding:8px}
+.donde{background:var(--cobalto2);color:#fff}
+.donde .lead{color:#D9E1F6}
+.cols{display:grid;gap:30px}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+dt{font-weight:700;margin-top:14px}
+dd{color:#D9E1F6}
+footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
+.demo{margin-top:10px;border-left:4px solid var(--cobalto);padding-left:12px}
+.nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+.nodo-franja b{color:#8FD3FF}
+.nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
+.nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#inicio"><span class="sello" aria-hidden="true">T</span><span>Tonsor<br>Barber Club</span></a>
+      <a class="btn mini" href="#reserva-web">Reservar</a>
+    </nav>
+    <div class="hero" id="inicio">
+      <h1>Barbería, café y tienda para caballeros.</h1>
+      <p>Un club en Los Palos Grandes: te cortas el pelo, te tomas un espresso y te llevas tus productos. 4,8 en Google con 173 opiniones.</p>
+      <div class="acciones">
+        <a class="btn" href="#reserva-web" data-reserva>Reservar en línea</a>
+        <a class="btn" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Tonsor">Reservar por WhatsApp</a>
+        <a class="btn borde" href="https://instagram.com/tonsorbarberclub">Instagram</a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="franja" aria-hidden="true"></div>
+
+<main>
+<section aria-labelledby="club">
+  <div class="wrap">
+    <h2 id="club">El club</h2>
+    <p class="lead">Tres cosas en un mismo lugar. Así lo describen los clientes en sus opiniones: café, ambiente y trato de caballeros.</p>
+    <div class="tres">
+      <div class="pilar"><h3>Barbería</h3><p>Corte, barba y tratamientos faciales.</p><small>Servicios y precios por confirmar</small></div>
+      <div class="pilar"><h3>Café</h3><p>Barra de espresso y bebidas mientras esperas tu turno.</p><small>Carta por confirmar</small></div>
+      <div class="pilar"><h3>Tienda</h3><p>Estantes de productos para el cuidado del cabello y la barba.</p><small>Marcas por confirmar</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="estante" aria-labelledby="serv">
+  <div class="wrap">
+    <h2 id="serv">Servicios</h2>
+    <p class="lead">Lista de ejemplo. El club confirma qué ofrece y los precios.</p>
+    <div class="lista">
+      <div class="fila"><div><h3>Corte de cabello</h3><small>Con lavado y acabado</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Barba</h3><small>Perfilado y toalla caliente</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Mascarilla facial</h3><small>Para completar el servicio</small></div><span class="pc">precio por confirmar</span></div>
+      <div class="fila"><div><h3>Corte y barba</h3><small>El servicio completo</small></div><span class="pc">precio por confirmar</span></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="gal">
+  <div class="wrap">
+    <h2 id="gal">La galería</h2>
+    <p class="lead">Las paredes azules del club tienen retratos en blanco y negro. Aquí van fotos propias del local, el café y la tienda.</p>
+    <div class="galeria"><div class="cuadro">Foto del local</div><div class="cuadro">Foto de la barra de café</div><div class="cuadro">Foto de la tienda</div></div>
+  </div>
+</section>
+
+<!-- reserva-web:inicio -->
+<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Reserva en el club</h2><p class="lead">Elige servicio, día y hora. Te esperamos con un café.</p><div id="reserva-web"></div></div></section>
+<script>window.RESERVA = {"palabra": "reserva", "textoConfirmar": "Confirmar reserva", "textoListo": "Reserva lista", "tema": {"fondo": "#FFFFFF", "texto": "#16203A", "suave": "#4B5568", "acento": "#1C3FA0", "sobreAcento": "#FFFFFF", "borde": "#DAD5CA", "radio": "8px"}, "pasos": [{"id": "servicio", "tipo": "opciones", "titulo": "¿Qué servicio quieres?", "corto": "Servicio", "columnas": "dos", "opciones": [{"txt": "Corte de cabello", "sub": "precio por confirmar"}, {"txt": "Barba", "sub": "precio por confirmar"}, {"txt": "Mascarilla facial", "sub": "precio por confirmar"}, {"txt": "Corte y barba", "sub": "precio por confirmar"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día?", "corto": "Día", "dias": 6}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 9, "hasta": 19, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
+<script>/* Reserva o pedido por pasos, sin backend.
+   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
+   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
+   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
+(function () {
+  var C = window.RESERVA;
+  var raiz = document.getElementById('reserva-web');
+  if (!C || !raiz) return;
+  var t = C.tema || {};
+  var estado = {};
+  var paso = 0;
+
+  var css = '' +
+    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
+    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
+    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
+    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
+    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
+    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
+    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
+    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
+    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
+    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
+    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
+    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
+    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
+    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
+    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
+    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  function proximosDias(n, cerrados) {
+    var out = [], d = new Date();
+    while (out.length < n) {
+      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+  function horas(desde, hasta, cada) {
+    var out = [];
+    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
+      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
+      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
+    }
+    return out;
+  }
+  function el(tag, attrs, hijos) {
+    var e = document.createElement(tag);
+    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
+    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
+    return e;
+  }
+  function completo(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
+    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
+    if (p.opcional) return true;
+    return !!v;
+  }
+  function textoDe(p) {
+    var v = estado[p.id];
+    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
+    if (p.tipo === 'datos') return v ? v.nombre : '';
+    if (!v) return 'Sin indicar';
+    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
+  }
+  function opcionesDe(p) {
+    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
+    if (p.tipo === 'hora') {
+      var lista = horas(p.desde, p.hasta, p.cada || 30);
+      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
+      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
+      var hoy = local(new Date());
+      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
+        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
+        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
+      }
+      return lista;
+    }
+    return p.opciones;
+  }
+
+  function pintar() {
+    raiz.innerHTML = '';
+    var pasos = C.pasos, total = pasos.length + 1;
+    var caja = el('div', {class: 'r-caja'});
+    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
+    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
+    caja.appendChild(barra);
+
+    if (paso === 'listo') {
+      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
+      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
+      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
+      raiz.appendChild(caja); return;
+    }
+
+    if (paso === pasos.length) {
+      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
+      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
+      var res = el('div', {class: 'r-res'});
+      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
+      caja.appendChild(res);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
+      caja.appendChild(el('div', {class: 'r-nav'}, [
+        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
+        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
+      ]));
+      raiz.appendChild(caja); return;
+    }
+
+    var p = pasos[paso];
+    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
+    caja.appendChild(el('h3', {text: p.titulo}));
+
+    if (p.tipo === 'cantidades') {
+      estado[p.id] = estado[p.id] || {};
+      var lista = el('div', {class: 'r-ops'});
+      p.opciones.forEach(function (o) {
+        var n = estado[p.id][o.txt] || 0;
+        var num = el('b', {text: String(n), 'aria-live': 'polite'});
+        lista.appendChild(el('div', {class: 'r-cant'}, [
+          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
+          el('div', {class: 'r-num'}, [
+            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
+            num,
+            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
+          ])
+        ]));
+      });
+      caja.appendChild(lista);
+    } else if (p.tipo === 'datos') {
+      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
+      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
+      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
+      var error = el('div', {class: 'r-error', role: 'alert'});
+      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
+      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
+      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
+      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
+      caja.appendChild(error);
+      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
+    } else {
+      var ops = opcionesDe(p);
+      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
+      ops.forEach(function (o) {
+        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
+        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
+      });
+      caja.appendChild(grid);
+      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
+      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
+    }
+
+    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
+    sig.disabled = !completo(p);
+    caja.appendChild(el('div', {class: 'r-nav'}, [
+      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
+      sig
+    ]));
+    raiz.appendChild(caja);
+  }
+  pintar();
+})();
+</script>
+<!-- reserva-web:fin -->
+<section class="donde" aria-labelledby="donde">
+  <div class="wrap cols">
+    <div>
+      <h2 id="donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd>Av. Andrés Bello con 2.ª Transversal, Edificio Intercontinental, planta baja. Los Palos Grandes, Caracas</dd>
+        <dt>Horario</dt><dd>Hasta las 7 p. m. Días por confirmar.</dd>
+      </dl>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tonsor+Barber+Club+Los+Palos+Grandes+Caracas">Cómo llegar</a></div>
+    </div>
+    <div>
+      <h2 style="font-size:1.6rem">Tu turno, sin esperar</h2>
+      <p class="lead">Escríbenos por WhatsApp con el día y la hora que prefieres.</p>
+      <a class="btn nogal" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20en%20Tonsor">Reservar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding-bottom:70px">
+  <div class="wrap">Tonsor Barber Club · Los Palos Grandes, Caracas
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+  </div>
+</footer>
+<div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
+<div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
+<script>
+(function(){var a=document.getElementById('nodoAviso'),t;
+document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
+a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
+a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+<!-- vida:inicio -->
+<script>window.VIDA = {"caracter": "firme"};</script>
+<script>
+/* Animaciones de las demos: entrada del titular palabra por palabra, secciones que aparecen al bajar,
+   barra de progreso con el color de la marca, botones con respuesta al toque y pasos de la reserva con transición.
+   Sin dependencias. Si la persona pide menos movimiento en su sistema, no anima nada.
+   Opcional antes de cargar: window.VIDA = {caracter: 'firme' | 'suave' | 'calido'}. */
+(function () {
+  if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  // Cada marca se mueve distinto: barberías con decisión, la clínica con calma, comida con algo de rebote.
+  var CARACTER = {
+    firme: { dur: 620, dist: 28, curva: 'cubic-bezier(.2,.8,.2,1)', paso: 70 },
+    suave: { dur: 820, dist: 16, curva: 'cubic-bezier(.25,.6,.3,1)', paso: 90 },
+    calido: { dur: 700, dist: 22, curva: 'cubic-bezier(.34,1.4,.64,1)', paso: 80 }
+  };
+  var c = CARACTER[(window.VIDA || {}).caracter] || CARACTER.firme;
+  var raiz = document.documentElement;
+  raiz.classList.add('vida');
+
+  var css = '' +
+    '.vida [data-v]{opacity:0;translate:0 ' + c.dist + 'px;transition:opacity ' + c.dur + 'ms ' + c.curva + ',translate ' + c.dur + 'ms ' + c.curva + ';transition-delay:var(--v-d,0ms)}' +
+    '.vida [data-v].v-on{opacity:1;translate:0 0}' +
+    '.vida h1 .v-pal{display:inline-block;opacity:0;translate:0 .45em;animation:v-sube ' + c.dur + 'ms ' + c.curva + ' forwards;animation-delay:var(--v-d,0ms)}' +
+    '@keyframes v-sube{to{opacity:1;translate:0 0}}' +
+    '.vida .btn{transition:transform 120ms ease-out,box-shadow 200ms ease-out,filter 200ms ease-out}' +
+    '.vida .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}' +
+    '.vida .btn:active{transform:scale(.97)}' +
+    '#v-barra{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;scale:0 1;z-index:60;pointer-events:none}' +
+    '#reserva-web .r-caja>*{animation:v-paso 360ms ' + c.curva + ' both}' +
+    '#reserva-web .r-caja>*:nth-child(2){animation-delay:40ms}#reserva-web .r-caja>*:nth-child(3){animation-delay:80ms}#reserva-web .r-caja>*:nth-child(n+4){animation-delay:120ms}' +
+    '@keyframes v-paso{from{opacity:0;translate:14px 0}to{opacity:1;translate:0 0}}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  // 1. Titular: cada palabra entra por separado (el texto sigue siendo el mismo para lectores de pantalla)
+  var h1 = document.querySelector('h1');
+  var t = 0;
+  if (h1) {
+    h1.setAttribute('aria-label', h1.textContent.replace(/\s+/g, ' ').trim());
+    (function partir(nodo) {
+      Array.prototype.slice.call(nodo.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (trozo) {
+            if (!trozo) return;
+            if (/^\s+$/.test(trozo)) { frag.appendChild(document.createTextNode(trozo)); return; }
+            var s = document.createElement('span');
+            s.className = 'v-pal'; s.setAttribute('aria-hidden', 'true'); s.textContent = trozo;
+            s.style.setProperty('--v-d', (t++ * c.paso) + 'ms');
+            frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { partir(n); }
+      });
+    })(h1);
+    // Lo que sigue al titular en la portada entra después de la última palabra
+    var sig = h1.nextElementSibling, k = 0;
+    while (sig) { sig.setAttribute('data-v', ''); sig.style.setProperty('--v-d', (t * c.paso + 120 + k++ * 110) + 'ms'); sig = sig.nextElementSibling; }
+  }
+
+  // 2. Secciones: título, entradilla y cada tarjeta o fila, en cascada
+  var vistos = [];
+  document.querySelectorAll('main section .wrap > *, footer .wrap > *').forEach(function (el) {
+    if (el.id === 'reserva-web') return;
+    var hijos = el.children;
+    var esGrupo = hijos.length >= 2 && /grid|flex/.test(getComputedStyle(el).display) && !/^H\d$/.test(el.tagName);
+    if (esGrupo) {
+      Array.prototype.forEach.call(hijos, function (h, i) { h.setAttribute('data-v', ''); h.style.setProperty('--v-d', Math.min(i, 6) * c.paso + 'ms'); vistos.push(h); });
+    } else { el.setAttribute('data-v', ''); vistos.push(el); }
+  });
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('v-on'); obs.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  vistos.forEach(function (el) { obs.observe(el); });
+  // Respaldo: si el navegador no avisa (pestaña en segundo plano, saltos con enlaces), se revisa a mano
+  // para que ningún contenido quede escondido.
+  var espera = null;
+  function revisar() {
+    espera = null;
+    vistos.forEach(function (el) {
+      if (!el.classList.contains('v-on') && el.getBoundingClientRect().top < innerHeight * 0.95) { el.classList.add('v-on'); obs.unobserve(el); }
+    });
+  }
+  addEventListener('scroll', function () { if (!espera) espera = setTimeout(revisar, 150); }, { passive: true });
+  addEventListener('hashchange', function () { setTimeout(revisar, 300); });
+  setTimeout(revisar, 400);
+  // Portada: visible desde el inicio
+  setTimeout(function () {
+    document.querySelectorAll('header [data-v]').forEach(function (el) { el.classList.add('v-on'); });
+  }, 30);
+
+  // 3. Barra de progreso con el color del botón principal
+  var btn = document.querySelector('.btn');
+  var barra = document.createElement('div');
+  barra.id = 'v-barra';
+  barra.style.background = btn ? getComputedStyle(btn).backgroundColor : 'currentColor';
+  document.body.appendChild(barra);
+  var pendiente = false;
+  addEventListener('scroll', function () {
+    if (pendiente) return; pendiente = true;
+    requestAnimationFrame(function () {
+      var max = raiz.scrollHeight - innerHeight;
+      barra.style.scale = (max > 0 ? Math.min(1, scrollY / max) : 0) + ' 1';
+      pendiente = false;
+    });
+  }, { passive: true });
+})();
+</script>
+<!-- vida:fin -->
+</body>
+</html>
