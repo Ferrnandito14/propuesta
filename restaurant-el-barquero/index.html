@@ -32,10 +32,10 @@
 <!--
 Referencias (proceso-diseno.md y skill refero-design, segunda versión del 2026-11-09):
 Candado. Principal: Limón (Refero Styles): brasserie a la luz de velas; fondo casi negro, verde profundo (aquí el de sus manteles) para texto sobre crema, un solo color encendido (aquí su dorado) solo en botones rellenos, letras con interletra amplia, esquinas de 1 px, platos a gran tamaño de borde a borde.
-Prestado: pase de abordar como comprobante (aerolíneas y navieras) y olas como separador.
+Prestado: plano de sala de los sistemas de reserva de mesas, reducido a tres zonas, y la mesa vista desde arriba como en un plano de montaje de banquetes.
 De la marca (ficha de Google): fachada de piedra con el escudo y "La Embajada de los Mares en Caracas"; servicio en la mesa con carrito y fuego; manteles verdes, vigas de madera y platos de cerámica en la pared; arroces, gambas al ajillo, langostinos, ceviche y sopas de mar; 4,5 con 2.287 opiniones; horario por día de su ficha.
-Orden pensado para un restaurante de celebración: el ambiente, reservar la mesa, los platos, música y baile, reuniones, dónde.
-Momento memorable: la reserva sale como un pase de abordar a "La Embajada de los Mares".
+Orden: los platos, música y baile, armar la mesa y reservar, dónde y horario.
+Momento memorable: la mesa se arma a la vista. Mantel verde con cubremantel claro como los suyos, un puesto por cada persona, la zona del salón (junto a la pista, centro o rincón tranquilo) y los platos de la página al centro. Termina en el mensaje de WhatsApp tal como le llega al restaurante. El plano es de referencia: la distribución real está por confirmar.
 Los nombres de los platos describen lo que se ve en las fotos; la carta con precios la carga el restaurante.
 Fotos: de su ficha de Google, para esta propuesta.
 -->
@@ -75,12 +75,12 @@ h2{font-size:clamp(34px,5vw,54px);margin:14px 0 18px;color:var(--bosque)}
 .lead{color:var(--gris);max-width:48ch;margin-bottom:38px}
 #mesa{background:var(--crema)}
 #mesa .etq{color:var(--bosque)!important}
-.res{display:grid;gap:48px;align-items:start}
-@media(min-width:960px){.res{grid-template-columns:1fr 400px;gap:72px}}
+.res{display:grid;align-items:start}
+@media(min-width:960px){.res{grid-template-columns:1fr 400px;column-gap:72px}}
 .paso{margin-top:34px}
 .paso h3{font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--bosque);padding-bottom:12px;border-bottom:1px solid var(--salvia)}
 .ops{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.ops button{all:unset;cursor:pointer;border:1px solid var(--bosque);background:transparent;border-radius:1px;padding:10px 16px;font-weight:500;font-size:14px;letter-spacing:.04em;min-width:20px;text-align:center;color:var(--bosque)}
+.ops button{all:unset;cursor:pointer;border:1px solid var(--bosque);background:transparent;border-radius:1px;padding:10px 16px;min-height:44px;box-sizing:border-box;font-weight:500;font-size:14px;letter-spacing:.04em;min-width:20px;text-align:center;color:var(--bosque)}
 .ops button[aria-pressed="true"]{background:var(--bosque);color:var(--crema);border-color:var(--bosque)}
 .ops button:focus-visible{outline:1px solid var(--oro);outline-offset:2px}
 .dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:14px}
@@ -90,31 +90,54 @@ h2{font-size:clamp(34px,5vw,54px);margin:14px 0 18px;color:var(--bosque)}
 .dias button[aria-pressed="true"] b{color:var(--crema)}
 .horas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:14px}
 @media(min-width:600px){.horas{grid-template-columns:repeat(6,minmax(0,1fr))}}
-.horas button{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;border:1px solid var(--salvia);background:transparent;padding:9px 0;font-weight:500;font-size:13px;color:var(--bosque)}
+.horas button{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;border:1px solid var(--salvia);background:transparent;padding:0;min-height:44px;line-height:42px;font-weight:500;font-size:13px;color:var(--bosque)}
 .horas button[aria-pressed="true"]{background:var(--bosque);color:var(--crema);border-color:var(--bosque)}
 .horas button:disabled{opacity:.3;cursor:not-allowed}
 label.campo{display:block;margin-top:14px;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bosque)}
 label.campo input{display:block;width:100%;min-height:50px;margin-top:8px;border:1px solid var(--bosque);border-radius:1px;background:transparent;padding:10px 14px;font:16px 'DM Sans',sans-serif;letter-spacing:.02em;text-transform:none;color:var(--bosque)}
-.pase{position:sticky;top:24px;background:var(--oliva);color:var(--crema);box-shadow:none;border-radius:1px;overflow:hidden}
-.pase .cab{background:var(--oliva);color:var(--crema);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(219,226,220,.15)}
-.pase .cab small{display:block;font-size:10px;letter-spacing:.32em;color:var(--oro);font-weight:500}
-.pase .cab b{font-family:'DM Sans',sans-serif;font-weight:500;font-size:20px;letter-spacing:.08em;text-transform:uppercase}
-.pase .cab svg{width:40px;height:40px}
-.pase .ruta{display:flex;justify-content:space-between;align-items:center;padding:20px 24px 8px}
-.pase .ruta div small{display:block;font-size:10px;letter-spacing:.24em;color:var(--salvia);font-weight:500;opacity:.7}
-.pase .ruta div b{font-family:'DM Sans',sans-serif;font-weight:500;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--crema)}
-.pase .ruta i{flex:1;border-top:1px dashed rgba(219,226,220,.3);margin:0 12px;position:relative}
-.pase .ruta i:after{content:"";position:absolute;left:50%;top:-4px;width:7px;height:7px;translate:-50% 0;background:var(--oro);border-radius:50%;padding:0}
-.pase .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;padding:14px 24px 22px}
-.pase .grid small{display:block;font-size:10px;letter-spacing:.24em;color:var(--salvia);opacity:.7;font-weight:500}
-.pase .grid b{font-size:16px;font-weight:500;letter-spacing:.02em}
-.pase .corte{border-top:1px dashed rgba(219,226,220,.3)}
-.pase .corte:before,.pase .corte:after{content:"";position:absolute;top:-10px;width:20px;height:20px;border-radius:50%;background:var(--crema)}
-.pase .corte{position:relative}
-.pase .corte:before{left:-10px}.pase .corte:after{right:-10px}
-.pase .pie{padding:20px 24px 24px}
-.pase .btn{width:100%}
-.pase .nota{font-size:12px;color:var(--salvia);opacity:.75;margin-top:10px;text-align:center}
+.mesa-v{position:sticky;top:0;z-index:5;background:var(--oliva);color:var(--crema);margin:30px -24px 0;padding:12px 24px 14px;text-align:center}
+.mesa-v svg{display:block;width:100%;height:auto;max-height:132px;margin:0 auto}
+.mesa-v .mv-q{margin-top:6px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.mesa-v .mv-q b{font-weight:500}
+.mesa-v .mv-c{font-size:13px;color:rgba(252,249,240,.7)}
+.mesa-v .nuevo{transform-box:fill-box;transform-origin:center;animation:puesto .5s cubic-bezier(.25,.6,.3,1) both}
+@keyframes puesto{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:none}}
+@media(min-width:960px){.mesa-v{order:2;top:24px;margin:34px 0 0;padding:34px 28px 30px;border-radius:1px}.mesa-v svg{max-height:none}.mesa-v .mv-q{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.mesa-v .nuevo{animation:none}}
+.cuantos{display:flex;align-items:center;gap:14px;margin-top:14px}
+.cuantos button{all:unset;box-sizing:border-box;cursor:pointer;width:50px;height:50px;border:1px solid var(--bosque);border-radius:1px;text-align:center;font-size:22px;line-height:48px;color:var(--bosque)}
+.cuantos button:disabled{opacity:.3;cursor:not-allowed}
+.cuantos button:focus-visible{outline:1px solid var(--oro);outline-offset:2px}
+.cuantos output{min-width:44px;text-align:center;font-weight:500;font-size:34px;line-height:1;color:var(--bosque)}
+.cuantos span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.apunte{margin-top:12px;font-size:13px;color:var(--gris);max-width:52ch}
+.plano{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:34px 92px 112px;gap:8px;margin-top:14px;padding:8px;border:1px solid var(--bosque);border-radius:1px;max-width:520px}
+.pl-mus,.pl-pista{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--bosque)}
+.pl-mus{background:var(--salvia)}
+.pl-pista{border:1px dashed var(--bosque)}
+.pl-z{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:10px;border:1px solid var(--salvia);border-radius:1px;color:var(--bosque);min-width:0}
+.pl-z.za{grid-column:2;grid-row:1/3}
+.pl-z b{font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+.pl-z small{font-size:12px;color:var(--gris);line-height:1.3}
+.pl-z i{position:absolute;width:13px;height:13px;border:1px solid currentColor;opacity:.55}
+.pl-z i:nth-of-type(1){left:14px;top:12px}
+.pl-z i:nth-of-type(2){left:44px;top:22px}
+.pl-z i:nth-of-type(3){right:16px;top:12px}
+.pl-z i:nth-of-type(4){right:40px;top:46px}
+.pl-z[aria-pressed="true"]{background:var(--bosque);border-color:var(--bosque);color:var(--crema)}
+.pl-z[aria-pressed="true"] small{color:var(--salvia)}
+.pl-z[aria-pressed="true"] i{opacity:.7}
+.pl-z[aria-pressed="true"] i:nth-of-type(2){background:var(--crema);opacity:1}
+.pl-z:focus-visible{outline:1px solid var(--oro);outline-offset:2px}
+.antojos{display:grid;grid-template-columns:1fr;gap:6px;margin-top:14px}
+@media(min-width:600px){.antojos{grid-template-columns:1fr 1fr}}
+.antojos button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:52px;padding:3px 12px 3px 3px;border:1px solid var(--salvia);border-radius:1px;font-size:14px;font-weight:500;letter-spacing:.04em;color:var(--bosque)}
+.antojos button img{width:44px;height:44px;flex:none}
+.antojos button[aria-pressed="true"]{background:var(--bosque);border-color:var(--bosque);color:var(--crema)}
+.antojos button:focus-visible{outline:1px solid var(--oro);outline-offset:2px}
+.cierre{margin-top:40px;padding-top:22px;border-top:1px solid var(--bosque)}
+.cierre .msg{margin:10px 0 18px;padding:14px 16px;border:1px solid var(--salvia);border-radius:1px;white-space:pre-line;font-size:15px;color:var(--bosque);overflow-wrap:anywhere}
+.cierre .btn{width:100%}
 .platos{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
 @media(min-width:860px){.platos{grid-template-columns:repeat(3,1fr)}}
 .plato{position:relative;background:var(--oliva);border-radius:0;overflow:hidden;box-shadow:none}
@@ -197,24 +220,41 @@ dl div>dt{margin-top:0;align-self:baseline}
 </section>
 
 <section id="mesa" aria-labelledby="mesa-t">
+  <div class="wrap">
+    <p class="etq" style="color:var(--marino)">Reservas</p>
+    <h2 id="mesa-t" class="serif">Arme su mesa.</h2>
+    <p class="lead" style="margin-bottom:0">Cuántos son, en qué parte del salón, qué día y a qué hora. El restaurante confirma por WhatsApp.</p>
+  </div>
   <div class="wrap res">
+    <aside class="mesa-v">
+      <svg id="tMesa" viewBox="0 0 340 170" role="img" aria-label="Mesa vista desde arriba"></svg>
+      <p class="mv-q" aria-live="polite"><b id="tQuien">Mesa para 2</b></p>
+      <p class="mv-c" id="tCuando">Día y hora por elegir</p>
+    </aside>
     <div>
-      <p class="etq" style="color:var(--marino)">Reservas</p>
-      <h2 id="mesa-t" class="serif">Su mesa a bordo.</h2>
-      <p class="lead" style="margin-bottom:0">Cuántos son, qué día y a qué hora. El restaurante confirma por WhatsApp.</p>
-      <div class="paso"><h3>¿Cuántas personas?</h3><div class="ops" id="mPers"></div></div>
+      <div class="paso"><h3>¿Cuántos son?</h3><div class="cuantos"><button type="button" id="mMenos" aria-label="Una persona menos">&minus;</button><output id="mNum" aria-live="polite">2</output><button type="button" id="mMas" aria-label="Una persona más">+</button><span>personas</span></div><p class="apunte" id="mGrande" hidden>Para grupos de más de 16, consulte la reunión por WhatsApp.</p></div>
+      <div class="paso"><h3>¿En qué parte del salón?</h3>
+        <div class="plano" id="mPlano">
+          <div class="pl-mus">Música</div>
+          <div class="pl-pista">Pista</div>
+          <button type="button" class="pl-z za" data-z="Junto a la pista" aria-pressed="false"><i></i><i></i><i></i><i></i><b>Junto a la pista</b><small>Música y baile al lado</small></button>
+          <button type="button" class="pl-z zb" data-z="Centro del salón" aria-pressed="false"><i></i><i></i><i></i><b>Centro del salón</b><small>En medio del ambiente</small></button>
+          <button type="button" class="pl-z zc" data-z="Rincón tranquilo" aria-pressed="false"><i></i><i></i><i></i><b>Rincón tranquilo</b><small>Para conversar</small></button>
+        </div>
+        <p class="apunte">Plano de referencia: la distribución real del salón está por confirmar con el restaurante. La zona va como preferencia.</p>
+      </div>
       <div class="paso"><h3>¿Qué día?</h3><div class="dias" id="mDias"></div></div>
       <div class="paso"><h3>¿A qué hora?</h3><div class="horas" id="mHoras"></div></div>
       <div class="paso"><h3>¿Celebran algo?</h3><div class="ops" id="mOcas"></div></div>
+      <div class="paso"><h3>¿Qué se les antoja al centro?</h3><div class="antojos" id="mPlatos"></div><p class="apunte">Opcional y sin precios: la carta está por confirmar. Sirve para avisar qué les provoca.</p></div>
       <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Nombre<input id="mNombre" autocomplete="name"></label></div>
+      <div class="cierre">
+        <p class="apunte" style="margin-top:0">Así le llega al restaurante:</p>
+        <p class="msg" id="pMsg"></p>
+        <a class="btn marino" id="pPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Reservar por WhatsApp</a>
+        <p class="apunte" id="pNota" aria-live="polite">Falta elegir el día y la hora.</p>
+      </div>
     </div>
-    <aside class="pase" aria-live="polite">
-      <div class="cab"><div><small>PASE DE ABORDAR</small><b id="pNom">Pasajero</b></div><svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="19" fill="none" stroke="#E3B23C" stroke-width="2"/><path d="M21 9v22M14 14h14M12 24c2 6 6 8 9 8s7-2 9-8" stroke="#E3B23C" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></div>
-      <div class="ruta"><div><small>DESDE</small><b>Caracas</b></div><i></i><div style="text-align:right"><small>HACIA</small><b>Los Mares</b></div></div>
-      <div class="grid" id="pGrid"></div>
-      <div class="corte"></div>
-      <div class="pie"><a class="btn marino" id="pPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Reservar por WhatsApp</a><p class="nota" id="pNota">Elija personas, día y hora.</p></div>
-    </aside>
   </div>
 </section>
 
@@ -240,20 +280,46 @@ dl div>dt{margin-top:0;align-self:baseline}
   /* Horario real de su ficha: lunes y domingo 12 a 10, martes 12 a 11, miércoles a sábado 12 a 11:30 */
   var HOR={0:[12,22],1:[12,22],2:[12,23],3:[12,23.5],4:[12,23.5],5:[12,23.5],6:[12,23.5]};
   var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),hh=hoy.getHours()+hoy.getMinutes()/60;
-  var pers=null,dia=null,hora=null,ocas=null,DN=['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-  function grupo(id,arr,set){var c=document.getElementById(id);arr.forEach(function(o){var b=el('button','',o);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){set(o);c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
-  grupo('mPers',['1','2','3','4','5','6','7','8','9 o más'],function(v){pers=v});
+  var pers=2,zona=null,dia=null,hora=null,ocas=null,antojos=[],dibS=0,dibP=0,DN=['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  function $(i){return document.getElementById(i)}
+  function grupo(id,arr,set){var c=$(id);arr.forEach(function(o){var b=el('button','',o);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){set(o);c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
   grupo('mOcas',['Nada especial','Cumpleaños','Aniversario','Reunión de trabajo','Celebración familiar'],function(v){ocas=v});
-  var md=document.getElementById('mDias'),d=new Date(hoy);if(hh>=HOR[hoy.getDay()][1]-1)d.setDate(d.getDate()+1);
-  for(var n=0;n<7;n++){(function(f){var b=document.createElement('button');b.type='button';b.innerHTML=DN[f.getDay()]+'<b>'+f.getDate()+'</b>';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){dia=f;hora=null;md.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});horas();pintar();});md.appendChild(b);})(new Date(d));d.setDate(d.getDate()+1);}
+  /* Personas: cada toque pone o quita un puesto en la mesa */
+  function cuantos(d){var v=Math.min(16,Math.max(1,pers+d));if(v===pers)return;pers=v;$('mNum').textContent=v;$('mMenos').disabled=v===1;$('mMas').disabled=v===16;$('mGrande').hidden=v<16;pintar();}
+  $('mMenos').addEventListener('click',function(){cuantos(-1)});$('mMas').addEventListener('click',function(){cuantos(1)});
+  /* Plano: la zona es una preferencia; tocar la misma la quita */
+  var pl=$('mPlano');pl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var ya=b.getAttribute('aria-pressed')==='true';zona=ya?null:b.getAttribute('data-z');pl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b&&!ya?'true':'false')});pintar();});});
+  /* Platos de esta misma página, sin precios: van al centro de la mesa */
+  var PL=[['Arroz con mariscos','arroz'],['Gambas al ajillo','gambas'],['Langostinos a la plancha','langostinos'],['Ceviche','ceviche'],['Sopas de mar','sopa']],mp=$('mPlatos');
+  PL.forEach(function(p){var b=el('button');b.type='button';b.setAttribute('aria-pressed','false');var i=new Image();i.src='f/'+p[1]+'.webp';i.alt='';i.width=44;i.height=44;b.appendChild(i);b.appendChild(el('span','',p[0]));b.addEventListener('click',function(){var k=antojos.indexOf(p);if(k<0)antojos.push(p);else antojos.splice(k,1);b.setAttribute('aria-pressed',k<0?'true':'false');pintar();});mp.appendChild(b);});
+  var md=$('mDias'),d=new Date(hoy);if(hh>=HOR[hoy.getDay()][1]-1)d.setDate(d.getDate()+1);
+  for(var n=0;n<7;n++){(function(f){var b=document.createElement('button');b.type='button';b.innerHTML=DN[f.getDay()]+'<b>'+f.getDate()+'</b>';b.setAttribute('aria-label',DL[f.getDay()]+' '+f.getDate()+' de '+MES[f.getMonth()]);b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){dia=f;hora=null;md.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});horas();pintar();});md.appendChild(b);})(new Date(d));d.setDate(d.getDate()+1);}
   function h12(h){var x=Math.floor(h);return (x>12?x-12:x)+':'+(h%1?'30':'00')+(x<12?' a. m.':' p. m.')}
-  function horas(){var c=document.getElementById('mHoras');c.innerHTML='';if(!dia){c.appendChild(el('p','','Primero elija el día.'));return;}var H=HOR[dia.getDay()];for(var h=H[0];h<=H[1]-1.5;h+=.5){(function(h){var b=el('button','',h12(h));b.type='button';b.disabled=dia.toDateString()===hoy.toDateString()&&h<=hh;b.setAttribute('aria-pressed',hora===h?'true':'false');b.addEventListener('click',function(){hora=h;horas();pintar();});c.appendChild(b);})(h);}}
-  horas();document.getElementById('mNombre').addEventListener('input',pintar);
-  function pintar(){var nombre=document.getElementById('mNombre').value.trim();document.getElementById('pNom').textContent=nombre||'Pasajero';
-    var G=[['PERSONAS',pers||'por elegir'],['FECHA',dia?DL[dia.getDay()]+' '+dia.getDate():'por elegir'],['HORA',hora?h12(hora):'por elegir'],['OCASIÓN',ocas&&ocas!=='Nada especial'?ocas:'por elegir']];
-    var g=document.getElementById('pGrid');g.innerHTML='';G.forEach(function(r){var x=el('div');x.appendChild(el('small','',r[0]));x.appendChild(el('b','',r[1]));g.appendChild(x);});
-    document.getElementById('pNota').textContent=pers&&dia&&hora?'El restaurante confirma su mesa por WhatsApp.':'Elija personas, día y hora.';
-    document.getElementById('pPedir').href=WA+encodeURIComponent('Hola, quiero reservar una mesa en El Barquero:\n• '+(pers?pers+(pers==='1'?' persona':' personas'):'personas por definir')+(dia?'\n• '+DL[dia.getDay()]+' '+dia.getDate()+(hora?' a las '+h12(hora):''):'')+(ocas&&ocas!=='Nada especial'?'\n• Ocasión: '+ocas:'')+(nombre?'\nA nombre de '+nombre+'.':''));}
+  function horas(){var c=$('mHoras');c.innerHTML='';if(!dia){c.appendChild(el('p','','Primero elija el día.'));return;}var H=HOR[dia.getDay()];for(var h=H[0];h<=H[1]-1.5;h+=.5){(function(h){var b=el('button','',h12(h));b.type='button';b.disabled=dia.toDateString()===hoy.toDateString()&&h<=hh;b.setAttribute('aria-pressed',hora===h?'true':'false');b.addEventListener('click',function(){hora=h;horas();pintar();});c.appendChild(b);})(h);}}
+  horas();$('mNombre').addEventListener('input',pintar);
+  /* La mesa vista desde arriba: mantel verde con cubremantel claro, un puesto por persona y los platos al centro */
+  function mesa(){
+    var n=pers,cab=n>6?2:0,arr=Math.ceil((n-cab)/2),aba=n-cab-arr,m=Math.max(arr,1),paso=Math.min(46,(cab?212:264)/m),tw=Math.max(m*paso,150)+(cab?52:0),th=92,cx=170,cy=85,x0=cx-tw/2,y0=cy-th/2,r=Math.min(9.5,paso*.27),S=[],i,s='';
+    function px(k,t){return cx-(t*paso)/2+paso*(k+.5)}
+    for(i=0;i<arr;i++){S.push([px(i,arr)-11,y0-15,22,11,px(i,arr),y0+17]);if(i<aba)S.push([px(i,aba)-11,y0+th+4,22,11,px(i,aba),y0+th-17]);}
+    if(cab){S.push([x0-15,cy-11,11,22,x0+17,cy]);S.push([x0+tw+4,cy-11,11,22,x0+tw-17,cy]);}
+    var k=antojos.length,av=tw-(cab?68:28),dd=k?Math.min(34,av/k-5):0,xi=cx-(k*(dd+5)-5)/2;
+    s+='<defs>';antojos.forEach(function(p,j){s+='<clipPath id="cp'+j+'"><circle cx="'+(xi+j*(dd+5)+dd/2)+'" cy="'+cy+'" r="'+dd/2+'"/></clipPath>';});s+='</defs>';
+    s+='<rect x="'+x0+'" y="'+y0+'" width="'+tw+'" height="'+th+'" fill="#103B15" stroke="rgba(219,226,220,.3)"/><rect x="'+(x0+5)+'" y="'+(y0+5)+'" width="'+(tw-10)+'" height="'+(th-10)+'" fill="#FCF9F0"/>';
+    S.forEach(function(p,j){s+='<g'+(j>=dibS?' class="nuevo"':'')+'><rect x="'+p[0]+'" y="'+p[1]+'" width="'+p[2]+'" height="'+p[3]+'" fill="#103B15" stroke="rgba(219,226,220,.45)"/><circle cx="'+p[4]+'" cy="'+p[5]+'" r="'+r+'" fill="#fff" stroke="rgba(16,59,21,.4)"/><circle cx="'+p[4]+'" cy="'+p[5]+'" r="'+r*.6+'" fill="none" stroke="rgba(16,59,21,.25)"/></g>';});
+    antojos.forEach(function(p,j){var x=xi+j*(dd+5);s+='<g'+(j>=dibP?' class="nuevo"':'')+'><image href="f/'+p[1]+'.webp" x="'+x+'" y="'+(cy-dd/2)+'" width="'+dd+'" height="'+dd+'" preserveAspectRatio="xMidYMid slice" clip-path="url(#cp'+j+')"/><circle cx="'+(x+dd/2)+'" cy="'+cy+'" r="'+dd/2+'" fill="none" stroke="rgba(16,59,21,.5)"/></g>';});
+    $('tMesa').innerHTML=s;dibS=S.length;dibP=k;
+    $('tMesa').setAttribute('aria-label','Mesa vista desde arriba con '+n+(n===1?' puesto':' puestos')+(k?' y '+k+(k===1?' plato':' platos')+' al centro':''));
+  }
+  function fecha(){return DL[dia.getDay()]+' '+dia.getDate()+' de '+MES[dia.getMonth()]}
+  function pintar(){mesa();var nombre=$('mNombre').value.trim(),oc=ocas&&ocas!=='Nada especial'?ocas.toLowerCase():'';
+    $('tQuien').textContent='Mesa para '+pers+(zona?' · '+zona.toLowerCase():'');
+    $('tCuando').textContent=(dia?fecha()+' · '+(hora?h12(hora):'hora por elegir'):'Día y hora por elegir')+(oc?' · '+oc:'');
+    $('pNota').textContent=!dia?'Falta elegir el día y la hora.':!hora?'Falta elegir la hora.':'El restaurante confirma su mesa por WhatsApp.';
+    var msg='Hola, quiero reservar una mesa en El Barquero:\n• '+pers+(pers===1?' persona':' personas')+(dia?'\n• '+fecha()+(hora?', '+h12(hora):''):'')+(zona?'\n• Preferencia en el salón: '+zona.toLowerCase():'')+(oc?'\n• Ocasión: '+oc:'')+(antojos.length?'\n• Se nos antoja: '+antojos.map(function(p){return p[0].toLowerCase()}).join(', '):'')+(nombre?'\nA nombre de '+nombre+'.':'');
+    $('pMsg').textContent=msg;$('pPedir').href=WA+encodeURIComponent(msg);}
+  /* Si falta el día o la hora, el botón lleva a ese paso en vez de enviar */
+  $('pPedir').addEventListener('click',function(e){if(dia&&hora)return;e.preventDefault();e.stopPropagation();$(dia?'mHoras':'mDias').closest('.paso').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});});
   pintar();
   var ul=document.getElementById('horario'),DLM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
   [1,2,3,4,5,6,0].forEach(function(i){var li=el('li');li.appendChild(el('span','',(i===hoy.getDay()?'Hoy · ':'')+DLM[i]));li.appendChild(el('span','','12 m. a '+h12(HOR[i][1]).replace(':00','')));if(i===hoy.getDay())li.className='hoy';ul.appendChild(li);});
