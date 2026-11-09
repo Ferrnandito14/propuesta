@@ -123,6 +123,26 @@ dd{color:var(--tiza);font-size:20px;line-height:1.4}
 footer{padding:40px 0 100px;font-size:14px;color:var(--ceniza);border-top:1px solid var(--linea)}
 .p-texto h1{margin-top:16px}
 dl div>dt{margin-top:0;align-self:baseline}
+.vista svg .rot{cursor:pointer}
+.vista svg .rot text{transition:fill .2s}
+.vista svg .rot.foco text{fill:#fff}
+.vista svg .rot.listo text{fill:#fff}
+.vista svg .rot.listo text:after{content:" ✓"}
+.vista svg #lados.foco,.vista svg #arriba.foco,.vista svg #barba.foco{stroke:#fff;stroke-width:1.6;stroke-dasharray:4 3;animation:hormiga 1.2s linear infinite}
+.vista svg #barba.foco{opacity:.35}
+@keyframes hormiga{to{stroke-dashoffset:-14}}
+@media(prefers-reduced-motion:reduce){.vista svg .foco{animation:none}}
+.paso h3 .ayuda{margin-left:10px;color:#6E6E6E}
+.ops button{display:flex;align-items:center;gap:14px;text-align:left}
+.ops button .mini{width:44px;height:55px;flex:none;color:#9A9A9A;transition:color .2s}
+.ops button[aria-pressed="true"] .mini{color:#fff}
+.ops button .txt b{display:block;font-weight:300}
+.ops button .txt small{display:block;font-size:13px;color:#6E6E6E;margin-top:2px}
+.ops button[aria-pressed="true"] .txt small{color:#9A9A9A}
+.ops.cuatro,.ops.tres{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(min-width:620px){.ops.tres{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+.paso.destello h3{animation:destello 1s ease}
+@keyframes destello{0%,100%{color:#9A9A9A}30%{color:#fff}}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -152,16 +172,16 @@ dl div>dt{margin-top:0;align-self:baseline}
       <p class="etq">La ficha</p>
       <h2 id="ficha-t" class="ancha">Tu corte, por escrito.</h2>
       <p class="lead" style="margin-bottom:0">Así no hay que explicarlo dos veces. Si tienes una foto de referencia, mándala en el mismo chat.</p>
-      <div class="paso"><h3>01 · Lados</h3><div class="ops cuatro" id="fLados"></div></div>
-      <div class="paso"><h3>02 · Arriba</h3><div class="ops cuatro" id="fArriba"></div></div>
-      <div class="paso"><h3>03 · Barba</h3><div class="ops tres" id="fBarba"></div></div>
+      <div class="paso" id="pLados"><h3>01 · Lados <span class="ayuda">qué tan alto sube el degradado</span></h3><div class="ops cuatro" id="fLados"></div></div>
+      <div class="paso" id="pArriba"><h3>02 · Arriba <span class="ayuda">el largo encima de la cabeza</span></h3><div class="ops cuatro" id="fArriba"></div></div>
+      <div class="paso" id="pBarba"><h3>03 · Barba <span class="ayuda">si la quieres y cómo</span></h3><div class="ops tres" id="fBarba"></div></div>
       <div class="paso"><h3>04 · Día</h3><div class="dias" id="fDias"></div></div>
       <div class="paso"><h3>05 · Hora</h3><div class="horas" id="fHoras"></div></div>
       <div class="paso"><h3>06 · Nombre</h3><label class="campo">Tu nombre<input id="fNombre" autocomplete="given-name"></label></div>
     </div>
     <aside class="vista" aria-live="polite">
       <p class="t">FICHA DEL CORTE</p>
-      <svg viewBox="0 0 240 260" aria-hidden="true">
+      <svg viewBox="0 0 250 260" id="esquema" role="group" aria-label="Esquema del corte: toca una zona para elegirla">
         <defs><linearGradient id="fade" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop id="fadeStop" offset=".35" stop-color="#fff" stop-opacity="0"/><stop id="fadeTop" offset=".7" stop-color="#fff" stop-opacity=".8"/></linearGradient>
         <pattern id="rayado" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="1.1" height="4" fill="#fff"/></pattern></defs>
         <path d="M84 196 C84 214 80 222 74 236 M156 196 C156 214 160 222 166 236" stroke="#fff" stroke-width="1.2" fill="none"/>
@@ -171,6 +191,11 @@ dl div>dt{margin-top:0;align-self:baseline}
         <path id="arriba" d="M64 92 C62 56 88 36 120 36 C152 36 178 56 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z" fill="url(#rayado)" stroke="#fff" stroke-width="1.2"/>
         <path id="barba" d="M64 132 C66 176 92 196 120 196 C148 196 174 176 176 132 C168 150 160 160 150 162 C140 152 100 152 90 162 C80 160 72 150 64 132 Z" fill="url(#rayado)" stroke="#fff" stroke-width="1.2" opacity="0"/>
         <path d="M120 112 L120 136" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="2 4"/>
+        <g class="rotulos" font-family="Inter,sans-serif" font-size="11" fill="#9A9A9A">
+          <g class="rot" data-z="arriba"><line x1="160" y1="46" x2="196" y2="30" stroke="#9A9A9A" stroke-width=".8"/><text x="200" y="33">Arriba</text></g>
+          <g class="rot" data-z="lados"><line x1="180" y1="104" x2="206" y2="96" stroke="#9A9A9A" stroke-width=".8"/><text x="210" y="99">Lados</text></g>
+          <g class="rot" data-z="barba"><line x1="164" y1="172" x2="200" y2="186" stroke="#9A9A9A" stroke-width=".8"/><text x="204" y="190">Barba</text></g>
+        </g>
       </svg>
       <dl id="fRes"></dl>
       <a class="btn" id="fPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Enviar ficha y pedir turno</a>
@@ -219,7 +244,14 @@ dl div>dt{margin-top:0;align-self:baseline}
   var ARRIBA=[['Corto','M64 92 C62 66 88 52 120 52 C152 52 178 66 176 92 C160 82 140 78 120 78 C100 78 80 82 64 92 Z'],['Medio','M64 92 C62 56 88 36 120 36 C152 36 178 56 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z'],['Largo','M60 100 C56 44 88 22 120 22 C152 22 184 44 180 100 C164 80 140 74 120 74 C100 74 76 80 60 100 Z'],['Texturizado','M64 92 C60 58 74 40 86 44 C92 30 106 34 112 40 C118 26 134 30 138 40 C148 30 162 38 160 50 C176 56 180 74 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z']];
   var BARBA=[['Sin barba',0],['Perfilar',.55],['Completa',1]];
   var s={lados:null,arriba:null,barba:null},dia=null,hora=null;
-  function grupo(id,arr,k){var c=document.getElementById(id);arr.forEach(function(o){var b=el('button','',o[0]);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){s[k]=o;c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
+  var NOTA={'Degradado bajo':'empieza cerca de la oreja','Degradado medio':'sube a media altura','Degradado alto':'casi hasta arriba','A tijera':'sin máquina, parejo','Corto':'casi al ras','Medio':'se puede peinar','Largo':'cae sobre la frente','Texturizado':'con movimiento','Sin barba':'afeitado','Perfilar':'contorno limpio','Completa':'barba tupida'};
+  var nMini=0;function mini(k,o){var L=k==='lados'?o:LADOS[1],A=k==='arriba'?o[1]:ARRIBA[1][1],B=k==='barba'?o[1]:0,id='mf'+(nMini++);
+    return '<svg viewBox="40 20 160 200" class="mini" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="'+(L[1]==='0'?0:L[1])+'" stop-color="#fff" stop-opacity="0"/><stop offset="'+(L[2]==='0'?0:L[2])+'" stop-color="#fff" stop-opacity=".85"/></linearGradient></defs>'+
+      '<ellipse cx="120" cy="120" rx="62" ry="74" fill="none" stroke="currentColor" stroke-width="4"/>'+
+      '<path d="M58 120 C58 80 70 62 84 56 L156 56 C170 62 182 80 182 120 L172 120 C170 96 160 86 150 84 L90 84 C80 86 70 96 68 120 Z" fill="url(#'+id+')"/>'+
+      '<path d="'+A+'" fill="currentColor" opacity="'+(k==='arriba'?1:.35)+'"/>'+
+      '<path d="M64 132 C66 176 92 196 120 196 C148 196 174 176 176 132 C168 150 160 160 150 162 C140 152 100 152 90 162 C80 160 72 150 64 132 Z" fill="currentColor" opacity="'+(k==='barba'?B:0)+'"/></svg>';}
+  function grupo(id,arr,k){var c=document.getElementById(id);arr.forEach(function(o){var b=el('button','');b.innerHTML=mini(k,o);var tx=el('span','txt');tx.appendChild(el('b','',o[0]));tx.appendChild(el('small','',NOTA[o[0]]||''));b.appendChild(tx);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){s[k]=o;c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
   grupo('fLados',LADOS,'lados');grupo('fArriba',ARRIBA,'arriba');grupo('fBarba',BARBA,'barba');
   var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),DN=['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
   var fd=document.getElementById('fDias'),d=new Date(hoy),n=0;if(hoy.getHours()>=17)d.setDate(d.getDate()+1);
@@ -227,7 +259,12 @@ dl div>dt{margin-top:0;align-self:baseline}
   function h12(h){var hh=Math.floor(h);return (hh>12?hh-12:hh)+':'+(h%1?'30':'00')+(hh<12?' a. m.':' p. m.')}
   function horas(){var c=document.getElementById('fHoras');c.innerHTML='';for(var h=9;h<17.6;h+=.5){(function(h){var b=el('button','',h12(h));b.type='button';b.disabled=!dia||(dia.toDateString()===hoy.toDateString()&&h<=hoy.getHours()+hoy.getMinutes()/60);b.setAttribute('aria-pressed',hora===h?'true':'false');b.addEventListener('click',function(){hora=h;horas();pintar();});c.appendChild(b);})(h);}}
   horas();document.getElementById('fNombre').addEventListener('input',pintar);
+  var ZONA={lados:'pLados',arriba:'pArriba',barba:'pBarba'};
+  ['lados','arriba','barba'].forEach(function(z){var irA=function(){var pso=document.getElementById(ZONA[z]);pso.scrollIntoView({behavior:'smooth',block:'center'});pso.classList.remove('destello');void pso.offsetWidth;pso.classList.add('destello');var b=pso.querySelector('button');if(b)b.focus({preventScroll:true});};
+    var zn=document.getElementById(z);zn.style.cursor='pointer';zn.addEventListener('click',irA);
+    document.querySelectorAll('.rot[data-z="'+z+'"]').forEach(function(r){r.addEventListener('click',irA);});});
   function pintar(){
+    var foco=!s.lados?'lados':!s.arriba?'arriba':!s.barba?'barba':'';['lados','arriba','barba'].forEach(function(z){document.getElementById(z).classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('listo',!!s[z]);});
     var L=s.lados||LADOS[1];document.getElementById('fadeStop').setAttribute('offset',L[1]==='0'?'0':L[1]);document.getElementById('fadeTop').setAttribute('offset',L[2]==='0'?'0':L[2]);
     document.getElementById('arriba').setAttribute('d',(s.arriba||ARRIBA[1])[1]);document.getElementById('barba').setAttribute('opacity',s.barba?s.barba[1]:0);
     var nombre=document.getElementById('fNombre').value.trim();
@@ -371,5 +408,38 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<!-- vivo:inicio -->
+<style>
+/* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
+.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
+@keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
+.vivo-cambio{animation:vivo-cambio .7s ease}
+@keyframes vivo-cambio{0%{opacity:.2;filter:blur(2px)}100%{opacity:1;filter:none}}
+.vivo-foto{overflow:hidden}
+.vivo-foto img{transition:transform .9s cubic-bezier(.2,.7,.2,1),clip-path 1s cubic-bezier(.2,.7,.2,1)}
+.vivo-oculta img{clip-path:inset(14% 0 0 0);transform:scale(1.08)}
+@media(hover:hover){.vivo-foto:hover img{transform:scale(1.04)}}
+button{transition:transform .12s ease}
+button:active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+</style>
+<script>
+(function(){
+  /* Pasos: qué está listo y cuál sigue */
+  function hecho(p){if(p.hidden)return true;if(p.querySelector('[aria-pressed="true"]'))return true;if([].some.call(p.querySelectorAll('input:not([type=radio]):not([type=checkbox])'),function(i){return i.value.trim()}))return true;if(p.querySelector('input[type=radio]:checked'))return true;if([].some.call(p.querySelectorAll('output'),function(o){return +o.textContent>0}))return true;return false;}
+  var pasos=[].slice.call(document.querySelectorAll('.paso')).filter(function(p){return p.querySelector('h3')&&p.querySelector('button,input')});
+  function guiar(){var sig=null;pasos.forEach(function(p){var h=hecho(p)&&!p.hidden;p.classList.toggle('hecho',h);if(!h&&!sig&&!p.hidden)sig=p;});pasos.forEach(function(p){p.classList.toggle('ahora',p===sig);});}
+  if(pasos.length){document.addEventListener('click',function(){setTimeout(guiar,0)});document.addEventListener('input',function(){setTimeout(guiar,0)});document.addEventListener('change',function(){setTimeout(guiar,0)});guiar();}
+  /* Resumen: destella lo que cambia */
+  var cajas=document.querySelectorAll('aside, .carta, .ticket, .socio, .vista, .resumen, .pase, .bolsa, .recibo, .comanda-b');
+  if('MutationObserver' in window)[].forEach.call(cajas,function(c){var sel='dd, b, li, output, .num, #total, #tTotal',t;c._vivo=[].map.call(c.querySelectorAll(sel),function(e){return e.textContent});new MutationObserver(function(){clearTimeout(t);t=setTimeout(function(){var els=c.querySelectorAll(sel),prev=c._vivo||[];[].forEach.call(els,function(e,i){if(prev[i]!==undefined&&prev[i]!==e.textContent){e.classList.remove('vivo-cambio');void e.offsetWidth;e.classList.add('vivo-cambio');}});c._vivo=[].map.call(els,function(e){return e.textContent});},30);}).observe(c,{childList:true,subtree:true,characterData:true});});
+  /* Fotos: se revelan al entrar en pantalla */
+  var fotos=[].slice.call(document.querySelectorAll('main img')).map(function(i){return i.parentElement}).filter(function(f,k,a){return f&&a.indexOf(f)===k&&!f.closest('button')&&!f.closest('svg')&&f.getBoundingClientRect().width>120});
+  fotos.forEach(function(f){f.classList.add('vivo-foto');});
+  if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('vivo-oculta');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});fotos.forEach(function(f){if(f.getBoundingClientRect().top>innerHeight){f.classList.add('vivo-oculta');io.observe(f);}});}
+})();
+</script>
+<!-- vivo:fin -->
 </body>
 </html>
