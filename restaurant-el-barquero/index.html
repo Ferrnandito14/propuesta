@@ -90,6 +90,7 @@ h2{font-size:clamp(34px,5vw,54px);margin:14px 0 18px;color:var(--bosque)}
 .dias button[aria-pressed="true"] b{color:var(--crema)}
 .horas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:14px}
 @media(min-width:600px){.horas{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.horas>p{grid-column:1/-1;margin:0;color:var(--gris)}
 .horas button{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;border:1px solid var(--salvia);background:transparent;padding:0;min-height:44px;line-height:42px;font-weight:500;font-size:13px;color:var(--bosque)}
 .horas button[aria-pressed="true"]{background:var(--bosque);color:var(--crema);border-color:var(--bosque)}
 .horas button:disabled{opacity:.3;cursor:not-allowed}
