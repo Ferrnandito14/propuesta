@@ -134,7 +134,8 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .mont .tipo{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:14px}
 .mont .tipo+b{margin-top:2px}
 .mont.vacio .img{background:var(--blanco);border:1px dashed #BDBDBD;display:grid;place-items:center;text-align:center;padding:16px;color:var(--gris);font-size:.92rem}
-.mapa{margin-top:40px;border:1px solid var(--tinta);aspect-ratio:16/7;min-height:300px}
+.mapa{margin-top:40px;border:1px solid var(--tinta);height:320px}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}
 .mapa iframe{display:block;width:100%;height:100%;border:0}
 .cita{display:grid;gap:0;border:1px solid var(--tinta)}
 @media(min-width:900px){.cita{grid-template-columns:1fr 1fr}}
@@ -210,8 +211,8 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   </div></nav>
   <div class="carta" id="inicio">
     <div class="carta-fija">
-      <div class="filas" id="filas" role="img" aria-label="Carta de la vista con las letras E, VE, BIEN, CON, PLUS, ÓPTICA">
-        <span class="f1">E</span><span class="f2">VE</span><span class="f3">BIEN</span><span class="f4">CON</span><span class="f5">PLUS</span><span class="f6">ÓPTICA</span>
+      <div class="filas" id="filas" role="img" aria-label="Carta de la vista que dice: se ve bien con Plus Óptica">
+        <span class="f1">SE</span><span class="f2">VE</span><span class="f3">BIEN</span><span class="f4">CON</span><span class="f5">PLUS</span><span class="f6">ÓPTICA</span>
       </div>
       <p class="pista" id="pista">Baja para enfocar ↓</p>
       <button class="lentes" type="button" id="lentes">Ponte los lentes</button>
@@ -240,7 +241,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   <div class="wrap">
     <p class="etq">Catálogo</p>
     <h2 id="mont">Elige tu montura antes de venir.</h2>
-    <p class="lead">Todas las monturas de la óptica, separadas por tipo y con su precio. Aparta la que te guste y pruébatela en el local.</p>
+    <p class="lead">Todas las monturas de la óptica, separadas por tipo y con su precio. Pregunta por la que te guste y pruébatela en el local.</p>
     <div class="filtros" role="group" aria-label="Tipo de montura" id="filtros"></div>
     <div class="orden"><span id="cuantas" aria-live="polite"></span><button type="button" id="ordenar" aria-pressed="false">Ordenar por precio</button></div>
     <div class="rejilla" id="catalogo"></div>
@@ -403,7 +404,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
     lista.forEach(function(m){
       var d=el('div','mont');var im=el('div','img');var i=document.createElement('img');i.src=m.f;i.alt=m.a;i.loading='lazy';im.appendChild(i);d.appendChild(im);
       d.appendChild(el('span','tipo',m.t.map(nombreTipo).join(' · ')));d.appendChild(el('b','',m.n));
-      var f=el('div','fila');f.appendChild(el('small','',m.p==null?'Consultar precio':'$'+m.p));var a=el('a','apartar','Apartar');a.href=WA+encodeURIComponent((m.p==null?'Hola, ¿qué precio tiene la montura ':'Hola, quiero apartar la montura ')+m.n);f.appendChild(a);d.appendChild(f);
+      var f=el('div','fila');f.appendChild(el('small','',m.p==null?'Consultar precio':'$'+m.p));var a=el('a','apartar','Preguntar');a.href=WA+encodeURIComponent((m.p==null?'Hola, ¿qué precio tiene la montura ':'Hola, ¿tienen disponible la montura ')+m.n+'?');f.appendChild(a);d.appendChild(f);
       cat.appendChild(d);
     });
     if(actual!=='todas'&&lista.length<2){

@@ -124,7 +124,8 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
-.mapa{margin-top:44px;border:1px solid var(--linea);aspect-ratio:16/7;min-height:300px}.mapa iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1)}
+.mapa{margin-top:44px;border:1px solid var(--linea);height:320px}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}.mapa iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1)}
 .agenda{border-top:1px solid var(--linea)}
 .ag-fila{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:24px 0;border-bottom:1px solid var(--linea)}
 @media(min-width:700px){.ag-fila{grid-template-columns:64px minmax(0,1fr)}}
@@ -327,8 +328,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <div class="serv"><i>02</i><div><h3>Corte para rizos</h3><p>Respetando la forma natural de cada rizo.</p></div><small>por confirmar</small></div>
       <div class="serv"><i>03</i><div><h3>Hidratación profunda</h3><p>Para rizos secos o maltratados.</p></div><small>por confirmar</small></div>
       <div class="serv"><i>04</i><div><h3>Definición y peinado</h3><p>Rizos definidos y con volumen.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>05</i><div><h3>Color</h3><p>Pensado para cabello rizado.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>06</i><div><h3>Asesoría de productos</h3><p>Qué usar según tu tipo de rizo.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>05</i><div><h3>Asesoría de productos</h3><p>Qué usar según tu tipo de rizo.</p></div><small>por confirmar</small></div>
     </div>
   </div>
 </section>
@@ -405,7 +405,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 (function(){
   var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-  var SERV=['Diagnóstico de rizo','Corte para rizos','Hidratación profunda','Definición y peinado','Color'];
+  var SERV=['Diagnóstico de rizo','Corte para rizos','Hidratación profunda','Definición y peinado'];
   var SUG={abierto:'Corte para rizos',cerrado:'Hidratación profunda',afro:'Hidratación profunda'};
   var A={serv:null,dia:null,hora:null,rizo:null};
   var DN=['dom','lun','mar','mié','jue','vie','sáb'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];

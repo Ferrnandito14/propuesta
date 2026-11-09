@@ -95,6 +95,7 @@ h2{font-size:clamp(2.3rem,6.6vw,4.4rem);line-height:.92;margin-bottom:18px;text-
 .platos span{color:var(--gris);font-size:.93rem;grid-column:1}
 .platos em{font-style:normal;font-weight:600;color:var(--verde2);white-space:nowrap;grid-row:1;grid-column:2;align-self:start;border:1.5px solid var(--verde);border-radius:999px;padding:1px 10px;font-size:.85rem}
 .carta-foto{position:sticky;top:80px}
+@media(max-width:899px){.carta-foto{position:static;width:min(72%,320px);margin:0 auto}}
 .carta-foto .pola{rotate:2deg}
 .pola{background:#fff;padding:12px 12px 44px;box-shadow:0 2px 0 rgba(0,0,0,.08);position:relative}
 .pola div{overflow:hidden;aspect-ratio:4/5}
@@ -182,7 +183,8 @@ h2{font-size:clamp(2.3rem,6.6vw,4.4rem);line-height:.92;margin-bottom:18px;text-
 .horario li.hoy span:first-child:before{content:"Hoy · "}
 dt{font-weight:600;margin-top:16px}
 dd{color:rgba(241,228,207,.85)}
-.mapa{margin-top:44px;border:2px solid var(--crema);border-radius:7px;overflow:hidden;aspect-ratio:16/7;min-height:300px}
+.mapa{margin-top:44px;border:2px solid var(--crema);border-radius:7px;overflow:hidden;height:320px}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}
 .mapa iframe{display:block;width:100%;height:100%;border:0}
 footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .demo{margin-top:10px}
@@ -202,6 +204,18 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .bs-total{display:block;font-size:.85rem;opacity:.85;margin-top:4px}
 .hh-cuenta{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--verde);border:2px solid var(--verde);border-radius:7px;padding:10px 14px;margin:-6px 0 26px}
 .hh-cuenta b{font-family:'Bowlby One',sans-serif;font-weight:400}
+.tamanos{grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.tamanos{grid-template-columns:repeat(4,1fr)}}
+.proteina{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.proteina button{all:unset;box-sizing:border-box;cursor:pointer;border:2px solid var(--crema);border-radius:7px;padding:10px 12px}
+.proteina button b{display:block;font-weight:600}
+.proteina button span{display:block;font-size:.8rem;opacity:.85}
+.proteina button[aria-pressed="true"]{background:var(--crema);color:var(--verde2)}
+.proteina button:disabled{opacity:.4;cursor:not-allowed}
+.proteina button:focus-visible{outline:3px solid var(--crema);outline-offset:3px}
+.combo-incl{margin-top:12px;font-size:.92rem;border-left:3px solid var(--crema);padding-left:12px}
+.aparte{margin-top:18px;font-size:.88rem;opacity:.85}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -219,7 +233,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 
 <header class="portada" id="inicio">
   <img src="f/terraza.webp" alt="Terraza de Compinchería de noche, con el letrero iluminado" width="1100" height="825">
-  <div class="top"><small>Altamira · Caracas</small><nav aria-label="Atajos"><a class="btn linea" href="#carta">Carta</a><a class="btn" href="#mesa">Reservar</a></nav></div>
+  <div class="top"><small>Altamira · Caracas</small><nav aria-label="Atajos"><a class="btn linea" href="#carta">Carta</a><a class="btn" href="#mesa">Pedir mesa</a></nav></div>
   <div class="sello">
     <div class="pildora display"><h1>Compinchería</h1></div>
     <span class="sub-sello">PINCHOS · BAR</span>
@@ -228,7 +242,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   <div class="abajo">
     <a class="btn" href="#carta">Ver la carta</a>
     <a class="btn linea" href="#bandeja">Arma tu bandeja</a>
-    <a class="btn linea" href="#mesa">Reservar mesa</a>
+    <a class="btn linea" href="#mesa">Pedir mesa</a>
     <p class="estado" id="estado" aria-live="polite"><i aria-hidden="true"></i><span>4,8 en Google · 738 opiniones</span></p>
   </div>
 </header>
@@ -260,10 +274,13 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       <p class="lead" style="margin-bottom:0">Elige cuántos pinchos, tus sides y tus salsas. La bandeja se llena mientras eliges y te dice el total.</p>
     </div>
     <div class="ar-c">
-      <div class="paso"><h3>1. ¿Cuántos pinchos? <small>mixtos de carne, cerdo y pollo</small></h3>
-        <div class="tamanos" role="group" aria-label="Cantidad de pinchos" id="tamanos"></div></div>
-      <div class="paso"><h3>2. Sides <small id="sidesInfo"></small></h3><div class="fichas" id="sides"></div></div>
-      <div class="paso"><h3>3. Salsas de la casa <small id="salsasInfo"></small></h3><div class="fichas" id="salsas"></div></div>
+      <div class="paso"><h3>1. ¿Qué bandeja? <small>las medidas de su carta</small></h3>
+        <div class="tamanos" role="group" aria-label="Tamaño de la bandeja" id="tamanos"></div>
+        <p class="combo-incl" id="comboIncluye" hidden></p></div>
+      <div class="paso"><h3>2. ¿Qué pinchos?</h3><div class="proteina" role="group" aria-label="Tipo de pinchos" id="proteina"></div></div>
+      <div class="paso" id="pasoSides"><h3>3. Sides <small id="sidesInfo"></small></h3><div class="fichas" id="sides"></div></div>
+      <div class="paso" id="pasoSalsas"><h3>4. Salsas de la casa <small id="salsasInfo"></small></h3><div class="fichas" id="salsas"></div></div>
+      <p class="aparte">Las burgers, alitas y demás platos de la carta no van en la bandeja: se piden aparte. Escríbelos en el mensaje.</p>
       <div class="total"><div><b id="total" aria-live="polite">REF 13</b><small class="bs-total" id="totalBs"></small><p id="resumen">x5 pinchos mixtos.</p></div><a class="btn" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a></div>
     </div>
     <div class="ar-b">
@@ -279,7 +296,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       <h2 id="mesa-t2" class="display">Al centro de la mesa.</h2>
       <p class="lead">Bandejas metálicas, papel con su nombre y todo para compartir. Terraza, happy hour en sus mesas y asientos accesibles para silla de ruedas.</p>
       <p class="hh-cuenta" id="hhCuenta" aria-live="polite"></p>
-      <a class="btn verde" href="#mesa">Reservar mesa</a>
+      <a class="btn verde" href="#mesa">Pedir mesa</a>
     </div>
     <div class="muro">
       <figure class="pola a"><div><img src="f/bandeja.webp" alt="Bandeja con pinchos de pollo, papas, ensaladas y salsas" width="1100" height="825" loading="lazy"></div><p>La bandeja para compartir</p></figure>
@@ -292,8 +309,8 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 <section id="mesa" aria-labelledby="mesa-t">
   <div class="wrap comanda-sec">
     <div class="comanda">
-      <h2 id="mesa-t" class="display" style="color:var(--verde)">Reserva tu mesa.</h2>
-      <p class="lead">Dinos cuántos compinches vienen y a qué hora. Te confirmamos por WhatsApp.</p>
+      <h2 id="mesa-t" class="display" style="color:var(--verde)">Pide tu mesa.</h2>
+      <p class="lead">Dinos cuántos compinches vienen y a qué hora. El local te confirma por WhatsApp si hay mesa.</p>
       <div class="paso"><h3>¿Cuántos compinches?</h3>
         <div class="contador"><button type="button" id="menos" aria-label="Una persona menos">−</button><output id="cuantos" aria-live="polite">4</output><button type="button" id="mas" aria-label="Una persona más">+</button></div>
         <div class="gente" id="gente" aria-hidden="true"></div></div>
@@ -305,7 +322,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     </div>
     <aside class="ticket" aria-label="Resumen de tu reserva">
       <p class="display">Compinchería</p>
-      <p class="sub">COMANDA DE MESA</p>
+      <p class="sub">SOLICITUD DE MESA</p>
       <dl>
         <div><dt>Compinches</dt><dd id="tCuantos">4 personas</dd></div>
         <div><dt>Día</dt><dd id="tDia">Elige un día</dd></div>
@@ -313,7 +330,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
         <div><dt>Ocasión</dt><dd id="tOcasion">Sin indicar</dd></div>
         <div><dt>A nombre de</dt><dd id="tNom">Sin indicar</dd></div>
       </dl>
-      <a class="btn verde" id="confirmar" href="https://wa.me/PON_AQUI_EL_NUMERO" aria-disabled="true">Confirmar por WhatsApp</a>
+      <a class="btn verde" id="confirmar" href="https://wa.me/PON_AQUI_EL_NUMERO" aria-disabled="true">Pedir mesa por WhatsApp</a>
       <p class="nota">Demostración: no se envía ningún dato. En la página final la comanda le llega al local.</p>
     </aside>
   </div>
@@ -423,13 +440,19 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   CARTA.forEach(function(c,i){var b=el('button','',c.n);b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.addEventListener('click',function(){pest.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});verCat(c);});pest.appendChild(b);});
   verCat(CARTA[0]);
 
-  /* Arma tu bandeja con tamaños, sides y salsas reales */
-  var TAM=[{n:5,p:13,personas:'1 persona',sides:1,salsas:2},{n:9,p:22,personas:'2 personas',sides:2,salsas:3},{n:15,p:35,personas:'3 o 4 personas',sides:3,salsas:4}];
+  /* Arma tu bandeja: solo lo que permite su carta de febrero 2026.
+     Medidas fijas x5, x9, x15 o la Bandeja Compin (combo cerrado). Pinchos mixtos; todos de carne solo con precio a consultar.
+     Las burgers y demás platos no van en la bandeja: se piden aparte. */
+  var TAM=[{t:'x5',n:5,p:13,personas:'1 persona',sides:1,salsas:2},{t:'x9',n:9,p:22,personas:'2 personas',sides:2,salsas:3},{t:'x15',n:15,p:35,personas:'3 o 4 personas',sides:3,salsas:4},
+           {t:'Compin',n:9,p:30,personas:'3 personas',combo:true}];
+  var COMBO_INCL='9 pinchos mixtos, mini tenders de pollo, aros de cebolla, papas fritas, ensalada César y coleslaw.';
   var SIDES=[['Papas fritas','s-papas'],['Aros de cebolla','s-aros'],['Ensalada César','s-cesar'],['Coleslaw','s-coleslaw']];
   var SALSAS=[['BBQ','#5A2E1A'],['Ajo','#F1EAD2'],['Mojo criollo','#E08A2E'],['Tocineta','#D9C79A'],['Ranch','#EDEBDD'],['Parrillera','#C2421E'],['Alemana','#E6E3C8'],['Mermelada de pimentón','#8E1B1B'],['Cheddar','#F2B33D'],['Teriyaki','#4A2A17'],['Guasacaca','#8FAE45'],['Mermelada de cebolla','#5B2B23']];
-  var t=TAM[0],cs={},csa={},prev={n:0,cs:{},csa:{}};
-  var tamanos=document.getElementById('tamanos'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas');
-  TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.appendChild(el('b','','x'+x.n));b.appendChild(el('span','',x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;tamanos.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b?'true':'false')});pintarB();});tamanos.appendChild(b);});
+  var t=TAM[0],prot='mixtos',cs={},csa={},prev={k:'',cs:{},csa:{}};
+  var tamanos=document.getElementById('tamanos'),protBox=document.getElementById('proteina'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas');
+  TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.appendChild(el('b','',x.combo?'Compin':x.t));b.appendChild(el('span','',(x.combo?'Bandeja · ':'')+x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;if(x.combo)prot='mixtos';tamanos.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b?'true':'false')});pintarB();});tamanos.appendChild(b);});
+  var PROT=[['mixtos','Mixtos','carne, cerdo y pollo'],['carne','Todos de carne','precio a consultar']];
+  function pintarProt(){protBox.innerHTML='';PROT.forEach(function(p){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',prot===p[0]?'true':'false');b.appendChild(el('b','',p[1]));b.appendChild(el('span','',p[2]));if(t.combo&&p[0]==='carne'){b.disabled=true;b.title='La Bandeja Compin viene con pinchos mixtos';}b.addEventListener('click',function(){prot=p[0];pintarB();});protBox.appendChild(b);});}
   function fichas(box,lista,obj){
     box.innerHTML='';
     lista.forEach(function(it){var k=it[0],n=obj[k]||0;var f=el('span','ficha'+(n?' on':''));f.appendChild(document.createTextNode(k));var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+k);m.disabled=!n;var p=el('button','','+');p.type='button';p.setAttribute('aria-label','Agregar '+k);
@@ -438,28 +461,38 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   }
   function suma(o){var s=0;for(var k in o)s+=o[k];return s}
   function pintarB(){
+    pintarProt();
+    var combo=!!t.combo;
+    document.getElementById('pasoSides').hidden=combo;document.getElementById('pasoSalsas').hidden=combo;
+    var ci=document.getElementById('comboIncluye');ci.hidden=!combo;ci.textContent=combo?'Incluye: '+COMBO_INCL+' Las salsas se eligen al pedir.':'';
+    if(combo){cs={};csa={};}
     fichas(sidesBox,SIDES,cs);fichas(salsasBox,SALSAS,csa);
-    var ns=suma(cs),na=suma(csa),exS=Math.max(0,ns-t.sides),exA=Math.max(0,na-t.salsas);
-    document.getElementById('sidesInfo').textContent=t.sides+(t.sides>1?' incluidos':' incluido')+(exS?' · '+exS+' extra a REF 3':'');
-    document.getElementById('salsasInfo').textContent=t.salsas+' incluidas'+(exA?' · '+exA+' extra a REF 1':'');
+    var ns=suma(cs),na=suma(csa),exS=combo?0:Math.max(0,ns-t.sides),exA=combo?0:Math.max(0,na-t.salsas);
+    if(!combo){
+      document.getElementById('sidesInfo').textContent=t.sides+(t.sides>1?' incluidos':' incluido')+(exS?' · '+exS+' extra a REF 3':'');
+      document.getElementById('salsasInfo').textContent=t.salsas+' incluidas'+(exA?' · '+exA+' extra a REF 1':'');
+    }
+    var carne=prot==='carne'&&!combo;
     var total=t.p+exS*3+exA;
-    document.getElementById('total').textContent=ref(total);
-    document.getElementById('totalBs').textContent=TASA?'≈ '+bs(total)+' a tasa BCV':'';
-    var partes=['x'+t.n+' pinchos mixtos'];
+    document.getElementById('total').textContent=carne?'Precio a consultar':ref(total);
+    document.getElementById('totalBs').textContent=(!carne&&TASA)?'≈ '+bs(total)+' a tasa BCV':(carne?'El local te dice el precio de los pinchos de carne':'');
+    var partes=[combo?'Bandeja Compin':(t.t+' pinchos '+(carne?'todos de carne':'mixtos'))];
     SIDES.forEach(function(s){if(cs[s[0]])partes.push(cs[s[0]]+' × '+s[0].toLowerCase())});
     SALSAS.forEach(function(s){if(csa[s[0]])partes.push(csa[s[0]]+' × salsa '+s[0].toLowerCase())});
-    document.getElementById('resumen').textContent=partes.join(', ')+'.';
-    document.getElementById('pedirBandeja').href=WA+encodeURIComponent('Hola, quiero pedir: '+partes.join(', ')+'. Total aproximado '+ref(total)+'.');
-    document.getElementById('pieBandeja').textContent='x'+t.n+' pinchos · '+t.personas;
+    var faltan=combo?0:Math.max(0,t.sides-ns);
+    document.getElementById('resumen').textContent=partes.join(', ')+'.'+(faltan?' Te falta elegir '+faltan+(faltan>1?' sides incluidos.':' side incluido.'):'');
+    document.getElementById('pedirBandeja').href=WA+encodeURIComponent('Hola, quiero pedir: '+partes.join(', ')+'. '+(carne?'¿Qué precio tiene con todos los pinchos de carne?':'Total aproximado '+ref(total)+'.'));
+    document.getElementById('pieBandeja').textContent=(combo?'Bandeja Compin':t.t+' pinchos')+' · '+t.personas;
     var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
     zp.className='zona-pinchos'+(t.n>5?' muchos':'');
-    var tipos=['pincho-carne','pincho-pollo','pincho-cerdo'];
-    var cambioN=t.n!==prev.n,hubo=false;
-    for(var i=0;i<t.n;i++){var s=usar(tipos[i%3],'0 0 200 40',cambioN?'nuevo':'');if(cambioN)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
+    var tipos=carne?['pincho-carne']:['pincho-carne','pincho-pollo','pincho-cerdo'];
+    var clave=t.t+prot,cambio=clave!==prev.k,hubo=false;
+    for(var i=0;i<t.n;i++){var s=usar(tipos[i%tipos.length],'0 0 200 40',cambio?'nuevo':'');if(cambio)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
+    if(combo){['s-papas','s-aros','s-cesar','s-coleslaw'].forEach(function(id,j){var s=usar(id,'0 0 60 60',cambio?'nuevo':'');if(cambio)s.style.animationDelay=(200+j*60)+'ms';ze.appendChild(s);});}
     SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++){var nv=j>=(prev.cs[sd[0]]||0);if(nv)hubo=true;ze.appendChild(usar(sd[1],'0 0 60 60',nv?'nuevo':''));}});
     SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var nv=j>=(prev.csa[sa[0]]||0);if(nv)hubo=true;var s=usar('s-salsa','0 0 60 60','salsa'+(nv?' nuevo':''));s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
-    if((hubo||cambioN)&&prev.n){var bj=document.querySelector('.bandeja');bj.classList.remove('golpe');void bj.offsetWidth;bj.classList.add('golpe');if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}}
-    prev={n:t.n,cs:JSON.parse(JSON.stringify(cs)),csa:JSON.parse(JSON.stringify(csa))};
+    if((hubo||cambio)&&prev.k){var bj=document.querySelector('.bandeja');bj.classList.remove('golpe');void bj.offsetWidth;bj.classList.add('golpe');if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}}
+    prev={k:clave,cs:JSON.parse(JSON.stringify(cs)),csa:JSON.parse(JSON.stringify(csa))};
   }
   pintarB();
 
@@ -525,13 +558,13 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     document.getElementById('tNom').textContent=nom.value.trim()||'Sin indicar';
     var listo=!!(R.dia&&R.hora&&nom.value.trim().length>1&&/^[0-9+ ()-]{7,}$/.test(tel.value.trim()));
     conf.setAttribute('aria-disabled',listo?'false':'true');conf.style.opacity=listo?1:.5;
-    conf.href=WA+encodeURIComponent('Hola, quiero reservar una mesa para '+R.n+' el '+(R.dia?R.dia.txt:'')+' a las '+(R.hora||'')+(R.oc?' ('+R.oc+')':'')+'. A nombre de '+nom.value.trim()+'.');
+    conf.href=WA+encodeURIComponent('Hola, ¿tienen mesa para '+R.n+' el '+(R.dia?R.dia.txt:'')+' a las '+(R.hora||'')+(R.oc?' ('+R.oc+')':'')+'? A nombre de '+nom.value.trim()+'.');
   }
   conf.addEventListener('click',function(e){if(conf.getAttribute('aria-disabled')==='true'){e.preventDefault();e.stopImmediatePropagation();var f=!R.dia?document.querySelector('#dias button'):!R.hora?document.querySelector('#horas button'):nom.value.trim().length<2?nom:tel;if(f)f.focus();}},true);
   pintarGente();
 })();
 </script>
-<a class="flota" id="flota" href="#mesa">Reservar mesa</a>
+<a class="flota" id="flota" href="#mesa">Pedir mesa</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
