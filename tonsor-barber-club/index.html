@@ -131,6 +131,7 @@ label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border
 .socio .btn{width:100%;margin-top:20px}
 .socio .pie{font-size:12px;color:var(--polvo);margin-top:10px;text-align:center}
 .serv{display:grid;gap:0;border-top:2px solid var(--blanco)}
+.serv-sub{margin:44px 0 0;font:700 12px Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mostaza)}
 @media(min-width:820px){.serv{grid-template-columns:repeat(3,1fr)}}
 .serv div{border-bottom:2px solid var(--blanco);padding:26px 0}
 @media(min-width:820px){.serv div{border-bottom:0;padding:26px 24px 0 0}}
@@ -213,12 +214,18 @@ dl div>dt{margin-top:0;align-self:baseline}
 <section aria-labelledby="serv-t">
   <div class="wrap">
     <p class="etq" style="color:var(--azul)">Servicios</p>
-    <h2 id="serv-t" class="serif">En la silla.</h2>
-    <p class="lead">El club confirma su lista y sus precios.</p>
+    <h2 id="serv-t" class="serif">En la silla y más allá.</h2>
+    <p class="lead">Lo que ofrece el club según su propio WhatsApp. El club confirma la lista final y los precios.</p>
     <div class="serv">
       <div><h3>Corte de cabello</h3><p>Con lavado y acabado.</p><small>Precio por confirmar</small></div>
       <div><h3>Barba</h3><p>Perfilado y toalla caliente.</p><small>Precio por confirmar</small></div>
       <div><h3>Corte y barba</h3><p>El servicio completo.</p><small>Precio por confirmar</small></div>
+    </div>
+    <p class="serv-sub">También en el club</p>
+    <div class="serv">
+      <div><h3>Masajes</h3><p>En el mismo club, sin cambiar de lugar.</p><small>Tipos y precio por confirmar</small></div>
+      <div><h3>Manos y pies</h3><p>También en el club.</p><small>Precio por confirmar</small></div>
+      <div><h3>Bar y juegos</h3><p>Café, bar y juegos en el lounge mientras esperas.</p><small>Según la carta del club</small></div>
     </div>
   </div>
 </section>
@@ -272,7 +279,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));
   var serv=null,dia=null,hora=null,cafe=null,DN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
   function grupo(id,arr,set,cb){var c=document.getElementById(id);arr.forEach(function(o){var b=document.createElement('button');b.type='button';b.appendChild(document.createTextNode(o[0]));if(o[1])b.appendChild(el('small','',o[1]));b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){set(o[0]);c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
-  grupo('rServ',[['Corte de cabello'],['Barba'],['Corte y barba']],function(v){serv=v});
+  grupo('rServ',[['Corte de cabello'],['Barba'],['Corte y barba'],['Masaje','por confirmar'],['Manos y pies']],function(v){serv=v});
   grupo('rCafe',[['Sí, un café','según lo que haya en la barra'],['No, gracias']],function(v){cafe=v});
   var rd=document.getElementById('rDias'),d=new Date(hoy),n=0;if(hoy.getHours()>=18)d.setDate(d.getDate()+1);
   while(n<6){if(d.getDay()!==0){(function(f){var b=document.createElement('button');b.type='button';b.innerHTML=DN[f.getDay()]+'<b>'+f.getDate()+'</b>';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){dia=f;hora=null;rd.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});horas();pintar();});rd.appendChild(b);})(new Date(d));n++;}d.setDate(d.getDate()+1);}
