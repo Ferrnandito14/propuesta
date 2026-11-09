@@ -16,66 +16,98 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
-<!-- Referencias (proceso-diseno.md y skill refero-design): principal ARKET (Refero Styles: galería blanca, rejilla de productos con foto a sangre y debajo nombre y precio, botones de radio 2px negro y contorno a la misma altura, el color lo ponen las fotos). De la marca: letra Figtree 800, parecida a "PLUS ÓPTICA" de su logo (sans geométrica gruesa y algo estrecha); verde azulado #17877A del logotipo para texto de marca y botón principal; naranja #EE7D2B solo en la cruz del logo. Descartado: los titulares finos y las letras monoespaciadas de ARKET, la paleta verde farmacia y azul que propone ui-ux-pro-max, sombras y degradados. -->
+<!--
+Referencias (proceso-diseno.md y skill refero-design, segunda pasada del 2026-11-08):
+Candado. Principal: ARKET (Refero Styles): galería blanca, rejilla de productos con foto a sangre sin esquinas y debajo nombre y precio en letra pequeña, botones de radio 2 px, el color lo ponen las fotos, separación con espacio y líneas finas, nada de sombras.
+Se conserva: lienzo blanco, rejilla de producto nombre + precio, botones casi rectos, una sola acción rellena por pantalla.
+Prestado de Marylou Faure: fotos unidas por líneas negras de 1 px.
+De la marca (fotos de su ficha de Google): logotipo de cruz naranja con ojo y letra verde azulada; el optometrista Manuel Espiño Liste y su lema "Persiguiendo la perfección en óptica"; monturas con precio publicado en sus redes; la fachada del Centro Doral. Letra Figtree 800, parecida a "PLUS ÓPTICA". Verde azulado #17877A para la acción principal; naranja #EE7D2B solo en la cruz y en el aviso de los sábados.
+Momento memorable: la portada es una carta de la vista desenfocada que se enfoca al bajar, como al ponerse los lentes.
+Descartado: retrato a la derecha y texto a la izquierda en la portada, tarjetas, verde farmacia y azul de ui-ux-pro-max, dibujos de lentes en lugar de fotos.
+Fotos: tomadas de su ficha pública de Google Maps para esta propuesta; en la página final se usan las que la óptica apruebe.
+-->
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--tinta:#111;--blanco:#fff;--gris:#666;--claro:#F4F4F2;--linea:#E0E0E0;--verde:#17877A;--verde2:#0F6B60;--naranja:#EE7D2B}
+:root{--tinta:#111;--blanco:#fff;--gris:#666;--claro:#F3F3F1;--linea:#DCDCDC;--verde:#17877A;--naranja:#EE7D2B}
 *{box-sizing:border-box;margin:0}
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
 body{font-family:'Figtree',system-ui,sans-serif;background:var(--blanco);color:var(--tinta);line-height:1.6;font-size:17px}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--linea)}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--linea)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde)}
-.logo svg{width:40px;height:40px;flex:none}
-.logo b{display:block;font-weight:800;font-size:1.25rem;line-height:.95;letter-spacing:-.01em}
-.logo small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);margin-top:3px}
+.logo svg{width:38px;height:38px;flex:none}
+.logo b{display:block;font-weight:800;font-size:1.18rem;line-height:.92}
+.logo small{display:block;font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);margin-top:3px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:2px;background:var(--verde);color:var(--blanco);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid var(--verde)}
 .btn.linea{background:transparent;color:var(--tinta);border-color:var(--tinta)}
-.btn.mini{min-height:42px;padding:0 16px;font-size:.95rem}
-.etq{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
-.hero{padding:52px 0 70px;display:grid;gap:40px;align-items:center}
-@media(min-width:880px){.hero{grid-template-columns:1.1fr .9fr}}
-.hero h1{font-weight:800;font-size:clamp(2.7rem,8.6vw,5rem);line-height:.98;letter-spacing:-.035em;margin-top:14px;text-wrap:balance}
-.hero .sub{margin-top:20px;max-width:44ch;color:var(--gris);font-size:1.12rem}
-.acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.btn.mini{min-height:40px;padding:0 16px;font-size:.92rem}
+.etq{font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+
+/* Carta de la vista que se enfoca */
+.carta{height:170vh;position:relative}
+.carta-fija{position:sticky;top:64px;height:calc(100vh - 64px);display:grid;place-items:center;text-align:center;overflow:hidden}
+.filas{--b:7px;filter:blur(var(--b));font-weight:800;line-height:1.02;letter-spacing:.32em;padding-left:.32em;color:var(--tinta);user-select:none}
+.filas span{display:block}
+.filas .f1{font-size:clamp(5.5rem,25vh,14rem);letter-spacing:0;padding:0}
+.filas .f2{font-size:clamp(3.2rem,13.5vh,8rem)}
+.filas .f3{font-size:clamp(2.2rem,9vh,5.4rem)}
+.filas .f4{font-size:clamp(1.6rem,6vh,3.6rem)}
+.filas .f5{font-size:clamp(1.1rem,4vh,2.4rem)}
+.filas .f6{font-size:clamp(.8rem,2.6vh,1.5rem);color:var(--verde)}
+.pista{position:absolute;top:22px;left:20px;text-align:left;font-size:.9rem;color:var(--gris);transition:opacity .3s}
+.lentes{all:unset;cursor:pointer;position:absolute;top:14px;right:20px;font-weight:600;font-size:.88rem;border:1.5px solid var(--tinta);border-radius:2px;padding:9px 14px;background:var(--blanco)}
+.intro{padding:20px 0 84px;text-align:center;border-bottom:1px solid var(--linea)}
+.intro h1{font-weight:800;font-size:clamp(2.5rem,7.4vw,5rem);line-height:.98;letter-spacing:-.035em;text-wrap:balance;max-width:16ch;margin:12px auto 0}
+.intro .sub{color:var(--gris);max-width:46ch;margin:18px auto 0;font-size:1.1rem}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:28px}
 .dato{color:var(--gris);font-size:.95rem}
 .dato b{color:var(--tinta)}
-.sello{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:600;font-size:.95rem}
-.sello i{width:10px;height:10px;background:var(--naranja);border-radius:50%}
-.vitrina{background:var(--claro);aspect-ratio:5/4;display:grid;place-items:center;position:relative}
-.vitrina svg{width:72%;color:var(--tinta)}
-.vitrina span{position:absolute;left:14px;bottom:14px;background:var(--blanco);color:var(--gris);font-size:.85rem;padding:5px 12px}
-section{padding:80px 0}
-.gris{background:var(--claro)}
-h2{font-weight:800;font-size:clamp(2.1rem,6vw,3.3rem);line-height:1;letter-spacing:-.03em;margin:10px 0 14px;text-wrap:balance}
-.lead{color:var(--gris);max-width:56ch;margin-bottom:36px}
-.servicios{display:grid;gap:1px;background:var(--linea);border:1px solid var(--linea)}
-@media(min-width:760px){.servicios{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1040px){.servicios{grid-template-columns:repeat(4,1fr)}}
-.serv{background:var(--blanco);padding:26px 22px}
-.serv .num{font-weight:800;color:var(--verde);font-size:.95rem}
-.serv h3{font-weight:800;font-size:1.3rem;letter-spacing:-.015em;margin:10px 0 6px}
-.serv p{color:var(--gris);font-size:.97rem}
-.rejilla{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px}
-@media(min-width:900px){.rejilla{grid-template-columns:repeat(4,1fr);gap:32px 24px}}
-.mont .img{aspect-ratio:1;background:var(--blanco);display:grid;place-items:center}
-.gris .mont .img{background:var(--blanco)}
-.mont .img svg{width:76%}
-.mont b{display:block;font-weight:600;font-size:.95rem;margin-top:14px}
-.mont small{display:block;color:var(--gris);font-size:.88rem;margin-top:2px}
-.pasos{display:grid;gap:26px;border-top:1px solid var(--tinta);padding-top:26px}
-@media(min-width:820px){.pasos{grid-template-columns:repeat(3,1fr)}}
-.pasos b{font-weight:800;font-size:2.2rem;color:var(--verde);letter-spacing:-.04em;line-height:1}
-.pasos h3{font-weight:800;font-size:1.3rem;margin:12px 0 6px}
-.pasos p{color:var(--gris)}
-.cols{display:grid;gap:34px}
-@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}}
+.sabado{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600}
+.sabado i{width:10px;height:10px;border-radius:50%;background:var(--naranja)}
+
+section{padding:84px 0;border-bottom:1px solid var(--linea)}
+h2{font-weight:800;font-size:clamp(2.1rem,6vw,3.6rem);line-height:1;letter-spacing:-.03em;margin:10px 0 16px;text-wrap:balance}
+.lead{color:var(--gris);max-width:56ch;margin-bottom:34px;text-wrap:pretty}
+
+.persona{display:grid;gap:1px;background:var(--tinta);border:1px solid var(--tinta)}
+@media(min-width:860px){.persona{grid-template-columns:1.05fr .95fr}}
+.persona .foto{aspect-ratio:4/3;overflow:hidden;background:var(--claro)}
+.persona .texto{background:var(--blanco);padding:34px 26px;display:flex;flex-direction:column;justify-content:center}
+@media(min-width:860px){.persona .texto{padding:48px}}
+.persona blockquote{font-weight:800;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.02;letter-spacing:-.03em;margin:14px 0 18px;text-wrap:balance}
+.persona p{color:var(--gris)}
+
+.rejilla{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 16px}
+@media(min-width:960px){.rejilla{grid-template-columns:repeat(4,1fr);gap:40px 24px}}
+.mont .img{aspect-ratio:16/10;overflow:hidden;background:var(--claro)}
+.mont .img img{object-fit:cover;transition:scale .5s cubic-bezier(.2,.8,.2,1)}
+.mont:hover .img img{scale:1.05}
+.mont b{display:block;font-weight:600;font-size:.98rem;margin-top:14px}
+.mont small{display:block;color:var(--gris);font-size:.9rem}
+.mont.mas{text-decoration:none}
+.mont.mas .img{background:var(--tinta);color:var(--blanco);display:grid;place-items:center;font-weight:800;font-size:clamp(1.3rem,2.6vw,1.8rem);text-align:center;padding:16px;line-height:1.05}
+.nota{color:var(--gris);font-size:.88rem;margin-top:26px}
+
+.servicios{border-top:1px solid var(--tinta)}
+.serv{display:grid;grid-template-columns:3rem 1fr;gap:10px 18px;padding:22px 0;border-bottom:1px solid var(--linea)}
+@media(min-width:760px){.serv{grid-template-columns:3rem 1fr 1.3fr;align-items:baseline}}
+.serv i{font-style:normal;font-weight:800;color:var(--verde)}
+.serv h3{font-weight:800;font-size:1.35rem;letter-spacing:-.015em}
+.serv p{color:var(--gris);grid-column:2}
+@media(min-width:760px){.serv p{grid-column:auto}}
+
+.local{display:grid;gap:36px}
+@media(min-width:860px){.local{grid-template-columns:1.2fr .8fr;align-items:center}}
+.local .foto{aspect-ratio:16/9;overflow:hidden;border:1px solid var(--tinta)}
 dt{font-weight:700;margin-top:16px}
 dd{color:var(--gris)}
-footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px solid var(--linea)}
-.demo{margin-top:10px;border-left:3px solid var(--naranja);padding-left:12px}
+.cierre{text-align:center}
+footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
+.demo{margin-top:10px}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -89,51 +121,48 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
     <circle cx="50" cy="50" r="21" fill="none" stroke="#fff" stroke-width="9"/>
     <path d="M57 35l12-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
   </symbol>
-  <symbol id="lentes" viewBox="0 0 200 80">
-    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
-      <circle cx="52" cy="44" r="30"/><circle cx="148" cy="44" r="30"/><path d="M82 40c8-8 28-8 36 0"/><path d="M22 36L6 26M178 36l16-10"/>
-    </g>
-  </symbol>
-  <symbol id="lentes2" viewBox="0 0 200 80">
-    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="16" y="20" width="70" height="46" rx="10"/><rect x="114" y="20" width="70" height="46" rx="10"/><path d="M86 36c8-6 20-6 28 0"/><path d="M16 28L4 22M184 28l12-6"/>
-    </g>
-  </symbol>
 </svg>
 <header>
-  <div class="wrap">
-    <nav class="nav" aria-label="Principal">
-      <a class="logo" href="#inicio"><svg aria-hidden="true"><use href="#cruz"/></svg><span><b>PLUS<br>ÓPTICA</b><small>Centro de ciencias de la visión</small></span></a>
-      <a class="btn mini" href="#reserva-web">Pedir cita</a>
-    </nav>
-    <div class="hero" id="inicio">
-      <div>
-        <p class="etq">Óptica en Chacaíto</p>
-        <h1>Ve bien, y que se note.</h1>
-        <p class="sub">Examen de la vista, lentes formulados y monturas para cada estilo, detrás del BECO de Chacaíto.</p>
-        <div class="acciones">
-          <a class="btn" href="#reserva-web" data-reserva>Pedir cita en línea</a>
-        <a class="btn linea" id="cita" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20cita">Pedir cita por WhatsApp</a>
-          <span class="dato"><b>4,9</b> en Google · 288 opiniones</span>
-        </div>
-        <p class="sello"><i aria-hidden="true"></i>Abrimos también los sábados</p>
+  <nav class="nav" aria-label="Principal"><div class="wrap">
+    <a class="logo" href="#inicio"><svg aria-hidden="true"><use href="#cruz"/></svg><span><b>PLUS<br>ÓPTICA</b><small>Centro de ciencias de la visión</small></span></a>
+    <a class="btn mini" href="#reserva-web">Pedir cita</a>
+  </div></nav>
+  <div class="carta" id="inicio">
+    <div class="carta-fija">
+      <div class="filas" id="filas" role="img" aria-label="Carta de la vista con las letras E, VE, BIEN, CON, PLUS, ÓPTICA">
+        <span class="f1">E</span><span class="f2">VE</span><span class="f3">BIEN</span><span class="f4">CON</span><span class="f5">PLUS</span><span class="f6">ÓPTICA</span>
       </div>
-      <div class="vitrina" aria-hidden="true"><svg viewBox="0 0 200 80"><use href="#lentes"/></svg><span>Foto de la vitrina de monturas</span></div>
+      <p class="pista" id="pista">Baja para enfocar ↓</p>
+      <button class="lentes" type="button" id="lentes">Ponte los lentes</button>
+    </div>
+  </div>
+  <div class="intro">
+    <div class="wrap">
+      <p class="etq">Óptica en Chacaíto</p>
+      <h1>Ve bien, y que se note.</h1>
+      <p class="sub">Examen de la vista con optometrista, consulta oftalmológica, lentes formulados y monturas, detrás del BECO de Chacaíto.</p>
+      <div class="acciones">
+        <a class="btn" href="#reserva-web" data-reserva>Pedir cita en línea</a>
+        <a class="btn linea" id="cita" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20cita">Pedir cita por WhatsApp</a>
+        <span class="dato"><b>4,9</b> en Google · 288 opiniones</span>
+      </div>
+      <p class="sabado"><i aria-hidden="true"></i>Abrimos también los sábados</p>
     </div>
   </div>
 </header>
 
 <main>
-<section class="gris" aria-labelledby="serv">
+<section aria-labelledby="quien">
   <div class="wrap">
-    <p class="etq">Servicios</p>
-    <h2 id="serv">Todo para tu vista, en un solo lugar</h2>
-    <p class="lead">Según su ficha de Google, la óptica atiende con optometría y oftalmología. Plus Óptica confirma cada servicio y su precio.</p>
-    <div class="servicios">
-      <div class="serv"><span class="num">01</span><h3>Examen de la vista</h3><p>Medimos tu graduación con equipos actualizados.</p></div>
-      <div class="serv"><span class="num">02</span><h3>Consulta oftalmológica</h3><p>Revisión de la salud de tus ojos.</p></div>
-      <div class="serv"><span class="num">03</span><h3>Lentes formulados</h3><p>Monofocales, bifocales o progresivos.</p></div>
-      <div class="serv"><span class="num">04</span><h3>Monturas</h3><p>Modelos para cada cara y cada presupuesto.</p></div>
+    <p class="etq">Quién te atiende</p>
+    <h2 id="quien">Una cara conocida en Chacaíto.</h2>
+    <div class="persona">
+      <div class="foto"><img src="f/manuel.jpg" alt="Manuel Espiño Liste, optometrista, sonriendo junto al equipo de examen visual" width="788" height="576" loading="lazy"></div>
+      <div class="texto">
+        <p class="etq">Manuel Espiño Liste · Optometrista</p>
+        <blockquote>«Persiguiendo la perfección en óptica.»</blockquote>
+        <p>El lema con el que Plus Óptica se presenta en sus redes. En la página, cada paciente sabe quién lo va a atender antes de llegar.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -141,25 +170,27 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 <section aria-labelledby="mont">
   <div class="wrap">
     <p class="etq">Vitrina</p>
-    <h2 id="mont">Elige tu montura antes de venir</h2>
-    <p class="lead">Hoy las monturas se ven en Instagram. Aquí cada modelo tendría foto, referencia y precio, y apartarlo sería un toque.</p>
+    <h2 id="mont">Elige tu montura antes de venir.</h2>
+    <p class="lead">Las monturas que hoy se publican en Instagram, ordenadas con su precio. Se aparta con un toque y se prueba en la óptica.</p>
     <div class="rejilla">
-      <div class="mont"><div class="img" style="background:var(--claro)"><svg viewBox="0 0 200 80" style="color:#6B4426"><use href="#lentes"/></svg></div><b>Redonda carey</b><small>Modelo de ejemplo · precio por confirmar</small></div>
-      <div class="mont"><div class="img" style="background:var(--claro)"><svg viewBox="0 0 200 80"><use href="#lentes2"/></svg></div><b>Rectangular negra</b><small>Modelo de ejemplo · precio por confirmar</small></div>
-      <div class="mont"><div class="img" style="background:var(--claro)"><svg viewBox="0 0 200 80" style="color:#B08A3E"><use href="#lentes"/></svg></div><b>Metálica dorada</b><small>Modelo de ejemplo · precio por confirmar</small></div>
-      <div class="mont"><div class="img" style="background:var(--claro)"><svg viewBox="0 0 200 80" style="color:var(--verde)"><use href="#lentes2"/></svg></div><b>Infantil flexible</b><small>Modelo de ejemplo · precio por confirmar</small></div>
+      <div class="mont"><div class="img"><img src="f/m717.jpg" alt="Montura redonda de carey con puente dorado, modelo M717" width="860" height="458" loading="lazy"></div><b>Redonda carey · M717</b><small>$35</small></div>
+      <div class="mont"><div class="img"><img src="f/m40.jpg" alt="Montura ojo de gato negra y morada, marca Monetti" width="804" height="418" loading="lazy"></div><b>Ojo de gato · Monetti</b><small>$40</small></div>
+      <div class="mont"><div class="img"><img src="f/enox.jpg" alt="Montura cuadrada azul oscuro de la marca ENOX" width="1100" height="880" loading="lazy"></div><b>Cuadrada · ENOX</b><small>$120</small></div>
+      <a class="mont mas" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20monturas"><div class="img">Ver más modelos →</div><b>Catálogo completo</b><small>Por WhatsApp</small></a>
     </div>
+    <p class="nota">Precios tal como aparecen en sus publicaciones; la óptica los confirma.</p>
   </div>
 </section>
 
-<section class="gris" aria-labelledby="como">
+<section aria-labelledby="serv">
   <div class="wrap">
-    <p class="etq">Cómo funciona</p>
-    <h2 id="como">De la cita a tus lentes nuevos</h2>
-    <div class="pasos">
-      <div><b>1</b><h3>Pides tu cita</h3><p>En línea o por WhatsApp, el día que te quede mejor.</p></div>
-      <div><b>2</b><h3>Examen y montura</h3><p>Te medimos la vista y te ayudamos a elegir.</p></div>
-      <div><b>3</b><h3>Retiras tus lentes</h3><p>Te avisamos por WhatsApp cuando estén listos.</p></div>
+    <p class="etq">Servicios</p>
+    <h2 id="serv">Todo para tu vista, en un solo lugar.</h2>
+    <div class="servicios">
+      <div class="serv"><i>01</i><h3>Optometría</h3><p>Examen de la vista y fórmula de tus lentes.</p></div>
+      <div class="serv"><i>02</i><h3>Oftalmología</h3><p>Consulta para revisar la salud de tus ojos.</p></div>
+      <div class="serv"><i>03</i><h3>Lentes formulados</h3><p>Monofocales, bifocales o progresivos, según tu fórmula.</p></div>
+      <div class="serv"><i>04</i><h3>Monturas</h3><p>Desde opciones económicas hasta marcas, para adultos y niños.</p></div>
     </div>
   </div>
 </section>
@@ -340,21 +371,17 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 </script>
 <!-- reserva-web:fin -->
 <section aria-labelledby="donde">
-  <div class="wrap cols">
+  <div class="wrap local">
+    <div class="foto"><img src="f/local.jpg" alt="Fachada de Plus Óptica en el Centro Doral, locales 18 y 19" width="951" height="534" loading="lazy"></div>
     <div>
       <p class="etq">Visítanos</p>
-      <h2 id="donde">Dónde estamos</h2>
+      <h2 id="donde">Detrás del BECO de Chacaíto.</h2>
       <dl>
-        <dt>Dirección</dt><dd>Centro Doral, local 18, Av. Santa Isabel, Chacaíto. Detrás del BECO, anexo a la Torre Credicard</dd>
+        <dt>Dirección</dt><dd>Centro Doral, local 18, Av. Santa Isabel, Chacaíto. Anexo a la Torre Credicard</dd>
         <dt>Horario</dt><dd>Lunes a jueves y sábado, de 11 a. m. a 5 p. m. Viernes, de 11 a. m. a 4 p. m.</dd>
         <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
       </dl>
-      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%93ptica+Plus+Chaca%C3%ADto">Cómo llegar</a></div>
-    </div>
-    <div>
-      <h2 style="font-size:2rem">Tu examen, sin esperar</h2>
-      <p class="lead">Pide tu cita <a href="#reserva-web">en línea</a> o escríbenos por WhatsApp.</p>
-      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20cita">Pedir cita por WhatsApp</a>
+      <div class="acciones" style="justify-content:flex-start"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%93ptica+Plus+Chaca%C3%ADto">Cómo llegar</a></div>
     </div>
   </div>
 </section>
@@ -362,9 +389,27 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 
 <footer>
   <div class="wrap">Plus Óptica · Chacaíto, Caracas
-    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas de su ficha de Google. No es el sitio oficial del negocio.</p>
   </div>
 </footer>
+<script>
+(function(){
+  var filas=document.getElementById('filas'),pista=document.getElementById('pista'),carta=document.querySelector('.carta'),btn=document.getElementById('lentes');
+  var reducir=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var puestos=false;
+  function enfoque(){
+    if(puestos||reducir){filas.style.setProperty('--b','0px');pista.style.opacity=0;return;}
+    var r=carta.getBoundingClientRect(),total=carta.offsetHeight-innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/(total*0.7||1)));
+    filas.style.setProperty('--b',(7*(1-p)).toFixed(2)+'px');
+    pista.style.opacity=p>0.15?0:1;
+    btn.textContent=p>=1?'Enfocado':'Ponte los lentes';
+  }
+  btn.addEventListener('click',function(){puestos=!puestos;btn.textContent=puestos?'Quítate los lentes':'Ponte los lentes';enfoque();});
+  addEventListener('scroll',enfoque,{passive:true});
+  addEventListener('resize',enfoque);enfoque();
+})();
+</script>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>

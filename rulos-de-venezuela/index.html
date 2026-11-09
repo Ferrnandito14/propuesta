@@ -16,68 +16,101 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
-<!-- Referencias (proceso-diseno.md y skill refero-design): principal Shade (Refero Styles: casi monocromo, bandas blanco y hueso, botón píldora con sombra dura sin difuminar, etiquetas pequeñas en mayúsculas, fotos a sangre sin marco). De la marca: letra Outfit en peso 700-800 porque es casi igual al logotipo RULOS (sans geométrica ancha, R de remate redondo) y el rizo de la O como único motivo gráfico. Acento caramelo (#A0643A) tomado de los reflejos del cabello en sus fotos, solo en detalles. Descartado: el violeta y los titulares finos de Shade, la paleta rosa y lavanda con Playfair que propone ui-ux-pro-max para belleza (no es la marca) y cualquier palabra suelta en otro color dentro del titular. -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+Referencias (proceso-diseno.md y skill refero-design, segunda pasada del 2026-11-08):
+Candado. Principal: Marylou Faure (Refero Styles): galería blanca, estructura solo con líneas negras de 1 px, fotos a sangre unidas por líneas finas y sin esquinas, una sola familia de letra, el color lo ponen las imágenes y nunca la interfaz.
+Se conserva: lienzo blanco, tinta negra, rejillas de fotos de borde a borde, títulos grandes en un solo peso, cero sombras y cero tarjetas.
+Prestado de Shade: botón píldora negro con sombra dura sin difuminar, solo en la acción principal.
+De la marca (fotos reales de su ficha de Google): el estampado blanco y negro de espirales, soles, flores y cocos de sus paredes y capas es el único gráfico; el logotipo RULOS con la O de rizo; letra Outfit 800 porque es casi igual a ese logotipo.
+Momento memorable: el logotipo ocupa todo el ancho con su estampado vivo alrededor, y un selector "¿Cuál es tu rizo?" que cambia la foto y la recomendación.
+Descartado: retrato a la derecha y texto a la izquierda, tarjetas, rosa y lavanda de ui-ux-pro-max, dibujos falsos en lugar de fotos.
+Fotos: tomadas de su ficha pública de Google Maps para esta propuesta; en la página final se usan las que el salón apruebe.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--tinta:#131313;--blanco:#FFFFFF;--hueso:#F6F3EE;--gris:#6E6A66;--linea:#DCD6CF;--caramelo:#A0643A;--sombra:#E7DFD5}
+:root{--tinta:#0E0E0E;--blanco:#FFFFFF;--gris:#6B6B6B;--linea:#0E0E0E;--suave:#E9E6E1}
 *{box-sizing:border-box;margin:0}
-html,body{overflow-x:hidden}
-body{font-family:'Outfit',system-ui,sans-serif;background:var(--blanco);color:var(--tinta);line-height:1.6;font-size:17px}
+html,body{overflow-x:clip}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--blanco);color:var(--tinta);line-height:1.55;font-size:17px}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--caramelo);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--linea)}
-.marca{display:inline-flex;align-items:center;text-decoration:none;font-weight:800;font-size:1.7rem;letter-spacing:.02em;line-height:1}
-.marca svg{width:.86em;height:.86em;margin:0 .03em;transform:translateY(.02em)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--tinta);color:var(--blanco);font-weight:600;font-size:1rem;text-decoration:none;box-shadow:6px 6px 0 0 var(--sombra)}
-.btn.linea{background:transparent;color:var(--tinta);border:1.5px solid var(--tinta);box-shadow:none}
-.btn.mini{min-height:44px;padding:0 20px;font-size:.95rem;box-shadow:none}
-.etq{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
-.hero{padding:56px 0 76px;display:grid;gap:44px;align-items:center}
-@media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr}}
-.hero h1{font-weight:800;font-size:clamp(2.9rem,9.5vw,5.6rem);line-height:.95;letter-spacing:-.035em;margin-top:16px;text-wrap:balance}
-.hero p.sub{margin-top:22px;max-width:42ch;color:var(--gris);font-size:1.15rem}
-.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--linea)}
+.nav small{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--tinta);color:var(--blanco);font-weight:700;font-size:1rem;text-decoration:none;box-shadow:6px 6px 0 0 var(--suave);border:1.5px solid var(--tinta)}
+.btn.linea{background:transparent;color:var(--tinta);box-shadow:none}
+.btn.mini{min-height:42px;padding:0 18px;font-size:.92rem;box-shadow:none}
+.etq{font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+.portada{position:relative;padding:28px 0 0;overflow:hidden}
+.marca{position:relative;display:flex;justify-content:center;align-items:center;font-weight:800;font-size:clamp(5.2rem,24vw,22rem);line-height:.8;letter-spacing:-.01em;padding:clamp(46px,8vw,120px) 2vw}
+.marca svg.o{width:.8em;height:.8em;margin:0 .02em;transform:translateY(-.01em)}
+.estampa{position:absolute;color:var(--tinta);pointer-events:none}
+.estampa.sol{width:clamp(44px,7vw,110px);top:2%;right:6%}
+.estampa.espiral{width:clamp(80px,13vw,200px);bottom:0;left:4%}
+.estampa.flor{width:clamp(34px,5vw,76px);top:4%;left:8%}
+.estampa.coco{width:clamp(70px,10vw,150px);bottom:6%;right:5%;transform:scaleX(-1)}
+@media(prefers-reduced-motion:no-preference){
+  .estampa.sol{animation:gira 28s linear infinite}
+  .estampa.flor{animation:gira 40s linear infinite reverse}
+  .estampa.espiral{animation:mece 6s ease-in-out infinite}
+  .estampa.coco{animation:mece 7s ease-in-out infinite reverse}
+}
+@keyframes gira{to{rotate:360deg}}
+@keyframes mece{50%{translate:0 -10px;rotate:-4deg}}
+.portada h1{text-align:center;font-weight:700;font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.1;letter-spacing:-.02em;margin:34px auto 0;max-width:22ch;text-wrap:balance;padding:0 20px}
+.portada .sub{text-align:center;color:var(--gris);margin:14px auto 0;max-width:46ch;padding:0 20px}
+.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:26px;padding:0 20px}
 .dato{color:var(--gris);font-size:.95rem}
 .dato b{color:var(--tinta)}
-.foto{position:relative;aspect-ratio:4/5;background:var(--tinta);border-radius:14px;overflow:hidden;display:grid;place-items:center}
-.foto svg{width:26%}
-.foto span{position:absolute;left:16px;bottom:16px;background:var(--blanco);color:var(--gris);font-size:.85rem;padding:6px 14px;border-radius:999px}
-section{padding:84px 0}
-.banda{background:var(--hueso)}
-h2{font-weight:700;font-size:clamp(2.2rem,6.5vw,3.5rem);line-height:1;letter-spacing:-.03em;margin:12px 0 16px;text-wrap:balance}
-.lead{color:var(--gris);max-width:56ch;margin-bottom:38px}
-.pasos{display:grid;gap:28px;border-top:1px solid var(--tinta);padding-top:28px}
-@media(min-width:820px){.pasos{grid-template-columns:repeat(3,1fr)}}
-.pasos .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--tinta);font-weight:700;font-size:.95rem}
-.pasos h3{font-size:1.4rem;font-weight:700;margin:16px 0 6px;letter-spacing:-.01em}
-.pasos p{color:var(--gris)}
+.tira{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:var(--linea);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);margin-top:44px}
+.tira div{height:clamp(380px,46vw,640px);overflow:hidden;background:var(--suave)}
+@media(max-width:640px){.tira{grid-template-columns:1fr 1fr}.tira div{height:auto;aspect-ratio:3/4}.tira div:first-child{grid-column:1/-1;aspect-ratio:4/5}}
+section{padding:88px 0;border-bottom:1px solid var(--linea)}
+h2{font-weight:800;font-size:clamp(2.3rem,6.6vw,4.4rem);line-height:.95;letter-spacing:-.035em;margin:12px 0 18px;text-wrap:balance}
+.lead{color:var(--gris);max-width:54ch;margin-bottom:34px;text-wrap:pretty}
+.rizo{display:grid;gap:0;border:1px solid var(--linea)}
+@media(min-width:880px){.rizo{grid-template-columns:1fr 1fr}}
+.rizo-foto{aspect-ratio:4/5;overflow:hidden;background:var(--suave);position:relative}
+.rizo-foto img{transition:opacity .45s ease,scale .8s cubic-bezier(.2,.8,.2,1)}
+.rizo-foto img.fuera{opacity:0;scale:1.04}
+.rizo-texto{padding:30px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;border-top:1px solid var(--linea)}
+@media(min-width:880px){.rizo-texto{border-top:0;border-left:1px solid var(--linea);padding:40px}}
+.tipos{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--linea);border-radius:999px;overflow:hidden}
+.tipos button{all:unset;cursor:pointer;text-align:center;padding:14px 6px;font-weight:700;font-size:.98rem}
+.tipos button+button{border-left:1px solid var(--linea)}
+.tipos button[aria-pressed="true"]{background:var(--tinta);color:var(--blanco)}
+.tipos button:focus-visible{outline:3px solid var(--tinta);outline-offset:-5px}
+.rizo-texto h3{font-weight:800;font-size:clamp(1.8rem,4.4vw,2.8rem);line-height:1;letter-spacing:-.03em}
+.rizo-texto p{color:var(--gris);margin-top:12px;max-width:44ch}
+.rizo-texto ul{list-style:none;padding:0;margin-top:18px;border-top:1px solid var(--linea)}
+.rizo-texto li{padding:12px 0;border-bottom:1px solid var(--linea);display:flex;justify-content:space-between;gap:12px}
+.rizo-texto li span{color:var(--gris)}
+.franja{background:var(--tinta);color:var(--blanco);overflow:hidden;padding:22px 0;border-bottom:1px solid var(--linea)}
+.franja .pista{display:flex;gap:46px;width:max-content;align-items:center}
+.franja svg{height:46px;width:auto;flex:none}
+@media(prefers-reduced-motion:no-preference){.franja .pista{animation:corre 30s linear infinite}}
+@keyframes corre{to{transform:translateX(-50%)}}
+.salon{display:grid;grid-template-columns:1fr;gap:1px;background:var(--linea);border:1px solid var(--linea)}
+@media(min-width:760px){.salon{grid-template-columns:1fr 1.4fr}}
+.salon div{overflow:hidden;background:var(--suave);aspect-ratio:4/5}
+@media(min-width:760px){.salon div:last-child{aspect-ratio:auto}}
 .servicios{display:grid;border-top:1px solid var(--linea)}
-@media(min-width:780px){.servicios{grid-template-columns:repeat(2,1fr);column-gap:48px}}
-.serv{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--linea)}
-.serv h3{font-size:1.45rem;font-weight:700;letter-spacing:-.015em}
-.serv p{color:var(--gris);font-size:.97rem}
+@media(min-width:780px){.servicios{grid-template-columns:1fr 1fr;column-gap:56px}}
+.serv{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--linea)}
+.serv i{font-style:normal;font-size:.82rem;color:var(--gris)}
+.serv h3{font-weight:700;font-size:1.45rem;letter-spacing:-.015em;line-height:1.15}
+.serv p{color:var(--gris);font-size:.96rem}
 .serv small{color:var(--gris);font-size:.85rem;white-space:nowrap}
 .tienda{display:grid;gap:36px;align-items:center}
-@media(min-width:860px){.tienda{grid-template-columns:1fr 1fr}}
-.estantes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.prod{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
-.prod i{display:block;width:34px;height:52px;border-radius:10px 10px 6px 6px;background:var(--tinta)}
-.prod:nth-child(2) i{background:var(--caramelo)}
-.prod:nth-child(3) i{width:46px;height:40px;border-radius:8px}
-.prod b{font-weight:600;font-size:1rem}
-.prod small{display:block;color:var(--gris);font-size:.85rem}
-.cifras{display:grid;gap:18px}
-@media(min-width:760px){.cifras{grid-template-columns:repeat(3,1fr)}}
-.cifra{border:1px solid var(--linea);border-radius:14px;padding:26px}
-.cifra b{display:block;font-size:2.6rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.cifra span{color:var(--gris)}
+@media(min-width:860px){.tienda{grid-template-columns:.9fr 1.1fr}}
+.tienda .foto{aspect-ratio:4/5;overflow:hidden;border:1px solid var(--linea)}
 .cols{display:grid;gap:34px}
 @media(min-width:800px){.cols{grid-template-columns:1fr 1fr}}
 dt{font-weight:700;margin-top:16px}
 dd{color:var(--gris)}
-footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px solid var(--linea)}
-.demo{margin-top:10px;border-left:3px solid var(--caramelo);padding-left:12px}
+footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
+.demo{margin-top:10px}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -86,89 +119,110 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="rizo" viewBox="0 0 100 100">
+  <symbol id="o-rizo" viewBox="0 0 100 100">
     <g fill="currentColor"><circle cx="50" cy="50" r="34"/><circle cx="50" cy="16" r="16"/><circle cx="74" cy="26" r="16"/><circle cx="84" cy="50" r="16"/><circle cx="74" cy="74" r="16"/><circle cx="50" cy="84" r="16"/><circle cx="26" cy="74" r="16"/><circle cx="16" cy="50" r="16"/><circle cx="26" cy="26" r="16"/></g>
     <path d="M50 40a10 10 0 0 0-6 18V101h12V58a10 10 0 0 0-6-18z" fill="var(--hueco,#fff)"/>
   </symbol>
+  <symbol id="e-sol" viewBox="0 0 100 100"><path fill="currentColor" d="M50 2l5 22 14-18-3 23 20-12-10 21 23-4-18 14 22 6-22 6 18 14-23-4 10 21-20-12 3 23-14-18-5 22-5-22-14 18 3-23-20 12 10-21-23 4 18-14-22-6 22-6-18-14 23 4-10-21 20 12-3-23 14 18z"/></symbol>
+  <symbol id="e-espiral" viewBox="0 0 220 70"><path fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" d="M8 52c14 0 22-10 22-22S22 10 16 18s4 34 26 34 30-14 30-26-8-20-14-12 4 38 28 38 30-14 30-26-8-20-14-12 4 38 28 38 30-14 30-26-8-20-14-12 4 38 28 38"/></symbol>
+  <symbol id="e-flor" viewBox="0 0 100 100"><path fill="currentColor" fill-rule="evenodd" d="M50 4c10 0 16 10 14 22 8-9 21-11 27-3s2 20-9 25c11 4 16 16 10 24s-19 7-27-2c2 12-4 26-15 26s-17-14-15-26c-8 9-21 10-27 2s-1-20 10-24C7 43 3 31 9 23s19-6 27 3C34 14 40 4 50 4zm0 36a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></symbol>
+  <symbol id="e-coco" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="currentColor"/><path d="M22 56a28 28 0 0 1 56 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M50 30v6M38 33l3 5M62 33l-3 5" stroke="#fff" stroke-width="4" stroke-linecap="round"/></symbol>
 </svg>
+
 <header>
-  <div class="wrap">
-    <nav class="nav" aria-label="Principal">
-      <a class="marca" href="#inicio" aria-label="Rulos">RUL<svg aria-hidden="true"><use href="#rizo"/></svg>S</a>
-      <a class="btn mini" href="#reserva-web">Reservar</a>
-    </nav>
-    <div class="hero" id="inicio">
-      <div>
-        <p class="etq">Peluquería para rizos · Chacao</p>
-        <h1>Tu rizo, entendido y bien cortado.</h1>
-        <p class="sub">En Rulos de Venezuela trabajamos el cabello rizado y ondulado: diagnóstico, corte, hidratación y los productos para cuidarlo en casa.</p>
-        <div class="acciones">
-          <a class="btn" href="#reserva-web" data-reserva>Reservar en línea</a>
+  <nav class="nav" aria-label="Principal">
+    <small>Chacao · Caracas</small>
+    <a class="btn mini" href="#reserva-web">Reservar</a>
+  </nav>
+  <div class="portada" id="inicio">
+    <div class="marca" role="img" aria-label="Rulos">
+      <span aria-hidden="true">RUL</span><svg class="o" aria-hidden="true"><use href="#o-rizo"/></svg><span aria-hidden="true">S</span>
+      <svg class="estampa sol" viewBox="0 0 100 100" aria-hidden="true"><use href="#e-sol"/></svg>
+      <svg class="estampa flor" viewBox="0 0 100 100" aria-hidden="true"><use href="#e-flor"/></svg>
+      <svg class="estampa espiral" viewBox="0 0 220 70" aria-hidden="true"><use href="#e-espiral"/></svg>
+      <svg class="estampa coco" viewBox="0 0 220 70" aria-hidden="true"><use href="#e-espiral"/></svg>
+    </div>
+    <h1>La peluquería que entiende tu rizo.</h1>
+    <p class="sub">Cabello rizado, ondulado y afro en Chacao: diagnóstico, corte, hidratación y productos para cuidarlo en casa.</p>
+    <div class="acciones">
+      <a class="btn" href="#reserva-web" data-reserva>Reservar en línea</a>
         <a class="btn linea" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
-          <span class="dato"><b>4,9</b> en Google · 487 opiniones</span>
-        </div>
-      </div>
-      <div class="foto" style="--hueco:#131313;color:#fff" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#rizo"/></svg><span>Foto de un rizo terminado en el salón</span></div>
+      <span class="dato"><b>4,9</b> en Google · 487 opiniones</span>
+    </div>
+    <div class="tira">
+      <div><img src="f/portada.jpg" alt="Clienta con rizos cortos definidos frente a la pared estampada del salón" width="788" height="1100"></div>
+      <div><img src="f/rizo.jpg" alt="Rizos largos con reflejos castaños después del servicio" width="508" height="1100" loading="lazy"></div>
+      <div><img src="f/afro.jpg" alt="Cabello afro con volumen, de espaldas, con la capa estampada de Rulos" width="825" height="1100" loading="lazy"></div>
     </div>
   </div>
 </header>
 
 <main>
-<section class="banda" aria-labelledby="como">
+<section aria-labelledby="tu-rizo">
   <div class="wrap">
-    <p class="etq">Cómo trabajamos</p>
-    <h2 id="como">Cada rizo pide algo distinto.</h2>
-    <p class="lead">Por eso la cita empieza conociendo tu cabello. Este es el recorrido; el salón confirma los detalles de cada servicio.</p>
-    <div class="pasos">
-      <div><span class="n">1</span><h3>Diagnóstico</h3><p>Vemos tu tipo de rizo, cómo está y qué rutina llevas.</p></div>
-      <div><span class="n">2</span><h3>Servicio a tu medida</h3><p>Corte, hidratación o definición según lo que tu cabello necesita.</p></div>
-      <div><span class="n">3</span><h3>Rutina para casa</h3><p>Te vas sabiendo qué productos usar y cómo.</p></div>
+    <p class="etq">Antes de tu cita</p>
+    <h2 id="tu-rizo">¿Cuál es tu rizo?</h2>
+    <p class="lead">Cada tipo de rizo pide cuidados distintos. Elige el tuyo y mira por dónde empezar. En la primera cita el equipo lo confirma con un diagnóstico.</p>
+    <div class="rizo">
+      <div class="rizo-foto"><img id="rizoImg" src="f/rizo.jpg" alt="Rizos abiertos y largos" width="508" height="1100" loading="lazy"></div>
+      <div class="rizo-texto">
+        <div class="tipos" role="group" aria-label="Tipo de rizo">
+          <button type="button" aria-pressed="true" data-t="abierto">Abierto</button>
+          <button type="button" aria-pressed="false" data-t="cerrado">Cerrado</button>
+          <button type="button" aria-pressed="false" data-t="afro">Afro</button>
+        </div>
+        <div aria-live="polite">
+          <h3 id="rizoTit">Rizo abierto</h3>
+          <p id="rizoTxt">Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.</p>
+          <ul id="rizoLista"><li>Para empezar<span>Diagnóstico de rizo</span></li><li>Después<span>Corte y definición</span></li></ul>
+        </div>
+        <a class="btn" href="#reserva-web">Reservar con mi rizo</a>
+      </div>
     </div>
   </div>
+</section>
+
+<div class="franja" aria-hidden="true"><div class="pista">
+  <svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg><svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg>
+  <svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg><svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg>
+</div></div>
+
+<section aria-labelledby="salon">
+  <div class="wrap">
+    <p class="etq">El salón</p>
+    <h2 id="salon">Manos que saben de rizos.</h2>
+    <p class="lead">Un espacio pensado para el cabello rizado, con su estampado en paredes y capas, y un equipo que trabaja cada rizo por separado.</p>
+  </div>
+  <div class="wrap"><div class="salon">
+    <div><img src="f/salon.jpg" alt="Estilista trabajando junto al carrito de productos del salón" width="825" height="1100" loading="lazy"></div>
+    <div><img src="f/peinando.jpg" alt="Estilista definiendo un cabello afro con un cintillo azul" width="1100" height="733" loading="lazy"></div>
+  </div></div>
 </section>
 
 <section aria-labelledby="serv">
   <div class="wrap">
     <p class="etq">Servicios</p>
-    <h2 id="serv">Lo que hacemos por tu cabello</h2>
+    <h2 id="serv">Lo que hacemos</h2>
     <p class="lead">Servicios de referencia para esta propuesta. Rulos define la lista, la duración y el precio de cada uno.</p>
     <div class="servicios">
-      <div class="serv"><div><h3>Corte para rizos</h3><p>Pensado para la forma natural de tu rizo.</p></div><small>por confirmar</small></div>
-      <div class="serv"><div><h3>Diagnóstico de rizo</h3><p>Para empezar tu rutina con buen pie.</p></div><small>por confirmar</small></div>
-      <div class="serv"><div><h3>Hidratación profunda</h3><p>Para rizos secos o maltratados.</p></div><small>por confirmar</small></div>
-      <div class="serv"><div><h3>Definición y peinado</h3><p>Rizos definidos y con volumen.</p></div><small>por confirmar</small></div>
-      <div class="serv"><div><h3>Color</h3><p>Color pensado para cabello rizado.</p></div><small>por confirmar</small></div>
-      <div class="serv"><div><h3>Asesoría de productos</h3><p>Qué usar según tu tipo de rizo.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>01</i><div><h3>Diagnóstico de rizo</h3><p>El punto de partida de tu rutina.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>02</i><div><h3>Corte para rizos</h3><p>Respetando la forma natural de cada rizo.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>03</i><div><h3>Hidratación profunda</h3><p>Para rizos secos o maltratados.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>04</i><div><h3>Definición y peinado</h3><p>Rizos definidos y con volumen.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>05</i><div><h3>Color</h3><p>Pensado para cabello rizado.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>06</i><div><h3>Asesoría de productos</h3><p>Qué usar según tu tipo de rizo.</p></div><small>por confirmar</small></div>
     </div>
   </div>
 </section>
 
-<section class="banda" aria-labelledby="tienda">
+<section aria-labelledby="tienda">
   <div class="wrap tienda">
+    <div class="foto"><img src="f/bolsa.jpg" alt="Clienta con cabello afro sosteniendo una bolsa de Rulos que dice Amo mis rulos" width="734" height="1100" loading="lazy"></div>
     <div>
       <p class="etq">Tienda</p>
-      <h2 id="tienda">Productos para rizos, a la vista.</h2>
-      <p class="lead">Hoy el catálogo vive en WhatsApp. Aquí cada producto tendría foto, para qué tipo de rizo sirve y su precio, y se pide con un toque.</p>
+      <h2 id="tienda">Amo mis rulos, también en casa.</h2>
+      <p class="lead">Hoy el catálogo vive en WhatsApp. En la página cada producto tendría su foto, para qué rizo sirve y su precio, y se pide con un toque.</p>
       <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20los%20productos">Ver el catálogo</a>
-    </div>
-    <div class="estantes" aria-hidden="true">
-      <div class="prod"><i></i><div><b>Crema para definir</b><small>Producto de ejemplo</small></div></div>
-      <div class="prod"><i></i><div><b>Gel para rizos</b><small>Producto de ejemplo</small></div></div>
-      <div class="prod"><i></i><div><b>Mascarilla</b><small>Producto de ejemplo</small></div></div>
-      <div class="prod"><i></i><div><b>Champú suave</b><small>Producto de ejemplo</small></div></div>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="google">
-  <div class="wrap">
-    <p class="etq">En Google</p>
-    <h2 id="google">Quienes vienen, vuelven.</h2>
-    <p class="lead">Datos de su ficha pública de Google Maps.</p>
-    <div class="cifras">
-      <div class="cifra"><b>4,9</b><span>de 5 estrellas</span></div>
-      <div class="cifra"><b>487</b><span>opiniones de clientes</span></div>
-      <div class="cifra"><b>6</b><span>días a la semana, de lunes a sábado</span></div>
     </div>
   </div>
 </section>
@@ -348,7 +402,7 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 })();
 </script>
 <!-- reserva-web:fin -->
-<section class="banda" aria-labelledby="donde">
+<section aria-labelledby="donde">
   <div class="wrap cols">
     <div>
       <p class="etq">Visítanos</p>
@@ -358,7 +412,7 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
         <dt>Horario</dt><dd>Lunes a sábado, de 9 a. m. a 7 p. m.</dd>
         <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
       </dl>
-      <div class="acciones"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rulos+de+Venezuela+Chacao">Cómo llegar</a></div>
+      <div class="acciones" style="justify-content:flex-start;padding:0"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rulos+de+Venezuela+Chacao">Cómo llegar</a></div>
     </div>
     <div>
       <h2 style="font-size:2rem">Tu próxima cita, en un minuto</h2>
@@ -371,9 +425,29 @@ footer{padding:30px 0 80px;color:var(--gris);font-size:.92rem;border-top:1px sol
 
 <footer>
   <div class="wrap">Rulos de Venezuela · Chacao, Caracas
-    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas de su ficha de Google. No es el sitio oficial del negocio.</p>
   </div>
 </footer>
+<script>
+(function(){
+  var D={
+    abierto:{img:'f/rizo.jpg',alt:'Rizos abiertos y largos',tit:'Rizo abierto',txt:'Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Corte y definición']]},
+    cerrado:{img:'f/portada.jpg',alt:'Rizos cortos y cerrados',tit:'Rizo cerrado',txt:'Espirales pequeñas y marcadas que se resecan con facilidad. Suelen pedir hidratación y un corte que respete cada espiral.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación y corte']]},
+    afro:{img:'f/afro.jpg',alt:'Cabello afro con volumen',tit:'Afro',txt:'Rizo muy cerrado, con mucho volumen y necesidad de humedad. Suele pedir hidratación profunda y cuidado constante.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación profunda']]}
+  };
+  var img=document.getElementById('rizoImg'),tit=document.getElementById('rizoTit'),txt=document.getElementById('rizoTxt'),lista=document.getElementById('rizoLista');
+  document.querySelectorAll('.tipos button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var d=D[b.dataset.t];
+      document.querySelectorAll('.tipos button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      img.classList.add('fuera');
+      setTimeout(function(){img.onload=function(){img.classList.remove('fuera')};img.src=d.img;img.alt=d.alt;},220);
+      tit.textContent=d.tit;txt.textContent=d.txt;
+      lista.innerHTML='';d.l.forEach(function(r){var li=document.createElement('li');li.textContent=r[0];var s=document.createElement('span');s.textContent=r[1];li.appendChild(s);lista.appendChild(li);});
+    });
+  });
+})();
+</script>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
