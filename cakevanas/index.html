@@ -56,7 +56,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.92)}
 .etq{font-size:13px;font-weight:400;letter-spacing:-.01em;text-transform:none}
 .portada{position:relative;min-height:100svh;display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr);color:#fff;background:var(--uva);overflow:hidden}
 .portada>img{position:absolute;inset:0;filter:saturate(.85) brightness(.72)}
-.portada:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(74,34,102,.0),rgba(74,34,102,.55) 70%,rgba(74,34,102,.9))}
+.portada:after{content:"";position:absolute;inset:0;z-index:1;background:rgba(74,34,102,.58)}
 .portada>*:not(img){position:relative;z-index:2}
 .top{display:flex;justify-content:space-between;align-items:center;margin:16px auto 0;max-width:1200px;width:calc(100% - 32px);padding:8px 8px 8px 22px;border:1px solid rgba(255,255,255,.35);border-radius:100px;gap:12px}
 .marca{font-weight:400;font-size:18px;color:#fff;text-decoration:none;letter-spacing:-.02em}
@@ -208,20 +208,18 @@ dl div>dt{margin-top:0;align-self:baseline}
   </div>
 </header>
 
-<div class="cinta" aria-hidden="true"><span class="pista">Tarta vasca<i>✦</i>Pistacho<i>✦</i>Chocolate Dubái<i>✦</i>Nutella crunchy<i>✦</i>Guayaba<i>✦</i>Pumpkin Spice<i>✦</i>Delivery $3<i>✦</i>Tarta vasca<i>✦</i>Pistacho<i>✦</i>Chocolate Dubái<i>✦</i>Nutella crunchy<i>✦</i>Guayaba<i>✦</i>Pumpkin Spice<i>✦</i>Delivery $3<i>✦</i></span></div>
-
 <main>
 <section class="uva" id="tarta" aria-labelledby="tarta-t">
   <div class="wrap armar">
     <div class="tarta-box">
       <svg viewBox="-176 -118 352 230" id="tartaSvg" role="group" aria-label="Tarta de 8 porciones"></svg>
       <div class="desde" aria-hidden="true"><div><small>DESDE</small>$45</div></div>
-      <figure class="vista" id="tVista"><div><img id="tVistaImg" src="f/m-p-tradicional.webp" alt=""></div><figcaption><b id="tVistaN">Porción 1</b><span id="tVistaS">Elige un sabor</span></figcaption></figure>
+      <figure class="vista" id="tVista"><div><img id="tVistaImg" src="f/m-p-tradicional.webp" alt="" width="76" height="76"></div><figcaption><b id="tVistaN">Porción 1</b><span id="tVistaS">Elige un sabor</span></figcaption></figure>
     </div>
     <div class="sabores">
       <p class="etq" style="color:var(--miel)">De su carta</p>
       <h2 id="tarta-t" class="titular">Arma tu tarta grande.</h2>
-      <p class="lead">8 porciones, 8 sabores, en la grande de 25 cm. Toca una porción y elige su sabor: los clásicos van incluidos y cada deluxe suma $2.</p>
+      <p class="lead">8 porciones, 8 sabores, en la grande de 25 cm. Gírala, toca una porción y elige su sabor: los clásicos van incluidos y cada deluxe suma $2.</p>
       <div class="contador-t" aria-live="polite"><b id="tLlenas">0</b>/8 porciones <span id="tPorcion">Eligiendo la porción 1</span></div>
       <h3>Clásicos · incluidos</h3><div class="chips" id="chClasicos"></div>
       <h3>Deluxe · +$2 c/u</h3><div class="chips" id="chDeluxe"></div>
@@ -231,7 +229,7 @@ dl div>dt{margin-top:0;align-self:baseline}
       <div class="campos-t">
         <label>¿Para qué día? <input type="date" id="tFecha"></label>
         <label>Tu nombre <small>opcional</small><input id="tNombre" autocomplete="given-name"></label>
-        <label id="tZonaL" hidden class="ancho">Zona o urbanización <input id="tZona" placeholder="Ej.: El Rosal"></label>
+        <label id="tZonaL" hidden class="ancho">Zona o urbanización <input id="tZona" autocomplete="address-level3" placeholder="Ej.: El Rosal"></label>
       </div>
       <div class="recibo">
         <p class="r-tit">Tu tarta</p>
@@ -423,7 +421,7 @@ dl div>dt{margin-top:0;align-self:baseline}
     function linea(n,d,pr,inc){var li=el('li');var x=el('b','',n);if(d){x.appendChild(document.createTextNode(' '));x.appendChild(el('span','',d));}li.appendChild(x);li.appendChild(el('em',inc?'inc':'',pr));ul.appendChild(li);}
     linea('Tarta grande de 8 sabores','25 cm','$45');
     orden.forEach(function(p){var c=cuenta[p[0]];linea(c+(c>1?' porciones':' porción')+' · '+p[0],'',p[3]?'+'+usd(c*2):'incluido',!p[3]);});
-    if(faltan)linea(faltan+(faltan>1?' porciones':' porción')+' por elegir','','—',true);
+    if(faltan)linea(faltan+(faltan>1?' porciones':' porción')+' por elegir','','',true);
     linea(del?'Delivery':'Retiro en Chacao',del?(document.getElementById('tZona').value.trim()||''):'',del?'+$3':'sin costo',!del);
     document.getElementById('tTotal').textContent=usd(total);
     document.getElementById('tBs').textContent=TASA?'≈ '+bs(total)+' a tasa BCV':'';
@@ -587,10 +585,96 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<!-- t3d:inicio -->
+<style>
+.t3d{position:relative;aspect-ratio:1/1;width:100%;border-radius:24px;background:radial-gradient(120% 90% at 50% 20%,#5B2E7C 0%,#2E1442 70%);overflow:hidden;touch-action:pan-y;margin-top:8px}
+.t3d canvas{display:block;width:100%;height:100%;cursor:grab}
+.t3d canvas:active{cursor:grabbing}
+.t3d .pista{position:absolute;left:16px;bottom:12px;margin:0;font-size:13px;color:var(--lavanda);opacity:.85;pointer-events:none;transition:opacity .4s}
+.con3d #tartaSvg{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.t3d .pista{transition:none}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+<script>
+/* Arma tu tarta en 3D. Lee el estado del SVG de la tarta (que sigue llevando el pedido) y lo muestra en 3D; tocar una porción en 3D la elige en el SVG. Sin WebGL queda la tarta en SVG. */
+(function(){
+  var svg=document.getElementById('tartaSvg');if(!svg)return;
+  var gl=null;try{var tc=document.createElement('canvas');gl=tc.getContext('webgl')||tc.getContext('experimental-webgl');}catch(e){}
+  if(!window.THREE||!gl)return;
+  var COL={'Tradicional':'#F3D9A4','Fresa':'#C2273A','Guayaba':'#E3572B','Arequipe':'#A4652E','Chocolate Dubái':'#5A3A22','Pistacho':'#9DB25B','Nutella crunchy':'#3E2418','Frutos rojos':'#7E1F3F','Limón':'#F4EDC2'};
+  var EXTRA={'Chocolate Dubái':['#9DB25B',14],'Pistacho':['#6F8A3A',18],'Nutella crunchy':['#C9A06A',16],'Frutos rojos':['#B0123A',9],'Fresa':['#E33B4E',6]};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cont=document.createElement('div');cont.className='t3d';cont.innerHTML='<p class="pista">Gírala con el dedo · toca una porción</p>';
+  svg.parentNode.insertBefore(cont,svg);document.body.classList.add('con3d');
+  svg.setAttribute('aria-hidden','true');
+
+  var R=1.6,AL=0.62,N=8,PASO=Math.PI*2/N;
+  var renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputEncoding=THREE.sRGBEncoding;
+  cont.insertBefore(renderer.domElement,cont.firstChild);
+  var cv=renderer.domElement;cv.setAttribute('role','img');cv.setAttribute('aria-label','Tarta vasca de 8 porciones en 3D. Elige los sabores con los botones de la lista.');
+  var scene=new THREE.Scene();
+  var cam=new THREE.PerspectiveCamera(32,1,0.1,50);cam.position.set(0,4.4,6.6);cam.lookAt(0,0.2,0);
+  scene.add(new THREE.HemisphereLight(0xfff4e6,0x3a1c52,0.95));
+  var sol=new THREE.DirectionalLight(0xffffff,0.85);sol.position.set(2.5,5,3);scene.add(sol);
+  var rel=new THREE.DirectionalLight(0xe8d8ff,0.35);rel.position.set(-3,2,-2);scene.add(rel);
+  function lienzo(w,h,f){var c=document.createElement('canvas');c.width=w;c.height=h;f(c.getContext('2d'),w,h);var t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;return t;}
+  function ruido(g,w,h,n,col,rm){for(var i=0;i<n;i++){g.fillStyle=col[Math.floor(Math.random()*col.length)];g.globalAlpha=Math.random()*.5+.15;g.beginPath();g.arc(Math.random()*w,Math.random()*h,Math.random()*rm+1,0,7);g.fill();}g.globalAlpha=1;}
+  var texTop=lienzo(512,512,function(g,w,h){var gr=g.createRadialGradient(w/2,h/2,10,w/2,h/2,w/2);gr.addColorStop(0,'#C88A45');gr.addColorStop(.45,'#9A5A24');gr.addColorStop(.8,'#4A2410');gr.addColorStop(1,'#22100A');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,900,['#2A140B','#5C3018','#D9A35E'],6);});
+  var texLado=lienzo(1024,128,function(g,w,h){var gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#3A1C0E');gr.addColorStop(.25,'#7A4019');gr.addColorStop(1,'#C98E4E');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,700,['#2A140B','#E0B070','#6B3516'],5);});
+  var texCorte=lienzo(256,128,function(g,w,h){var gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#3A1C0E');gr.addColorStop(.1,'#B9773A');gr.addColorStop(.2,'#F6E2B4');gr.addColorStop(.8,'#F3D9A4');gr.addColorStop(.93,'#D9A866');gr.addColorStop(1,'#B37A3E');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,160,['#FFF3D6','#E9C98E'],3);});
+  var mTop=new THREE.MeshStandardMaterial({map:texTop,roughness:.7}),mLado=new THREE.MeshStandardMaterial({map:texLado,roughness:.75}),mBase=new THREE.MeshStandardMaterial({color:0xB37A3E,roughness:.9}),mCorte=new THREE.MeshStandardMaterial({map:texCorte,roughness:.55,side:THREE.DoubleSide});
+  var papel=(function(){var g=new THREE.CylinderGeometry(R+.04,R+.02,AL+.1,96,4,true);var p=g.attributes.position;for(var i=0;i<p.count;i++){var x=p.getX(i),y=p.getY(i),z=p.getZ(i),a=Math.atan2(z,x);var arr=Math.sin(a*23)*.025+Math.sin(a*57)*.012;var sube=(y+(AL+.1)/2)/(AL+.1);var k=1+arr*sube+sube*sube*.05;p.setX(i,x*k);p.setZ(i,z*k);if(y>0)p.setY(i,y+Math.sin(a*11)*.035+Math.sin(a*31)*.018);}g.computeVertexNormals();
+    var tex=lienzo(512,64,function(c,w,h){c.fillStyle='#F4ECDD';c.fillRect(0,0,w,h);for(var i=0;i<60;i++){c.strokeStyle='rgba(160,130,90,'+(Math.random()*.25)+')';c.beginPath();var x=Math.random()*w;c.moveTo(x,0);c.lineTo(x+Math.random()*20-10,h);c.stroke();}});
+    var me=new THREE.Mesh(g,new THREE.MeshStandardMaterial({map:tex,roughness:.95,side:THREE.DoubleSide,transparent:true,opacity:.88}));me.position.y=(AL+.1)/2;return me;})();
+  var sombra=new THREE.Mesh(new THREE.PlaneGeometry(5,5),new THREE.MeshBasicMaterial({map:lienzo(256,256,function(g,w,h){var gr=g.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);gr.addColorStop(0,'rgba(20,6,30,.55)');gr.addColorStop(.55,'rgba(20,6,30,.18)');gr.addColorStop(1,'rgba(20,6,30,0)');g.fillStyle=gr;g.fillRect(0,0,w,h);}),transparent:true,depthWrite:false}));
+  sombra.rotation.x=-Math.PI/2;sombra.position.y=-.001;
+  var tarta=new THREE.Group();scene.add(tarta);tarta.add(sombra);tarta.add(papel);
+  var piezas=[];
+  for(var i=0;i<N;i++)(function(i){
+    var t0=Math.PI/2-(i+1)*PASO,g=new THREE.Group();
+    var cuerpo=new THREE.Mesh(new THREE.CylinderGeometry(R,R*.985,AL,24,1,false,t0,PASO),[mLado,mTop,mBase]);cuerpo.position.y=AL/2;g.add(cuerpo);
+    [t0,t0+PASO].forEach(function(a){var pl=new THREE.Mesh(new THREE.PlaneGeometry(R,AL),mCorte);pl.position.set(Math.sin(a)*R/2,AL/2,Math.cos(a)*R/2);pl.rotation.y=a-Math.PI/2;g.add(pl);});
+    var cob=new THREE.Mesh(new THREE.CylinderGeometry(R*.9,R*.92,.05,24,1,false,t0+.03,PASO-.06),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.25}));cob.position.y=AL+.03;cob.visible=false;g.add(cob);
+    var top=new THREE.InstancedMesh(new THREE.SphereGeometry(.045,10,8),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.5}),20);top.visible=false;g.add(top);
+    var bis=t0+PASO/2;g.userData={i:i,dir:new THREE.Vector3(Math.sin(bis),0,Math.cos(bis)),cob:cob,top:top,t0:t0,sale:0,cae:0,sabor:null};
+    cuerpo.userData.pieza=g;tarta.add(g);piezas.push(g);
+  })(i);
+  var tmp=new THREE.Object3D();
+  function ponerSabor(g,s){var u=g.userData;if(u.sabor===s)return;var antes=u.sabor;u.sabor=s;
+    if(!s||s==='Tradicional')u.cob.visible=false;else{u.cob.visible=true;u.cob.material.color.set(COL[s]||'#ccc');u.cob.material.color.convertSRGBToLinear();}
+    var ex=s&&EXTRA[s];
+    if(ex){var n=ex[1];u.top.count=n;u.top.material.color.set(ex[0]);u.top.material.color.convertSRGBToLinear();
+      for(var k=0;k<n;k++){var a=u.t0+.08+Math.random()*(PASO-.16),r=.25+Math.random()*(R*.8-.25);tmp.position.set(Math.sin(a)*r,AL+.07,Math.cos(a)*r);var sc=(s==='Frutos rojos'||s==='Fresa')?1.6+Math.random()*.6:.6+Math.random()*.6;tmp.scale.set(sc,sc*.8,sc);tmp.updateMatrix();u.top.setMatrixAt(k,tmp.matrix);}
+      u.top.instanceMatrix.needsUpdate=true;u.top.visible=true;}else u.top.visible=false;
+    if(s&&!reduce)u.cae=1;}
+  /* Estado: se lee del SVG cada vez que cambia */
+  var sel=0;
+  function leer(){var vistos={};svg.querySelectorAll('.porcion').forEach(function(g){var m=/Porción (\d+): (.*)$/.exec(g.getAttribute('aria-label')||'');if(!m)return;var i=+m[1]-1;var s=m[2]==='sin elegir'?null:m[2];if(g.classList.contains('sel'))sel=i;if(!(i in vistos)){vistos[i]=s;}});
+    piezas.forEach(function(g,i){if(i in vistos)ponerSabor(g,vistos[i]);});}
+  new MutationObserver(leer).observe(svg,{childList:true,subtree:true,attributes:true,attributeFilter:['class','aria-label']});leer();
+  function elegir(i){var g=[].slice.call(svg.querySelectorAll('.porcion')).find(function(x){return (x.getAttribute('aria-label')||'').indexOf('Porción '+(i+1)+':')===0});if(g)g.dispatchEvent(new MouseEvent('click',{bubbles:true}));}
+  /* Girar arrastrando; tocar sin arrastrar elige porción */
+  var rotY=-.35,vel=0,arr=false,x0=0,y0=0,mov=0,ray=new THREE.Raycaster(),pt=new THREE.Vector2();
+  cv.addEventListener('pointerdown',function(e){arr=true;x0=e.clientX;y0=e.clientY;mov=0;vel=0;});
+  addEventListener('pointermove',function(e){if(!arr)return;var dx=e.clientX-x0;if(Math.abs(e.clientY-y0)>Math.abs(dx)*1.4&&mov<6)return;mov+=Math.abs(dx);rotY+=dx*.008;vel=dx*.008;x0=e.clientX;cont.querySelector('.pista').style.opacity=0;});
+  addEventListener('pointerup',function(e){if(!arr)return;arr=false;if(mov<6){var r=cv.getBoundingClientRect();pt.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height)*2+1);ray.setFromCamera(pt,cam);var hit=ray.intersectObjects(piezas.map(function(g){return g.children[0]}),false)[0];if(hit)elegir(hit.object.userData.pieza.userData.i);}});
+  function tam(){var w=cont.clientWidth,h=cont.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  addEventListener('resize',tam);tam();
+  var visible=true;if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)tam();}).observe(cont);
+  var antes=performance.now();
+  (function cuadro(ahora){requestAnimationFrame(cuadro);if(!visible)return;var dt=Math.min((ahora-antes)/1000,.05);antes=ahora;
+    if(!arr){rotY+=vel;vel*=.9;if(Math.abs(vel)<.0005)vel=0;}tarta.rotation.y=rotY;
+    piezas.forEach(function(g){var u=g.userData,o=u.i===sel?1:0;u.sale+=(o-u.sale)*(reduce?1:Math.min(dt*8,1));g.position.copy(u.dir).multiplyScalar(u.sale*.42);g.position.y=u.sale*.18;
+      if(u.cae>0){u.cae=Math.max(0,u.cae-dt*2.2);var c=u.cae;u.cob.position.y=AL+.03+c*c*.6;u.top.position.y=c*c*.8;}else{u.cob.position.y=AL+.03;u.top.position.y=0;}});
+    renderer.render(scene,cam);})(antes);
+})();
+</script>
+<!-- t3d:fin -->
 <!-- vivo:inicio -->
 <style>
 /* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
-.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.hecho>h3:after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:10px;vertical-align:middle;opacity:.6}
 .paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
 @keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 .vivo-cambio{animation:vivo-cambio .7s ease}
@@ -602,6 +686,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important}
 </style>
 <script>
 (function(){

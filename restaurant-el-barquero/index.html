@@ -250,7 +250,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   function horas(){var c=document.getElementById('mHoras');c.innerHTML='';if(!dia){c.appendChild(el('p','','Primero elija el día.'));return;}var H=HOR[dia.getDay()];for(var h=H[0];h<=H[1]-1.5;h+=.5){(function(h){var b=el('button','',h12(h));b.type='button';b.disabled=dia.toDateString()===hoy.toDateString()&&h<=hh;b.setAttribute('aria-pressed',hora===h?'true':'false');b.addEventListener('click',function(){hora=h;horas();pintar();});c.appendChild(b);})(h);}}
   horas();document.getElementById('mNombre').addEventListener('input',pintar);
   function pintar(){var nombre=document.getElementById('mNombre').value.trim();document.getElementById('pNom').textContent=nombre||'Pasajero';
-    var G=[['PERSONAS',pers||'—'],['FECHA',dia?DL[dia.getDay()]+' '+dia.getDate():'—'],['HORA',hora?h12(hora):'—'],['OCASIÓN',ocas&&ocas!=='Nada especial'?ocas:'—']];
+    var G=[['PERSONAS',pers||'por elegir'],['FECHA',dia?DL[dia.getDay()]+' '+dia.getDate():'por elegir'],['HORA',hora?h12(hora):'por elegir'],['OCASIÓN',ocas&&ocas!=='Nada especial'?ocas:'por elegir']];
     var g=document.getElementById('pGrid');g.innerHTML='';G.forEach(function(r){var x=el('div');x.appendChild(el('small','',r[0]));x.appendChild(el('b','',r[1]));g.appendChild(x);});
     document.getElementById('pNota').textContent=pers&&dia&&hora?'El restaurante confirma su mesa por WhatsApp.':'Elija personas, día y hora.';
     document.getElementById('pPedir').href=WA+encodeURIComponent('Hola, quiero reservar una mesa en El Barquero:\n• '+(pers?pers+(pers==='1'?' persona':' personas'):'personas por definir')+(dia?'\n• '+DL[dia.getDay()]+' '+dia.getDate()+(hora?' a las '+h12(hora):''):'')+(ocas&&ocas!=='Nada especial'?'\n• Ocasión: '+ocas:'')+(nombre?'\nA nombre de '+nombre+'.':''));}
@@ -391,7 +391,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 <!-- vivo:inicio -->
 <style>
 /* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
-.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.hecho>h3:after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:10px;vertical-align:middle;opacity:.6}
 .paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
 @keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 .vivo-cambio{animation:vivo-cambio .7s ease}
@@ -403,6 +403,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important} .nodo-franja,.flota{border-radius:2px!important}
 </style>
 <script>
 (function(){

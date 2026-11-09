@@ -56,7 +56,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .btn.verde{background:var(--verde);color:var(--crema);border-color:var(--verde)}
 .portada{position:relative;min-height:94vh;display:grid;grid-template-rows:auto 1fr auto;grid-template-columns:minmax(0,1fr);color:var(--crema);overflow:hidden;background:var(--verde2)}
 .portada>img{position:absolute;inset:0;z-index:0}
-.portada:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,30,22,.62) 0%,rgba(18,30,22,.58) 45%,rgba(31,81,55,.94) 100%)}
+.portada:after{content:"";position:absolute;inset:0;z-index:1;background:rgba(18,30,22,.66)}
 .portada>*:not(img){position:relative;z-index:2}
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;gap:12px}
 .top small{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
@@ -274,16 +274,17 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .t-bs{display:block;font-size:.8rem;color:var(--gris);font-weight:400;margin-top:2px}
 .falta{font-size:.86rem;color:#9A3B1E;margin-top:10px;min-height:1px}
 .falta:empty{display:none}
-.bandeja{background:linear-gradient(135deg,#F3F5F6 0%,#C5CBCE 38%,#E6E9EB 55%,#A9B0B4 100%);box-shadow:inset 0 0 0 5px #EEF0F1,inset 0 0 0 8px #9EA6AA,inset 0 2px 14px rgba(255,255,255,.7),0 22px 34px -12px rgba(0,0,0,.45)}
+.bandeja{background:#CDD2D5;box-shadow:inset 0 0 0 5px #E6E9EB,inset 0 0 0 8px #9EA6AA}
 .bandeja:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 42%,transparent 54%)}
 .papelito{rotate:-1.2deg;box-shadow:0 1px 3px rgba(0,0,0,.18);background:linear-gradient(90deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),linear-gradient(0deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),var(--papel)}
 .zona-pinchos svg,.zona-extra svg{overflow:visible}
 .vapor{position:absolute;left:20%;right:20%;top:6%;height:40%;z-index:4;pointer-events:none;display:flex;justify-content:space-around}
-.vapor i{width:14px;height:60%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.75),transparent 70%);filter:blur(3px);opacity:0}
+.vapor i{width:14px;height:60%;border-radius:50%;background:none;border-left:2px solid rgba(255,255,255,.55);border-radius:0;opacity:0}
 .bandeja.caliente .vapor i{animation:vapor 2.4s ease-out}
 .bandeja.caliente .vapor i:nth-child(2){animation-delay:.35s}.bandeja.caliente .vapor i:nth-child(3){animation-delay:.7s}
 @keyframes vapor{0%{opacity:0;translate:0 30px;scale:.6 1}30%{opacity:.9}100%{opacity:0;translate:6px -40px;scale:1.4 1.2}}
 @media(prefers-reduced-motion:reduce){.bandeja.caliente .vapor i{animation:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important} .nodo-franja,.flota{border-radius:2px!important}
 </style>
 </head>
 <body>
@@ -392,8 +393,8 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
         <div class="proteina" role="group" aria-label="Entrega" id="entrega"></div>
         <div class="campos-b">
           <label>Tu nombre <small>opcional</small><input id="bNombre" autocomplete="given-name" placeholder="Para la comanda"></label>
-          <label id="bZonaL" hidden>Zona o urbanización<input id="bZona" placeholder="Ej.: Los Palos Grandes"></label>
-          <label class="ancho">Algo más <small>opcional</small><input id="bNota" placeholder="Ej.: las papas bien crujientes"></label>
+          <label id="bZonaL" hidden>Zona o urbanización<input id="bZona" autocomplete="address-level3" placeholder="Ej.: Los Palos Grandes"></label>
+          <label class="ancho">Algo más <small>opcional</small><input id="bNota" autocomplete="off" placeholder="Ej.: las papas bien crujientes"></label>
         </div></div>
       <p class="aparte">Las burgers, alitas y demás platos de la carta no van en la bandeja: se piden aparte. Escríbelos en "Algo más". También están en Yummy y PedidosYa.</p>
       <div class="ticket comanda-b">
@@ -406,7 +407,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       </div>
     </div>
     <div class="ar-b">
-      <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="foto-combo" id="fotoCombo" hidden><img src="f/c-bandeja-compin.webp" alt=""></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div><span class="peso" id="pesoB"></span><div class="vapor" aria-hidden="true"><i></i><i></i><i></i></div></div>
+      <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="foto-combo" id="fotoCombo" hidden><img src="f/c-bandeja-compin.webp" alt="" width="560" height="493"></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div><span class="peso" id="pesoB"></span><div class="vapor" aria-hidden="true"><i></i><i></i><i></i></div></div>
       <p class="pie-bandeja" id="pieBandeja">x5 pinchos · 1 persona</p>
     </div>
   </div>

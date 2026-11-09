@@ -276,7 +276,7 @@ dl div>dt{margin-top:0;align-self:baseline}
     var L=s.lados||LADOS[1];document.getElementById('fadeStop').setAttribute('offset',L[1]==='0'?'0':L[1]);document.getElementById('fadeTop').setAttribute('offset',L[2]==='0'?'0':L[2]);
     document.getElementById('arriba').setAttribute('d',(s.arriba||ARRIBA[1])[1]);document.getElementById('barba').setAttribute('opacity',s.barba?s.barba[1]:0);
     var nombre=document.getElementById('fNombre').value.trim();
-    var R=[['Lados',s.lados?s.lados[0]:'—'],['Arriba',s.arriba?s.arriba[0]:'—'],['Barba',s.barba?s.barba[0]:'—'],['Turno',dia?DL[dia.getDay()]+' '+dia.getDate()+(hora?', '+h12(hora):''):'—']];if(kid)R.splice(2,1);if(quien)R.unshift(['Para',kid?'Un niño':'Mí']);if(nombre)R.push(['Nombre',nombre]);
+    var R=[['Lados',s.lados?s.lados[0]:'por elegir'],['Arriba',s.arriba?s.arriba[0]:'por elegir'],['Barba',s.barba?s.barba[0]:'por elegir'],['Turno',dia?DL[dia.getDay()]+' '+dia.getDate()+(hora?', '+h12(hora):''):'por elegir']];if(kid)R.splice(2,1);if(quien)R.unshift(['Para',kid?'Un niño':'Mí']);if(nombre)R.push(['Nombre',nombre]);
     var dl=document.getElementById('fRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
     var falta=!s.lados||!s.arriba||(!s.barba&&!kid)?(kid?'Elige lados y arriba.':'Elige lados, arriba y barba.'):(!dia||!hora?'Ahora elige día y hora.':'Tu barbero recibe la ficha con el turno.');document.getElementById('fPie').textContent=falta;
     var t='Hola, quiero un turno en Bravos'+(quien==='nino'?' para un niño':'')+(quien==='nino'?'. Su ficha:\n':'. Mi ficha:\n')+'• Lados: '+(s.lados?s.lados[0]:'por definir')+'\n• Arriba: '+(s.arriba?s.arriba[0]:'por definir')+(kid?'':'\n• Barba: '+(s.barba?s.barba[0]:'por definir'))+(dia?'\nTurno: '+DL[dia.getDay()]+' '+dia.getDate()+(hora?' a las '+h12(hora):''):'')+(nombre?'\nA nombre de '+nombre+'.':'');
@@ -419,7 +419,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 <!-- vivo:inicio -->
 <style>
 /* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
-.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.hecho>h3:after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:10px;vertical-align:middle;opacity:.6}
 .paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
 @keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 .vivo-cambio{animation:vivo-cambio .7s ease}
@@ -431,6 +431,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important} .nodo-franja,.flota{border-radius:2px!important}
 </style>
 <script>
 (function(){

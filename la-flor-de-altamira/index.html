@@ -176,7 +176,7 @@ dl div>dt{margin-top:0;align-self:baseline}
       <p class="lead" style="margin-bottom:0">Elige qué y cuánto, y a qué hora pasas. La panadería te confirma el pedido y el total por WhatsApp.</p>
       <div class="paso"><h3>¿Qué te llevas?</h3><div class="prods" id="prods"></div></div>
       <div class="paso"><h3>¿A qué hora pasas?</h3><div class="horas" id="horas"></div></div>
-      <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="pNombre" autocomplete="given-name"></label><label class="campo">Algo más <small style="font-weight:400">(opcional)</small><input id="pNota" placeholder="Ej.: una torta pequeña de chocolate"></label></div>
+      <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="pNombre" autocomplete="given-name"></label><label class="campo">Algo más <small style="font-weight:400">(opcional)</small><input id="pNota" autocomplete="off" placeholder="Ej.: una torta pequeña de chocolate"></label></div>
     </div>
     <div class="bolsa-box">
       <div class="bolsa" id="bolsa" aria-live="polite">
@@ -392,7 +392,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 <!-- vivo:inicio -->
 <style>
 /* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
-.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.hecho>h3:after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:10px;vertical-align:middle;opacity:.6}
 .paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
 @keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 .vivo-cambio{animation:vivo-cambio .7s ease}
@@ -404,6 +404,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important} .nodo-franja,.flota{border-radius:2px!important}
 </style>
 <script>
 (function(){

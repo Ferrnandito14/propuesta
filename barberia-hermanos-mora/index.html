@@ -256,7 +256,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   document.getElementById('tNombre').addEventListener('input',pintar);
   function pintar(){
     var nombre=document.getElementById('tNombre').value.trim(),listo=serv&&dia&&hora;
-    document.getElementById('tNum').textContent=listo?String(10+Math.round((hora-9)*2)).padStart(2,'0'):'—';
+    document.getElementById('tNum').textContent=listo?String(10+Math.round((hora-9)*2)).padStart(2,'0'):'··';
     var R=[['Servicio',serv||'Por elegir'],['Día',dia?DL[dia.getDay()]+' '+dia.getDate():'Por elegir'],['Hora',hora?h12(hora):'Por elegir']];if(nombre)R.push(['Nombre',nombre]);
     var dl=document.getElementById('tRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
     document.getElementById('tPie').textContent=listo?'La barbería te confirma si la hora está libre.':'Elige servicio, día y hora.';
@@ -399,7 +399,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 <!-- vivo:inicio -->
 <style>
 /* Capa de vida común: pasos guiados, resumen que destella, fotos que se revelan y botones que responden */
-.paso.hecho>h3:after{content:"✓";margin-left:10px;opacity:.75;font-weight:400}
+.paso.hecho>h3:after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:10px;vertical-align:middle;opacity:.6}
 .paso.ahora>h3:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:10px;vertical-align:2px;animation:vivo-latido 1.4s ease-in-out infinite}
 @keyframes vivo-latido{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 .vivo-cambio{animation:vivo-cambio .7s ease}
@@ -411,6 +411,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+/* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important}
 </style>
 <script>
 (function(){
