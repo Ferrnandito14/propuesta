@@ -4,10 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>La Flor de Altamira | Panadería y pastelería en Altamira, Caracas</title>
+<!-- compartir:inicio -->
+<meta property="og:url" content="https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/">
+<meta property="og:image" content="https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/f/og.jpg">
+<meta property="og:image:secure_url" content="https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/f/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La Flor de Altamira">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Bakery", "name": "La Flor de Altamira", "description": "Panadería y pastelería en Altamira: cachitos, tortas, dulces y pizza.", "address": {"@type": "PostalAddress", "streetAddress": "Av. Transversal 6, Altamira", "addressLocality": "Caracas", "addressRegion": "Miranda", "addressCountry": "VE"}, "geo": {"@type": "GeoCoordinates", "latitude": 10.5047804, "longitude": -66.8495686}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "06:00", "closes": "20:00"}], "url": "https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/", "image": "https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/f/og.jpg", "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.5, "reviewCount": 4452}}</script>
+<!-- compartir:fin -->
+<title>La Flor de Altamira | Panadería y pastelería en Altamira</title>
 <meta name="description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Haz tu pedido en línea y pásalo a buscar.">
 <!-- cabecera:inicio -->
-<meta property="og:title" content="La Flor de Altamira | Panadería y pastelería en Altamira, Caracas">
+<meta property="og:title" content="La Flor de Altamira | Panadería y pastelería en Altamira">
 <meta property="og:description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Haz tu pedido en línea y pásalo a buscar.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_VE">
@@ -16,311 +27,234 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+Referencias (proceso-diseno.md y skill refero-design, segunda versión del 2026-11-09):
+Candado. Principal: Tartine Bakery: fotos grandes de vitrina, serifa cálida, papel kraft y etiquetas escritas a mano.
+Prestado: bolsa que se llena al agregar productos (tiendas de comida para llevar) y etiquetas de precio de vitrina.
+De la marca (ficha de Google): azul y dorado del local, vitrinas llenas de tortas y dulces, etiquetas "Cornetto de chocolate" y "Cornetto crema de Nutella", cachitos de jamón con malta, pizza, fachada con el Ávila detrás; 4,5 con más de 4.400 opiniones; todos los días de 6 a. m. a 8 p. m.
+Orden pensado para una panadería: qué hay en la vitrina, armar el pedido, encargos, dónde.
+Momento memorable: la bolsa de papel se llena con lo que eliges y el pedido sale listo para retirar.
+Sin precios: el pedido no muestra montos porque la carta con precios no es pública. Fotos: de su ficha de Google.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
-:root{--azul:#1C48A0;--azul2:#123477;--oro:#D9A92B;--blanco:#FFFFFF;--nata:#FBF8F1;--tinta:#1A2238;--suave:#525A6C;--fresa:#C8323B}
+:root{--azul:#13234A;--azul2:#1C48A0;--oro:#D9A92B;--kraft:#C9A27A;--harina:#FBF7EF;--tinta:#1E1A14;--gris:#6A6157;--borde:#E7DDCB}
 *{box-sizing:border-box;margin:0}
-html,body{overflow-x:hidden}
-body{font-family:Inter,system-ui,sans-serif;background:var(--nata);color:var(--tinta);line-height:1.6;font-size:17px}
+html,body{overflow-x:clip}
+body{font-family:'Work Sans',system-ui,sans-serif;background:var(--harina);color:var(--tinta);line-height:1.6;font-size:17px}
 a{color:inherit}
-a:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
-.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-header{background:var(--azul);color:#fff}
-.moldura{height:10px;background:linear-gradient(var(--oro),var(--oro)) 0 3px/100% 3px no-repeat,var(--azul2)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-family:Fraunces,serif;font-style:italic;font-weight:700;font-size:1.45rem;text-decoration:none}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:12px;background:var(--oro);color:var(--azul2);font-weight:800;text-decoration:none}
-.btn.mini{min-height:44px;padding:0 18px;font-size:.95rem;background:#fff;color:var(--azul)}
-.btn.azul{background:var(--azul);color:#fff}
-.hero{padding:50px 0 74px;display:grid;gap:30px}
-@media(min-width:840px){.hero{grid-template-columns:1.3fr .7fr;align-items:end}}
-.hero h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(2.6rem,9vw,5rem);line-height:1;letter-spacing:-.015em}
-.hero h1 em{font-weight:700;color:var(--oro)}
-.hero p{margin-top:18px;max-width:38ch;font-size:1.13rem;color:#DCE4F5}
-.acciones{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
-.dato{color:#DCE4F5;font-size:.98rem}
-.dato b{color:#fff}
-.sello{background:#fff;color:var(--azul2);border-radius:18px;padding:22px;box-shadow:0 0 0 4px var(--oro)}
-.sello b{display:block;font-family:Fraunces,serif;font-size:3rem;line-height:1;color:var(--azul)}
-.sello span{font-size:.95rem;color:var(--suave)}
-section{padding:64px 0}
-h2{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.08;margin-bottom:12px;color:var(--azul2)}
-.lead{color:var(--suave);max-width:52ch;margin-bottom:30px}
-.grid{display:grid;gap:14px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:960px){.grid.tres{grid-template-columns:repeat(3,1fr)}}
-.card{background:#fff;border:1px solid #E3E8F2;border-top:5px solid var(--azul);border-radius:14px;padding:22px}
-.card h3{font-family:Fraunces,serif;font-size:1.35rem;color:var(--azul2)}
-.card p{color:var(--suave);font-size:.96rem}
-.menc{display:inline-block;margin-top:10px;background:#FFF3D6;color:#7A5300;font-weight:700;font-size:.82rem;padding:4px 12px;border-radius:999px}
-.vitrina{background:var(--azul2);color:#fff}
-.vitrina h2{color:#fff}
-.vitrina .lead{color:#DCE4F5}
-.repisas{display:grid;gap:10px}
-.repisa{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-bottom:10px;border-bottom:4px solid var(--oro)}
-.torta{aspect-ratio:1;border-radius:12px;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.5);display:grid;place-items:center;text-align:center;color:#DCE4F5;font-size:.82rem;padding:6px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.serif{font-family:'Fraunces',serif;font-weight:900;line-height:.95;letter-spacing:-.02em}
+.mano{font-family:'Caveat',cursive;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--oro);color:var(--azul);font-weight:700;font-size:.98rem;text-decoration:none;border:2px solid var(--oro);cursor:pointer;font-family:inherit}
+.btn.linea{background:transparent;color:inherit;border-color:currentColor}
+.btn.azul{background:var(--azul);color:#fff;border-color:var(--azul)}
+.etq{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--azul2)}
+.portada{position:relative;min-height:92vh;display:grid;grid-template-rows:auto 1fr;color:#fff;background:var(--azul);overflow:hidden}
+.portada>img{position:absolute;inset:0}
+.portada:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,35,74,.55),rgba(19,35,74,.15) 40%,rgba(19,35,74,.93))}
+.portada>*:not(img){position:relative;z-index:1}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.marca{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;text-decoration:none;color:#fff}
+.marca span{color:var(--oro)}
+.top .btn{min-height:42px;padding:0 16px;font-size:.9rem}
+.p-texto{align-self:end;max-width:1140px;width:100%;margin:0 auto;padding:0 20px 52px}
+.p-texto h1{font-size:clamp(3rem,11vw,6.6rem)}
+.p-texto h1 span{color:var(--oro)}
+.p-texto p{max-width:42ch;margin-top:16px;font-size:1.1rem;color:#E3E8F4}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.estado{margin-top:18px;font-size:.92rem;color:#E3E8F4}
+.estado i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#7BD88F;margin-right:7px}
+.estado.cerrado i{background:var(--oro)}
+section{padding:84px 0}
+h2{font-size:clamp(2.4rem,7vw,4.2rem);margin:10px 0 14px}
+.lead{color:var(--gris);max-width:54ch;margin-bottom:30px}
+/* Vitrina */
+.vitrina{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:860px){.vitrina{grid-template-columns:repeat(4,1fr)}}
+.v-item{position:relative;border-radius:18px;overflow:hidden;background:#fff;aspect-ratio:3/4}
+.v-item.ancho{grid-column:span 2;aspect-ratio:auto;min-height:260px}
+.v-item .tag{position:absolute;left:12px;top:12px;background:#fff;color:var(--azul);padding:4px 12px 6px;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);rotate:-3deg;font-size:1.35rem;line-height:1.1}
+.v-item .tag small{display:block;font-family:'Work Sans',sans-serif;font-size:.7rem;font-weight:600;color:var(--gris)}
+/* Pedido */
+.ped-sec{background:var(--azul);color:#fff}
+.ped-sec .lead{color:#C9D3EA}
+.pedido{display:grid;gap:34px;align-items:start}
+@media(min-width:960px){.pedido{grid-template-columns:1fr 380px}}
+.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:620px){.prods{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.prod{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.prod .f{aspect-ratio:4/3;background:#0d1a3a}
+.prod .t{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prod b{font-weight:700;line-height:1.2}
+.prod small{color:#C9D3EA;font-size:.8rem}
+.cant{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.cant button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:var(--oro);color:var(--azul);display:grid;place-items:center;font-weight:800;font-size:1.1rem}
+.cant button:disabled{opacity:.3;cursor:not-allowed}
+.cant button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.cant output{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem}
+.prod.on{border-color:var(--oro)}
+.paso{margin-top:22px}
+.paso h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem}
+.horas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.horas button{all:unset;cursor:pointer;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.9rem}
+.horas button[aria-pressed="true"]{background:var(--oro);color:var(--azul);border-color:var(--oro)}
+.horas button:disabled{opacity:.3;cursor:not-allowed}
+label.campo{display:block;margin-top:10px;font-weight:600}
+label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border:1.5px solid rgba(255,255,255,.35);border-radius:12px;background:rgba(0,0,0,.15);color:#fff;padding:10px 14px;font:inherit}
+.bolsa-box{position:sticky;top:20px}
+.bolsa{position:relative;background:linear-gradient(180deg,#D6B48C,#C29A6E);border-radius:6px 6px 14px 14px;padding:46px 22px 24px;color:var(--tinta);box-shadow:0 20px 34px -16px rgba(0,0,0,.6)}
+.bolsa:before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:repeating-linear-gradient(90deg,#B98F63 0 10px,#C9A27A 10px 20px);border-radius:6px 6px 0 0;clip-path:polygon(0 0,100% 0,100% 60%,95% 100%,90% 60%,85% 100%,80% 60%,75% 100%,70% 60%,65% 100%,60% 60%,55% 100%,50% 60%,45% 100%,40% 60%,35% 100%,30% 60%,25% 100%,20% 60%,15% 100%,10% 60%,5% 100%,0 60%)}
+.bolsa .sello{font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--azul);text-align:center;line-height:1}
+.bolsa .sello small{display:block;font-family:'Work Sans',sans-serif;font-size:.68rem;letter-spacing:.24em;font-weight:700;color:#7A5530;margin-top:4px}
+.bolsa ul{list-style:none;padding:0;margin:18px 0 0;min-height:60px}
+.bolsa li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed rgba(90,60,30,.35);font-size:1.3rem;line-height:1.1;animation:entra .35s cubic-bezier(.34,1.5,.64,1) both}
+.bolsa li.vacio{font-family:'Work Sans',sans-serif;font-size:.95rem;color:#6B4A2A;border:0;animation:none}
+@keyframes entra{from{opacity:0;translate:0 -10px}}
+@media(prefers-reduced-motion:reduce){.bolsa li{animation:none}}
+.bolsa dl{margin-top:12px;font-size:.92rem}
+.bolsa dl div{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+.bolsa dt{color:#6B4A2A}
+.bolsa dd{font-weight:700}
+.bolsa .btn{width:100%;margin-top:16px}
+.bolsa .pie{font-size:.8rem;color:#6B4A2A;margin-top:8px;text-align:center}
+.bolsa.salta{animation:salta .3s ease}
+@keyframes salta{40%{scale:1.02 .98}}
+/* Encargos */
+.encargo{display:grid;gap:26px;align-items:center}
+@media(min-width:860px){.encargo{grid-template-columns:1fr 1fr}}
+.encargo .f{border-radius:22px;overflow:hidden;aspect-ratio:4/3}
 .cols{display:grid;gap:30px}
-@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+@media(min-width:820px){.cols{grid-template-columns:1fr 1fr}}
 dt{font-weight:700;margin-top:14px}
-dd{color:var(--suave)}
-footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
-.demo{margin-top:10px;border-left:4px solid var(--oro);padding-left:12px}
+dd{color:var(--gris)}
+.horario-dato{font-family:'Fraunces',serif;font-weight:900;font-size:2.4rem;color:var(--azul);line-height:1}
+.mapa{margin-top:36px;border-radius:22px;overflow:hidden;height:320px}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}
+.mapa iframe{display:block;width:100%;height:100%;border:0}
+footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;min-height:50px;padding:0 22px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.flota.ver{opacity:1;translate:0 0;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.flota{transition:none}}
+.flota{background:#D9A92B;color:#13234A;border-radius:999px;font-weight:700;font-size:.92rem}
+dl div>dt{margin-top:0;align-self:baseline}
+.p-texto h1{margin-top:14px}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav class="nav" aria-label="Principal">
-      <a class="logo" href="#inicio">La Flor de Altamira</a>
-      <a class="btn mini" href="#reserva-web">Hacer pedido</a>
-    </nav>
-    <div class="hero" id="inicio">
-      <div>
-        <h1>Cachitos, tortas y <em>pizza</em> en Altamira.</h1>
-        <p>La panadería y pastelería de la Transversal 6: vitrinas llenas de dulces, charcutería y una terraza para quedarse.</p>
-        <div class="acciones">
-          <a class="btn" href="#reserva-web" data-reserva>Pedir en línea</a>
-        <a class="btn" id="pedido" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20hacer%20un%20pedido">Pedir por WhatsApp</a>
-          <span class="dato"><b>Abierto</b> hasta las 8 p. m.</span>
-        </div>
-      </div>
-      <aside class="sello"><b>4,5</b><span>en Google, con más de 4.400 opiniones</span></aside>
-    </div>
+<header class="portada" id="inicio">
+  <img src="f/vitrina-tortas.webp" alt="Vitrinas de La Flor de Altamira llenas de tortas y dulces" width="1100" height="825">
+  <div class="top"><a class="marca" href="#inicio">La Flor <span>de Altamira</span></a><a class="btn" href="#pedido">Hacer pedido</a></div>
+  <div class="p-texto">
+    <p class="etq" style="color:var(--oro)">Panadería y pastelería · Altamira</p>
+    <h1 class="serif">Cachitos, tortas <span>y pizza.</span></h1>
+    <p>La panadería de la Transversal 6, abierta todos los días desde las 6 de la mañana. Arma tu pedido y pásalo a buscar.</p>
+    <div class="acciones"><a class="btn" href="#pedido">Armar mi pedido</a><a class="btn linea" href="#vitrina">Ver la vitrina</a></div>
+    <p class="estado" id="estado"><i aria-hidden="true"></i><span>4,5 en Google · más de 4.400 opiniones</span></p>
   </div>
-  <div class="moldura" aria-hidden="true"></div>
 </header>
-
 <main>
-<section aria-labelledby="piden">
+<section id="vitrina" aria-labelledby="vit-t">
   <div class="wrap">
-    <h2 id="piden">Lo que más piden</h2>
-    <p class="lead">Según las opiniones de Google. El negocio completa la lista con su menú real y sus precios.</p>
-    <div class="grid tres">
-      <div class="card"><h3>Cachitos</h3><p>El favorito de la casa.</p><span class="menc">267 opiniones lo mencionan</span></div>
-      <div class="card"><h3>Pizzas</h3><p>Una de las más nombradas.</p><span class="menc">135 opiniones</span></div>
-      <div class="card"><h3>Pan de jamón</h3><p>Clásico venezolano.</p><span class="menc">26 opiniones</span></div>
-      <div class="card"><h3>Charcutería</h3><p>Mortadela, pavo y carpaccio.</p><span class="menc">mencionada en las opiniones</span></div>
-      <div class="card"><h3>Jugos</h3><p>Para el desayuno o la merienda.</p><span class="menc">30 opiniones</span></div>
-      <div class="card"><h3>Terraza</h3><p>Para comer en el sitio.</p><span class="menc">24 opiniones</span></div>
+    <p class="etq">La vitrina</p>
+    <h2 id="vit-t" class="serif">Lo que más piden.</h2>
+    <p class="lead">Según más de 4.400 opiniones en Google. La panadería completa la lista con su carta y sus precios.</p>
+    <div class="vitrina">
+      <figure class="v-item ancho"><img src="f/cachito-malta.webp" alt="Cachitos de jamón con una malta" loading="lazy" width="825" height="1100" style="object-position:50% 60%"><figcaption class="tag mano">Cachitos<small>el favorito de la casa</small></figcaption></figure>
+      <figure class="v-item"><img src="f/tortas.webp" alt="Tortas enteras en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Tortas</figcaption></figure>
+      <figure class="v-item"><img src="f/cornetos.webp" alt="Cornetos de chocolate y de Nutella en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Cornettos<small>chocolate y Nutella</small></figcaption></figure>
+      <figure class="v-item"><img src="f/pizza.webp" alt="Pizza con jamón, maíz y queso" loading="lazy" width="825" height="1100"><figcaption class="tag mano">Pizza</figcaption></figure>
+      <figure class="v-item"><img src="f/vitrina-dulces.webp" alt="Dulces y pasteles pequeños en bandejas" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Dulces</figcaption></figure>
+      <figure class="v-item ancho"><img src="f/tortas-2.webp" alt="Tortas decoradas con frutas y chocolate" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Para celebrar<small>encargos por confirmar</small></figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="vitrina" aria-labelledby="vit">
-  <div class="wrap">
-    <h2 id="vit">La vitrina</h2>
-    <p class="lead">Tortas, dulces y pasteles en repisas. Aquí van las fotos propias de cada producto. Encargos de tortas: por confirmar con el negocio.</p>
-    <div class="repisas">
-      <div class="repisa"><div class="torta">Foto de torta</div><div class="torta">Foto de torta</div><div class="torta">Foto de torta</div></div>
-      <div class="repisa"><div class="torta">Foto de dulces</div><div class="torta">Foto de cachitos</div><div class="torta">Foto de pizza</div></div>
+<section class="ped-sec" id="pedido" aria-labelledby="ped-t">
+  <div class="wrap pedido">
+    <div>
+      <p class="etq" style="color:var(--oro)">Para retirar</p>
+      <h2 id="ped-t" class="serif">Llena tu bolsa.</h2>
+      <p class="lead" style="margin-bottom:0">Elige qué y cuánto, y a qué hora pasas. La panadería te confirma el pedido y el total por WhatsApp.</p>
+      <div class="paso"><h3>¿Qué te llevas?</h3><div class="prods" id="prods"></div></div>
+      <div class="paso"><h3>¿A qué hora pasas?</h3><div class="horas" id="horas"></div></div>
+      <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="pNombre" autocomplete="given-name"></label><label class="campo">Algo más <small style="font-weight:400">(opcional)</small><input id="pNota" placeholder="Ej.: una torta pequeña de chocolate"></label></div>
+    </div>
+    <div class="bolsa-box">
+      <div class="bolsa" id="bolsa" aria-live="polite">
+        <p class="sello">La Flor<small>DE ALTAMIRA</small></p>
+        <ul class="mano" id="lista"></ul>
+        <dl id="pRes"></dl>
+        <a class="btn azul" id="pPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a>
+        <p class="pie">El total y la disponibilidad los confirma la panadería.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- reserva-web:inicio -->
-<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Haz tu pedido para retirar</h2><p class="lead">Elige lo que quieres y a qué hora pasas. Lo tenemos listo.</p><div id="reserva-web"></div></div></section>
-<script>window.RESERVA = {"palabra": "pedido", "textoConfirmar": "Confirmar pedido", "textoListo": "Pedido listo", "tema": {"fondo": "#FFFFFF", "texto": "#1A2238", "suave": "#525A6C", "acento": "#1C48A0", "sobreAcento": "#FFFFFF", "borde": "#E3E8F2"}, "pasos": [{"id": "productos", "tipo": "cantidades", "titulo": "¿Qué vas a llevar?", "corto": "Pedido", "opciones": [{"txt": "Cachitos", "sub": "precio por confirmar"}, {"txt": "Pan de jamón", "sub": "precio por confirmar"}, {"txt": "Pizza", "sub": "precio por confirmar"}, {"txt": "Charcutería", "sub": "precio por confirmar"}, {"txt": "Jugos", "sub": "precio por confirmar"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día lo retiras?", "corto": "Día", "dias": 3}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora pasas?", "corto": "Hora de retiro", "desde": 8, "hasta": 20, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
-<script>/* Reserva o pedido por pasos, sin backend.
-   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
-   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
-   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
-(function () {
-  var C = window.RESERVA;
-  var raiz = document.getElementById('reserva-web');
-  if (!C || !raiz) return;
-  var t = C.tema || {};
-  var estado = {};
-  var paso = 0;
+<section aria-labelledby="enc-t">
+  <div class="wrap encargo">
+    <div class="f"><img src="f/tortas-2.webp" alt="Tortas decoradas en la vitrina" loading="lazy" width="1100" height="825"></div>
+    <div>
+      <p class="etq">Encargos</p>
+      <h2 id="enc-t" class="serif">¿Una torta para el cumpleaños?</h2>
+      <p class="lead">Cuéntales el sabor, el tamaño y para cuándo. Si aceptan encargos y con cuánta anticipación, lo confirman por WhatsApp.</p>
+      <a class="btn azul" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20preguntar%20por%20el%20encargo%20de%20una%20torta">Preguntar por un encargo</a>
+    </div>
+  </div>
+</section>
 
-  var css = '' +
-    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
-    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
-    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
-    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
-    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
-    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
-    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
-    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
-    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
-    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
-    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
-    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
-    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
-    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
-    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
-  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
-  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  function proximosDias(n, cerrados) {
-    var out = [], d = new Date();
-    while (out.length < n) {
-      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
-      d.setDate(d.getDate() + 1);
-    }
-    return out;
-  }
-  function horas(desde, hasta, cada) {
-    var out = [];
-    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
-      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
-      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
-    }
-    return out;
-  }
-  function el(tag, attrs, hijos) {
-    var e = document.createElement(tag);
-    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
-    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
-    return e;
-  }
-  function completo(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
-    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
-    if (p.opcional) return true;
-    return !!v;
-  }
-  function textoDe(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
-    if (p.tipo === 'datos') return v ? v.nombre : '';
-    if (!v) return 'Sin indicar';
-    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
-  }
-  function opcionesDe(p) {
-    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
-    if (p.tipo === 'hora') {
-      var lista = horas(p.desde, p.hasta, p.cada || 30);
-      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
-      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
-      var hoy = local(new Date());
-      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
-        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
-        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
-      }
-      return lista;
-    }
-    return p.opciones;
-  }
-
-  function pintar() {
-    raiz.innerHTML = '';
-    var pasos = C.pasos, total = pasos.length + 1;
-    var caja = el('div', {class: 'r-caja'});
-    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
-    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
-    caja.appendChild(barra);
-
-    if (paso === 'listo') {
-      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
-      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
-      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
-      raiz.appendChild(caja); return;
-    }
-
-    if (paso === pasos.length) {
-      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
-      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
-      var res = el('div', {class: 'r-res'});
-      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
-      caja.appendChild(res);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [
-        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
-        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
-      ]));
-      raiz.appendChild(caja); return;
-    }
-
-    var p = pasos[paso];
-    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
-    caja.appendChild(el('h3', {text: p.titulo}));
-
-    if (p.tipo === 'cantidades') {
-      estado[p.id] = estado[p.id] || {};
-      var lista = el('div', {class: 'r-ops'});
-      p.opciones.forEach(function (o) {
-        var n = estado[p.id][o.txt] || 0;
-        var num = el('b', {text: String(n), 'aria-live': 'polite'});
-        lista.appendChild(el('div', {class: 'r-cant'}, [
-          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
-          el('div', {class: 'r-num'}, [
-            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
-            num,
-            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
-          ])
-        ]));
-      });
-      caja.appendChild(lista);
-    } else if (p.tipo === 'datos') {
-      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
-      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
-      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
-      var error = el('div', {class: 'r-error', role: 'alert'});
-      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
-      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
-      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
-      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
-      caja.appendChild(error);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
-    } else {
-      var ops = opcionesDe(p);
-      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
-      ops.forEach(function (o) {
-        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
-        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
-      });
-      caja.appendChild(grid);
-      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
-      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
-    }
-
-    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
-    sig.disabled = !completo(p);
-    caja.appendChild(el('div', {class: 'r-nav'}, [
-      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
-      sig
-    ]));
-    raiz.appendChild(caja);
-  }
-  pintar();
-})();
-</script>
-<!-- reserva-web:fin -->
-<section aria-labelledby="donde">
+<section style="padding-top:0" aria-labelledby="donde">
   <div class="wrap cols">
     <div>
-      <h2 id="donde">Dónde estamos</h2>
-      <dl>
-        <dt>Dirección</dt><dd>Av. Transversal 6, Altamira, Caracas</dd>
-        <dt>Horario</dt><dd>Hasta las 8 p. m. Días por confirmar.</dd>
-        <dt>Pedidos</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
-      </dl>
-      <div class="acciones"><a class="btn azul" href="https://www.google.com/maps/search/?api=1&amp;query=La+Flor+de+Altamira+Caracas">Cómo llegar</a></div>
+      <p class="etq">Dónde</p>
+      <h2 id="donde" class="serif">Transversal 6, Altamira.</h2>
+      <dl><dt>Dirección</dt><dd>Av. Transversal 6, Altamira, Caracas</dd><dt>Para quedarse</dt><dd>Terraza para comer en el sitio, según las opiniones.</dd></dl>
+      <div class="acciones"><a class="btn azul" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.5047804%2C-66.8495686&amp;destination_place_id=ChIJba3r3qVZKowRRFAU-p4C6sw">Cómo llegar</a></div>
     </div>
-    <div>
-      <h2 style="font-size:1.6rem">Antes de salir</h2>
-      <p class="lead">Escribe lo que quieres y te confirmamos tu pedido.</p>
-      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20hacer%20un%20pedido">Pedir por WhatsApp</a>
-    </div>
+    <div><p class="etq">Horario</p><p class="horario-dato" style="margin-top:10px">Todos los días<br>6 a. m. a 8 p. m.</p><div style="margin-top:20px;border-radius:22px;overflow:hidden;aspect-ratio:16/9"><img src="f/fachada.webp" alt="Fachada de la panadería con el Ávila al fondo" loading="lazy" width="1100" height="825"></div></div>
   </div>
+  <div class="wrap"><div class="mapa"><iframe title="Mapa de La Flor de Altamira" src="https://maps.google.com/maps?q=La%20Flor%20de%20Altamira&amp;ll=10.5047804,-66.8495686&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </section>
 </main>
-
-<footer style="padding-bottom:70px">
-  <div class="wrap">La Flor de Altamira · Altamira, Caracas
-    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información pública. No es el sitio oficial del negocio.</p>
-  </div>
-</footer>
+<footer><div class="wrap">La Flor de Altamira · Altamira, Caracas<p style="margin-top:8px">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas del negocio. No es el sitio oficial.</p></div></footer>
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  var P=[['Cachito de jamón','el favorito','cachito-malta'],['Pan de jamón','clásico','cachitos-vitrina'],['Pizza','por porción o entera','pizza'],['Cornetto de chocolate','de la vitrina','cornetos'],['Porción de torta','sabor del día','vitrina-tortas'],['Dulces surtidos','de la vitrina','vitrina-dulces'],['Malta','fría','cachito-malta'],['Jugo natural','para acompañar','interior'],['Charcutería','mortadela, pavo y más','cachitos-vitrina']];
+  var c={},box=document.getElementById('prods'),hora=null;
+  P.forEach(function(p){var d=el('div','prod');var f=el('div','f');var im=document.createElement('img');im.src='f/'+p[2]+'.webp';im.alt='';im.loading='lazy';f.appendChild(im);d.appendChild(f);var t=el('div','t');t.appendChild(el('b','',p[0]));t.appendChild(el('small','',p[1]));
+    var q=el('div','cant');var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+p[0]);var o=el('output','','0');var mas=el('button','','+');mas.type='button';mas.setAttribute('aria-label','Agregar '+p[0]);
+    m.addEventListener('click',function(){c[p[0]]=Math.max(0,(c[p[0]]||0)-1);pintar();});mas.addEventListener('click',function(){c[p[0]]=(c[p[0]]||0)+1;pintar(true);});
+    q.appendChild(m);q.appendChild(o);q.appendChild(mas);t.appendChild(q);d.appendChild(t);d._o=o;d._m=m;d._k=p[0];box.appendChild(d);});
+  var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),hh=hoy.getHours()+hoy.getMinutes()/60;
+  var hb=document.getElementById('horas');
+  function h12(h){var x=Math.floor(h);return (x>12?x-12:x)+':'+(h%1?'30':'00')+(x<12?' a. m.':' p. m.')}
+  var abiertoHoy=hh<19.5,ops=[];if(abiertoHoy){var ini=Math.max(6,Math.ceil((hh+0.5)*2)/2);for(var h=ini;h<=19.5;h+=.5)ops.push(['Hoy '+h12(h),h]);}else{for(var h2=6;h2<=11;h2+=1)ops.push(['Mañana '+h12(h2),h2]);}
+  ops.slice(0,12).forEach(function(o){var b=el('button','',o[0]);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){hora=o[0];hb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});hb.appendChild(b);});
+  ['pNombre','pNota'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){pintar()})});
+  function pintar(salto){
+    box.querySelectorAll('.prod').forEach(function(d){var n=c[d._k]||0;d._o.textContent=n;d._m.disabled=!n;d.classList.toggle('on',n>0);});
+    var ul=document.getElementById('lista');ul.innerHTML='';var items=P.filter(function(p){return c[p[0]]});
+    if(!items.length)ul.appendChild(el('li','vacio','Tu bolsa está vacía. Agrega algo de la vitrina.'));
+    items.forEach(function(p){var li=el('li');li.appendChild(el('span','',p[0]));li.appendChild(el('span','','× '+c[p[0]]));ul.appendChild(li);});
+    var nombre=document.getElementById('pNombre').value.trim(),nota=document.getElementById('pNota').value.trim(),total=items.reduce(function(s,p){return s+c[p[0]]},0);
+    var dl=document.getElementById('pRes');dl.innerHTML='';[['Productos',total?String(total):'0'],['Retiro',hora||'Por elegir']].concat(nombre?[['Nombre',nombre]]:[]).forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
+    if(salto){var b=document.getElementById('bolsa');b.classList.remove('salta');void b.offsetWidth;b.classList.add('salta');}
+    document.getElementById('pPedir').href=WA+encodeURIComponent('Hola, quiero hacer un pedido para retirar:\n'+(items.length?items.map(function(p){return '• '+c[p[0]]+' × '+p[0]}).join('\n'):'• (por elegir)')+(nota?'\n• '+nota:'')+'\nPaso a buscarlo: '+(hora||'por definir')+'.'+(nombre?'\nA nombre de '+nombre+'.':'')+'\n¿Cuánto sería el total?');
+  }
+  pintar();
+  var ab=hh>=6&&hh<20,est=document.getElementById('estado');est.querySelector('span').textContent=(ab?'Abierto ahora · hasta las 8 p. m.':'Cerrado ahora · abre a las 6 a. m.')+' · 4,5 en Google, más de 4.400 opiniones';if(!ab)est.classList.add('cerrado');
+})();
+</script>
+<a class="flota" id="flota" href="#pedido">Hacer mi pedido</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
@@ -328,6 +262,14 @@ footer{padding:28px 0 40px;color:var(--suave);font-size:.9rem}
 document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
 a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
 a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+(function(){
+  var f=document.getElementById('flota');if(!f)return;
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
+  var espera=null;
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
+})();
 </script>
 <!-- vida:inicio -->
 <script>window.VIDA = {"caracter": "calido"};</script>
