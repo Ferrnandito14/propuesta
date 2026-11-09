@@ -274,7 +274,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .falta:empty{display:none}
 .bandeja{background:linear-gradient(135deg,#F3F5F6 0%,#C5CBCE 38%,#E6E9EB 55%,#A9B0B4 100%);box-shadow:inset 0 0 0 5px #EEF0F1,inset 0 0 0 8px #9EA6AA,inset 0 2px 14px rgba(255,255,255,.7),0 22px 34px -12px rgba(0,0,0,.45)}
 .bandeja:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 42%,transparent 54%)}
-.papelito{rotate:-1.2deg;box-shadow:0 1px 3px rgba(0,0,0,.18);background:linear-gradient(90deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),linear-gradient(0deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),radial-gradient(circle at 72% 30%,rgba(196,150,70,.14) 0 9%,transparent 10%),var(--papel)}
+.papelito{rotate:-1.2deg;box-shadow:0 1px 3px rgba(0,0,0,.18);background:linear-gradient(90deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),linear-gradient(0deg,transparent 49.6%,rgba(0,0,0,.035) 50%,transparent 50.4%),var(--papel)}
 .zona-pinchos svg,.zona-extra svg{overflow:visible}
 .vapor{position:absolute;left:20%;right:20%;top:6%;height:40%;z-index:4;pointer-events:none;display:flex;justify-content:space-around}
 .vapor i{width:14px;height:60%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.75),transparent 70%);filter:blur(3px);opacity:0}
@@ -624,8 +624,8 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
       var tipos=carne?['pincho-carne']:['pincho-carne','pincho-pollo','pincho-cerdo'];
       var clave=t.t+prot,cambio=clave!==prev.k,hubo=false;
-      var nP=t.n+extra;zp.className='zona-pinchos';var zr=zp.getBoundingClientRect(),zw=zr.width||300,zh=zr.height||160,cols=1;while(cols<5&&Math.ceil(nP/cols)*(zw/cols)*0.2*1.1>zh)cols++;zp.style.gridTemplateColumns='repeat('+cols+',minmax(0,1fr))';zp.style.columnGap=cols>1?(cols>2?'3%':'6%'):'0';
-      for(var i=0;i<nP;i++){var nv=cambio||i>=(prev.n||0);if(!cambio&&nv)hubo=true;var s=usar(tipos[i%tipos.length],'0 0 200 40',nv?'nuevo':'');if(cambio)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
+      var nP=t.n+extra;zp.className='zona-pinchos';var zr=zp.getBoundingClientRect(),zw=zr.width||300,zh=zr.height||160,cols=1;while(cols<5&&Math.ceil(nP/cols)*(zw/cols)*0.2*0.66>zh)cols++;var solape=-(zw/cols)*0.2*0.34;zp.style.gridTemplateColumns='repeat('+cols+',minmax(0,1fr))';zp.style.columnGap=cols>1?(cols>2?'3%':'6%'):'0';
+      for(var i=0;i<nP;i++){var nv=cambio||i>=(prev.n||0);if(!cambio&&nv)hubo=true;var s=usar(tipos[i%tipos.length],'0 0 200 40',nv?'nuevo':'');s.style.marginBottom=solape+'px';s.style.position='relative';s.style.zIndex=i;if(cambio)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
       if(combo){['s-papas','s-aros','s-cesar','s-coleslaw'].forEach(function(id,j){var s=usar(id,'0 0 60 60',cambio?'nuevo':'');if(cambio)s.style.animationDelay=(200+j*60)+'ms';ze.appendChild(s);});}
       SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++){var nv=j>=(prev.cs[sd[0]]||0);if(nv)hubo=true;ze.appendChild(usar(sd[1],'0 0 60 60',nv?'nuevo':''));}});
       SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var nv=j>=(prev.csa[sa[0]]||0);if(nv)hubo=true;var s=usar('s-salsa','0 0 60 60','salsa'+(nv?' nuevo':''));s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
