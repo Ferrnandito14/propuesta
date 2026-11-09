@@ -150,6 +150,8 @@ dl div>dt{margin-top:0;align-self:baseline}
 .vista svg #barba.foco{opacity:.25}
 .ops button .mini{width:56px;height:76px;background:#EDEDED;border-radius:0}
 .ops button[aria-pressed="true"] .mini{outline:1px solid #fff;outline-offset:3px}
+.vista svg#esquema{transition:transform .4s ease;transform-origin:50% 100%}
+.vista svg#esquema.nino{transform:scale(.86)}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -197,6 +199,7 @@ dl div>dt{margin-top:0;align-self:baseline}
       <p class="etq">La ficha</p>
       <h2 id="ficha-t" class="ancha">Tu corte, por escrito.</h2>
       <p class="lead" style="margin-bottom:0">Así no hay que explicarlo dos veces. Si tienes una foto de referencia, mándala en el mismo chat.</p>
+      <div class="paso" id="pQuien"><h3>00 · Para quién <span class="ayuda">también cortan a niños</span></h3><div class="ops" id="fQuien"></div></div>
       <div class="paso" id="pLados"><h3>01 · Lados <span class="ayuda">mira el costado de la cabeza en el dibujo</span></h3><div class="ops cuatro" id="fLados"></div></div>
       <div class="paso" id="pArriba"><h3>02 · Arriba <span class="ayuda">el largo encima de la cabeza</span></h3><div class="ops cuatro" id="fArriba"></div></div>
       <div class="paso" id="pBarba"><h3>03 · Barba <span class="ayuda">si la quieres y cómo</span></h3><div class="ops tres" id="fBarba"></div></div>
@@ -263,15 +266,18 @@ dl div>dt{margin-top:0;align-self:baseline}
   ['lados','arriba','barba'].forEach(function(z){var irA=function(){var pso=document.getElementById(ZONA[z]);pso.scrollIntoView({behavior:'smooth',block:'center'});pso.classList.remove('destello');void pso.offsetWidth;pso.classList.add('destello');var b=pso.querySelector('button');if(b)b.focus({preventScroll:true});};
     var zn=document.getElementById(z);zn.style.cursor='pointer';zn.addEventListener('click',irA);
     document.querySelectorAll('.rot[data-z="'+z+'"]').forEach(function(r){r.addEventListener('click',irA);});});
+  var quien=null;(function(){var c=document.getElementById('fQuien');[['yo','Para mí','corte de adulto'],['nino','Para un niño','la ficha se ajusta a su cabeza']].forEach(function(o){var b=el('button','');var tx=el('span','txt');tx.appendChild(el('b','',o[1]));tx.appendChild(el('small','',o[2]));b.appendChild(tx);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){quien=o[0];c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});document.getElementById('esquema').classList.toggle('nino',quien==='nino');pintar();});c.appendChild(b);});})();
   function pintar(){
-    var foco=!s.lados?'lados':!s.arriba?'arriba':!s.barba?'barba':'';['lados','arriba','barba'].forEach(function(z){document.getElementById(z).classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('listo',!!s[z]);});
+    var kid=quien==='nino';document.getElementById('pBarba').hidden=kid;document.querySelector('.rot[data-z="barba"]').style.display=kid?'none':'';if(kid)s.barba=null;
+    var nP=0;document.querySelectorAll('#ficha .paso').forEach(function(p){if(p.hidden)return;var h=p.querySelector('h3'),t=h&&h.firstChild;if(t&&t.nodeType===3&&/^\d\d · /.test(t.nodeValue)){t.nodeValue=('0'+nP).slice(-2)+t.nodeValue.slice(2);nP++;}});
+    var foco=!s.lados?'lados':!s.arriba?'arriba':(!s.barba&&!kid)?'barba':'';['lados','arriba','barba'].forEach(function(z){document.getElementById(z).classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('foco',z===foco);document.querySelector('.rot[data-z="'+z+'"]').classList.toggle('listo',!!s[z]);});
     var L=s.lados||LADOS[1];document.getElementById('fadeStop').setAttribute('offset',L[1]==='0'?'0':L[1]);document.getElementById('fadeTop').setAttribute('offset',L[2]==='0'?'0':L[2]);
     document.getElementById('arriba').setAttribute('d',(s.arriba||ARRIBA[1])[1]);document.getElementById('barba').setAttribute('opacity',s.barba?s.barba[1]:0);
     var nombre=document.getElementById('fNombre').value.trim();
-    var R=[['Lados',s.lados?s.lados[0]:'—'],['Arriba',s.arriba?s.arriba[0]:'—'],['Barba',s.barba?s.barba[0]:'—'],['Turno',dia?DL[dia.getDay()]+' '+dia.getDate()+(hora?', '+h12(hora):''):'—']];if(nombre)R.push(['Nombre',nombre]);
+    var R=[['Lados',s.lados?s.lados[0]:'—'],['Arriba',s.arriba?s.arriba[0]:'—'],['Barba',s.barba?s.barba[0]:'—'],['Turno',dia?DL[dia.getDay()]+' '+dia.getDate()+(hora?', '+h12(hora):''):'—']];if(kid)R.splice(2,1);if(quien)R.unshift(['Para',kid?'Un niño':'Mí']);if(nombre)R.push(['Nombre',nombre]);
     var dl=document.getElementById('fRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
-    var falta=!s.lados||!s.arriba||!s.barba?'Elige lados, arriba y barba.':(!dia||!hora?'Ahora elige día y hora.':'Tu barbero recibe la ficha con el turno.');document.getElementById('fPie').textContent=falta;
-    var t='Hola, quiero un turno en Bravos. Mi ficha:\n• Lados: '+(s.lados?s.lados[0]:'por definir')+'\n• Arriba: '+(s.arriba?s.arriba[0]:'por definir')+'\n• Barba: '+(s.barba?s.barba[0]:'por definir')+(dia?'\nTurno: '+DL[dia.getDay()]+' '+dia.getDate()+(hora?' a las '+h12(hora):''):'')+(nombre?'\nA nombre de '+nombre+'.':'');
+    var falta=!s.lados||!s.arriba||(!s.barba&&!kid)?(kid?'Elige lados y arriba.':'Elige lados, arriba y barba.'):(!dia||!hora?'Ahora elige día y hora.':'Tu barbero recibe la ficha con el turno.');document.getElementById('fPie').textContent=falta;
+    var t='Hola, quiero un turno en Bravos'+(quien==='nino'?' para un niño':'')+(quien==='nino'?'. Su ficha:\n':'. Mi ficha:\n')+'• Lados: '+(s.lados?s.lados[0]:'por definir')+'\n• Arriba: '+(s.arriba?s.arriba[0]:'por definir')+(kid?'':'\n• Barba: '+(s.barba?s.barba[0]:'por definir'))+(dia?'\nTurno: '+DL[dia.getDay()]+' '+dia.getDate()+(hora?' a las '+h12(hora):''):'')+(nombre?'\nA nombre de '+nombre+'.':'');
     document.getElementById('fPedir').href=WA+encodeURIComponent(t);
   }
   pintar();

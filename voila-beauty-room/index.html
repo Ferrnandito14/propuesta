@@ -185,6 +185,15 @@ dl.datos dd{color:var(--tinta)}
 footer{border-top:1px solid var(--linea);padding:36px 0 100px;font-size:12px;color:var(--piedra)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 dl div>dt{margin-top:0;align-self:baseline}
+.formas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--linea);margin-top:8px}
+.formas button{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 8px 12px 0;border-bottom:1px solid var(--linea);font-size:14px}
+.formas button b{display:block;font-weight:500}
+.formas button small{display:block;font-size:11px;color:var(--piedra)}
+.formas button[aria-pressed="true"]{box-shadow:inset 0 -2px 0 var(--carbon)}
+.formas button:focus-visible{outline:1px solid var(--carbon);outline-offset:-1px}
+.tonos{margin-top:8px}
+@media(max-width:959px){.probador .mano{position:sticky;top:0;z-index:3;background:var(--perg2);padding-bottom:8px}.probador .mano .neon{display:none}.probador .mano .marco svg{max-height:42svh;width:auto;max-width:100%;margin:0 auto;display:block}}
+body.sin-flota .flota{opacity:0!important;pointer-events:none!important}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -232,7 +241,8 @@ dl div>dt{margin-top:0;align-self:baseline}
       <p class="mini">Uñas · el probador</p>
       <h2 id="tono-t">Prueba tu tono antes de llegar</h2>
       <p class="lead">Elige un color y míralo en una mano real de su barra de uñas. Son tonos y acabados que Voilà ha publicado; el esmalte exacto lo eliges en su pared de colores.</p>
-      <div class="tonos" role="group" aria-label="Tonos" id="tonos"></div>
+      <p class="mini" style="margin-top:28px">Forma</p><div class="formas" role="group" aria-label="Forma de la uña" id="formas"></div>
+      <p class="mini" style="margin-top:22px">Tono</p><div class="tonos" role="group" aria-label="Tonos" id="tonos"></div>
       <p class="pr-nota">El color en pantalla es una guía: cambia con el brillo de cada teléfono.</p>
       <a class="btn" href="#visita">Agendar con este tono</a>
     </div>
@@ -326,7 +336,12 @@ dl div>dt{margin-top:0;align-self:baseline}
     var punta=document.createElementNS(NS,'path');punta.setAttribute('d','M'+(-u[3]*.42)+' '+(-u[2]*.28)+' Q0 '+(-u[2]*.12)+' '+(u[3]*.42)+' '+(-u[2]*.28)+' C'+(u[3]*.3)+' '+(-u[2]*.46)+' '+(-u[3]*.3)+' '+(-u[2]*.46)+' '+(-u[3]*.42)+' '+(-u[2]*.28)+'Z');punta.setAttribute('fill','#FFFDF8');punta.setAttribute('opacity','0');
     var vol=document.createElementNS(NS,'path');vol.setAttribute('d',d);vol.setAttribute('fill','url(#g-vol)');var brillo=document.createElementNS(NS,'path');brillo.setAttribute('d','M'+(-u[3]*.2)+' '+(-u[2]*.3)+' C'+(-u[3]*.3)+' '+(-u[2]*.08)+' '+(-u[3]*.28)+' '+(u[2]*.14)+' '+(-u[3]*.2)+' '+(u[2]*.26));brillo.setAttribute('stroke','#fff');brillo.setAttribute('stroke-width',u[3]*.07);brillo.setAttribute('stroke-linecap','round');brillo.setAttribute('fill','none');brillo.setAttribute('filter','url(#f-suave)');brillo.setAttribute('opacity','.4');
     var borde=document.createElementNS(NS,'path');borde.setAttribute('d',d);borde.setAttribute('fill','none');borde.setAttribute('stroke','rgba(0,0,0,.18)');borde.setAttribute('stroke-width','1.2');
-    gr.appendChild(sombra);gr.appendChild(color);gr.appendChild(punta);gr.appendChild(vol);gr.appendChild(brillo);gr.appendChild(borde);g.appendChild(gr);capas.push({c:color,p:punta,b:brillo});});
+    var gi=document.createElementNS(NS,'g');[sombra,color,punta,vol,brillo,borde].forEach(function(x){gi.appendChild(x)});gr.appendChild(gi);g.appendChild(gr);capas.push({c:color,p:punta,b:brillo,gi:gi,ds:[sombra,color,vol,borde],u:u});});
+  /* Forma de la uña: almendra (la de la foto), cuadrada o corta */
+  var FORMAS=[['Almendra','alargada y en punta suave'],['Cuadrada','punta recta']],forma='Almendra';
+  function cuadrada(L,W){var h=L*.5,w=W/2*1.04,r=W*.14;return 'M'+(-w)+' '+(-h+r)+' Q'+(-w)+' '+(-h)+' '+(-w+r)+' '+(-h)+' L'+(w-r)+' '+(-h)+' Q'+w+' '+(-h)+' '+w+' '+(-h+r)+' L'+w+' '+(h*.7)+' C'+w+' '+h+' '+(-w)+' '+h+' '+(-w)+' '+(h*.7)+' Z';}
+  function ponerForma(){capas.forEach(function(k){var u=k.u,d=forma==='Cuadrada'?cuadrada(u[2],u[3]):forma==='Corta'?almendra(u[2]*.68,u[3]):almendra(u[2],u[3]);k.ds.forEach(function(x){x.setAttribute('d',d)});k.gi.setAttribute('transform',forma==='Corta'?'translate(0 '+(u[2]*.16).toFixed(1)+')':'');});document.querySelectorAll('#formas button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===forma?'true':'false')});}
+  var fb=document.getElementById('formas');FORMAS.forEach(function(f){var b=document.createElement('button');b.type='button';b.dataset.f=f[0];b.appendChild(el('b','',f[0]));b.appendChild(el('small','',f[1]));b.addEventListener('click',function(){forma=f[0];ponerForma();pintarMano();if(typeof pintarV==='function')pintarV();});fb.appendChild(b);});ponerForma();
   /* Tonos y acabados tomados de trabajos publicados en su Instagram */
   var TONOS=[
     {n:'Gris leche',a:'cremoso',f:'#CFCAC8',sw:'#CFCAC8'},
@@ -341,7 +356,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   TONOS.forEach(function(t){var b=document.createElement('button');b.type='button';b.className='tono';var go=el('span','gota');go.style.background=t.sw;b.appendChild(go);b.appendChild(document.createTextNode(t.n));b.appendChild(el('small','',t.a));b.setAttribute('aria-pressed',t===tono?'true':'false');b.addEventListener('click',function(){tono=t;pintarMano();pintarV();});box.appendChild(b);});
   function pintarMano(){capas.forEach(function(k){k.c.setAttribute('fill',tono.f);k.p.setAttribute('opacity',tono.punta?1:0);k.b.setAttribute('opacity',tono.b||.4);});
     box.querySelectorAll('.tono').forEach(function(b,i){b.setAttribute('aria-pressed',TONOS[i]===tono?'true':'false')});
-    document.getElementById('etqI').style.background=tono.sw;document.getElementById('etqN').textContent=tono.n+' · '+tono.a;}
+    document.getElementById('etqI').style.background=tono.sw;document.getElementById('etqN').textContent=tono.n+' · '+tono.a+' · '+(typeof forma!=='undefined'?forma.toLowerCase():'almendra');}
   pintarMano();
   var neon=document.getElementById('neon');if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){neon.classList.add('prende');o.disconnect();}},{threshold:.5}).observe(neon);}
   /* Visita: lunes a sábado de 10 a 6 (ficha de Google) */
@@ -357,10 +372,10 @@ dl div>dt{margin-top:0;align-self:baseline}
     var s=SERV.filter(function(x){return sel[x]}),nombre=document.getElementById('vNombre').value.trim();
     document.getElementById('vTonoPaso').hidden=!sel['Uñas'];document.getElementById('vTonoI').style.background=tono.sw;document.getElementById('vTonoN').textContent=tono.n+' · '+tono.a;
     var diaTxt=dia?['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'][dia.getDay()]+' '+dia.getDate()+' de '+MESES[dia.getMonth()]:'Por elegir';
-    var R=[['Servicios',s.length?s.join(', '):'Por elegir']];if(sel['Uñas'])R.push(['Tono',tono.n]);R.push(['Día',diaTxt],['Momento',mom||'Por elegir']);if(te)R.push(['Salon de Thé',te==='Sí, con gusto'?'Sí':'No']);if(nombre)R.push(['A nombre de',nombre]);
+    var R=[['Servicios',s.length?s.join(', '):'Por elegir']];if(sel['Uñas'])R.push(['Tono',tono.n],['Forma',forma]);R.push(['Día',diaTxt],['Momento',mom||'Por elegir']);if(te)R.push(['Salon de Thé',te==='Sí, con gusto'?'Sí':'No']);if(nombre)R.push(['A nombre de',nombre]);
     var dl=document.getElementById('vRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
     document.getElementById('vNota').textContent=s.length&&dia?'Voilà te responde con la hora exacta.':'Elige al menos un servicio y un día.';
-    var t='Hola, quiero agendar en Voilà:\n• '+(s.join(', ')||'servicio por elegir')+(sel['Uñas']?'\n• Tono para las uñas: '+tono.n+' ('+tono.a+')':'')+'\n• '+diaTxt+(mom?', en la '+mom.toLowerCase():'')+(te==='Sí, con gusto'?'\n• Me gustaría una pausa en el Salon de Thé':'')+(nombre?'\nA nombre de '+nombre+'.':'');
+    var t='Hola, quiero agendar en Voilà:\n• '+(s.join(', ')||'servicio por elegir')+(sel['Uñas']?'\n• Uñas: tono '+tono.n+' ('+tono.a+'), forma '+forma.toLowerCase():'')+'\n• '+diaTxt+(mom?', en la '+mom.toLowerCase():'')+(te==='Sí, con gusto'?'\n• Me gustaría una pausa en el Salon de Thé':'')+(nombre?'\nA nombre de '+nombre+'.':'');
     document.getElementById('vPedir').href=WA+encodeURIComponent(t);
   }
   pintarV();
@@ -530,5 +545,6 @@ button:active{transform:scale(.97)}
 })();
 </script>
 <!-- vivo:fin -->
+<script>(function(){var z=document.getElementById('tono');if(!z||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('sin-flota',e[0].isIntersecting)},{rootMargin:'0px 0px -30% 0px'}).observe(z);})();</script>
 </body>
 </html>

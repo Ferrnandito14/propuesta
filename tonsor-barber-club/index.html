@@ -152,6 +152,19 @@ dd{color:var(--blanco)}
 footer{padding:32px 0 100px;font-size:13px;color:var(--polvo);background:var(--abismo)}
 .p-texto h1{margin-top:14px}
 dl div>dt{margin-top:0;align-self:baseline}
+@media(max-width:899px){
+.plano{gap:0}
+.plano>div{display:contents}
+.plano .etq{order:1}.plano h2{order:2}.plano .lead{order:3;margin-bottom:22px}
+.plano .vista{order:4;aspect-ratio:auto}
+.plano .vista img{aspect-ratio:16/10;width:100%;object-fit:cover;display:block}
+.plano .vista figcaption{position:static;padding:14px 16px 16px}
+.plano .vista figcaption b{font-size:24px}
+.plano .mapa-club{order:5;margin-top:14px}
+.chips-z{display:none}
+}
+.flota{background:var(--mostaza)!important;color:var(--tinta)!important;box-shadow:none!important}
+body.sin-flota .flota{opacity:0!important;pointer-events:none!important}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -181,7 +194,7 @@ dl div>dt{margin-top:0;align-self:baseline}
     <div>
       <p class="etq">Recorrido</p>
       <h2 id="club-t" class="serif">Recorre el club.</h2>
-      <p class="lead">Toca una zona del plano y mira cómo es por dentro. Todas las fotos son del club.</p>
+      <p class="lead">Toca una zona del plano de abajo y mira cómo es por dentro. Todas las fotos son del club.</p>
       <div class="mapa-club"><svg viewBox="0 0 420 300" id="planoSvg" role="group" aria-label="Plano del club">
         <g class="zona" data-z="0" tabindex="0" role="button" aria-label="Barbería"><rect x="10" y="10" width="190" height="130" rx="6"/><text x="105" y="80" text-anchor="middle">Barbería</text></g>
         <g class="zona" data-z="1" tabindex="0" role="button" aria-label="Barra de café"><rect x="210" y="10" width="200" height="60" rx="6"/><text x="310" y="45" text-anchor="middle">Café</text></g>
@@ -436,5 +449,6 @@ button:active{transform:scale(.97)}
 })();
 </script>
 <!-- vivo:fin -->
+<script>(function(){var z=document.getElementById('club');if(!z||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('sin-flota',e[0].isIntersecting)},{rootMargin:'0px 0px -30% 0px'}).observe(z);})();</script>
 </body>
 </html>
