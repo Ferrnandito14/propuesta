@@ -17,40 +17,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
 <!--
-Referencias (proceso-diseno.md y skill refero-design, segunda pasada del 2026-11-08):
-Candado. Principal: Roberta's Pizza (Refero Styles): portada de foto a sangre con el logotipo centrado y los botones abajo, franjas decorativas a todo el ancho entre secciones, muro de fotos ladeadas tipo polaroid, botones de radio 7 px con texto en mayúsculas y sombra dura solo al tocar, dos neutros y un solo color de marca.
-Se conserva: foto a sangre en la portada, franja entre secciones, polaroids, botones casi rectos en mayúsculas.
-Prestado de Yellowbird: secciones separadas por cambio de color en vez de líneas.
-De la marca (fotos reales de su ficha de Google): letrero crema sobre verde con el nombre dentro de una píldora abierta y "PINCHOS · BAR" debajo; bandejas metálicas con papel de la marca; terraza de noche con neón. Letra Bowlby One (la más parecida a su logotipo) y Poppins (como "PINCHOS · BAR").
-Momento memorable: "Arma tu bandeja": se tocan los pinchos y van apareciendo en la bandeja, con la cuenta de para cuántos compinches alcanza.
-Descartado: el rojo y la letra condensada de Roberta's, el video de portada, el durazno de su foto de perfil como fondo principal (el letrero manda), tarjetas de plato y dibujos en lugar de fotos.
-Fotos: tomadas de su ficha pública de Google Maps para esta propuesta, sin clientes reconocibles; en la página final se usan las que el local apruebe.
+Referencias (proceso-diseno.md y skill refero-design, tercera pasada del 2026-11-08):
+Candado. Principal: Roberta's Pizza (Refero Styles): portada de foto a sangre con el logotipo centrado y botones abajo, franjas a todo el ancho entre secciones, fotos ladeadas tipo polaroid, botones de radio 7 px en mayúsculas con sombra dura solo al tocar.
+Prestado de Yellowbird: secciones separadas por cambio de color.
+De la marca: letrero crema sobre verde con "PINCHOS · BAR"; su lema "La gente chévere come aquí"; la carta real (PDF de febrero 2026 enlazado en su Linktree) con precios de referencia; bandejas metálicas con papel de la marca. Letras Bowlby One y Poppins.
+Orden pensado para quien busca dónde comer: primero la carta con precios, luego armar el pedido, luego reservar mesa y por último dónde queda y si está abierto ahora.
+Reserva propia: comanda con contador de compinches, horas agrupadas por momento del día y un ticket con borde troquelado.
+Descartado: formulario de reserva genérico compartido con otras demos, tarjetas de plato, dibujos en lugar de fotos.
+Fotos: de su ficha pública de Google Maps para esta propuesta, sin clientes reconocibles.
 -->
 <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--verde:#2B6A48;--verde2:#1F5137;--crema:#F1E4CF;--papel:#FAF4EA;--tinta:#18261D;--gris:#55645A;--metal:#C9CDCF}
+:root{--verde:#2B6A48;--verde2:#1F5137;--crema:#F1E4CF;--papel:#FAF4EA;--tinta:#18261D;--gris:#55645A}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:clip}
 body{font-family:'Poppins',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.6;font-size:16.5px}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--crema);outline-offset:3px;box-shadow:0 0 0 6px var(--tinta)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--crema);outline-offset:3px;box-shadow:0 0 0 6px var(--tinta)}
 img{display:block;width:100%;height:100%;object-fit:cover}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .display{font-family:'Bowlby One',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:7px;background:var(--crema);color:var(--verde2);font-weight:600;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--crema);transition:box-shadow .15s,translate .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:7px;background:var(--crema);color:var(--verde2);font-weight:600;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--crema);cursor:pointer;font-family:inherit;transition:box-shadow .15s,translate .15s}
 .btn:hover{box-shadow:4px 4px 0 var(--tinta);translate:-2px -2px}
 .btn.linea{background:transparent;color:var(--crema)}
 .btn.verde{background:var(--verde);color:var(--crema);border-color:var(--verde)}
-.btn.verde.linea{background:transparent;color:var(--verde)}
-
-/* Portada */
 .portada{position:relative;min-height:94vh;display:grid;grid-template-rows:auto 1fr auto;grid-template-columns:minmax(0,1fr);color:var(--crema);overflow:hidden;background:var(--verde2)}
 .portada>img{position:absolute;inset:0;z-index:0}
 .portada:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,30,22,.62) 0%,rgba(18,30,22,.58) 45%,rgba(31,81,55,.94) 100%)}
 .portada>*:not(img){position:relative;z-index:2}
-.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;gap:12px}
 .top small{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-.top .btn{min-height:42px;padding:0 16px;font-size:.8rem}
+.top nav{display:flex;gap:8px}
+.top .btn{min-height:40px;padding:0 14px;font-size:.78rem}
 .sello{align-self:center;justify-self:center;text-align:center;padding:0 16px}
 .pildora{position:relative;display:inline-block;padding:.3em .6em .26em;font-size:clamp(2rem,7.6vw,6.2rem);line-height:1;max-width:100%}
 .pildora:before{content:"";position:absolute;inset:0;border:clamp(3px,.6vw,6px) solid var(--crema);border-radius:.32em;-webkit-mask:linear-gradient(#000 0 0) top/100% 70% no-repeat,linear-gradient(90deg,#000 22%,transparent 22% 78%,#000 78%) bottom/100% 30.5% no-repeat;mask:linear-gradient(#000 0 0) top/100% 70% no-repeat,linear-gradient(90deg,#000 22%,transparent 22% 78%,#000 78%) bottom/100% 30.5% no-repeat}
@@ -58,118 +56,178 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .sub-sello{display:block;font-weight:500;letter-spacing:.32em;font-size:clamp(.78rem,1.6vw,1.05rem);margin-top:-.7em;position:relative}
 .lema{margin:26px auto 0;max-width:34ch;font-size:clamp(1.05rem,2.2vw,1.3rem)}
 .abajo{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;padding:0 20px 34px}
-.abajo .dato{width:100%;text-align:center;font-size:.92rem;opacity:.9;margin-top:6px}
-
-/* Franja */
+.estado{width:100%;text-align:center;font-size:.92rem;margin-top:6px}
+.estado i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#7BD88F;margin-right:7px;vertical-align:1px}
+.estado.cerrado i{background:#E8A23A}
 .franja{background:var(--verde);color:var(--crema);overflow:hidden;white-space:nowrap;padding:14px 0;font-size:clamp(1.1rem,2.6vw,1.6rem);border-top:2px solid var(--crema);border-bottom:2px solid var(--crema)}
 .franja .pista{display:inline-block}
 .franja i{font-style:normal;padding:0 22px;opacity:.65}
-@media(prefers-reduced-motion:no-preference){.franja .pista{animation:corre 28s linear infinite}}
+@media(prefers-reduced-motion:no-preference){.franja .pista{animation:corre 34s linear infinite}}
 @keyframes corre{to{transform:translateX(-50%)}}
-
-section{padding:90px 0}
+section{padding:88px 0}
 h2{font-size:clamp(2.3rem,6.6vw,4.4rem);line-height:.92;margin-bottom:18px;text-wrap:balance}
-.lead{max-width:50ch;color:var(--gris);margin-bottom:30px;text-wrap:pretty}
+.lead{max-width:52ch;color:var(--gris);margin-bottom:30px;text-wrap:pretty}
 .verde{background:var(--verde);color:var(--crema)}
 .verde h2{color:var(--crema)}
 .verde .lead{color:rgba(241,228,207,.85)}
 .papel{background:var(--papel)}
-
-/* Muro de polaroids */
-.mesa{display:grid;gap:44px;align-items:center}
-@media(min-width:900px){.mesa{grid-template-columns:.85fr 1.15fr}}
-.mesa h2{color:var(--verde)}
-.muro{position:relative;min-height:520px}
-.pola{position:absolute;background:#fff;padding:12px 12px 44px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
-.pola div{overflow:hidden}
+.papel h2{color:var(--verde)}
+.carta-top{display:grid;gap:24px;align-items:end;margin-bottom:22px}
+@media(min-width:900px){.carta-top{grid-template-columns:1fr auto}}
+.pestanas{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 12px;scrollbar-width:thin;position:sticky;top:0;z-index:5;background:var(--papel)}
+.pestanas button{all:unset;cursor:pointer;flex:none;padding:10px 16px;border:2px solid var(--verde);border-radius:999px;font-weight:600;font-size:.88rem;color:var(--verde);white-space:nowrap}
+.pestanas button[aria-pressed="true"]{background:var(--verde);color:var(--crema)}
+.pestanas button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.carta{display:grid;gap:34px;margin-top:18px}
+@media(min-width:900px){.carta{grid-template-columns:1.2fr .8fr;align-items:start}}
+.platos{list-style:none;padding:0;border-top:2px solid var(--verde)}
+.platos li{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:16px 0;border-bottom:1px dashed rgba(43,106,72,.35)}
+.platos b{font-family:'Bowlby One',sans-serif;font-weight:400;text-transform:uppercase;color:var(--verde);font-size:1.12rem;line-height:1.15}
+.platos span{color:var(--gris);font-size:.93rem;grid-column:1}
+.platos em{font-style:normal;font-weight:600;color:var(--verde2);white-space:nowrap;grid-row:1;grid-column:2;align-self:start;border:1.5px solid var(--verde);border-radius:999px;padding:1px 10px;font-size:.85rem}
+.carta-foto{position:sticky;top:80px}
+.carta-foto .pola{rotate:2deg}
+.pola{background:#fff;padding:12px 12px 44px;box-shadow:0 2px 0 rgba(0,0,0,.08);position:relative}
+.pola div{overflow:hidden;aspect-ratio:4/5}
 .pola p{position:absolute;left:14px;bottom:10px;font-size:.88rem;font-weight:500;color:var(--gris)}
-.pola.a{width:62%;left:0;top:30px;rotate:-4deg}.pola.a div{aspect-ratio:4/3}
-.pola.b{width:44%;right:0;top:0;rotate:5deg}.pola.b div{aspect-ratio:3/4}
-.pola.c{width:42%;right:12%;bottom:0;rotate:-2deg}.pola.c div{aspect-ratio:3/4}
-@media(max-width:640px){.muro{min-height:auto;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 18px}.pola{position:relative;flex:0 0 72%;scroll-snap-align:center;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important}}
-
-/* Arma tu bandeja */
-.armar{display:grid;gap:26px 40px;grid-template-areas:'a' 'b' 'c'}
+.aviso-precios{font-size:.85rem;color:var(--gris);margin-top:22px}
+.armar{display:grid;gap:26px 44px;grid-template-areas:'a' 'b' 'c'}
 .ar-a{grid-area:a}.ar-b{grid-area:b}.ar-c{grid-area:c}
-.ar-a .lead{margin-bottom:0}
-@media(min-width:920px){.armar{grid-template-columns:1fr 1.1fr;grid-template-areas:'a b' 'c b';align-items:start}.ar-b{align-self:center}}
-.botones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
-.botones button{all:unset;box-sizing:border-box;cursor:pointer;min-height:56px;padding:10px 14px;border:2px solid var(--crema);border-radius:7px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px;transition:box-shadow .15s,translate .15s}
-.botones button:hover{box-shadow:4px 4px 0 var(--tinta);translate:-2px -2px}
-.botones button:active{translate:0 0;box-shadow:none}
-.botones button b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:1.3rem;line-height:1}
-.cuenta{margin-top:20px;font-size:1.05rem;min-height:3.2em}
-.cuenta b{font-family:'Bowlby One',sans-serif;font-weight:400}
-.acciones-b{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.bandeja{position:relative;aspect-ratio:16/10;background:linear-gradient(145deg,#DADDDF,#B9BEC1);border-radius:22px;padding:5%;box-shadow:inset 0 0 0 6px #E6E8E9,inset 0 0 0 9px #A9AEB1}
-.papelito{position:absolute;inset:7%;background:var(--papel);border-radius:6px;overflow:hidden}
-.papelito:before{content:"COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA";position:absolute;inset:-20%;font-family:'Bowlby One',sans-serif;font-size:13px;line-height:2.1;color:rgba(43,106,72,.08);word-spacing:10px;rotate:-12deg}
-.contenido{position:absolute;inset:11%;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:6px 4px}
-.contenido svg{height:auto;animation:cae .38s cubic-bezier(.34,1.5,.64,1) both}
-.contenido .p{width:44%}
-.contenido .papas,.contenido .salsa{width:17%}
-@keyframes cae{from{opacity:0;translate:0 -24px;scale:.8}}
-.vacia{position:absolute;inset:0;display:grid;place-items:center;color:var(--gris);font-weight:500;text-align:center;padding:20px}
-
-.hh{display:grid;gap:40px;align-items:center}
-@media(min-width:880px){.hh{grid-template-columns:1.1fr .9fr}}
-.hh h2{font-size:clamp(3rem,10vw,7rem);color:var(--verde);line-height:.85}
-.hh .pola{position:relative;width:min(380px,86%);rotate:3deg;justify-self:center}
-.hh .pola div{aspect-ratio:3/4}
-
+@media(min-width:960px){.armar{grid-template-columns:1fr 1.1fr;grid-template-areas:'a b' 'c b';align-items:start}.ar-b{position:sticky;top:20px}}
+.paso{margin-top:22px}
+.paso h3{font-family:'Bowlby One',sans-serif;font-weight:400;text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.paso h3 small{font-family:'Poppins',sans-serif;text-transform:none;font-size:.85rem;font-weight:500;opacity:.85}
+.tamanos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.tamanos button{all:unset;box-sizing:border-box;cursor:pointer;border:2px solid var(--crema);border-radius:7px;padding:12px 8px;text-align:center;transition:box-shadow .15s,translate .15s}
+.tamanos button:hover{box-shadow:4px 4px 0 var(--tinta);translate:-2px -2px}
+.tamanos button:focus-visible{outline:3px solid var(--crema);outline-offset:3px}
+.tamanos button b{display:block;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:1.6rem;line-height:1}
+.tamanos button span{display:block;font-size:.78rem;opacity:.85;margin-top:4px}
+.tamanos button[aria-pressed="true"]{background:var(--crema);color:var(--verde2)}
+.fichas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ficha{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(241,228,207,.6);border-radius:999px;padding:4px 6px 4px 14px;font-size:.9rem;font-weight:500}
+.ficha.on{border-color:var(--crema);background:rgba(241,228,207,.12)}
+.ficha button{all:unset;cursor:pointer;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--crema);color:var(--verde2);font-weight:700;line-height:1}
+.ficha button:disabled{opacity:.35;cursor:not-allowed}
+.ficha button:focus-visible{outline:3px solid var(--crema);outline-offset:2px}
+.ficha output{min-width:1ch;text-align:center;font-weight:700}
+.total{margin-top:24px;padding-top:18px;border-top:2px dashed rgba(241,228,207,.5);display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap}
+.total b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:2.2rem;line-height:1}
+.total p{font-size:.88rem;opacity:.85;max-width:36ch;margin-top:4px}
+.bandeja{position:relative;aspect-ratio:16/11;background:linear-gradient(145deg,#DADDDF,#B9BEC1);border-radius:22px;box-shadow:inset 0 0 0 6px #E6E8E9,inset 0 0 0 9px #A9AEB1;overflow:hidden}
+.papelito{position:absolute;inset:6%;background:var(--papel);border-radius:6px;overflow:hidden}
+.papelito:before{content:"COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA";position:absolute;inset:-25%;font-family:'Bowlby One',sans-serif;font-size:13px;line-height:2.1;color:rgba(43,106,72,.08);word-spacing:10px;rotate:-12deg}
+.zona-pinchos{position:absolute;left:9%;right:9%;top:9%;height:58%;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.zona-pinchos svg{width:100%;height:auto;rotate:-6deg;animation:cae .38s cubic-bezier(.34,1.5,.64,1) both}
+.zona-pinchos.muchos{display:grid;grid-template-columns:1fr 1fr;column-gap:6%;align-content:center}
+.zona-extra{position:absolute;left:8%;right:8%;bottom:8%;height:25%;display:flex;align-items:flex-end;justify-content:center;gap:2%;flex-wrap:nowrap}
+.zona-extra svg{height:100%;width:auto;flex:0 1 auto;min-width:0;animation:cae .38s cubic-bezier(.34,1.5,.64,1) both}
+.zona-extra svg.salsa{height:60%}
+@keyframes cae{from{opacity:0;translate:0 -20px;scale:.85}}
+.pie-bandeja{margin-top:12px;font-size:.88rem;opacity:.85;text-align:center}
+.muro-sec{display:grid;gap:44px;align-items:center}
+@media(min-width:900px){.muro-sec{grid-template-columns:.85fr 1.15fr}}
+.muro{position:relative;min-height:520px}
+.muro .pola{position:absolute}
+.muro .a{width:62%;left:0;top:30px;rotate:-4deg}.muro .a div{aspect-ratio:4/3}
+.muro .b{width:44%;right:0;top:0;rotate:5deg}.muro .b div{aspect-ratio:3/4}
+.muro .c{width:42%;right:12%;bottom:0;rotate:-2deg}.muro .c div{aspect-ratio:3/4}
+@media(max-width:640px){.muro{min-height:auto;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 18px}.muro .pola{position:relative;flex:0 0 72%;scroll-snap-align:center;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important}}
+.comanda-sec{display:grid;gap:40px;align-items:start}
+@media(min-width:960px){.comanda-sec{grid-template-columns:1fr 380px}}
+.comanda .paso h3{color:var(--verde)}
+.contador{display:flex;align-items:center;gap:18px;margin-top:10px}
+.contador button{all:unset;cursor:pointer;width:54px;height:54px;border-radius:50%;border:2px solid var(--verde);display:grid;place-items:center;font-size:1.6rem;font-weight:600;color:var(--verde)}
+.contador button:hover{background:var(--verde);color:var(--crema)}
+.contador button:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.contador output{font-family:'Bowlby One',sans-serif;font-size:3.6rem;line-height:1;color:var(--verde);min-width:2ch;text-align:center}
+.gente{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px;min-height:30px}
+.gente svg{width:22px;height:30px;color:var(--verde);animation:cae .3s ease both}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips button{all:unset;cursor:pointer;border:2px solid var(--verde);border-radius:7px;padding:8px 12px;font-weight:600;font-size:.9rem;color:var(--verde);text-align:center;line-height:1.2}
+.chips button small{display:block;font-weight:500;font-size:.75rem;opacity:.8}
+.chips button[aria-pressed="true"]{background:var(--verde);color:var(--crema)}
+.chips button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.momento{margin-top:14px}
+.momento h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);font-weight:600}
+.campos{display:grid;gap:12px;margin-top:10px}
+@media(min-width:640px){.campos{grid-template-columns:1fr 1fr}}
+.campos label{font-weight:600;font-size:.9rem;display:block}
+.campos input{width:100%;min-height:50px;border:2px solid var(--verde);border-radius:7px;padding:10px 14px;font:inherit;background:#fff;color:var(--tinta);margin-top:6px}
+.ticket{position:sticky;top:20px;background:#fff;padding:26px 24px 30px;color:var(--tinta);box-shadow:0 2px 0 rgba(0,0,0,.08);-webkit-mask:radial-gradient(circle 10px at 0 13px,#0000 98%,#000 100%) left/51% 26px repeat-y,radial-gradient(circle 10px at 100% 13px,#0000 98%,#000 100%) right/51% 26px repeat-y;mask:radial-gradient(circle 10px at 0 13px,#0000 98%,#000 100%) left/51% 26px repeat-y,radial-gradient(circle 10px at 100% 13px,#0000 98%,#000 100%) right/51% 26px repeat-y}
+.ticket .display{color:var(--verde);font-size:1.5rem;text-align:center}
+.ticket .sub{text-align:center;font-size:.78rem;letter-spacing:.24em;color:var(--gris);margin-top:-2px}
+.ticket dl{margin-top:18px;border-top:2px dashed #CFC6B5}
+.ticket dl div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed #E2DACB}
+.ticket dt{color:var(--gris);font-size:.9rem;margin:0}
+.ticket dd{font-weight:600;text-align:right;color:var(--tinta)}
+.ticket .btn{width:100%;margin-top:18px}
+.ticket .nota{font-size:.8rem;color:var(--gris);margin-top:12px;text-align:center}
 .letrero{aspect-ratio:21/9;overflow:hidden;border-top:2px solid var(--crema);border-bottom:2px solid var(--crema)}
 @media(max-width:640px){.letrero{aspect-ratio:4/3}}
 .cols{display:grid;gap:34px}
 @media(min-width:820px){.cols{grid-template-columns:1fr 1fr}}
+.horario{list-style:none;padding:0;margin-top:14px;border-top:1px solid rgba(241,228,207,.4)}
+.horario li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(241,228,207,.25)}
+.horario li.hoy{font-weight:600}
+.horario li.hoy span:first-child:before{content:"Hoy · "}
 dt{font-weight:600;margin-top:16px}
 dd{color:rgba(241,228,207,.85)}
+.mapa{margin-top:44px;border:2px solid var(--crema);border-radius:7px;overflow:hidden;aspect-ratio:16/7;min-height:300px}
+.mapa iframe{display:block;width:100%;height:100%;border:0}
 footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .demo{margin-top:10px}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
-.mapa{margin-top:44px;border:2px solid var(--crema);border-radius:7px;overflow:hidden;aspect-ratio:16/7;min-height:300px}.mapa iframe{display:block;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="pincho-pollo" viewBox="0 0 200 40"><path d="M2 20h196" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/><g fill="#E2B56E" stroke="#B9823F" stroke-width="2"><rect x="26" y="7" width="30" height="26" rx="9"/><rect x="62" y="6" width="30" height="28" rx="9"/><rect x="98" y="7" width="30" height="26" rx="9"/><rect x="134" y="6" width="30" height="28" rx="9"/></g><g fill="#7A4A1E" opacity=".5"><rect x="34" y="14" width="14" height="3" rx="1.5"/><rect x="70" y="20" width="14" height="3" rx="1.5"/><rect x="106" y="14" width="14" height="3" rx="1.5"/><rect x="142" y="20" width="14" height="3" rx="1.5"/></g><g fill="#3E7A3A"><circle cx="44" cy="26" r="2"/><circle cx="80" cy="12" r="2"/><circle cx="116" cy="27" r="2"/><circle cx="152" cy="12" r="2"/></g></symbol>
-  <symbol id="pincho-carne" viewBox="0 0 200 40"><path d="M2 20h196" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/><g fill="#6E3B24" stroke="#4A2414" stroke-width="2"><rect x="26" y="6" width="31" height="28" rx="8"/><rect x="62" y="7" width="31" height="26" rx="8"/><rect x="98" y="6" width="31" height="28" rx="8"/><rect x="134" y="7" width="31" height="26" rx="8"/></g><g fill="#3E7A3A"><circle cx="40" cy="14" r="2.2"/><circle cx="48" cy="25" r="1.8"/><circle cx="76" cy="24" r="2.2"/><circle cx="112" cy="13" r="2"/><circle cx="120" cy="25" r="2.2"/><circle cx="150" cy="16" r="2"/></g></symbol>
-  <symbol id="papas" viewBox="0 0 60 60"><path d="M10 26h40l-5 30H15z" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><g fill="#F2C14E" stroke="#D49A1E" stroke-width="1.5"><rect x="14" y="4" width="7" height="30" rx="2" transform="rotate(-8 17 19)"/><rect x="23" y="2" width="7" height="32" rx="2"/><rect x="32" y="4" width="7" height="30" rx="2" transform="rotate(6 35 19)"/><rect x="40" y="8" width="7" height="26" rx="2" transform="rotate(12 43 21)"/></g></symbol>
-  <symbol id="salsa" viewBox="0 0 60 60"><ellipse cx="30" cy="40" rx="24" ry="14" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><ellipse cx="30" cy="36" rx="19" ry="9" fill="#F4F1E6"/><path d="M20 35q5-4 10 0t10 0" stroke="#3E7A3A" stroke-width="2" fill="none"/></symbol>
+  <symbol id="pincho-pollo" viewBox="0 0 200 40"><path d="M2 20h196" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/><g fill="#E2B56E" stroke="#B9823F" stroke-width="2"><rect x="26" y="7" width="30" height="26" rx="9"/><rect x="62" y="6" width="30" height="28" rx="9"/><rect x="98" y="7" width="30" height="26" rx="9"/><rect x="134" y="6" width="30" height="28" rx="9"/></g><g fill="#3E7A3A"><circle cx="44" cy="26" r="2"/><circle cx="80" cy="12" r="2"/><circle cx="116" cy="27" r="2"/><circle cx="152" cy="12" r="2"/></g></symbol>
+  <symbol id="pincho-carne" viewBox="0 0 200 40"><path d="M2 20h196" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/><g fill="#6E3B24" stroke="#4A2414" stroke-width="2"><rect x="26" y="6" width="31" height="28" rx="8"/><rect x="62" y="7" width="31" height="26" rx="8"/><rect x="98" y="6" width="31" height="28" rx="8"/><rect x="134" y="7" width="31" height="26" rx="8"/></g><g fill="#3E7A3A"><circle cx="40" cy="14" r="2.2"/><circle cx="76" cy="24" r="2.2"/><circle cx="112" cy="13" r="2"/><circle cx="150" cy="16" r="2"/></g></symbol>
+  <symbol id="pincho-cerdo" viewBox="0 0 200 40"><path d="M2 20h196" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/><g fill="#C98A5E" stroke="#94593A" stroke-width="2"><rect x="26" y="7" width="30" height="26" rx="10"/><rect x="62" y="6" width="30" height="28" rx="10"/><rect x="98" y="7" width="30" height="26" rx="10"/><rect x="134" y="6" width="30" height="28" rx="10"/></g><g fill="#7A3E1E" opacity=".45"><rect x="32" y="18" width="18" height="3" rx="1.5"/><rect x="68" y="18" width="18" height="3" rx="1.5"/><rect x="104" y="18" width="18" height="3" rx="1.5"/><rect x="140" y="18" width="18" height="3" rx="1.5"/></g></symbol>
+  <symbol id="s-papas" viewBox="0 0 60 60"><path d="M10 26h40l-5 30H15z" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><g fill="#F2C14E" stroke="#D49A1E" stroke-width="1.5"><rect x="14" y="4" width="7" height="30" rx="2" transform="rotate(-8 17 19)"/><rect x="23" y="2" width="7" height="32" rx="2"/><rect x="32" y="4" width="7" height="30" rx="2" transform="rotate(6 35 19)"/><rect x="40" y="8" width="7" height="26" rx="2" transform="rotate(12 43 21)"/></g></symbol>
+  <symbol id="s-aros" viewBox="0 0 60 60"><path d="M8 30h44l-5 26H13z" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><g fill="none" stroke="#D9A04A" stroke-width="6"><circle cx="22" cy="22" r="10"/><circle cx="38" cy="20" r="10"/><circle cx="30" cy="12" r="8"/></g></symbol>
+  <symbol id="s-cesar" viewBox="0 0 60 60"><path d="M6 30h48a24 22 0 0 1-48 0z" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><g fill="#7DB64F"><circle cx="16" cy="28" r="7"/><circle cx="28" cy="24" r="8"/><circle cx="42" cy="27" r="7"/></g><g fill="#F3E0A8"><rect x="22" y="26" width="6" height="5" rx="1"/><rect x="36" y="24" width="6" height="5" rx="1"/></g></symbol>
+  <symbol id="s-coleslaw" viewBox="0 0 60 60"><path d="M6 30h48a24 22 0 0 1-48 0z" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><ellipse cx="30" cy="29" rx="22" ry="8" fill="#F4F0E2"/><g stroke="#B38AD1" stroke-width="2"><path d="M16 28l6-2M30 30l7-3M40 27l5 2"/></g><g stroke="#E39A4B" stroke-width="2"><path d="M22 31l5 1M34 26l4 1"/></g></symbol>
+  <symbol id="s-salsa" viewBox="0 0 60 60"><ellipse cx="30" cy="40" rx="24" ry="14" fill="#B9BEC1" stroke="#8E9497" stroke-width="2"/><ellipse cx="30" cy="36" rx="19" ry="9" fill="var(--c,#F4F1E6)"/></symbol>
+  <symbol id="persona" viewBox="0 0 22 30"><circle cx="11" cy="7" r="6" fill="currentColor"/><path d="M1 30c0-8 4-13 10-13s10 5 10 13z" fill="currentColor"/></symbol>
 </svg>
 
 <header class="portada" id="inicio">
   <img src="f/terraza.jpg" alt="Terraza de Compinchería de noche, con el letrero iluminado" width="1100" height="825">
-  <div class="top"><small>Altamira · Caracas</small><a class="btn" href="#reservar">Reservar</a></div>
+  <div class="top"><small>Altamira · Caracas</small><nav aria-label="Atajos"><a class="btn linea" href="#carta">Carta</a><a class="btn" href="#mesa">Reservar</a></nav></div>
   <div class="sello">
     <div class="pildora display"><h1>Compinchería</h1></div>
     <span class="sub-sello">PINCHOS · BAR</span>
-    <p class="lema">Pinchos a la parrilla para compartir con tus compinches, en Altamira o en tu casa.</p>
+    <p class="lema">La gente chévere come aquí. Pinchos a la parrilla para compartir, en Altamira o en tu casa.</p>
   </div>
   <div class="abajo">
-    <a class="btn" href="#reserva-web" data-reserva>Reservar mesa en línea</a>
-        <a class="btn linea" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar por WhatsApp</a>
+    <a class="btn" href="#carta">Ver la carta</a>
     <a class="btn linea" href="#bandeja">Arma tu bandeja</a>
-    <span class="dato"><b>4,8</b> en Google · 738 opiniones</span>
+    <a class="btn linea" href="#mesa">Reservar mesa</a>
+    <p class="estado" id="estado" aria-live="polite"><i aria-hidden="true"></i><span>4,8 en Google · 738 opiniones</span></p>
   </div>
 </header>
 
-<div class="franja display" aria-hidden="true"><span class="pista">Pinchos<i>·</i>Bar<i>·</i>Happy hour<i>·</i>Delivery<i>·</i>Altamira<i>·</i>Pinchos<i>·</i>Bar<i>·</i>Happy hour<i>·</i>Delivery<i>·</i>Altamira<i>·</i>Pinchos<i>·</i>Bar<i>·</i>Happy hour<i>·</i>Delivery<i>·</i>Altamira<i>·</i>Pinchos<i>·</i>Bar<i>·</i>Happy hour<i>·</i>Delivery<i>·</i>Altamira<i>·</i></span></div>
+<div class="franja display" aria-hidden="true"><span class="pista">Pinchos<i>·</i>Burgers<i>·</i>Alitas<i>·</i>Cócteles<i>·</i>Delivery<i>·</i>La gente chévere come aquí<i>·</i>Pinchos<i>·</i>Burgers<i>·</i>Alitas<i>·</i>Cócteles<i>·</i>Delivery<i>·</i>La gente chévere come aquí<i>·</i></span></div>
 
 <main>
-<section class="papel" aria-labelledby="mesa">
-  <div class="wrap mesa">
-    <div>
-      <h2 id="mesa" class="display">Al centro de la mesa.</h2>
-      <p class="lead">Bandejas de pinchos con papas, ensaladas y salsas de la casa, para pedir varias y compartir. En la página va la carta completa con foto y precio de cada plato.</p>
-      <a class="btn verde" href="#bandeja">Arma tu bandeja</a>
+<section class="papel" id="carta" aria-labelledby="carta-t">
+  <div class="wrap">
+    <div class="carta-top">
+      <div>
+        <h2 id="carta-t" class="display">La carta</h2>
+        <p class="lead" style="margin-bottom:0">Toda la carta con sus precios, sin abrir un PDF. Elige una categoría.</p>
+      </div>
+      <a class="btn verde" href="#bandeja">Armar mi bandeja</a>
     </div>
-    <div class="muro">
-      <figure class="pola a"><div><img src="f/bandeja.jpg" alt="Bandeja con pinchos de pollo, papas, ensaladas y salsas" width="1100" height="825" loading="lazy"></div><p>La bandeja para compartir</p></figure>
-      <figure class="pola b"><div><img src="f/pinchos.jpg" alt="Pinchos de carne a la parrilla con chimichurri y salsas" width="825" height="1100" loading="lazy"></div><p>Pinchos de carne</p></figure>
-      <figure class="pola c"><div><img src="f/burger.jpg" alt="Hamburguesa doble con papas en bandeja con papel de Compinchería" width="825" height="1100" loading="lazy"></div><p>También hay burger</p></figure>
+    <div class="pestanas" role="group" aria-label="Categorías de la carta" id="pestanas"></div>
+    <div class="carta">
+      <div><ul class="platos" id="platos" aria-live="polite"></ul><p class="aviso-precios">Precios de referencia en dólares, a tasa BCV, según su carta de febrero de 2026. No incluyen el 10 % de servicio.</p></div>
+      <div class="carta-foto"><figure class="pola"><div><img id="cartaFoto" src="f/pinchos.jpg" alt="Foto de la categoría elegida" width="825" height="1100" loading="lazy"></div><p id="cartaPie">Pinchos mixtos a la parrilla</p></figure></div>
     </div>
   </div>
 </section>
@@ -178,215 +236,67 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   <div class="wrap armar">
     <div class="ar-a">
       <h2 id="armar" class="display">Arma tu bandeja.</h2>
-      <p class="lead">Toca lo que quieres y mira cómo se llena. Así funcionaría el pedido a domicilio en la página.</p>
+      <p class="lead" style="margin-bottom:0">Elige cuántos pinchos, tus sides y tus salsas. La bandeja se llena mientras eliges y te dice el total.</p>
     </div>
     <div class="ar-c">
-      <div class="botones">
-        <button type="button" data-a="pollo">Pincho de pollo <b>+</b></button>
-        <button type="button" data-a="carne">Pincho de carne <b>+</b></button>
-        <button type="button" data-a="papas">Papas <b>+</b></button>
-        <button type="button" data-a="salsa">Salsa de la casa <b>+</b></button>
-      </div>
-      <p class="cuenta" id="cuenta" aria-live="polite">Tu bandeja está vacía.</p>
-      <div class="acciones-b">
-        <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20bandeja" id="pedir">Pedir esta bandeja</a>
-        <button type="button" class="btn linea" id="vaciar">Vaciar</button>
-      </div>
+      <div class="paso"><h3>1. ¿Cuántos pinchos? <small>mixtos de carne, cerdo y pollo</small></h3>
+        <div class="tamanos" role="group" aria-label="Cantidad de pinchos" id="tamanos"></div></div>
+      <div class="paso"><h3>2. Sides <small id="sidesInfo"></small></h3><div class="fichas" id="sides"></div></div>
+      <div class="paso"><h3>3. Salsas de la casa <small id="salsasInfo"></small></h3><div class="fichas" id="salsas"></div></div>
+      <div class="total"><div><b id="total" aria-live="polite">REF 13</b><p id="resumen">x5 pinchos mixtos.</p></div><a class="btn" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a></div>
     </div>
-    <div class="bandeja ar-b" aria-hidden="true">
-      <div class="papelito"></div>
-      <div class="contenido" id="contenido"></div>
-      <div class="vacia" id="vacia">Toca un pincho para empezar</div>
+    <div class="ar-b">
+      <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div></div>
+      <p class="pie-bandeja" id="pieBandeja">x5 pinchos · 1 persona</p>
     </div>
   </div>
 </section>
 
-<section class="papel" aria-labelledby="hh">
-  <div class="wrap hh">
+<section class="papel" aria-labelledby="mesa-t2">
+  <div class="wrap muro-sec">
     <div>
-      <h2 id="hh" class="display">Happy<br>hour.</h2>
-      <p class="lead">Lo anuncian en sus mesas. En la página van los días, las horas y las promociones, para que nadie llegue tarde.</p>
-      <p style="font-weight:600">Días, horas y promociones por confirmar.</p>
+      <h2 id="mesa-t2" class="display">Al centro de la mesa.</h2>
+      <p class="lead">Bandejas metálicas, papel con su nombre y todo para compartir. Terraza, happy hour en sus mesas y asientos accesibles para silla de ruedas.</p>
+      <a class="btn verde" href="#mesa">Reservar mesa</a>
     </div>
-    <figure class="pola"><div><img src="f/trago.jpg" alt="Trago azul escarchado sobre una mesa de madera" width="825" height="1100" loading="lazy"></div><p>Para acompañar</p></figure>
+    <div class="muro">
+      <figure class="pola a"><div><img src="f/bandeja.jpg" alt="Bandeja con pinchos de pollo, papas, ensaladas y salsas" width="1100" height="825" loading="lazy"></div><p>La bandeja para compartir</p></figure>
+      <figure class="pola b"><div><img src="f/trago.jpg" alt="Trago azul escarchado sobre una mesa de madera" width="825" height="1100" loading="lazy"></div><p>Para acompañar</p></figure>
+      <figure class="pola c"><div><img src="f/burger.jpg" alt="Hamburguesa doble con papas en bandeja con papel de Compinchería" width="825" height="1100" loading="lazy"></div><p>Pincho burger</p></figure>
+    </div>
   </div>
 </section>
 
-<!-- reserva-web:inicio -->
-<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Reserva tu mesa en línea</h2><p class="lead">Cuántos son, qué día y a qué hora. Te confirmamos por WhatsApp.</p><div id="reserva-web"></div></div></section>
-<script>window.RESERVA = {"palabra": "reserva", "textoConfirmar": "Confirmar reserva", "textoListo": "Reserva lista", "tema": {"fondo": "#FFFFFF", "texto": "#1B2A20", "suave": "#5C6A60", "acento": "#1F6B3F", "sobreAcento": "#FBF3EA", "borde": "#E4D3C0", "radio": "26px"}, "pasos": [{"id": "personas", "tipo": "opciones", "titulo": "¿Cuántas personas?", "corto": "Personas", "columnas": "tres", "opciones": [{"txt": "1"}, {"txt": "2"}, {"txt": "3"}, {"txt": "4"}, {"txt": "5"}, {"txt": "6"}, {"txt": "7"}, {"txt": "8"}, {"txt": "9 o más"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día?", "corto": "Día", "dias": 6}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 12, "hasta": 22, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
-<script>/* Reserva o pedido por pasos, sin backend.
-   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
-   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
-   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
-(function () {
-  var C = window.RESERVA;
-  var raiz = document.getElementById('reserva-web');
-  if (!C || !raiz) return;
-  var t = C.tema || {};
-  var estado = {};
-  var paso = 0;
+<section id="mesa" aria-labelledby="mesa-t">
+  <div class="wrap comanda-sec">
+    <div class="comanda">
+      <h2 id="mesa-t" class="display" style="color:var(--verde)">Reserva tu mesa.</h2>
+      <p class="lead">Dinos cuántos compinches vienen y a qué hora. Te confirmamos por WhatsApp.</p>
+      <div class="paso"><h3>¿Cuántos compinches?</h3>
+        <div class="contador"><button type="button" id="menos" aria-label="Una persona menos">−</button><output id="cuantos" aria-live="polite">4</output><button type="button" id="mas" aria-label="Una persona más">+</button></div>
+        <div class="gente" id="gente" aria-hidden="true"></div></div>
+      <div class="paso"><h3>¿Qué día?</h3><div class="chips" role="group" aria-label="Día" id="dias"></div></div>
+      <div class="paso"><h3>¿A qué hora?</h3><div id="horas"></div></div>
+      <div class="paso"><h3>¿Hay algo que celebrar? <small>opcional</small></h3><div class="chips" role="group" aria-label="Ocasión" id="ocasion"></div></div>
+      <div class="paso"><h3>¿A nombre de quién?</h3>
+        <div class="campos"><div><label for="nom">Nombre</label><input id="nom" autocomplete="name"></div><div><label for="tel">WhatsApp</label><input id="tel" type="tel" inputmode="tel" autocomplete="tel"></div></div></div>
+    </div>
+    <aside class="ticket" aria-label="Resumen de tu reserva">
+      <p class="display">Compinchería</p>
+      <p class="sub">COMANDA DE MESA</p>
+      <dl>
+        <div><dt>Compinches</dt><dd id="tCuantos">4 personas</dd></div>
+        <div><dt>Día</dt><dd id="tDia">Elige un día</dd></div>
+        <div><dt>Hora</dt><dd id="tHora">Elige una hora</dd></div>
+        <div><dt>Ocasión</dt><dd id="tOcasion">Sin indicar</dd></div>
+        <div><dt>A nombre de</dt><dd id="tNom">Sin indicar</dd></div>
+      </dl>
+      <a class="btn verde" id="confirmar" href="https://wa.me/PON_AQUI_EL_NUMERO" aria-disabled="true">Confirmar por WhatsApp</a>
+      <p class="nota">Demostración: no se envía ningún dato. En la página final la comanda le llega al local.</p>
+    </aside>
+  </div>
+</section>
 
-  var css = '' +
-    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
-    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
-    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
-    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
-    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
-    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
-    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
-    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
-    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
-    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
-    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
-    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
-    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
-    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
-    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
-  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
-  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  function proximosDias(n, cerrados) {
-    var out = [], d = new Date();
-    while (out.length < n) {
-      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
-      d.setDate(d.getDate() + 1);
-    }
-    return out;
-  }
-  function horas(desde, hasta, cada) {
-    var out = [];
-    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
-      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
-      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
-    }
-    return out;
-  }
-  function el(tag, attrs, hijos) {
-    var e = document.createElement(tag);
-    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
-    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
-    return e;
-  }
-  function completo(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
-    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
-    if (p.opcional) return true;
-    return !!v;
-  }
-  function textoDe(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
-    if (p.tipo === 'datos') return v ? v.nombre : '';
-    if (!v) return 'Sin indicar';
-    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
-  }
-  function opcionesDe(p) {
-    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
-    if (p.tipo === 'hora') {
-      var lista = horas(p.desde, p.hasta, p.cada || 30);
-      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
-      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
-      var hoy = local(new Date());
-      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
-        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
-        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
-      }
-      return lista;
-    }
-    return p.opciones;
-  }
-
-  function pintar() {
-    raiz.innerHTML = '';
-    var pasos = C.pasos, total = pasos.length + 1;
-    var caja = el('div', {class: 'r-caja'});
-    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
-    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
-    caja.appendChild(barra);
-
-    if (paso === 'listo') {
-      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
-      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
-      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
-      raiz.appendChild(caja); return;
-    }
-
-    if (paso === pasos.length) {
-      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
-      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
-      var res = el('div', {class: 'r-res'});
-      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
-      caja.appendChild(res);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [
-        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
-        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
-      ]));
-      raiz.appendChild(caja); return;
-    }
-
-    var p = pasos[paso];
-    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
-    caja.appendChild(el('h3', {text: p.titulo}));
-
-    if (p.tipo === 'cantidades') {
-      estado[p.id] = estado[p.id] || {};
-      var lista = el('div', {class: 'r-ops'});
-      p.opciones.forEach(function (o) {
-        var n = estado[p.id][o.txt] || 0;
-        var num = el('b', {text: String(n), 'aria-live': 'polite'});
-        lista.appendChild(el('div', {class: 'r-cant'}, [
-          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
-          el('div', {class: 'r-num'}, [
-            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
-            num,
-            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
-          ])
-        ]));
-      });
-      caja.appendChild(lista);
-    } else if (p.tipo === 'datos') {
-      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
-      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
-      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
-      var error = el('div', {class: 'r-error', role: 'alert'});
-      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
-      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
-      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
-      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
-      caja.appendChild(error);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
-    } else {
-      var ops = opcionesDe(p);
-      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
-      ops.forEach(function (o) {
-        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
-        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
-      });
-      caja.appendChild(grid);
-      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
-      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
-    }
-
-    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
-    sig.disabled = !completo(p);
-    caja.appendChild(el('div', {class: 'r-nav'}, [
-      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
-      sig
-    ]));
-    raiz.appendChild(caja);
-  }
-  pintar();
-})();
-</script>
-<!-- reserva-web:fin -->
 <section class="verde" aria-labelledby="donde" style="padding-top:0">
   <div class="letrero"><img src="f/letrero.jpg" alt="Letrero verde de Compinchería, Pinchos · Bar, sobre pared de ladrillo" width="1100" height="734" loading="lazy"></div>
   <div class="wrap cols" style="padding-top:70px">
@@ -394,15 +304,13 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       <h2 id="donde" class="display">Dónde estamos</h2>
       <dl>
         <dt>Dirección</dt><dd>Edificio El Parque, local 3, planta baja. Av. San Juan Bosco con 2da transversal, Altamira</dd>
-        <dt>Horario</dt><dd>Lunes y martes, de 11 a. m. a 10 p. m. Miércoles y jueves, hasta las 11 p. m. Viernes, hasta medianoche. Sábado, de 12 m. a medianoche. Domingo, de 12 m. a 10 p. m.</dd>
-        <dt>Reservas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp. Asientos accesibles para silla de ruedas y delivery</dd>
+        <dt>Delivery</dt><dd>Sí, pídelo armando tu bandeja o por WhatsApp</dd>
       </dl>
       <div class="abajo" style="justify-content:flex-start;padding:26px 0 0"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4970816%2C-66.8495393&amp;destination_place_id=ChIJ9ZN0kf5ZKowRyIP-59v2XB0">Cómo llegar</a></div>
     </div>
     <div>
-      <h2 class="display" style="font-size:2.2rem">La mesa te espera</h2>
-      <p class="lead">Resérvala <a href="#reserva-web">en línea</a> o escríbenos por WhatsApp.</p>
-      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar por WhatsApp</a>
+      <h3 class="display" style="font-size:1.6rem">Horario</h3>
+      <ul class="horario" id="horario"></ul>
     </div>
   </div>
   <div class="wrap"><div class="mapa"><iframe title="Mapa de Compinchería en el Edificio El Parque, Altamira" src="https://maps.google.com/maps?q=Compincher%C3%ADa&amp;ll=10.4970816,-66.8495393&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
@@ -411,35 +319,173 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 
 <footer>
   <div class="wrap">Compinchería · Pinchos · Bar · Altamira, Caracas
-    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas de su ficha de Google. No es el sitio oficial del negocio.</p>
+    <p class="demo">Propuesta de diseño de Fernando Romero, preparada con información, carta y fotos públicas del negocio. No es el sitio oficial.</p>
   </div>
 </footer>
 <script>
 (function(){
-  var cont=document.getElementById('contenido'),vacia=document.getElementById('vacia'),cuenta=document.getElementById('cuenta'),pedir=document.getElementById('pedir');
-  var N={pollo:'Pincho de pollo',carne:'Pincho de carne',papas:'Papas',salsa:'Salsa de la casa'};
-  var S={pollo:['pincho-pollo','p','0 0 200 40'],carne:['pincho-carne','p','0 0 200 40'],papas:['papas','papas','0 0 60 60'],salsa:['salsa','salsa','0 0 60 60']};
-  var c={pollo:0,carne:0,papas:0,salsa:0},MAX=14;
-  function total(){return c.pollo+c.carne+c.papas+c.salsa}
-  function pintar(){
-    var pin=c.pollo+c.carne;
-    vacia.style.display=total()?'none':'grid';
-    if(!total()){cuenta.textContent='Tu bandeja está vacía.';return;}
-    var gente=Math.max(1,Math.round(pin/3));
-    var partes=Object.keys(c).filter(function(k){return c[k]}).map(function(k){return c[k]+' × '+N[k].toLowerCase()});
-    cuenta.innerHTML='';var b=document.createElement('b');b.textContent=pin?(pin+(pin===1?' pincho':' pinchos')+' · para '+gente+(gente===1?' compinche':' compinches')):'Sin pinchos todavía';
-    cuenta.appendChild(b);cuenta.appendChild(document.createElement('br'));cuenta.appendChild(document.createTextNode(partes.join(', ')));
-    pedir.href='https://wa.me/PON_AQUI_EL_NUMERO?text='+encodeURIComponent('Hola, quiero pedir una bandeja: '+partes.join(', '));
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  var SVG='http://www.w3.org/2000/svg';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  function usar(id,vb,cls){var s=document.createElementNS(SVG,'svg');s.setAttribute('viewBox',vb);if(cls)s.setAttribute('class',cls);var u=document.createElementNS(SVG,'use');u.setAttribute('href','#'+id);s.appendChild(u);return s}
+  function ref(n){return 'REF '+String(Math.round(n*100)/100).replace('.',',')}
+
+  /* Carta real de febrero 2026 */
+  var CARTA=[
+    {n:'Pinchos',f:'f/pinchos.jpg',pie:'Pinchos mixtos a la parrilla',p:[
+      ['x5 pinchos','250 g de proteína, para 1 persona. Incluye 1 side y 2 salsas',13],
+      ['x9 pinchos','450 g de proteína, para 2 personas. Incluye 2 sides y 3 salsas',22],
+      ['x15 pinchos','750 g de proteína, para 3 o 4 personas. Incluye 3 sides y 4 salsas',35],
+      ['Bandeja Compin','9 pinchos mixtos, mini tenders de pollo, aros de cebolla, papas fritas, ensalada César y coleslaw. Para 3 personas',30],
+      ['Sides','Papas fritas, aros de cebolla, ensalada César o coleslaw',3],
+      ['Salsas de la casa','BBQ, ajo, mojo criollo, tocineta, ranch, parrillera, alemana, mermelada de pimentón, cheddar, teriyaki, guasacaca o mermelada de cebolla',1]]},
+    {n:'Burgers',f:'f/burger.jpg',pie:'Pincho burger',p:[
+      ['Parriburger','Dos pinchos de carne, carne smash, cheddar, espirales de papa crujientes y salsas clásicas',12],
+      ['Chicken Ranch','Tres pinchos de pollo en salsa ranch, cheddar, espirales de papa y tocineta crispy',12],
+      ['Pernil Burger','Tres pinchos de cerdo con salsa de ajo, lechuga y tomate',12],
+      ['Philly Burger','Carne smash y dos pinchos de carne salteados con cebolla y queso fundido',12],
+      ['Onion Burger','Doble carne, mermelada de tocineta con cebolla caramelizada, cheddar y aros de cebolla',12],
+      ['Pulled Pork','Cerdo en salsa BBQ, cheddar, pepinillos, espirales de papa y coleslaw',12],
+      ['Cheeseburger','Doble carne con doble cheddar, cebolla, pepinillos y salsa de tomate',9],
+      ['Classic Crispy','Pechuga de pollo crujiente, cheddar, pepinillos y salsa de la casa',9],
+      ['Big Compi','Doble carne con cheddar, cebolla, pepinillos, lechuga y salsa de la casa',9]]},
+    {n:'Para picar',f:'f/bandeja.jpg',pie:'Todo al centro',p:[
+      ['Nachos con chili','Queso cheddar fundido, chili con carne y pico de gallo',11],
+      ['Nachos con pulled pork','Queso cheddar fundido, pulled pork y pico de gallo',11],
+      ['Tequeños','5 unidades, con 1 salsa',7],
+      ['Croquetas de morcilla','7 unidades, con 1 salsa',6],
+      ['Mini tenders de pollo','150 g, con 1 salsa',6],
+      ['Papas tociqueso','Cheddar y mermelada de tocineta con cebolla caramelizada',8],
+      ['Papas mexicanas','Cheddar y chili con carne',8],
+      ['Papas pulled pork','Cheddar y cerdo en salsa BBQ',8],
+      ['César con pollo crispy','Ensalada César con pollo crispy',11],
+      ['César sencilla','Ensalada César tradicional',8]]},
+    {n:'Alitas',f:'f/bandeja.jpg',pie:'Alitas y boneless',p:[
+      ['Boneless','150 g de pechuga crispy con el sabor que elijas',7],
+      ['Alitas x12','Con el sabor que elijas',11],
+      ['Alitas x18','Con el sabor que elijas',16],
+      ['Sabores','BBQ, buffalo, teriyaki, spicy o vietnamita','']]},
+    {n:'Kids y postres',f:'f/burger.jpg',pie:'Para los más chiquitos',p:[
+      ['Mini tenders de pollo','Menú kids. Incluye 1 side y 1 salsa',8],
+      ['x3 pinchos mixtos','Menú kids. Incluye 1 side y 1 salsa',9],
+      ['Galleta con helado','Postre',4.5],
+      ['Brookie con helado','Postre',4.5]]},
+    {n:'Cócteles',f:'f/trago.jpg',pie:'Para acompañar',p:[
+      ['Mexican Mule','Tequila, soda, limón, jengibre y hierbabuena',6],
+      ['Moscow Mule','Vodka, soda, limón, jengibre y hierbabuena',6],
+      ['Margarita','Tequila, triple sec y limón',6.5],
+      ['Aperol Margarita','Aperol, tequila y limón',6.5],
+      ['Mojito','Clásico, parchita o frutos rojos',5],
+      ['Aperol Spritz','Aperol, espumante y soda',7],
+      ['Negroni','Campari, vermut rojo y ginebra',7],
+      ['Espresso Martini','Vodka, espresso y licor de café',6],
+      ['Tinto de verano','Vino tinto y 7UP',5],
+      ['Gin tonic','Ginebra, agua tónica y limón',5.5],
+      ['Paloma','Tequila, limón, naranja y sal',6],
+      ['Whisky sour','Whisky, limón y clara de huevo',6],
+      ['Sin alcohol','Caribbean Ruby, Fresh Tea o Virgin Mule',5]]},
+    {n:'Cervezas y bebidas',f:'f/trago.jpg',pie:'Bien frío',p:[
+      ['Polarcita','',1.8],['Solera','',2],['Caroreña Verano','',2.5],['Extra Chelada','',1.5],
+      ['Frappé','Limonada, frutos rojos o parchita',3.5],['Refresco','',2.5],['Agua 600 ml','',2.5],['Malta','',1],
+      ['Vino tinto o blanco','Copa REF 5 · botella REF 20',''],['Ron, whisky y más','Por trago o por botella, pregunta en la barra','']]}
+  ];
+  var pest=document.getElementById('pestanas'),platos=document.getElementById('platos'),foto=document.getElementById('cartaFoto'),pie=document.getElementById('cartaPie');
+  function verCat(c){
+    platos.innerHTML='';
+    c.p.forEach(function(x){var li=el('li');li.appendChild(el('b','',x[0]));if(x[2]!=='')li.appendChild(el('em','',ref(x[2])));if(x[1])li.appendChild(el('span','',x[1]));platos.appendChild(li);});
+    if(foto.getAttribute('src')!==c.f)foto.src=c.f;foto.alt=c.pie;pie.textContent=c.pie;
   }
-  document.querySelectorAll('.botones button').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      if(total()>=MAX){cuenta.textContent='La bandeja está llena. Para más, pide otra bandeja.';return;}
-      var k=btn.dataset.a;c[k]++;
-      var s=S[k];var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',s[2]);svg.setAttribute('class',s[1]);
-      var u=document.createElementNS('http://www.w3.org/2000/svg','use');u.setAttribute('href','#'+s[0]);svg.appendChild(u);cont.appendChild(svg);pintar();
-    });
-  });
-  document.getElementById('vaciar').addEventListener('click',function(){c={pollo:0,carne:0,papas:0,salsa:0};cont.innerHTML='';pintar();});
+  CARTA.forEach(function(c,i){var b=el('button','',c.n);b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.addEventListener('click',function(){pest.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});verCat(c);});pest.appendChild(b);});
+  verCat(CARTA[0]);
+
+  /* Arma tu bandeja con tamaños, sides y salsas reales */
+  var TAM=[{n:5,p:13,personas:'1 persona',sides:1,salsas:2},{n:9,p:22,personas:'2 personas',sides:2,salsas:3},{n:15,p:35,personas:'3 o 4 personas',sides:3,salsas:4}];
+  var SIDES=[['Papas fritas','s-papas'],['Aros de cebolla','s-aros'],['Ensalada César','s-cesar'],['Coleslaw','s-coleslaw']];
+  var SALSAS=[['BBQ','#5A2E1A'],['Ajo','#F1EAD2'],['Mojo criollo','#E08A2E'],['Tocineta','#D9C79A'],['Ranch','#EDEBDD'],['Parrillera','#C2421E'],['Alemana','#E6E3C8'],['Mermelada de pimentón','#8E1B1B'],['Cheddar','#F2B33D'],['Teriyaki','#4A2A17'],['Guasacaca','#8FAE45'],['Mermelada de cebolla','#5B2B23']];
+  var t=TAM[0],cs={},csa={};
+  var tamanos=document.getElementById('tamanos'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas');
+  TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.appendChild(el('b','','x'+x.n));b.appendChild(el('span','',x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;tamanos.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b?'true':'false')});pintarB();});tamanos.appendChild(b);});
+  function fichas(box,lista,obj){
+    box.innerHTML='';
+    lista.forEach(function(it){var k=it[0],n=obj[k]||0;var f=el('span','ficha'+(n?' on':''));f.appendChild(document.createTextNode(k));var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+k);m.disabled=!n;var p=el('button','','+');p.type='button';p.setAttribute('aria-label','Agregar '+k);
+      m.addEventListener('click',function(){obj[k]=Math.max(0,(obj[k]||0)-1);pintarB();});p.addEventListener('click',function(){obj[k]=(obj[k]||0)+1;pintarB();});
+      f.appendChild(m);if(n)f.appendChild(el('output','',String(n)));f.appendChild(p);box.appendChild(f);});
+  }
+  function suma(o){var s=0;for(var k in o)s+=o[k];return s}
+  function pintarB(){
+    fichas(sidesBox,SIDES,cs);fichas(salsasBox,SALSAS,csa);
+    var ns=suma(cs),na=suma(csa),exS=Math.max(0,ns-t.sides),exA=Math.max(0,na-t.salsas);
+    document.getElementById('sidesInfo').textContent=t.sides+(t.sides>1?' incluidos':' incluido')+(exS?' · '+exS+' extra a REF 3':'');
+    document.getElementById('salsasInfo').textContent=t.salsas+' incluidas'+(exA?' · '+exA+' extra a REF 1':'');
+    var total=t.p+exS*3+exA;
+    document.getElementById('total').textContent=ref(total);
+    var partes=['x'+t.n+' pinchos mixtos'];
+    SIDES.forEach(function(s){if(cs[s[0]])partes.push(cs[s[0]]+' × '+s[0].toLowerCase())});
+    SALSAS.forEach(function(s){if(csa[s[0]])partes.push(csa[s[0]]+' × salsa '+s[0].toLowerCase())});
+    document.getElementById('resumen').textContent=partes.join(', ')+'.';
+    document.getElementById('pedirBandeja').href=WA+encodeURIComponent('Hola, quiero pedir: '+partes.join(', ')+'. Total aproximado '+ref(total)+'.');
+    document.getElementById('pieBandeja').textContent='x'+t.n+' pinchos · '+t.personas;
+    var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
+    zp.className='zona-pinchos'+(t.n>5?' muchos':'');
+    var tipos=['pincho-carne','pincho-pollo','pincho-cerdo'];
+    for(var i=0;i<t.n;i++){var s=usar(tipos[i%3],'0 0 200 40');s.style.animationDelay=(i*25)+'ms';zp.appendChild(s);}
+    SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++)ze.appendChild(usar(sd[1],'0 0 60 60'));});
+    SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var s=usar('s-salsa','0 0 60 60','salsa');s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
+  }
+  pintarB();
+
+  /* Horario real y estado en hora de Caracas */
+  var HOR={0:[12,22],1:[11,22],2:[11,22],3:[11,23],4:[11,23],5:[11,24],6:[12,24]};
+  var DN=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  function h12(h){h=Math.floor(h);if(h===24||h===0)return '12 a. m.';if(h===12)return '12 m.';return (h>12?h-12:h)+(h<12?' a. m.':' p. m.')}
+  var ahora=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));
+  var hoy=ahora.getDay(),hh=ahora.getHours()+ahora.getMinutes()/60;
+  var ul=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(d){var li=el('li');li.appendChild(el('span','',DN[d]));li.appendChild(el('span','',h12(HOR[d][0])+' a '+h12(HOR[d][1])));if(d===hoy)li.className='hoy';ul.appendChild(li);});
+  var est=document.getElementById('estado'),abierto=hh>=HOR[hoy][0]&&hh<HOR[hoy][1];
+  var abre=hh<HOR[hoy][0]?HOR[hoy][0]:HOR[(hoy+1)%7][0];
+  est.querySelector('span').textContent=(abierto?'Abierto ahora · cierra a las '+h12(HOR[hoy][1]):'Cerrado ahora · abre a las '+h12(abre))+' · 4,8 en Google';
+  if(!abierto)est.classList.add('cerrado');
+
+  /* Reserva tipo comanda */
+  var R={n:4,dia:null,hora:null,oc:null};
+  var cuantos=document.getElementById('cuantos'),gente=document.getElementById('gente');
+  function pintarGente(){cuantos.textContent=R.n;gente.innerHTML='';for(var i=0;i<Math.min(R.n,20);i++)gente.appendChild(usar('persona','0 0 22 30'));ticket();}
+  document.getElementById('menos').addEventListener('click',function(){R.n=Math.max(1,R.n-1);pintarGente();});
+  document.getElementById('mas').addEventListener('click',function(){R.n=Math.min(30,R.n+1);pintarGente();});
+  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var diasBox=document.getElementById('dias');
+  for(var k=0;k<7;k++){(function(k){var d=new Date(ahora);d.setDate(d.getDate()+k);var nombre=k===0?'Hoy':k===1?'Mañana':DN[d.getDay()];var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.appendChild(document.createTextNode(nombre));b.appendChild(el('small','',d.getDate()+' '+MES[d.getMonth()]));b.addEventListener('click',function(){R.dia={d:d,txt:nombre+' '+d.getDate()+' '+MES[d.getMonth()],k:k};R.hora=null;diasBox.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintarHoras();ticket();});diasBox.appendChild(b);})(k);}
+  var horasBox=document.getElementById('horas');
+  function txtHora(h){var H=Math.floor(h);return (H>12?H-12:H)+':'+(h%1?'30':'00')+(H<12?' a. m.':H===12?' m.':' p. m.')}
+  function pintarHoras(){
+    horasBox.innerHTML='';
+    if(!R.dia){horasBox.appendChild(el('p','lead','Primero elige el día.'));return;}
+    var dw=R.dia.d.getDay(),ab=HOR[dw][0],ultima=HOR[dw][1]-1;
+    [['Almuerzo',ab,15],['Tarde',15,19],['Noche',19,ultima+0.5]].forEach(function(g){
+      var horas=[];for(var h=g[1];h<g[2]&&h<=ultima;h+=0.5){if(R.dia.k===0&&h<=hh+0.5)continue;horas.push(h);}
+      if(!horas.length)return;var m=el('div','momento');m.appendChild(el('h4','',g[0]));var c=el('div','chips');
+      horas.forEach(function(h){var tx=txtHora(h);var b=el('button','',tx);b.type='button';b.setAttribute('aria-pressed',R.hora===tx?'true':'false');b.addEventListener('click',function(){R.hora=tx;pintarHoras();ticket();});c.appendChild(b);});
+      m.appendChild(c);horasBox.appendChild(m);});
+    if(!horasBox.children.length)horasBox.appendChild(el('p','lead','Hoy ya no quedan horas. Elige otro día.'));
+  }
+  pintarHoras();
+  var ocBox=document.getElementById('ocasion');
+  ['Cumpleaños','Partido','Reunión de trabajo','Solo compartir'].forEach(function(o){var b=el('button','',o);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){R.oc=R.oc===o?null:o;ocBox.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.textContent===R.oc?'true':'false')});ticket();});ocBox.appendChild(b);});
+  var nom=document.getElementById('nom'),tel=document.getElementById('tel');nom.addEventListener('input',ticket);tel.addEventListener('input',ticket);
+  var conf=document.getElementById('confirmar');
+  function ticket(){
+    document.getElementById('tCuantos').textContent=R.n+(R.n===1?' persona':' personas');
+    document.getElementById('tDia').textContent=R.dia?R.dia.txt:'Elige un día';
+    document.getElementById('tHora').textContent=R.hora||'Elige una hora';
+    document.getElementById('tOcasion').textContent=R.oc||'Sin indicar';
+    document.getElementById('tNom').textContent=nom.value.trim()||'Sin indicar';
+    var listo=!!(R.dia&&R.hora&&nom.value.trim().length>1&&/^[0-9+ ()-]{7,}$/.test(tel.value.trim()));
+    conf.setAttribute('aria-disabled',listo?'false':'true');conf.style.opacity=listo?1:.5;
+    conf.href=WA+encodeURIComponent('Hola, quiero reservar una mesa para '+R.n+' el '+(R.dia?R.dia.txt:'')+' a las '+(R.hora||'')+(R.oc?' ('+R.oc+')':'')+'. A nombre de '+nom.value.trim()+'.');
+  }
+  conf.addEventListener('click',function(e){if(conf.getAttribute('aria-disabled')==='true'){e.preventDefault();e.stopImmediatePropagation();var f=!R.dia?document.querySelector('#dias button'):!R.hora?document.querySelector('#horas button'):nom.value.trim().length<2?nom:tel;if(f)f.focus();}},true);
+  pintarGente();
 })();
 </script>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>

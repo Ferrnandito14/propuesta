@@ -116,6 +116,38 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
 .mapa{margin-top:44px;border:1px solid var(--linea);aspect-ratio:16/7;min-height:300px}.mapa iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1)}
+.agenda{border-top:1px solid var(--linea)}
+.ag-fila{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:24px 0;border-bottom:1px solid var(--linea)}
+@media(min-width:700px){.ag-fila{grid-template-columns:64px minmax(0,1fr)}}
+.ag-n{font-weight:800;font-size:1.6rem;line-height:1;letter-spacing:-.03em}
+.ag-t{font-weight:700;font-size:1.15rem;margin-bottom:12px}
+.ag-t small{font-weight:400;color:var(--gris);font-size:.9rem;margin-left:6px}
+.ag-serv{display:flex;flex-wrap:wrap;gap:8px}
+.ag-serv button,.ag-horas button{all:unset;cursor:pointer;border:1px solid var(--linea);border-radius:999px;padding:10px 16px;font-weight:600;font-size:.95rem}
+.ag-serv button[aria-pressed="true"],.ag-horas button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.ag-serv button.sug:after{content:" · sugerido";font-weight:400;opacity:.75}
+.ag-dias{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border:1px solid var(--linea);scrollbar-width:thin}
+.ag-dias button{all:unset;cursor:pointer;flex:0 0 84px;scroll-snap-align:start;text-align:center;padding:12px 0 14px;border-right:1px solid var(--linea)}
+.ag-dias button:last-child{border-right:0}
+.ag-dias button small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris)}
+.ag-dias button b{display:block;font-weight:800;font-size:2rem;line-height:1.05;letter-spacing:-.03em}
+.ag-dias button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.ag-dias button[aria-pressed="true"] small{color:#ccc}
+.ag-horas{display:flex;flex-wrap:wrap;gap:8px}
+.ag-horas p{color:var(--gris)}
+.ag-serv button:focus-visible,.ag-dias button:focus-visible,.ag-horas button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.ag-datos{display:grid;gap:12px}
+@media(min-width:700px){.ag-datos{grid-template-columns:1fr 1fr}}
+.ag-datos label{font-weight:600;font-size:.92rem}
+.ag-datos input{display:block;width:100%;min-height:50px;margin-top:6px;border:1px solid var(--tinta);border-radius:999px;padding:10px 18px;font:inherit}
+.ag-fin{display:grid;grid-template-columns:auto 1fr;gap:16px 20px;align-items:center;margin-top:30px;padding:24px;border:1px solid var(--tinta)}
+@media(min-width:800px){.ag-fin{grid-template-columns:auto 1fr auto}}
+.ag-o{width:54px;height:54px}
+.ag-fin p{font-weight:800;font-size:clamp(1.2rem,2.8vw,1.7rem);letter-spacing:-.02em;line-height:1.15}
+.ag-fin .btn{grid-column:1/-1}
+@media(min-width:800px){.ag-fin .btn{grid-column:auto}}
+.ag-fin .btn[aria-disabled="true"]{opacity:.45;box-shadow:none}
+.ag-nota{color:var(--gris);font-size:.85rem;margin-top:12px}
 </style>
 </head>
 <body>
@@ -133,7 +165,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 <header>
   <nav class="nav" aria-label="Principal">
     <small>Chacao · Caracas</small>
-    <a class="btn mini" href="#reserva-web">Reservar</a>
+    <a class="btn mini" href="#agenda">Reservar</a>
   </nav>
   <div class="portada" id="inicio">
     <div class="marca" role="img" aria-label="Rulos">
@@ -146,7 +178,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     <h1>La peluquería que entiende tu rizo.</h1>
     <p class="sub">Cabello rizado, ondulado y afro en Chacao: diagnóstico, corte, hidratación y productos para cuidarlo en casa.</p>
     <div class="acciones">
-      <a class="btn" href="#reserva-web" data-reserva>Reservar en línea</a>
+      <a class="btn" href="#agenda">Reservar en línea</a>
         <a class="btn linea" id="reservar" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
       <span class="dato"><b>4,9</b> en Google · 487 opiniones</span>
     </div>
@@ -177,9 +209,29 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
           <p id="rizoTxt">Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.</p>
           <ul id="rizoLista"><li>Para empezar<span>Diagnóstico de rizo</span></li><li>Después<span>Corte y definición</span></li></ul>
         </div>
-        <a class="btn" href="#reserva-web">Reservar con mi rizo</a>
+        <a class="btn" href="#agenda" id="conMiRizo">Reservar con mi rizo</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="agenda" aria-labelledby="agenda-t">
+  <div class="wrap">
+    <p class="etq">Tu cita</p>
+    <h2 id="agenda-t">Agenda con tu rizo.</h2>
+    <p class="lead" id="agendaLead">Te sugerimos el servicio según el rizo que elegiste. Cámbialo si quieres.</p>
+    <div class="agenda">
+      <div class="ag-fila"><span class="ag-n">01</span><div><p class="ag-t">Servicio</p><div class="ag-serv" role="group" aria-label="Servicio" id="agServ"></div></div></div>
+      <div class="ag-fila"><span class="ag-n">02</span><div><p class="ag-t">Día <small>de lunes a sábado</small></p><div class="ag-dias" role="group" aria-label="Día" id="agDias"></div></div></div>
+      <div class="ag-fila"><span class="ag-n">03</span><div><p class="ag-t">Hora</p><div class="ag-horas" id="agHoras"></div></div></div>
+      <div class="ag-fila"><span class="ag-n">04</span><div><p class="ag-t">Tus datos</p><div class="ag-datos"><label>Nombre<input id="agNom" autocomplete="name"></label><label>WhatsApp<input id="agTel" type="tel" inputmode="tel" autocomplete="tel"></label></div></div></div>
+    </div>
+    <div class="ag-fin">
+      <svg class="ag-o" viewBox="0 0 100 100" aria-hidden="true"><use href="#o-rizo"/></svg>
+      <p id="agRes" aria-live="polite">Elige servicio, día y hora.</p>
+      <a class="btn" id="agEnviar" href="https://wa.me/PON_AQUI_EL_NUMERO" aria-disabled="true">Confirmar por WhatsApp</a>
+    </div>
+    <p class="ag-nota">Demostración: no se envía ningún dato. En la página final la cita le llega al salón.</p>
   </div>
 </section>
 
@@ -228,181 +280,6 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   </div>
 </section>
 
-<!-- reserva-web:inicio -->
-<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Reserva tu cita en línea</h2><p class="lead">Elige el servicio, el día y la hora. Rulos te confirma por WhatsApp.</p><div id="reserva-web"></div></div></section>
-<script>window.RESERVA = {"palabra": "reserva", "textoConfirmar": "Confirmar reserva", "textoListo": "Reserva lista", "tema": {"fondo": "#FFFFFF", "texto": "#131313", "suave": "#6E6A66", "acento": "#131313", "sobreAcento": "#FFFFFF", "borde": "#DCD6CF", "radio": "14px"}, "pasos": [{"id": "servicio", "tipo": "opciones", "titulo": "¿Qué servicio quieres?", "corto": "Servicio", "columnas": "dos", "opciones": [{"txt": "Corte para rizos", "sub": "precio por confirmar"}, {"txt": "Diagnóstico de rizo", "sub": "precio por confirmar"}, {"txt": "Hidratación profunda", "sub": "precio por confirmar"}, {"txt": "Definición y peinado", "sub": "precio por confirmar"}, {"txt": "Color", "sub": "precio por confirmar"}, {"txt": "No sé, quiero asesoría"}]}, {"id": "primera", "tipo": "opciones", "titulo": "¿Es tu primera vez en Rulos?", "corto": "Primera vez", "columnas": "dos", "opciones": [{"txt": "Sí, es la primera"}, {"txt": "Ya he venido"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día?", "corto": "Día", "dias": 6, "cerrados": [0]}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 9, "hasta": 19, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
-<script>/* Reserva o pedido por pasos, sin backend.
-   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
-   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
-   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
-(function () {
-  var C = window.RESERVA;
-  var raiz = document.getElementById('reserva-web');
-  if (!C || !raiz) return;
-  var t = C.tema || {};
-  var estado = {};
-  var paso = 0;
-
-  var css = '' +
-    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
-    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
-    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
-    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
-    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
-    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
-    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
-    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
-    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
-    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
-    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
-    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
-    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
-    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
-    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
-  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
-  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  function proximosDias(n, cerrados) {
-    var out = [], d = new Date();
-    while (out.length < n) {
-      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
-      d.setDate(d.getDate() + 1);
-    }
-    return out;
-  }
-  function horas(desde, hasta, cada) {
-    var out = [];
-    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
-      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
-      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
-    }
-    return out;
-  }
-  function el(tag, attrs, hijos) {
-    var e = document.createElement(tag);
-    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
-    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
-    return e;
-  }
-  function completo(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
-    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
-    if (p.opcional) return true;
-    return !!v;
-  }
-  function textoDe(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
-    if (p.tipo === 'datos') return v ? v.nombre : '';
-    if (!v) return 'Sin indicar';
-    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
-  }
-  function opcionesDe(p) {
-    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
-    if (p.tipo === 'hora') {
-      var lista = horas(p.desde, p.hasta, p.cada || 30);
-      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
-      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
-      var hoy = local(new Date());
-      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
-        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
-        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
-      }
-      return lista;
-    }
-    return p.opciones;
-  }
-
-  function pintar() {
-    raiz.innerHTML = '';
-    var pasos = C.pasos, total = pasos.length + 1;
-    var caja = el('div', {class: 'r-caja'});
-    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
-    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
-    caja.appendChild(barra);
-
-    if (paso === 'listo') {
-      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
-      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
-      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
-      raiz.appendChild(caja); return;
-    }
-
-    if (paso === pasos.length) {
-      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
-      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
-      var res = el('div', {class: 'r-res'});
-      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
-      caja.appendChild(res);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [
-        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
-        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
-      ]));
-      raiz.appendChild(caja); return;
-    }
-
-    var p = pasos[paso];
-    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
-    caja.appendChild(el('h3', {text: p.titulo}));
-
-    if (p.tipo === 'cantidades') {
-      estado[p.id] = estado[p.id] || {};
-      var lista = el('div', {class: 'r-ops'});
-      p.opciones.forEach(function (o) {
-        var n = estado[p.id][o.txt] || 0;
-        var num = el('b', {text: String(n), 'aria-live': 'polite'});
-        lista.appendChild(el('div', {class: 'r-cant'}, [
-          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
-          el('div', {class: 'r-num'}, [
-            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
-            num,
-            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
-          ])
-        ]));
-      });
-      caja.appendChild(lista);
-    } else if (p.tipo === 'datos') {
-      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
-      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
-      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
-      var error = el('div', {class: 'r-error', role: 'alert'});
-      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
-      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
-      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
-      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
-      caja.appendChild(error);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
-    } else {
-      var ops = opcionesDe(p);
-      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
-      ops.forEach(function (o) {
-        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
-        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
-      });
-      caja.appendChild(grid);
-      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
-      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
-    }
-
-    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
-    sig.disabled = !completo(p);
-    caja.appendChild(el('div', {class: 'r-nav'}, [
-      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
-      sig
-    ]));
-    raiz.appendChild(caja);
-  }
-  pintar();
-})();
-</script>
-<!-- reserva-web:fin -->
 <section aria-labelledby="donde">
   <div class="wrap cols">
     <div>
@@ -411,13 +288,13 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <dl>
         <dt>Dirección</dt><dd>Edificio Lucerna, Av. Francisco de Miranda, Chacao, Caracas</dd>
         <dt>Horario</dt><dd>Lunes a sábado, de 9 a. m. a 7 p. m.</dd>
-        <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
+        <dt>Citas</dt><dd><a href="#agenda">En línea</a> o por WhatsApp</dd>
       </dl>
       <div class="acciones" style="justify-content:flex-start;padding:0"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4925486%2C-66.8568466&amp;destination_place_id=ChIJLdCv8-1ZKowRW4cPtfOLTjk">Cómo llegar</a></div>
     </div>
     <div>
       <h2 style="font-size:2rem">Tu próxima cita, en un minuto</h2>
-      <p class="lead">Resérvala <a href="#reserva-web">en línea</a> o escríbenos por WhatsApp.</p>
+      <p class="lead">Resérvala <a href="#agenda">en línea</a> o escríbenos por WhatsApp.</p>
       <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
     </div>
   </div>
@@ -457,6 +334,37 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
 a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
 a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  var SERV=['Diagnóstico de rizo','Corte para rizos','Hidratación profunda','Definición y peinado','Color'];
+  var SUG={abierto:'Corte para rizos',cerrado:'Hidratación profunda',afro:'Hidratación profunda'};
+  var A={serv:null,dia:null,hora:null,rizo:null};
+  var DN=['dom','lun','mar','mié','jue','vie','sáb'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var sBox=document.getElementById('agServ'),dBox=document.getElementById('agDias'),hBox=document.getElementById('agHoras');
+  function pintarServ(){sBox.innerHTML='';var sug=A.rizo?SUG[A.rizo]:null;SERV.forEach(function(x){var b=el('button',x===sug?'sug':'',x);b.type='button';b.setAttribute('aria-pressed',A.serv===x?'true':'false');b.addEventListener('click',function(){A.serv=x;pintarServ();res();});sBox.appendChild(b);});}
+  var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));
+  var d0=new Date(hoy);d0.setHours(0,0,0,0);var n=0;
+  for(var k=0;n<12;k++){var d=new Date(d0);d.setDate(d.getDate()+k);if(d.getDay()===0)continue;n++;(function(d){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',DL[d.getDay()]+' '+d.getDate()+' de '+MES[d.getMonth()]);b.appendChild(el('small','',(+d===+d0?'hoy':DN[d.getDay()])));b.appendChild(el('b','',String(d.getDate())));b.appendChild(el('small','',MES[d.getMonth()]));b.addEventListener('click',function(){A.dia=d;A.hora=null;dBox.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintarHoras();res();});dBox.appendChild(b);})(d);}
+  function pintarHoras(){hBox.innerHTML='';if(!A.dia){hBox.appendChild(el('p','','Elige un día.'));return;}var esHoy=+A.dia===+d0,hn=hoy.getHours()+hoy.getMinutes()/60,c=0;
+    for(var h=9;h<18.5;h+=0.5){if(esHoy&&h<=hn+0.5)continue;c++;(function(h){var H=Math.floor(h),tx=(H>12?H-12:H)+':'+(h%1?'30':'00')+(H<12?' a. m.':H===12?' m.':' p. m.');var b=el('button','',tx);b.type='button';b.setAttribute('aria-pressed',A.hora===tx?'true':'false');b.addEventListener('click',function(){A.hora=tx;pintarHoras();res();});hBox.appendChild(b);})(h);}
+    if(!c)hBox.appendChild(el('p','','Hoy ya no quedan horas. Elige otro día.'));}
+  var nom=document.getElementById('agNom'),tel=document.getElementById('agTel'),env=document.getElementById('agEnviar'),out=document.getElementById('agRes');
+  nom.addEventListener('input',res);tel.addEventListener('input',res);
+  function res(){var p=[];if(A.serv)p.push(A.serv);if(A.dia)p.push(DL[A.dia.getDay()]+' '+A.dia.getDate()+' de '+MES[A.dia.getMonth()]);if(A.hora)p.push(A.hora);
+    out.textContent=p.length?p.join(' · '):'Elige servicio, día y hora.';
+    var ok=!!(A.serv&&A.dia&&A.hora&&nom.value.trim().length>1&&/^[0-9+ ()-]{7,}$/.test(tel.value.trim()));env.setAttribute('aria-disabled',ok?'false':'true');
+    env.href=WA+encodeURIComponent('Hola, quiero una cita: '+p.join(', ')+(A.rizo?' (mi rizo es '+A.rizo+')':'')+'. A nombre de '+nom.value.trim()+'.');}
+  env.addEventListener('click',function(e){if(env.getAttribute('aria-disabled')==='true'){e.preventDefault();e.stopImmediatePropagation();var f=!A.serv?sBox.querySelector('button'):!A.dia?dBox.querySelector('button'):!A.hora?hBox.querySelector('button'):nom.value.trim().length<2?nom:tel;if(f)f.focus();}},true);
+  // El selector de rizo sugiere el servicio
+  function tomarRizo(){var b=document.querySelector('.tipos [aria-pressed="true"]');if(!b)return;A.rizo=b.dataset.t;if(!A.serv||A.servSug)A.serv=SUG[A.rizo],A.servSug=true;pintarServ();res();document.getElementById('agendaLead').textContent='Elegiste rizo '+A.rizo+'. Te sugerimos '+SUG[A.rizo].toLowerCase()+'; cámbialo si quieres.';}
+  document.querySelectorAll('.tipos button').forEach(function(b){b.addEventListener('click',function(){setTimeout(tomarRizo,0);});});
+  sBox.addEventListener('click',function(){A.servSug=false;});
+  var cm=document.getElementById('conMiRizo');if(cm)cm.addEventListener('click',tomarRizo);
+  tomarRizo();pintarHoras();res();
+})();
 </script>
 <!-- vida:inicio -->
 <script>window.VIDA = {"caracter": "firme"};</script>

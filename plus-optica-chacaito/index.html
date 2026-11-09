@@ -127,6 +127,52 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .mont.vacio .img{background:var(--blanco);border:1px dashed #BDBDBD;display:grid;place-items:center;text-align:center;padding:16px;color:var(--gris);font-size:.92rem}
 .mapa{margin-top:40px;border:1px solid var(--tinta);aspect-ratio:16/7;min-height:300px}
 .mapa iframe{display:block;width:100%;height:100%;border:0}
+.cita{display:grid;gap:0;border:1px solid var(--tinta)}
+@media(min-width:900px){.cita{grid-template-columns:1fr 1fr}}
+.cita-izq,.cita-der{padding:26px 22px}
+@media(min-width:900px){.cita-der{border-left:1px solid var(--tinta)}.cita-izq,.cita-der{padding:34px}}
+@media(max-width:899px){.cita-der{border-top:1px solid var(--tinta)}}
+.paso-t{font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin:22px 0 10px}
+.paso-t:first-child{margin-top:0}
+.motivos{border-top:1px solid var(--linea)}
+.motivos button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--linea)}
+.motivos button i{width:18px;height:18px;border:1.5px solid var(--tinta);border-radius:50%;display:grid;place-items:center}
+.motivos button[aria-checked="true"] i:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--verde)}
+.motivos button b{font-weight:600}
+.motivos button small{color:var(--gris);font-size:.85rem}
+.motivos button:focus-visible{outline:3px solid var(--naranja);outline-offset:2px}
+.para{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--tinta)}
+.para button{all:unset;cursor:pointer;text-align:center;padding:12px 6px;font-weight:600;font-size:.92rem}
+.para button+button{border-left:1px solid var(--tinta)}
+.para button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.para button:focus-visible{outline:3px solid var(--naranja);outline-offset:-4px}
+.cal-cab{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.cal-cab b{font-weight:800;font-size:1.15rem;text-transform:capitalize}
+.cal-cab button{all:unset;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--tinta);border-radius:2px}
+.cal-cab button:disabled{opacity:.3;cursor:not-allowed}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);text-align:center;padding:6px 0}
+.cal button{all:unset;cursor:pointer;aspect-ratio:1;display:grid;place-items:center;font-weight:600;font-size:.95rem;border-radius:2px}
+.cal button:hover:not(:disabled){background:var(--claro)}
+.cal button:disabled{color:#C4C4C4;cursor:not-allowed}
+.cal button.hoy{box-shadow:inset 0 0 0 1px var(--tinta)}
+.cal button[aria-pressed="true"]{background:var(--verde);color:#fff}
+.cal button:focus-visible{outline:3px solid var(--naranja);outline-offset:1px}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.slots button{all:unset;cursor:pointer;text-align:center;padding:10px 4px;border:1px solid var(--linea);font-size:.88rem;font-weight:600;border-radius:2px;white-space:nowrap}
+@media(max-width:520px){.slots{grid-template-columns:repeat(3,1fr)}}
+.slots button[aria-pressed="true"]{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.slots button:focus-visible{outline:3px solid var(--naranja);outline-offset:1px}
+.slots p{grid-column:1/-1;color:var(--gris);font-size:.92rem}
+.cita-fin{border:1px solid var(--tinta);border-top:0;padding:26px 22px}
+@media(min-width:900px){.cita-fin{padding:30px 34px}}
+.cita-resumen{font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-.02em;line-height:1.15}
+.cita-datos{display:grid;gap:12px;margin-top:18px;align-items:end}
+@media(min-width:900px){.cita-datos{grid-template-columns:1fr 1fr auto}}
+.cita-datos label{font-weight:600;font-size:.9rem}
+.cita-datos input{display:block;width:100%;min-height:50px;margin-top:6px;border:1px solid var(--tinta);border-radius:2px;padding:10px 14px;font:inherit}
+.cita-datos .btn[aria-disabled="true"]{opacity:.45}
+.cita-fin .nota{margin-top:14px}
 </style>
 </head>
 <body>
@@ -140,7 +186,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 <header>
   <nav class="nav" aria-label="Principal"><div class="wrap">
     <a class="logo" href="#inicio"><svg aria-hidden="true"><use href="#cruz"/></svg><span><b>PLUS<br>ÓPTICA</b><small>Centro de ciencias de la visión</small></span></a>
-    <a class="btn mini" href="#reserva-web">Pedir cita</a>
+    <a class="btn mini" href="#cita-web">Pedir cita</a>
   </div></nav>
   <div class="carta" id="inicio">
     <div class="carta-fija">
@@ -157,7 +203,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <h1>Ve bien, y que se note.</h1>
       <p class="sub">Examen de la vista con optometrista, consulta oftalmológica, lentes formulados y monturas, detrás del BECO de Chacaíto.</p>
       <div class="acciones">
-        <a class="btn" href="#reserva-web" data-reserva>Pedir cita en línea</a>
+        <a class="btn" href="#cita-web">Pedir cita en línea</a>
         <a class="btn linea" id="cita" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20pedir%20una%20cita">Pedir cita por WhatsApp</a>
         <span class="dato"><b>4,9</b> en Google · 288 opiniones</span>
       </div>
@@ -167,6 +213,20 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 </header>
 
 <main>
+
+
+
+<section aria-labelledby="mont">
+  <div class="wrap">
+    <p class="etq">Catálogo</p>
+    <h2 id="mont">Elige tu montura antes de venir.</h2>
+    <p class="lead">Todas las monturas de la óptica, separadas por tipo y con su precio. Aparta la que te guste y pruébatela en el local.</p>
+    <div class="filtros" role="group" aria-label="Tipo de montura" id="filtros"></div>
+    <div class="orden"><span id="cuantas" aria-live="polite"></span><button type="button" id="ordenar" aria-pressed="false">Ordenar por precio</button></div>
+    <div class="rejilla" id="catalogo"></div>
+    <p class="nota">Monturas tomadas de sus publicaciones de Google e Instagram. Las que no muestran precio dicen "Consultar precio". En la página final se carga todo el catálogo de la óptica.</p>
+  </div>
+</section>
 <section aria-labelledby="quien">
   <div class="wrap">
     <p class="etq">Quién te atiende</p>
@@ -181,19 +241,37 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     </div>
   </div>
 </section>
-
-<section aria-labelledby="mont">
+<section aria-labelledby="cita-t" id="cita-web">
   <div class="wrap">
-    <p class="etq">Catálogo</p>
-    <h2 id="mont">Elige tu montura antes de venir.</h2>
-    <p class="lead">Todas las monturas de la óptica, separadas por tipo y con su precio. Aparta la que te guste y pruébatela en el local.</p>
-    <div class="filtros" role="group" aria-label="Tipo de montura" id="filtros"></div>
-    <div class="orden"><span id="cuantas" aria-live="polite"></span><button type="button" id="ordenar" aria-pressed="false">Ordenar por precio</button></div>
-    <div class="rejilla" id="catalogo"></div>
-    <p class="nota">En esta propuesta están las monturas que aparecen con precio en sus fotos públicas. En la página final se cargan todas las del catálogo de la óptica, con su foto, tipo y precio.</p>
+    <p class="etq">Tu cita</p>
+    <h2 id="cita-t">Pide tu examen en un minuto.</h2>
+    <p class="lead">Elige qué necesitas y el día en el calendario. La óptica te confirma por WhatsApp.</p>
+    <div class="cita">
+      <div class="cita-izq">
+        <p class="paso-t">1 · ¿Qué necesitas?</p>
+        <div class="motivos" role="radiogroup" aria-label="Motivo de la cita" id="motivos"></div>
+        <p class="paso-t">2 · ¿Para quién?</p>
+        <div class="para" role="group" aria-label="Para quién" id="para"></div>
+      </div>
+      <div class="cita-der">
+        <p class="paso-t">3 · ¿Qué día?</p>
+        <div class="cal-cab"><button type="button" id="mesAnt" aria-label="Mes anterior">←</button><b id="mesTit" aria-live="polite"></b><button type="button" id="mesSig" aria-label="Mes siguiente">→</button></div>
+        <div class="cal" id="cal" role="grid" aria-label="Calendario"></div>
+        <p class="paso-t">4 · ¿A qué hora?</p>
+        <div class="slots" id="slots"></div>
+      </div>
+    </div>
+    <div class="cita-fin">
+      <p class="cita-resumen" id="citaRes" aria-live="polite">Elige motivo, día y hora.</p>
+      <div class="cita-datos">
+        <label>Nombre<input id="cNom" autocomplete="name"></label>
+        <label>WhatsApp<input id="cTel" type="tel" inputmode="tel" autocomplete="tel"></label>
+        <a class="btn" id="cEnviar" href="https://wa.me/PON_AQUI_EL_NUMERO" aria-disabled="true">Pedir cita por WhatsApp</a>
+      </div>
+      <p class="nota">Demostración: no se envía ningún dato. En la página final la solicitud le llega a la óptica.</p>
+    </div>
   </div>
 </section>
-
 <section aria-labelledby="serv">
   <div class="wrap">
     <p class="etq">Servicios</p>
@@ -206,182 +284,6 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     </div>
   </div>
 </section>
-
-<!-- reserva-web:inicio -->
-<section aria-labelledby="reserva-t" style="padding:64px 0"><div class="wrap"><h2 id="reserva-t">Pide tu cita en línea</h2><p class="lead">Elige el motivo y el día que te conviene. La óptica te confirma la hora por WhatsApp.</p><div id="reserva-web"></div></div></section>
-<script>window.RESERVA = {"palabra": "solicitud de cita", "textoConfirmar": "Enviar solicitud", "textoListo": "Solicitud de cita lista", "tema": {"fondo": "#FFFFFF", "texto": "#111111", "suave": "#666666", "acento": "#17877A", "sobreAcento": "#FFFFFF", "borde": "#E0E0E0", "radio": "2px"}, "pasos": [{"id": "motivo", "tipo": "opciones", "titulo": "¿Qué necesitas?", "corto": "Motivo", "columnas": "dos", "opciones": [{"txt": "Examen de la vista"}, {"txt": "Consulta oftalmológica"}, {"txt": "Lentes nuevos con mi fórmula"}, {"txt": "Solo ver monturas"}]}, {"id": "para", "tipo": "opciones", "titulo": "¿Para quién es?", "corto": "Para", "columnas": "dos", "opciones": [{"txt": "Para mí"}, {"txt": "Para un niño o niña"}, {"txt": "Para otra persona adulta"}]}, {"id": "dia", "tipo": "fecha", "titulo": "¿Qué día prefieres?", "corto": "Día", "dias": 6, "cerrados": [0]}, {"id": "hora", "tipo": "hora", "titulo": "¿A qué hora?", "corto": "Hora", "desde": 11, "hasta": 17, "cada": 30, "nota": "Días y horas de ejemplo: el negocio define su agenda real."}, {"id": "datos", "tipo": "datos", "titulo": "¿A nombre de quién?", "corto": "Nombre"}], "demo": true};</script>
-<script>/* Reserva o pedido por pasos, sin backend.
-   Uso: <div id="reserva-web"></div> y window.RESERVA = {...}; luego cargar este archivo.
-   En modo demo (demo: true) no envía ningún dato: solo muestra el resumen final.
-   En la versión vendida, `enviar` se conecta a un formulario real (por ejemplo, Netlify Forms) y le llega al negocio. */
-(function () {
-  var C = window.RESERVA;
-  var raiz = document.getElementById('reserva-web');
-  if (!C || !raiz) return;
-  var t = C.tema || {};
-  var estado = {};
-  var paso = 0;
-
-  var css = '' +
-    '#reserva-web{--r-fondo:' + (t.fondo || '#fff') + ';--r-texto:' + (t.texto || '#1d1d1b') + ';--r-suave:' + (t.suave || '#5b5b55') + ';--r-acento:' + (t.acento || '#1c48a0') + ';--r-sobre:' + (t.sobreAcento || '#fff') + ';--r-borde:' + (t.borde || '#ddd') + ';--r-radio:' + (t.radio || '14px') + '}' +
-    '#reserva-web .r-caja{background:var(--r-fondo);color:var(--r-texto);border:1px solid var(--r-borde);border-radius:var(--r-radio);padding:24px 22px;max-width:640px}' +
-    '#reserva-web .r-barra{display:flex;gap:6px;margin-bottom:18px}#reserva-web .r-barra i{flex:1;height:5px;border-radius:3px;background:var(--r-borde)}#reserva-web .r-barra i.on{background:var(--r-acento)}' +
-    '#reserva-web .r-paso{font-size:.85rem;color:var(--r-suave);margin-bottom:4px}#reserva-web h3{font-size:1.3rem;margin:0 0 14px}' +
-    '#reserva-web .r-ops{display:grid;gap:10px}#reserva-web .r-ops.dos{grid-template-columns:repeat(2,1fr)}#reserva-web .r-ops.tres{grid-template-columns:repeat(3,1fr)}' +
-    '#reserva-web button.r-op{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--r-borde);border-radius:12px;padding:13px 14px;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-weight:600;color:var(--r-texto);background:transparent}' +
-    '#reserva-web button.r-op small{font-weight:400;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web button.r-op[aria-pressed="true"]{border-color:var(--r-acento);background:var(--r-acento);color:var(--r-sobre)}#reserva-web button.r-op[aria-pressed="true"] small{color:var(--r-sobre);opacity:.85}' +
-    '#reserva-web button.r-op:focus-visible,#reserva-web .r-btn:focus-visible,#reserva-web input:focus-visible{outline:3px solid var(--r-acento);outline-offset:2px}' +
-    '#reserva-web .r-cant{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 12px}' +
-    '#reserva-web .r-cant b{font-weight:600}#reserva-web .r-cant small{display:block;color:var(--r-suave);font-size:.82rem}' +
-    '#reserva-web .r-cant .r-num{display:flex;align-items:center;gap:10px}#reserva-web .r-cant button{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--r-borde);display:grid;place-items:center;font-weight:700}' +
-    '#reserva-web label{display:block;font-weight:600;margin:12px 0 6px}#reserva-web input{box-sizing:border-box;width:100%;min-height:48px;border:1.5px solid var(--r-borde);border-radius:12px;padding:10px 14px;font:inherit;background:transparent;color:var(--r-texto)}' +
-    '#reserva-web .r-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}#reserva-web .r-btn{all:unset;box-sizing:border-box;cursor:pointer;min-height:48px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;font-weight:700}' +
-    '#reserva-web .r-btn.pri{background:var(--r-acento);color:var(--r-sobre)}#reserva-web .r-btn.pri[disabled]{opacity:.4;cursor:not-allowed}#reserva-web .r-btn.sec{border:1.5px solid var(--r-borde);color:var(--r-texto)}' +
-    '#reserva-web .r-res{border-top:1px solid var(--r-borde);margin-top:6px}#reserva-web .r-res div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--r-borde)}#reserva-web .r-res span{color:var(--r-suave)}' +
-    '#reserva-web .r-nota{font-size:.85rem;color:var(--r-suave);margin-top:14px}#reserva-web .r-ok{font-size:2.4rem;line-height:1}#reserva-web .r-error{color:#b3261e;font-size:.9rem;margin-top:8px}';
-  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-  function local(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
-  var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  function proximosDias(n, cerrados) {
-    var out = [], d = new Date();
-    while (out.length < n) {
-      if ((cerrados || []).indexOf(d.getDay()) < 0) out.push({v: local(d), txt: (out.length === 0 && d.toDateString() === new Date().toDateString() ? 'Hoy' : DIAS[d.getDay()].charAt(0).toUpperCase() + DIAS[d.getDay()].slice(1)), sub: d.getDate() + ' ' + MESES[d.getMonth()]});
-      d.setDate(d.getDate() + 1);
-    }
-    return out;
-  }
-  function horas(desde, hasta, cada) {
-    var out = [];
-    for (var m = desde * 60; m <= hasta * 60 - cada; m += cada) {
-      var h = Math.floor(m / 60), mm = m % 60, h12 = ((h + 11) % 12) + 1;
-      out.push({v: (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm, txt: h12 + ':' + (mm < 10 ? '0' : '') + mm + (h < 12 ? ' a. m.' : ' p. m.')});
-    }
-    return out;
-  }
-  function el(tag, attrs, hijos) {
-    var e = document.createElement(tag);
-    for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); }
-    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
-    return e;
-  }
-  function completo(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return v && Object.keys(v).some(function (k) { return v[k] > 0; });
-    if (p.tipo === 'datos') return v && v.nombre && v.nombre.trim().length > 1 && /^[0-9+ ()-]{7,}$/.test((v.telefono || '').trim());
-    if (p.opcional) return true;
-    return !!v;
-  }
-  function textoDe(p) {
-    var v = estado[p.id];
-    if (p.tipo === 'cantidades') return Object.keys(v || {}).filter(function (k) { return v[k] > 0; }).map(function (k) { return v[k] + ' × ' + k; }).join(', ');
-    if (p.tipo === 'datos') return v ? v.nombre : '';
-    if (!v) return 'Sin indicar';
-    return v.txt + (v.sub ? ' (' + v.sub + ')' : '');
-  }
-  function opcionesDe(p) {
-    if (p.tipo === 'fecha') return proximosDias(p.dias || 7, p.cerrados);
-    if (p.tipo === 'hora') {
-      var lista = horas(p.desde, p.hasta, p.cada || 30);
-      // Si eligieron hoy, solo quedan las horas que faltan (con media hora de margen)
-      var dia = C.pasos.filter(function (x) { return x.tipo === 'fecha'; })[0];
-      var hoy = local(new Date());
-      if (dia && estado[dia.id] && estado[dia.id].v === hoy) {
-        var ahora = new Date(), limite = ahora.getHours() * 60 + ahora.getMinutes() + 30;
-        lista = lista.filter(function (o) { var hm = o.v.split(':'); return +hm[0] * 60 + +hm[1] >= limite; });
-      }
-      return lista;
-    }
-    return p.opciones;
-  }
-
-  function pintar() {
-    raiz.innerHTML = '';
-    var pasos = C.pasos, total = pasos.length + 1;
-    var caja = el('div', {class: 'r-caja'});
-    var barra = el('div', {class: 'r-barra', 'aria-hidden': 'true'});
-    for (var i = 0; i < total; i++) barra.appendChild(el('i', {class: i <= paso ? 'on' : ''}));
-    caja.appendChild(barra);
-
-    if (paso === 'listo') {
-      caja.appendChild(el('div', {class: 'r-ok', 'aria-hidden': 'true', text: '✓'}));
-      caja.appendChild(el('h3', {text: C.textoListo || 'Solicitud lista'}));
-      caja.appendChild(el('p', {text: C.demo ? 'Esto es una demostración: no se envió ningún dato. En la página final, esta solicitud le llega al negocio y te confirman por WhatsApp.' : 'Te confirmaremos por WhatsApp.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [el('button', {class: 'r-btn sec', type: 'button', text: 'Hacer otra', onclick: function () { estado = {}; paso = 0; pintar(); }})]));
-      raiz.appendChild(caja); return;
-    }
-
-    if (paso === pasos.length) {
-      caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + total + ' de ' + total}));
-      caja.appendChild(el('h3', {text: 'Revisa tu ' + (C.palabra || 'reserva')}));
-      var res = el('div', {class: 'r-res'});
-      pasos.forEach(function (p) { res.appendChild(el('div', {}, [el('span', {text: p.corto || p.titulo}), el('b', {text: textoDe(p)})])); });
-      caja.appendChild(res);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: al confirmar no se envía ningún dato.'}));
-      caja.appendChild(el('div', {class: 'r-nav'}, [
-        el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}),
-        el('button', {class: 'r-btn pri', type: 'button', text: C.textoConfirmar || 'Confirmar', onclick: function () { paso = 'listo'; pintar(); raiz.scrollIntoView({behavior: 'smooth', block: 'start'}); }})
-      ]));
-      raiz.appendChild(caja); return;
-    }
-
-    var p = pasos[paso];
-    caja.appendChild(el('div', {class: 'r-paso', text: 'Paso ' + (paso + 1) + ' de ' + total}));
-    caja.appendChild(el('h3', {text: p.titulo}));
-
-    if (p.tipo === 'cantidades') {
-      estado[p.id] = estado[p.id] || {};
-      var lista = el('div', {class: 'r-ops'});
-      p.opciones.forEach(function (o) {
-        var n = estado[p.id][o.txt] || 0;
-        var num = el('b', {text: String(n), 'aria-live': 'polite'});
-        lista.appendChild(el('div', {class: 'r-cant'}, [
-          el('div', {}, [el('b', {text: o.txt}), o.sub ? el('small', {text: o.sub}) : null]),
-          el('div', {class: 'r-num'}, [
-            el('button', {type: 'button', 'aria-label': 'Quitar ' + o.txt, text: '−', onclick: function () { estado[p.id][o.txt] = Math.max(0, (estado[p.id][o.txt] || 0) - 1); pintar(); }}),
-            num,
-            el('button', {type: 'button', 'aria-label': 'Agregar ' + o.txt, text: '+', onclick: function () { estado[p.id][o.txt] = (estado[p.id][o.txt] || 0) + 1; pintar(); }})
-          ])
-        ]));
-      });
-      caja.appendChild(lista);
-    } else if (p.tipo === 'datos') {
-      estado[p.id] = estado[p.id] || {nombre: '', telefono: ''};
-      var nombre = el('input', {type: 'text', id: 'r-nombre', autocomplete: 'name', value: estado[p.id].nombre});
-      var tel = el('input', {type: 'tel', id: 'r-tel', autocomplete: 'tel', inputmode: 'tel', value: estado[p.id].telefono});
-      var error = el('div', {class: 'r-error', role: 'alert'});
-      nombre.addEventListener('input', function () { estado[p.id].nombre = nombre.value; sig.disabled = !completo(p); });
-      tel.addEventListener('input', function () { estado[p.id].telefono = tel.value; sig.disabled = !completo(p); });
-      caja.appendChild(el('label', {for: 'r-nombre', text: 'Tu nombre'})); caja.appendChild(nombre);
-      caja.appendChild(el('label', {for: 'r-tel', text: 'Tu WhatsApp (para confirmarte)'})); caja.appendChild(tel);
-      caja.appendChild(error);
-      if (C.demo) caja.appendChild(el('p', {class: 'r-nota', text: 'Demostración: estos datos no se guardan ni se envían.'}));
-    } else {
-      var ops = opcionesDe(p);
-      var grid = el('div', {class: 'r-ops ' + (p.columnas || (p.tipo === 'hora' ? 'tres' : p.tipo === 'fecha' ? 'tres' : ''))});
-      ops.forEach(function (o) {
-        var sel = estado[p.id] && estado[p.id].v === (o.v || o.txt);
-        grid.appendChild(el('button', {class: 'r-op', type: 'button', 'aria-pressed': sel ? 'true' : 'false', onclick: function () { estado[p.id] = {v: o.v || o.txt, txt: o.txt, sub: o.sub}; pintar(); }}, [document.createTextNode(o.txt), o.sub ? el('small', {text: o.sub}) : null]));
-      });
-      caja.appendChild(grid);
-      if (!ops.length) caja.appendChild(el('p', {class: 'r-nota', text: 'Hoy ya no quedan horas disponibles. Vuelve atrás y elige otro día.'}));
-      if (p.nota) caja.appendChild(el('p', {class: 'r-nota', text: p.nota}));
-    }
-
-    var sig = el('button', {class: 'r-btn pri', type: 'button', text: 'Siguiente', onclick: function () { paso++; pintar(); }});
-    sig.disabled = !completo(p);
-    caja.appendChild(el('div', {class: 'r-nav'}, [
-      paso > 0 ? el('button', {class: 'r-btn sec', type: 'button', text: 'Atrás', onclick: function () { paso--; pintar(); }}) : el('span'),
-      sig
-    ]));
-    raiz.appendChild(caja);
-  }
-  pintar();
-})();
-</script>
-<!-- reserva-web:fin -->
 <section aria-labelledby="donde">
   <div class="wrap local">
     <div class="foto"><img src="f/local.jpg" alt="Fachada de Plus Óptica en el Centro Doral, locales 18 y 19" width="951" height="534" loading="lazy"></div>
@@ -391,7 +293,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <dl>
         <dt>Dirección</dt><dd>Centro Doral, local 18, Av. Santa Isabel, Chacaíto. Anexo a la Torre Credicard</dd>
         <dt>Horario</dt><dd>Lunes a jueves y sábado, de 11 a. m. a 5 p. m. Viernes, de 11 a. m. a 4 p. m.</dd>
-        <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
+        <dt>Citas</dt><dd><a href="#cita-web">En línea</a> o por WhatsApp</dd>
       </dl>
       <div class="acciones" style="justify-content:flex-start"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4916974%2C-66.867631&amp;destination_place_id=ChIJa59GlzxZKowRHr2YblwnLIw">Cómo llegar</a></div>
     </div>
@@ -430,6 +332,109 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
 a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
 a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  var TIPOS=[['todas','Todas'],['redondas','Redondas'],['ojo-de-gato','Ojo de gato'],['cuadradas','Cuadradas'],['geometricas','Geométricas'],['metalicas','Metálicas'],['ninos','Niños'],['sol','De sol']];
+  // Cada montura: nombre, tipos, precio en dólares y foto. En la versión final esta lista sale del catálogo de la óptica.
+  var MONTURAS=[
+    {n:'Redonda carey · M717',t:['redondas','metalicas'],p:35,f:'f/m717.jpg',a:'Montura redonda de carey con puente dorado, modelo M717'},
+    {n:'Ojo de gato · Monetti',t:['ojo-de-gato'],p:40,f:'f/m40.jpg',a:'Montura ojo de gato negra y morada, marca Monetti'},
+    {n:'Cuadrada · ENOX',t:['cuadradas'],p:120,f:'f/enox.jpg',a:'Montura cuadrada azul oscuro de la marca ENOX'},
+    {n:'Geométrica carey con color',t:['geometricas'],p:null,f:'f/ig-carey-color.jpg',a:'Montura geométrica de acetato carey con acentos azul cobalto y amarillo'},
+    {n:'Clásica negra',t:['cuadradas'],p:null,f:'f/ig-clasica-negra.jpg',a:'Montura clásica de acetato negro con puente tipo cerradura'},
+    {n:'Borgoña y dorado',t:['redondas','metalicas'],p:null,f:'f/ig-borgona-dorada.jpg',a:'Montura redonda de acetato borgoña con metal dorado'},
+    {n:'Mariposa azul cristal',t:['ojo-de-gato'],p:null,f:'f/ig-mariposa-azul.jpg',a:'Montura tipo mariposa en acetato azul cristalino'},
+    {n:'Geométrica con puente metálico',t:['geometricas','metalicas'],p:null,f:'f/ig-geometrica-negra.jpg',a:'Montura geométrica de acetato oscuro con puente metálico'}
+  ];
+  var actual='todas',porPrecio=false;
+  var fil=document.getElementById('filtros'),cat=document.getElementById('catalogo'),cuantas=document.getElementById('cuantas'),ord=document.getElementById('ordenar');
+  function nombreTipo(k){for(var i=0;i<TIPOS.length;i++)if(TIPOS[i][0]===k)return TIPOS[i][1];return k}
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e}
+  TIPOS.forEach(function(t){
+    var n=t[0]==='todas'?MONTURAS.length:MONTURAS.filter(function(m){return m.t.indexOf(t[0])>=0}).length;
+    var b=el('button');b.type='button';b.textContent=t[1];b.appendChild(el('sup','',String(n)));
+    b.setAttribute('aria-pressed',t[0]===actual?'true':'false');
+    b.addEventListener('click',function(){actual=t[0];fil.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});
+    fil.appendChild(b);
+  });
+  ord.addEventListener('click',function(){porPrecio=!porPrecio;ord.setAttribute('aria-pressed',porPrecio?'true':'false');ord.textContent=porPrecio?'Menor precio primero':'Ordenar por precio';pintar();});
+  function pintar(){
+    var lista=MONTURAS.filter(function(m){return actual==='todas'||m.t.indexOf(actual)>=0});
+    if(porPrecio)lista=lista.slice().sort(function(a,b){return (a.p==null?1e9:a.p)-(b.p==null?1e9:b.p)});
+    cat.innerHTML='';
+    cuantas.textContent=lista.length+(lista.length===1?' montura':' monturas');
+    lista.forEach(function(m){
+      var d=el('div','mont');var im=el('div','img');var i=document.createElement('img');i.src=m.f;i.alt=m.a;i.loading='lazy';im.appendChild(i);d.appendChild(im);
+      d.appendChild(el('span','tipo',m.t.map(nombreTipo).join(' · ')));d.appendChild(el('b','',m.n));
+      var f=el('div','fila');f.appendChild(el('small','',m.p==null?'Consultar precio':'$'+m.p));var a=el('a','apartar','Apartar');a.href=WA+encodeURIComponent((m.p==null?'Hola, ¿qué precio tiene la montura ':'Hola, quiero apartar la montura ')+m.n);f.appendChild(a);d.appendChild(f);
+      cat.appendChild(d);
+    });
+    if(actual!=='todas'&&lista.length<2){
+      var txt=actual==='ninos'?'para niños':actual==='sol'?'de sol':nombreTipo(actual).toLowerCase();
+      var v=el('div','mont vacio');v.appendChild(el('div','img','Aquí van los demás modelos '+txt+' de la óptica.'));v.appendChild(el('b','','Más modelos'));v.appendChild(el('small','','Al cargar su catálogo'));cat.appendChild(v);
+    }
+    var mas=document.createElement('a');mas.className='mont mas';mas.href=WA+encodeURIComponent('Hola, quiero ver más monturas');mas.appendChild(el('div','img','Pregunta por otros modelos →'));mas.appendChild(el('b','','¿Buscas algo distinto?'));mas.appendChild(el('small','','Por WhatsApp'));cat.appendChild(mas);
+  }
+  pintar();
+})();
+</script>
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  var MOT=[['Examen de la vista','Fórmula para tus lentes'],['Consulta oftalmológica','Salud de tus ojos'],['Lentes con mi fórmula','Ya tengo récipe'],['Ajuste o reparación','De tus lentes actuales']];
+  var PARA=['Para mí','Niño o niña','Otra persona'];
+  var DN=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var C={mot:null,para:'Para mí',dia:null,hora:null};
+  var ahora=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));ahora.setHours(0,0,0,0);
+  var vista=new Date(ahora.getFullYear(),ahora.getMonth(),1);
+  var mBox=document.getElementById('motivos');
+  MOT.forEach(function(m){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.appendChild(el('i'));b.appendChild(el('b','',m[0]));b.appendChild(el('small','',m[1]));b.addEventListener('click',function(){C.mot=m[0];mBox.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-checked',x===b?'true':'false')});res();});mBox.appendChild(b);});
+  var pBox=document.getElementById('para');
+  PARA.forEach(function(p){var b=el('button','',p);b.type='button';b.setAttribute('aria-pressed',p===C.para?'true':'false');b.addEventListener('click',function(){C.para=p;pBox.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});res();});pBox.appendChild(b);});
+  var cal=document.getElementById('cal'),tit=document.getElementById('mesTit'),ant=document.getElementById('mesAnt'),sig=document.getElementById('mesSig');
+  var limite=new Date(ahora);limite.setDate(limite.getDate()+45);
+  function pintarCal(){
+    cal.innerHTML='';tit.textContent=MES[vista.getMonth()]+' '+vista.getFullYear();
+    ['L','M','M','J','V','S','D'].forEach(function(d){cal.appendChild(el('span','',d))});
+    var primero=(vista.getDay()+6)%7;for(var i=0;i<primero;i++)cal.appendChild(el('span'));
+    var dias=new Date(vista.getFullYear(),vista.getMonth()+1,0).getDate();
+    for(var d=1;d<=dias;d++){(function(d){var f=new Date(vista.getFullYear(),vista.getMonth(),d);var b=el('button','',String(d));b.type='button';
+      var cerrado=f.getDay()===0||f<ahora||f>limite;b.disabled=cerrado;if(+f===+ahora)b.classList.add('hoy');
+      b.setAttribute('aria-label',DN[f.getDay()]+' '+d+' de '+MES[f.getMonth()]+(cerrado?', no disponible':''));
+      b.setAttribute('aria-pressed',C.dia&&+C.dia===+f?'true':'false');
+      b.addEventListener('click',function(){C.dia=f;C.hora=null;pintarCal();pintarSlots();res();});cal.appendChild(b);})(d);}
+    ant.disabled=vista<=new Date(ahora.getFullYear(),ahora.getMonth(),1);
+    sig.disabled=new Date(vista.getFullYear(),vista.getMonth()+1,1)>limite;
+  }
+  ant.addEventListener('click',function(){vista=new Date(vista.getFullYear(),vista.getMonth()-1,1);pintarCal();});
+  sig.addEventListener('click',function(){vista=new Date(vista.getFullYear(),vista.getMonth()+1,1);pintarCal();});
+  var slots=document.getElementById('slots');
+  function pintarSlots(){
+    slots.innerHTML='';
+    if(!C.dia){slots.appendChild(el('p','','Elige un día en el calendario.'));return;}
+    var fin=C.dia.getDay()===5?16:17;
+    var real=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));var esHoy=+C.dia===+ahora;var hNow=real.getHours()+real.getMinutes()/60;
+    var n=0;for(var h=11;h<fin;h+=0.5){if(esHoy&&h<=hNow+0.5)continue;n++;(function(h){var H=Math.floor(h),tx=(H>12?H-12:H)+':'+(h%1?'30':'00')+(H<12?' a. m.':H===12?' m.':' p. m.');var b=el('button','',tx);b.type='button';b.setAttribute('aria-pressed',C.hora===tx?'true':'false');b.addEventListener('click',function(){C.hora=tx;pintarSlots();res();});slots.appendChild(b);})(h);}
+    if(!n)slots.appendChild(el('p','','Ese día ya no quedan horas. Elige otro.'));
+  }
+  var nom=document.getElementById('cNom'),tel=document.getElementById('cTel'),env=document.getElementById('cEnviar'),out=document.getElementById('citaRes');
+  nom.addEventListener('input',res);tel.addEventListener('input',res);
+  function res(){
+    var partes=[];
+    if(C.dia)partes.push(DN[C.dia.getDay()].charAt(0).toUpperCase()+DN[C.dia.getDay()].slice(1)+' '+C.dia.getDate()+' de '+MES[C.dia.getMonth()]);
+    if(C.hora)partes.push(C.hora);
+    if(C.mot)partes.push(C.mot.toLowerCase()+(C.para!=='Para mí'?' ('+C.para.toLowerCase()+')':''));
+    out.textContent=partes.length?partes.join(' · '):'Elige motivo, día y hora.';
+    var listo=!!(C.mot&&C.dia&&C.hora&&nom.value.trim().length>1&&/^[0-9+ ()-]{7,}$/.test(tel.value.trim()));
+    env.setAttribute('aria-disabled',listo?'false':'true');
+    env.href=WA+encodeURIComponent('Hola, quiero pedir una cita: '+partes.join(', ')+'. A nombre de '+nom.value.trim()+'.');
+  }
+  env.addEventListener('click',function(e){if(env.getAttribute('aria-disabled')==='true'){e.preventDefault();e.stopImmediatePropagation();var f=!C.mot?mBox.querySelector('button'):!C.dia?cal.querySelector('button:not(:disabled)'):!C.hora?slots.querySelector('button'):nom.value.trim().length<2?nom:tel;if(f)f.focus();}},true);
+  pintarCal();pintarSlots();res();
+})();
 </script>
 <!-- vida:inicio -->
 <script>window.VIDA = {"caracter": "suave"};</script>
@@ -541,47 +546,5 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
-<script>
-(function(){
-  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
-  var TIPOS=[['todas','Todas'],['redondas','Redondas'],['ojo-de-gato','Ojo de gato'],['cuadradas','Cuadradas'],['metalicas','Metálicas'],['ninos','Niños'],['sol','De sol']];
-  // Cada montura: nombre, tipos, precio en dólares y foto. En la versión final esta lista sale del catálogo de la óptica.
-  var MONTURAS=[
-    {n:'Redonda carey · M717',t:['redondas','metalicas'],p:35,f:'f/m717.jpg',a:'Montura redonda de carey con puente dorado, modelo M717'},
-    {n:'Ojo de gato · Monetti',t:['ojo-de-gato'],p:40,f:'f/m40.jpg',a:'Montura ojo de gato negra y morada, marca Monetti'},
-    {n:'Cuadrada · ENOX',t:['cuadradas'],p:120,f:'f/enox.jpg',a:'Montura cuadrada azul oscuro de la marca ENOX'}
-  ];
-  var actual='todas',porPrecio=false;
-  var fil=document.getElementById('filtros'),cat=document.getElementById('catalogo'),cuantas=document.getElementById('cuantas'),ord=document.getElementById('ordenar');
-  function nombreTipo(k){for(var i=0;i<TIPOS.length;i++)if(TIPOS[i][0]===k)return TIPOS[i][1];return k}
-  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e}
-  TIPOS.forEach(function(t){
-    var n=t[0]==='todas'?MONTURAS.length:MONTURAS.filter(function(m){return m.t.indexOf(t[0])>=0}).length;
-    var b=el('button');b.type='button';b.textContent=t[1];b.appendChild(el('sup','',String(n)));
-    b.setAttribute('aria-pressed',t[0]===actual?'true':'false');
-    b.addEventListener('click',function(){actual=t[0];fil.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});
-    fil.appendChild(b);
-  });
-  ord.addEventListener('click',function(){porPrecio=!porPrecio;ord.setAttribute('aria-pressed',porPrecio?'true':'false');ord.textContent=porPrecio?'Menor precio primero':'Ordenar por precio';pintar();});
-  function pintar(){
-    var lista=MONTURAS.filter(function(m){return actual==='todas'||m.t.indexOf(actual)>=0});
-    if(porPrecio)lista=lista.slice().sort(function(a,b){return a.p-b.p});
-    cat.innerHTML='';
-    cuantas.textContent=lista.length+(lista.length===1?' montura':' monturas');
-    lista.forEach(function(m){
-      var d=el('div','mont');var im=el('div','img');var i=document.createElement('img');i.src=m.f;i.alt=m.a;i.loading='lazy';im.appendChild(i);d.appendChild(im);
-      d.appendChild(el('span','tipo',m.t.map(nombreTipo).join(' · ')));d.appendChild(el('b','',m.n));
-      var f=el('div','fila');f.appendChild(el('small','','$'+m.p));var a=el('a','apartar','Apartar');a.href=WA+encodeURIComponent('Hola, quiero apartar la montura '+m.n);f.appendChild(a);d.appendChild(f);
-      cat.appendChild(d);
-    });
-    if(actual!=='todas'&&lista.length<2){
-      var txt=actual==='ninos'?'para niños':actual==='sol'?'de sol':nombreTipo(actual).toLowerCase();
-      var v=el('div','mont vacio');v.appendChild(el('div','img','Aquí van los demás modelos '+txt+' de la óptica.'));v.appendChild(el('b','','Más modelos'));v.appendChild(el('small','','Al cargar su catálogo'));cat.appendChild(v);
-    }
-    var mas=document.createElement('a');mas.className='mont mas';mas.href=WA+encodeURIComponent('Hola, quiero ver más monturas');mas.appendChild(el('div','img','Pregunta por otros modelos →'));mas.appendChild(el('b','','¿Buscas algo distinto?'));mas.appendChild(el('small','','Por WhatsApp'));cat.appendChild(mas);
-  }
-  pintar();
-})();
-</script>
 </body>
 </html>
