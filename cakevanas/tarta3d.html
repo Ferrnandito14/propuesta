@@ -59,7 +59,7 @@ h3{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
     </div>
     <div>
       <h1>Arma tu tarta grande, porción por porción.</h1>
-      <p class="lead">8 porciones en la grande de 25 cm. Gírala, toca una porción y elige su sabor: los clásicos van incluidos y cada deluxe suma $2.</p>
+      <p class="lead">8 porciones en la grande de 25 cm. Gírala con el dedo, toca una porción y elige su sabor: los clásicos van incluidos y cada deluxe suma $2.</p>
       <p class="cont" aria-live="polite"><b id="llenas">0</b>/8 porciones · <span id="cual">eligiendo la porción 1</span></p>
       <h3>Clásicos · incluidos</h3><div class="chips" id="chC"></div>
       <h3>Deluxe · +$2 c/u</h3><div class="chips" id="chD"></div>
@@ -188,7 +188,7 @@ h3{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
   var antes=performance.now();
   function cuadro(ahora){
     requestAnimationFrame(cuadro);if(!visible)return;var dt=Math.min((ahora-antes)/1000,.05);antes=ahora;
-    if(!arrastra){rotY+=vel;vel*=.92;if(!reduce&&ahora-ultimoToque>2500)rotY+=dt*.18;}
+    if(!arrastra){rotY+=vel;vel*=.9;if(Math.abs(vel)<.0005)vel=0;}
     tarta.rotation.y=rotY;
     piezas.forEach(function(g){var u=g.userData,obj=(u.i===sel)?1:0;u.sale+= (obj-u.sale)*(reduce?1:Math.min(dt*8,1));
       g.position.copy(u.dir).multiplyScalar(u.sale*.42);g.position.y=u.sale*.18;
