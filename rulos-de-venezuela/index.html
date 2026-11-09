@@ -187,6 +187,19 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 @media(min-width:800px){.prensa i{grid-row:auto;grid-column:auto}}
 .prensa a:hover i{translate:3px -3px}
 .prensa a:hover b{text-decoration:underline;text-underline-offset:4px}
+.nota-serv{color:var(--gris);font-size:.9rem;margin-top:18px}
+.serv small{font-weight:700;color:var(--tinta);font-size:1rem}
+.t-filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.t-filtros button{all:unset;cursor:pointer;border:1px solid var(--tinta);border-radius:999px;padding:9px 16px;font-weight:600;font-size:.92rem}
+.t-filtros button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.t-filtros button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.productos{list-style:none;padding:0;margin:34px 0 0;display:grid;border-top:1px solid var(--tinta)}
+@media(min-width:780px){.productos{grid-template-columns:1fr 1fr;column-gap:48px}}
+.productos li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--linea)}
+.productos b{font-weight:700;font-size:1.08rem}
+.productos span{color:var(--gris);font-size:.88rem;grid-column:1}
+.productos em{font-style:normal;font-weight:800;font-size:1.1rem;grid-row:1;grid-column:2}
+.productos a{grid-column:2;grid-row:2;font-size:.85rem;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;justify-self:end}
 </style>
 </head>
 <body>
@@ -246,7 +259,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
         <div aria-live="polite">
           <h3 id="rizoTit">Rizo abierto</h3>
           <p id="rizoTxt">Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.</p>
-          <ul id="rizoLista"><li>Para empezar<span>Diagnóstico de rizo</span></li><li>Después<span>Corte y definición</span></li></ul>
+          <ul id="rizoLista"><li>Para empezar<span>Diagnóstico capilar · $20</span></li><li>Después<span>Must Have · $45</span></li></ul>
         </div>
         <a class="btn" href="#agenda" id="conMiRizo">Reservar con mi rizo</a>
       </div>
@@ -261,7 +274,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     <p class="lead" id="agendaLead">Te sugerimos el servicio según el rizo que elegiste. Cámbialo si quieres.</p>
     <div class="agenda">
       <div class="ag-fila"><span class="ag-n">01</span><div><p class="ag-t">Servicio</p><div class="ag-serv" role="group" aria-label="Servicio" id="agServ"></div></div></div>
-      <div class="ag-fila"><span class="ag-n">02</span><div><p class="ag-t">Día <small>de lunes a sábado</small></p><div class="ag-dias" role="group" aria-label="Día" id="agDias"></div></div></div>
+      <div class="ag-fila"><span class="ag-n">02</span><div><p class="ag-t">Día <small>de lunes a sábado, con cita previa</small></p><div class="ag-dias" role="group" aria-label="Día" id="agDias"></div></div></div>
       <div class="ag-fila"><span class="ag-n">03</span><div><p class="ag-t">Hora</p><div class="ag-horas" id="agHoras"></div></div></div>
       <div class="ag-fila"><span class="ag-n">04</span><div><p class="ag-t">Tus datos</p><div class="ag-datos"><label>Nombre<input id="agNom" autocomplete="name"></label><label>WhatsApp<input id="agTel" type="tel" inputmode="tel" autocomplete="tel"></label></div></div></div>
     </div>
@@ -320,28 +333,38 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 </section>
 <section aria-labelledby="serv">
   <div class="wrap">
-    <p class="etq">Servicios</p>
-    <h2 id="serv">Lo que hacemos</h2>
-    <p class="lead">Servicios de referencia para esta propuesta. Rulos define la lista, la duración y el precio de cada uno.</p>
+    <p class="etq">Servicios y precios</p>
+    <h2 id="serv">Los paquetes de Rulos</h2>
+    <p class="lead">Precios de su catálogo de WhatsApp, en promoción pagando en efectivo. Todos incluyen cédula capilar.</p>
     <div class="servicios">
-      <div class="serv"><i>01</i><div><h3>Diagnóstico de rizo</h3><p>El punto de partida de tu rutina.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>02</i><div><h3>Corte para rizos</h3><p>Respetando la forma natural de cada rizo.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>03</i><div><h3>Hidratación profunda</h3><p>Para rizos secos o maltratados.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>04</i><div><h3>Definición y peinado</h3><p>Rizos definidos y con volumen.</p></div><small>por confirmar</small></div>
-      <div class="serv"><i>05</i><div><h3>Asesoría de productos</h3><p>Qué usar según tu tipo de rizo.</p></div><small>por confirmar</small></div>
+      <div class="serv"><i>01</i><div><h3>Diagnóstico capilar</h3><p>Con capilógrafo y ficha técnica, asesoría personalizada y cédula capilar.</p></div><small>$20</small></div>
+      <div class="serv"><i>02</i><div><h3>Solo corte</h3><p>Corte y cédula capilar.</p></div><small>$20</small></div>
+      <div class="serv"><i>03</i><div><h3>Básico</h3><p>Definición de rizos, asesoría personalizada, cédula capilar y secado.</p></div><small>$20</small></div>
+      <div class="serv"><i>04</i><div><h3>Must Have</h3><p>Definición, asesoría, corte de puntas o forma, cédula capilar y secado.</p></div><small>$45</small></div>
+      <div class="serv"><i>05</i><div><h3>RESET</h3><p>Lavado detox con exfoliante orgánico y barrido infrarrojo, hidratación y definición.</p></div><small>$50</small></div>
+      <div class="serv"><i>06</i><div><h3>NEED-U</h3><p>Definición, asesoría, corte y tratamiento profundo según el cronograma capilar de Lola Cosmetics.</p></div><small>$60</small></div>
+      <div class="serv"><i>07</i><div><h3>TOTAL Plus</h3><p>Diagnóstico con capilógrafo, corte, acidificante antiporosidad, ácido hialurónico, barrido fotónico y definición.</p></div><small>$70</small></div>
+      <div class="serv"><i>08</i><div><h3>Rulos Kids</h3><p>Para niños de 3 a 6 años: definición y corte.</p></div><small>$25</small></div>
+      <div class="serv"><i>09</i><div><h3>Barbería</h3><p>Corte, barba y asesoría para cabello ondulado, rizado y afro.</p></div><small>consultar</small></div>
+      <div class="serv"><i>10</i><div><h3>Trenzas</h3><p>Luangos, cola, crochet y africanas, con el cabello incluido. Varía según largo y abundancia.</p></div><small>desde $20</small></div>
     </div>
+    <p class="nota-serv">Ven con el cabello limpio o avisa si necesitas lavado (+$5). Para trenzas, envía una foto de referencia.</p>
   </div>
 </section>
 
 <section aria-labelledby="tienda">
-  <div class="wrap tienda">
-    <div class="foto"><img src="f/bolsa.webp" alt="Clienta con cabello afro sosteniendo una bolsa de Rulos que dice Amo mis rulos" width="734" height="1100" loading="lazy"></div>
-    <div>
-      <p class="etq">La Tiendita</p>
-      <h2 id="tienda">La Tiendita: amo mis rulos, también en casa.</h2>
-      <p class="lead">Hoy La Tiendita vive en el catálogo de WhatsApp. En la página cada producto tendría su foto, para qué rizo sirve y su precio, y se pide con un toque.</p>
-      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20los%20productos">Ver La Tiendita</a>
+  <div class="wrap">
+    <div class="tienda">
+      <div class="foto"><img src="f/bolsa.webp" alt="Clienta con cabello afro sosteniendo una bolsa de Rulos que dice Amo mis rulos" width="734" height="1100" loading="lazy"></div>
+      <div>
+        <p class="etq">La Tiendita</p>
+        <h2 id="tienda">Amo mis rulos, también en casa.</h2>
+        <p class="lead">Una parte de los productos de su catálogo de WhatsApp, con su precio. Elige qué necesitas y pídelo por WhatsApp.</p>
+        <div class="t-filtros" role="group" aria-label="Tipo de producto" id="tFiltros"></div>
+      </div>
     </div>
+    <ul class="productos" id="productos" aria-live="polite"></ul>
+    <p class="nota-serv">Precios de su catálogo. El catálogo completo tiene más de 100 productos de Salon Line, Novex, Lola Cosmetics, Soul Power, Ponto, Afrolove, Curlylove y la línea Rulos en Casa.</p>
   </div>
 </section>
 
@@ -351,8 +374,9 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <p class="etq">Visítanos</p>
       <h2 id="donde">Dónde estamos</h2>
       <dl>
-        <dt>Dirección</dt><dd>Edificio Lucerna, Av. Francisco de Miranda, Chacao, Caracas</dd>
-        <dt>Horario</dt><dd>Lunes a sábado, de 9 a. m. a 7 p. m.</dd>
+        <dt>Dirección</dt><dd>Por confirmar con el salón: su ficha de Google dice Edificio Lucerna, Av. Francisco de Miranda (Chacao) y su catálogo de WhatsApp dice Centro Vitale, edificio Los Frailes, Calle La Guairita (Chuao).</dd>
+        <dt>Horario</dt><dd>Lunes a sábado, con cita previa</dd>
+        <dt>Pagos</dt><dd>Efectivo, Pago Móvil, PayPal y Zinli</dd>
         <dt>Citas</dt><dd><a href="#agenda">En línea</a> o por WhatsApp</dd>
       </dl>
       <div class="acciones" style="justify-content:flex-start;padding:0"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4925486%2C-66.8568466&amp;destination_place_id=ChIJLdCv8-1ZKowRW4cPtfOLTjk">Cómo llegar</a></div>
@@ -375,9 +399,9 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 <script>
 (function(){
   var D={
-    abierto:{img:'f/rizo.webp',alt:'Rizos abiertos y largos',tit:'Rizo abierto',txt:'Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Corte y definición']]},
-    cerrado:{img:'f/portada.webp',alt:'Rizos cortos y cerrados',tit:'Rizo cerrado',txt:'Espirales pequeñas y marcadas que se resecan con facilidad. Suelen pedir hidratación y un corte que respete cada espiral.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación y corte']]},
-    afro:{img:'f/afro.webp',alt:'Cabello afro con volumen',tit:'Afro',txt:'Rizo muy cerrado, con mucho volumen y necesidad de humedad. Suele pedir hidratación profunda y cuidado constante.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación profunda']]}
+    abierto:{img:'f/rizo.webp',alt:'Rizos abiertos y largos',tit:'Rizo abierto',txt:'Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.',l:[['Para empezar','Diagnóstico capilar · $20'],['Después','Must Have · $45']]},
+    cerrado:{img:'f/portada.webp',alt:'Rizos cortos y cerrados',tit:'Rizo cerrado',txt:'Espirales pequeñas y marcadas que se resecan con facilidad. Suelen pedir hidratación y un corte que respete cada espiral.',l:[['Para empezar','Diagnóstico capilar · $20'],['Después','NEED-U · $60']]},
+    afro:{img:'f/afro.webp',alt:'Cabello afro con volumen',tit:'Afro',txt:'Rizo muy cerrado, con mucho volumen y necesidad de humedad. Suele pedir hidratación profunda y cuidado constante.',l:[['Para empezar','Diagnóstico capilar · $20'],['Después','RESET · $50']]}
   };
   var img=document.getElementById('rizoImg'),tit=document.getElementById('rizoTit'),txt=document.getElementById('rizoTxt'),lista=document.getElementById('rizoLista');
   document.querySelectorAll('.tipos button').forEach(function(b){
@@ -405,8 +429,8 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 (function(){
   var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-  var SERV=['Diagnóstico de rizo','Corte para rizos','Hidratación profunda','Definición y peinado'];
-  var SUG={abierto:'Corte para rizos',cerrado:'Hidratación profunda',afro:'Hidratación profunda'};
+  var SERV=['Diagnóstico capilar','Solo corte','Básico','Must Have','RESET','NEED-U','TOTAL Plus','Rulos Kids','Barbería','Trenzas'];
+  var SUG={abierto:'Must Have',cerrado:'NEED-U',afro:'RESET'};
   var A={serv:null,dia:null,hora:null,rizo:null};
   var DN=['dom','lun','mar','mié','jue','vie','sáb'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
   var sBox=document.getElementById('agServ'),dBox=document.getElementById('agDias'),hBox=document.getElementById('agHoras');
@@ -425,7 +449,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
     env.href=WA+encodeURIComponent('Hola, quiero una cita: '+p.join(', ')+(A.rizo?' (mi rizo es '+A.rizo+')':'')+'. A nombre de '+nom.value.trim()+'.');}
   env.addEventListener('click',function(e){if(env.getAttribute('aria-disabled')==='true'){e.preventDefault();e.stopImmediatePropagation();var f=!A.serv?sBox.querySelector('button'):!A.dia?dBox.querySelector('button'):!A.hora?hBox.querySelector('button'):nom.value.trim().length<2?nom:tel;if(f)f.focus();}},true);
   // El selector de rizo sugiere el servicio
-  function tomarRizo(){var b=document.querySelector('.tipos [aria-pressed="true"]');if(!b)return;A.rizo=b.dataset.t;if(!A.serv||A.servSug)A.serv=SUG[A.rizo],A.servSug=true;pintarServ();res();document.getElementById('agendaLead').textContent='Elegiste rizo '+A.rizo+'. Te sugerimos '+SUG[A.rizo].toLowerCase()+'; cámbialo si quieres.';}
+  function tomarRizo(){var b=document.querySelector('.tipos [aria-pressed="true"]');if(!b)return;A.rizo=b.dataset.t;if(!A.serv||A.servSug)A.serv=SUG[A.rizo],A.servSug=true;pintarServ();res();document.getElementById('agendaLead').textContent='Elegiste rizo '+A.rizo+'. Te sugerimos el paquete '+SUG[A.rizo]+'; cámbialo si quieres. Si es tu primera vez, empieza por el diagnóstico capilar.';}
   document.querySelectorAll('.tipos button').forEach(function(b){b.addEventListener('click',function(){setTimeout(tomarRizo,0);});});
   sBox.addEventListener('click',function(){A.servSug=false;});
   var cm=document.getElementById('conMiRizo');if(cm)cm.addEventListener('click',tomarRizo);
@@ -560,6 +584,28 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
   // Pequeña pista de movimiento la primera vez que se ve
   if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
     var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();var t=0,id=setInterval(function(){t+=1;r.value=50+Math.sin(t/6)*18*(1-t/60);mover();if(t>=60){clearInterval(id);r.value=50;mover();}},16);}},{threshold:.5});o.observe(c);}
+})();
+</script>
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  // Productos y precios tal como aparecen en su catálogo de WhatsApp (noviembre 2026)
+  var P=[
+    ['definir','Crema-Gel Cachos Dos Sonhos','Salon Line · fijación extra fuerte',24],['definir','Curling Puree','Crema de definición',24],['definir','Crema Definidora','Para dar textura a tus rizos',24],
+    ['definir','Gel cremoso fijación 3/5','Ponto · crema y gel en uno',20],['definir','Power Black Gel','Gel de fijación',27],['definir','Soft Gel en crema','Gel en crema',27],['definir','Crema para fitagem','Soul Power',30],
+    ['tratar','Mascarilla Anti porosidad','Salon Line',35],['tratar','Ampolla BTX Capilar','Tratamiento',20],['tratar','Shampoo Densidade','Shampoo',26],['tratar','Acidificante Densidade','Acidificante',32],
+    ['tratar','Tratamiento de crecimiento Rapunzel','Tratamiento',32],['tratar','Tónico de crecimiento con ácido láctico','Tónico',32],['tratar','Óleo Dorado Soy Rizos','Aceite',17],['tratar','Óleo Humectante Swahily','Aceite',19],
+    ['tratar','Aceite de Coco','Hidrata y da brillo',8],['tratar','Kit CPA restauración profunda','Lola Cosmetics',70],['tratar','Crema para retiro de trenzas','Acondiciona y desenreda',12],
+    ['accesorios','Cepillo KH','Cepillo de definición de 9 hileras',10],['accesorios','Custom Care Detangler','Cepillo para cabello grueso y abundante',15],['accesorios','Difusor Universal','Se adapta a tu secador',14],
+    ['accesorios','Difusor de Tela','Línea Rulos en Casa',13],['accesorios','Rizadora sin calor','Para onduladas, lisas y 4c',10],['accesorios','Ruleras plopping','Microfibra contra el frizz',10],
+    ['accesorios','Peine Afro','Peine',9],['accesorios','Exfoliating Scalp Massager','Masajeador capilar',15],['accesorios','Kit de seda','Funda y scrunchies de seda',18],['accesorios','Scrunchie Flor RDV','Scrunchie de la marca',5],['accesorios','Camisas RDV','Ropa de la marca',12]
+  ];
+  var F=[['todos','Todo'],['definir','Definir'],['tratar','Tratar e hidratar'],['accesorios','Accesorios']];
+  var act='todos',fb=document.getElementById('tFiltros'),ul=document.getElementById('productos');
+  F.forEach(function(f){var b=el('button','',f[1]);b.type='button';b.setAttribute('aria-pressed',f[0]===act?'true':'false');b.addEventListener('click',function(){act=f[0];fb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});fb.appendChild(b);});
+  function pintar(){ul.innerHTML='';P.filter(function(p){return act==='todos'||p[0]===act}).forEach(function(p){var li=el('li');li.appendChild(el('b','',p[1]));li.appendChild(el('em','','$'+p[3]));li.appendChild(el('span','',p[2]));var a=el('a','','Pedir');a.href=WA+encodeURIComponent('Hola, quiero el producto '+p[1]+' ($'+p[3]+'). ¿Está disponible?');li.appendChild(a);ul.appendChild(li);});}
+  pintar();
 })();
 </script>
 </body>
