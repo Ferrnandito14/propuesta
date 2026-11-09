@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
+<!-- compartir:inicio -->
+<meta property="og:url" content="https://ferrnandito14.github.io/propuesta/plus-optica-chacaito/">
+<meta property="og:image" content="https://ferrnandito14.github.io/propuesta/plus-optica-chacaito/f/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Plus Óptica Chacaíto">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Optician", "name": "Plus Óptica Chacaíto", "description": "Óptica, optometría y oftalmología en un solo lugar.", "address": {"@type": "PostalAddress", "streetAddress": "Centro Doral, local 18, Av. Santa Isabel, Chacaíto", "addressLocality": "Caracas", "addressRegion": "Miranda", "addressCountry": "VE"}, "geo": {"@type": "GeoCoordinates", "latitude": 10.4916974, "longitude": -66.867631}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday"], "opens": "11:00", "closes": "17:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "16:00"}], "sameAs": ["https://www.instagram.com/opticapluschacaito/"], "url": "https://ferrnandito14.github.io/propuesta/plus-optica-chacaito/", "image": "https://ferrnandito14.github.io/propuesta/plus-optica-chacaito/f/og.jpg"}</script>
+<!-- compartir:fin -->
 <!--
 Referencias (proceso-diseno.md y skill refero-design, segunda pasada del 2026-11-08):
 Candado. Principal: ARKET (Refero Styles): galería blanca, rejilla de productos con foto a sangre sin esquinas y debajo nombre y precio en letra pequeña, botones de radio 2 px, el color lo ponen las fotos, separación con espacio y líneas finas, nada de sombras.
@@ -173,6 +182,17 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .cita-datos input{display:block;width:100%;min-height:50px;margin-top:6px;border:1px solid var(--tinta);border-radius:2px;padding:10px 14px;font:inherit}
 .cita-datos .btn[aria-disabled="true"]{opacity:.45}
 .cita-fin .nota{margin-top:14px}
+.flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 20px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s}
+.flota.ver{opacity:1;translate:0 0;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.flota{transition:none}}
+.flota{background:#17877A;color:#fff;border-radius:2px;font-family:Figtree,system-ui,sans-serif;font-weight:600}
+.razones{list-style:none;padding:0;margin:0;border-top:1px solid var(--tinta);counter-reset:r}
+.razones li{counter-increment:r;display:grid;grid-template-columns:3rem 1fr;gap:4px 18px;padding:20px 0;border-bottom:1px solid var(--linea)}
+@media(min-width:800px){.razones li{grid-template-columns:3rem 1fr 1.2fr;align-items:baseline}}
+.razones li:before{content:"0" counter(r);font-weight:800;color:var(--verde);grid-row:span 2}
+@media(min-width:800px){.razones li:before{grid-row:auto}}
+.razones b{font-weight:800;font-size:1.25rem;letter-spacing:-.015em}
+.razones span{color:var(--gris)}
 </style>
 </head>
 <body>
@@ -232,13 +252,27 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     <p class="etq">Quién te atiende</p>
     <h2 id="quien">Una cara conocida en Chacaíto.</h2>
     <div class="persona">
-      <div class="foto"><img src="f/manuel.jpg" alt="Manuel Espiño Liste, optometrista, sonriendo junto al equipo de examen visual" width="788" height="576" loading="lazy"></div>
+      <div class="foto"><img src="f/manuel.webp" alt="Manuel Espiño Liste, optometrista, sonriendo junto al equipo de examen visual" width="788" height="576" loading="lazy"></div>
       <div class="texto">
         <p class="etq">Manuel Espiño Liste · Optometrista</p>
         <blockquote>«Persiguiendo la perfección en óptica.»</blockquote>
         <p>El lema con el que Plus Óptica se presenta en sus redes. En la página, cada paciente sabe quién lo va a atender antes de llegar.</p>
       </div>
     </div>
+  </div>
+</section>
+<section aria-labelledby="porque">
+  <div class="wrap">
+    <p class="etq">Por qué venir</p>
+    <h2 id="porque">Todo en un solo lugar.</h2>
+    <p class="lead">Lo que Plus Óptica cuenta de sí misma en su perfil y sus publicaciones.</p>
+    <ol class="razones">
+      <li><b>Óptica, optometría y oftalmología</b><span>Examen, consulta médica y lentes sin cambiar de local.</span></li>
+      <li><b>Especialistas en multifocales progresivos</b><span>Para ver de cerca y de lejos con un solo lente.</span></li>
+      <li><b>Lentes para pantallas y trabajo</b><span>Lentes ocupacionales para la fatiga visual de la computadora.</span></li>
+      <li><b>Antirreflejo y filtro de luz azul</b><span>Tratamientos para manejar de noche y pasar horas frente a pantallas.</span></li>
+      <li><b>Abierto también los sábados</b><span>Detrás del BECO de Chacaíto, con acceso para silla de ruedas.</span></li>
+    </ol>
   </div>
 </section>
 <section aria-labelledby="cita-t" id="cita-web">
@@ -286,7 +320,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 </section>
 <section aria-labelledby="donde">
   <div class="wrap local">
-    <div class="foto"><img src="f/local.jpg" alt="Fachada de Plus Óptica en el Centro Doral, locales 18 y 19" width="951" height="534" loading="lazy"></div>
+    <div class="foto"><img src="f/local.webp" alt="Fachada de Plus Óptica en el Centro Doral, locales 18 y 19" width="951" height="534" loading="lazy"></div>
     <div>
       <p class="etq">Visítanos</p>
       <h2 id="donde">Detrás del BECO de Chacaíto.</h2>
@@ -325,6 +359,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   addEventListener('resize',enfoque);enfoque();
 })();
 </script>
+<a class="flota" id="flota" href="#cita-web">Pedir cita</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
@@ -339,14 +374,14 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
   var TIPOS=[['todas','Todas'],['redondas','Redondas'],['ojo-de-gato','Ojo de gato'],['cuadradas','Cuadradas'],['geometricas','Geométricas'],['metalicas','Metálicas'],['ninos','Niños'],['sol','De sol']];
   // Cada montura: nombre, tipos, precio en dólares y foto. En la versión final esta lista sale del catálogo de la óptica.
   var MONTURAS=[
-    {n:'Redonda carey · M717',t:['redondas','metalicas'],p:35,f:'f/m717.jpg',a:'Montura redonda de carey con puente dorado, modelo M717'},
-    {n:'Ojo de gato · Monetti',t:['ojo-de-gato'],p:40,f:'f/m40.jpg',a:'Montura ojo de gato negra y morada, marca Monetti'},
-    {n:'Cuadrada · ENOX',t:['cuadradas'],p:120,f:'f/enox.jpg',a:'Montura cuadrada azul oscuro de la marca ENOX'},
-    {n:'Geométrica carey con color',t:['geometricas'],p:null,f:'f/ig-carey-color.jpg',a:'Montura geométrica de acetato carey con acentos azul cobalto y amarillo'},
-    {n:'Clásica negra',t:['cuadradas'],p:null,f:'f/ig-clasica-negra.jpg',a:'Montura clásica de acetato negro con puente tipo cerradura'},
-    {n:'Borgoña y dorado',t:['redondas','metalicas'],p:null,f:'f/ig-borgona-dorada.jpg',a:'Montura redonda de acetato borgoña con metal dorado'},
-    {n:'Mariposa azul cristal',t:['ojo-de-gato'],p:null,f:'f/ig-mariposa-azul.jpg',a:'Montura tipo mariposa en acetato azul cristalino'},
-    {n:'Geométrica con puente metálico',t:['geometricas','metalicas'],p:null,f:'f/ig-geometrica-negra.jpg',a:'Montura geométrica de acetato oscuro con puente metálico'}
+    {n:'Redonda carey · M717',t:['redondas','metalicas'],p:35,f:'f/m717.webp',a:'Montura redonda de carey con puente dorado, modelo M717'},
+    {n:'Ojo de gato · Monetti',t:['ojo-de-gato'],p:40,f:'f/m40.webp',a:'Montura ojo de gato negra y morada, marca Monetti'},
+    {n:'Cuadrada · ENOX',t:['cuadradas'],p:120,f:'f/enox.webp',a:'Montura cuadrada azul oscuro de la marca ENOX'},
+    {n:'Geométrica carey con color',t:['geometricas'],p:null,f:'f/ig-carey-color.webp',a:'Montura geométrica de acetato carey con acentos azul cobalto y amarillo'},
+    {n:'Clásica negra',t:['cuadradas'],p:null,f:'f/ig-clasica-negra.webp',a:'Montura clásica de acetato negro con puente tipo cerradura'},
+    {n:'Borgoña y dorado',t:['redondas','metalicas'],p:null,f:'f/ig-borgona-dorada.webp',a:'Montura redonda de acetato borgoña con metal dorado'},
+    {n:'Mariposa azul cristal',t:['ojo-de-gato'],p:null,f:'f/ig-mariposa-azul.webp',a:'Montura tipo mariposa en acetato azul cristalino'},
+    {n:'Geométrica con puente metálico',t:['geometricas','metalicas'],p:null,f:'f/ig-geometrica-negra.webp',a:'Montura geométrica de acetato oscuro con puente metálico'}
   ];
   var actual='todas',porPrecio=false;
   var fil=document.getElementById('filtros'),cat=document.getElementById('catalogo'),cuantas=document.getElementById('cuantas'),ord=document.getElementById('ordenar');
@@ -546,5 +581,15 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<script>
+(function(){
+  var f=document.getElementById('flota');if(!f)return;
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
+  var espera=null;
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
+})();
+</script>
 </body>
 </html>

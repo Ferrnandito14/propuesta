@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
+<!-- compartir:inicio -->
+<meta property="og:url" content="https://ferrnandito14.github.io/propuesta/compincheria/">
+<meta property="og:image" content="https://ferrnandito14.github.io/propuesta/compincheria/f/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Compinchería">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Compinchería", "description": "Pinchos y bar en Altamira. La gente chévere come aquí.", "servesCuisine": ["Pinchos", "Hamburguesas", "Cócteles"], "address": {"@type": "PostalAddress", "streetAddress": "Edificio El Parque, local 3, Av. San Juan Bosco con 2da transversal", "addressLocality": "Altamira, Caracas", "addressRegion": "Miranda", "addressCountry": "VE"}, "geo": {"@type": "GeoCoordinates", "latitude": 10.4970816, "longitude": -66.8495393}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday"], "opens": "11:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Thursday"], "opens": "11:00", "closes": "23:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "23:59"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "23:59"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "22:00"}], "sameAs": ["https://www.instagram.com/compincheriaoficial/", "https://www.tiktok.com/@compincheria.ve"], "url": "https://ferrnandito14.github.io/propuesta/compincheria/", "image": "https://ferrnandito14.github.io/propuesta/compincheria/f/og.jpg"}</script>
+<!-- compartir:fin -->
 <!--
 Referencias (proceso-diseno.md y skill refero-design, tercera pasada del 2026-11-08):
 Candado. Principal: Roberta's Pizza (Refero Styles): portada de foto a sangre con el logotipo centrado y botones abajo, franjas a todo el ancho entre secciones, fotos ladeadas tipo polaroid, botones de radio 7 px en mayúsculas con sombra dura solo al tocar.
@@ -118,10 +127,10 @@ h2{font-size:clamp(2.3rem,6.6vw,4.4rem);line-height:.92;margin-bottom:18px;text-
 .papelito{position:absolute;inset:6%;background:var(--papel);border-radius:6px;overflow:hidden}
 .papelito:before{content:"COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA COMPINCHERÍA";position:absolute;inset:-25%;font-family:'Bowlby One',sans-serif;font-size:13px;line-height:2.1;color:rgba(43,106,72,.08);word-spacing:10px;rotate:-12deg}
 .zona-pinchos{position:absolute;left:9%;right:9%;top:9%;height:58%;display:flex;flex-direction:column;justify-content:center;gap:2px}
-.zona-pinchos svg{width:100%;height:auto;rotate:-6deg;animation:cae .38s cubic-bezier(.34,1.5,.64,1) both}
+.zona-pinchos svg{width:100%;height:auto;rotate:-6deg}
 .zona-pinchos.muchos{display:grid;grid-template-columns:1fr 1fr;column-gap:6%;align-content:center}
 .zona-extra{position:absolute;left:8%;right:8%;bottom:8%;height:25%;display:flex;align-items:flex-end;justify-content:center;gap:2%;flex-wrap:nowrap}
-.zona-extra svg{height:100%;width:auto;flex:0 1 auto;min-width:0;animation:cae .38s cubic-bezier(.34,1.5,.64,1) both}
+.zona-extra svg{height:100%;width:auto;flex:0 1 auto;min-width:0}
 .zona-extra svg.salsa{height:60%}
 @keyframes cae{from{opacity:0;translate:0 -20px;scale:.85}}
 .pie-bandeja{margin-top:12px;font-size:.88rem;opacity:.85;text-align:center}
@@ -181,6 +190,18 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 20px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s}
+.flota.ver{opacity:1;translate:0 0;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.flota{transition:none}}
+.flota{background:#F1E4CF;color:#1F5137;border:2px solid #1F5137;border-radius:7px;font-family:Poppins,system-ui,sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem}
+.nuevo{animation:cae .45s cubic-bezier(.34,1.7,.64,1) both}
+.bandeja.golpe{animation:golpe .32s ease-out}
+@keyframes golpe{35%{scale:1.012 .985}70%{scale:.996 1.004}}
+@media(prefers-reduced-motion:reduce){.nuevo,.bandeja.golpe{animation:none}}
+.platos small.bs{grid-column:2;text-align:right;font-size:.75rem;color:var(--gris);white-space:nowrap}
+.bs-total{display:block;font-size:.85rem;opacity:.85;margin-top:4px}
+.hh-cuenta{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--verde);border:2px solid var(--verde);border-radius:7px;padding:10px 14px;margin:-6px 0 26px}
+.hh-cuenta b{font-family:'Bowlby One',sans-serif;font-weight:400}
 </style>
 </head>
 <body>
@@ -197,7 +218,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 </svg>
 
 <header class="portada" id="inicio">
-  <img src="f/terraza.jpg" alt="Terraza de Compinchería de noche, con el letrero iluminado" width="1100" height="825">
+  <img src="f/terraza.webp" alt="Terraza de Compinchería de noche, con el letrero iluminado" width="1100" height="825">
   <div class="top"><small>Altamira · Caracas</small><nav aria-label="Atajos"><a class="btn linea" href="#carta">Carta</a><a class="btn" href="#mesa">Reservar</a></nav></div>
   <div class="sello">
     <div class="pildora display"><h1>Compinchería</h1></div>
@@ -226,8 +247,8 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     </div>
     <div class="pestanas" role="group" aria-label="Categorías de la carta" id="pestanas"></div>
     <div class="carta">
-      <div><ul class="platos" id="platos" aria-live="polite"></ul><p class="aviso-precios">Precios de referencia en dólares, a tasa BCV, según su carta de febrero de 2026. No incluyen el 10 % de servicio.</p></div>
-      <div class="carta-foto"><figure class="pola"><div><img id="cartaFoto" src="f/pinchos.jpg" alt="Foto de la categoría elegida" width="825" height="1100" loading="lazy"></div><p id="cartaPie">Pinchos mixtos a la parrilla</p></figure></div>
+      <div><ul class="platos" id="platos" aria-live="polite"></ul><p class="aviso-precios">Precios de referencia en dólares, a tasa BCV, según su carta de febrero de 2026. No incluyen el 10 % de servicio. <span id="tasaNota"></span></p></div>
+      <div class="carta-foto"><figure class="pola"><div><img id="cartaFoto" src="f/pinchos.webp" alt="Foto de la categoría elegida" width="825" height="1100" loading="lazy"></div><p id="cartaPie">Pinchos mixtos a la parrilla</p></figure></div>
     </div>
   </div>
 </section>
@@ -243,7 +264,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
         <div class="tamanos" role="group" aria-label="Cantidad de pinchos" id="tamanos"></div></div>
       <div class="paso"><h3>2. Sides <small id="sidesInfo"></small></h3><div class="fichas" id="sides"></div></div>
       <div class="paso"><h3>3. Salsas de la casa <small id="salsasInfo"></small></h3><div class="fichas" id="salsas"></div></div>
-      <div class="total"><div><b id="total" aria-live="polite">REF 13</b><p id="resumen">x5 pinchos mixtos.</p></div><a class="btn" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a></div>
+      <div class="total"><div><b id="total" aria-live="polite">REF 13</b><small class="bs-total" id="totalBs"></small><p id="resumen">x5 pinchos mixtos.</p></div><a class="btn" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a></div>
     </div>
     <div class="ar-b">
       <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div></div>
@@ -257,12 +278,13 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     <div>
       <h2 id="mesa-t2" class="display">Al centro de la mesa.</h2>
       <p class="lead">Bandejas metálicas, papel con su nombre y todo para compartir. Terraza, happy hour en sus mesas y asientos accesibles para silla de ruedas.</p>
+      <p class="hh-cuenta" id="hhCuenta" aria-live="polite"></p>
       <a class="btn verde" href="#mesa">Reservar mesa</a>
     </div>
     <div class="muro">
-      <figure class="pola a"><div><img src="f/bandeja.jpg" alt="Bandeja con pinchos de pollo, papas, ensaladas y salsas" width="1100" height="825" loading="lazy"></div><p>La bandeja para compartir</p></figure>
-      <figure class="pola b"><div><img src="f/trago.jpg" alt="Trago azul escarchado sobre una mesa de madera" width="825" height="1100" loading="lazy"></div><p>Para acompañar</p></figure>
-      <figure class="pola c"><div><img src="f/burger.jpg" alt="Hamburguesa doble con papas en bandeja con papel de Compinchería" width="825" height="1100" loading="lazy"></div><p>Pincho burger</p></figure>
+      <figure class="pola a"><div><img src="f/bandeja.webp" alt="Bandeja con pinchos de pollo, papas, ensaladas y salsas" width="1100" height="825" loading="lazy"></div><p>La bandeja para compartir</p></figure>
+      <figure class="pola b"><div><img src="f/trago.webp" alt="Trago azul escarchado sobre una mesa de madera" width="825" height="1100" loading="lazy"></div><p>Para acompañar</p></figure>
+      <figure class="pola c"><div><img src="f/burger.webp" alt="Hamburguesa doble con papas en bandeja con papel de Compinchería" width="825" height="1100" loading="lazy"></div><p>Pincho burger</p></figure>
     </div>
   </div>
 </section>
@@ -298,7 +320,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 </section>
 
 <section class="verde" aria-labelledby="donde" style="padding-top:0">
-  <div class="letrero"><img src="f/letrero.jpg" alt="Letrero verde de Compinchería, Pinchos · Bar, sobre pared de ladrillo" width="1100" height="734" loading="lazy"></div>
+  <div class="letrero"><img src="f/letrero.webp" alt="Letrero verde de Compinchería, Pinchos · Bar, sobre pared de ladrillo" width="1100" height="734" loading="lazy"></div>
   <div class="wrap cols" style="padding-top:70px">
     <div>
       <h2 id="donde" class="display">Dónde estamos</h2>
@@ -329,17 +351,19 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
   function usar(id,vb,cls){var s=document.createElementNS(SVG,'svg');s.setAttribute('viewBox',vb);if(cls)s.setAttribute('class',cls);var u=document.createElementNS(SVG,'use');u.setAttribute('href','#'+id);s.appendChild(u);return s}
   function ref(n){return 'REF '+String(Math.round(n*100)/100).replace('.',',')}
+  var TASA=null,TASAF='',catActual=null;
+  function bs(n){return 'Bs. '+Math.round(n*TASA).toLocaleString('es-VE')}
 
   /* Carta real de febrero 2026 */
   var CARTA=[
-    {n:'Pinchos',f:'f/pinchos.jpg',pie:'Pinchos mixtos a la parrilla',p:[
+    {n:'Pinchos',f:'f/pinchos.webp',pie:'Pinchos mixtos a la parrilla',p:[
       ['x5 pinchos','250 g de proteína, para 1 persona. Incluye 1 side y 2 salsas',13],
       ['x9 pinchos','450 g de proteína, para 2 personas. Incluye 2 sides y 3 salsas',22],
       ['x15 pinchos','750 g de proteína, para 3 o 4 personas. Incluye 3 sides y 4 salsas',35],
       ['Bandeja Compin','9 pinchos mixtos, mini tenders de pollo, aros de cebolla, papas fritas, ensalada César y coleslaw. Para 3 personas',30],
       ['Sides','Papas fritas, aros de cebolla, ensalada César o coleslaw',3],
       ['Salsas de la casa','BBQ, ajo, mojo criollo, tocineta, ranch, parrillera, alemana, mermelada de pimentón, cheddar, teriyaki, guasacaca o mermelada de cebolla',1]]},
-    {n:'Burgers',f:'f/burger.jpg',pie:'Pincho burger',p:[
+    {n:'Burgers',f:'f/burger.webp',pie:'Pincho burger',p:[
       ['Parriburger','Dos pinchos de carne, carne smash, cheddar, espirales de papa crujientes y salsas clásicas',12],
       ['Chicken Ranch','Tres pinchos de pollo en salsa ranch, cheddar, espirales de papa y tocineta crispy',12],
       ['Pernil Burger','Tres pinchos de cerdo con salsa de ajo, lechuga y tomate',12],
@@ -349,7 +373,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       ['Cheeseburger','Doble carne con doble cheddar, cebolla, pepinillos y salsa de tomate',9],
       ['Classic Crispy','Pechuga de pollo crujiente, cheddar, pepinillos y salsa de la casa',9],
       ['Big Compi','Doble carne con cheddar, cebolla, pepinillos, lechuga y salsa de la casa',9]]},
-    {n:'Para picar',f:'f/bandeja.jpg',pie:'Todo al centro',p:[
+    {n:'Para picar',f:'f/bandeja.webp',pie:'Todo al centro',p:[
       ['Nachos con chili','Queso cheddar fundido, chili con carne y pico de gallo',11],
       ['Nachos con pulled pork','Queso cheddar fundido, pulled pork y pico de gallo',11],
       ['Tequeños','5 unidades, con 1 salsa',7],
@@ -360,17 +384,17 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       ['Papas pulled pork','Cheddar y cerdo en salsa BBQ',8],
       ['César con pollo crispy','Ensalada César con pollo crispy',11],
       ['César sencilla','Ensalada César tradicional',8]]},
-    {n:'Alitas',f:'f/bandeja.jpg',pie:'Alitas y boneless',p:[
+    {n:'Alitas',f:'f/bandeja.webp',pie:'Alitas y boneless',p:[
       ['Boneless','150 g de pechuga crispy con el sabor que elijas',7],
       ['Alitas x12','Con el sabor que elijas',11],
       ['Alitas x18','Con el sabor que elijas',16],
       ['Sabores','BBQ, buffalo, teriyaki, spicy o vietnamita','']]},
-    {n:'Kids y postres',f:'f/burger.jpg',pie:'Para los más chiquitos',p:[
+    {n:'Kids y postres',f:'f/burger.webp',pie:'Para los más chiquitos',p:[
       ['Mini tenders de pollo','Menú kids. Incluye 1 side y 1 salsa',8],
       ['x3 pinchos mixtos','Menú kids. Incluye 1 side y 1 salsa',9],
       ['Galleta con helado','Postre',4.5],
       ['Brookie con helado','Postre',4.5]]},
-    {n:'Cócteles',f:'f/trago.jpg',pie:'Para acompañar',p:[
+    {n:'Cócteles',f:'f/trago.webp',pie:'Para acompañar',p:[
       ['Mexican Mule','Tequila, soda, limón, jengibre y hierbabuena',6],
       ['Moscow Mule','Vodka, soda, limón, jengibre y hierbabuena',6],
       ['Margarita','Tequila, triple sec y limón',6.5],
@@ -384,7 +408,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       ['Paloma','Tequila, limón, naranja y sal',6],
       ['Whisky sour','Whisky, limón y clara de huevo',6],
       ['Sin alcohol','Caribbean Ruby, Fresh Tea o Virgin Mule',5]]},
-    {n:'Cervezas y bebidas',f:'f/trago.jpg',pie:'Bien frío',p:[
+    {n:'Cervezas y bebidas',f:'f/trago.webp',pie:'Bien frío',p:[
       ['Polarcita','',1.8],['Solera','',2],['Caroreña Verano','',2.5],['Extra Chelada','',1.5],
       ['Frappé','Limonada, frutos rojos o parchita',3.5],['Refresco','',2.5],['Agua 600 ml','',2.5],['Malta','',1],
       ['Vino tinto o blanco','Copa REF 5 · botella REF 20',''],['Ron, whisky y más','Por trago o por botella, pregunta en la barra','']]}
@@ -392,7 +416,8 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   var pest=document.getElementById('pestanas'),platos=document.getElementById('platos'),foto=document.getElementById('cartaFoto'),pie=document.getElementById('cartaPie');
   function verCat(c){
     platos.innerHTML='';
-    c.p.forEach(function(x){var li=el('li');li.appendChild(el('b','',x[0]));if(x[2]!=='')li.appendChild(el('em','',ref(x[2])));if(x[1])li.appendChild(el('span','',x[1]));platos.appendChild(li);});
+    catActual=c;
+    c.p.forEach(function(x){var li=el('li');li.appendChild(el('b','',x[0]));if(x[2]!=='')li.appendChild(el('em','',ref(x[2])));if(x[1])li.appendChild(el('span','',x[1]));if(x[2]!==''&&TASA)li.appendChild(el('small','bs','≈ '+bs(x[2])));platos.appendChild(li);});
     if(foto.getAttribute('src')!==c.f)foto.src=c.f;foto.alt=c.pie;pie.textContent=c.pie;
   }
   CARTA.forEach(function(c,i){var b=el('button','',c.n);b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.addEventListener('click',function(){pest.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});verCat(c);});pest.appendChild(b);});
@@ -402,7 +427,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   var TAM=[{n:5,p:13,personas:'1 persona',sides:1,salsas:2},{n:9,p:22,personas:'2 personas',sides:2,salsas:3},{n:15,p:35,personas:'3 o 4 personas',sides:3,salsas:4}];
   var SIDES=[['Papas fritas','s-papas'],['Aros de cebolla','s-aros'],['Ensalada César','s-cesar'],['Coleslaw','s-coleslaw']];
   var SALSAS=[['BBQ','#5A2E1A'],['Ajo','#F1EAD2'],['Mojo criollo','#E08A2E'],['Tocineta','#D9C79A'],['Ranch','#EDEBDD'],['Parrillera','#C2421E'],['Alemana','#E6E3C8'],['Mermelada de pimentón','#8E1B1B'],['Cheddar','#F2B33D'],['Teriyaki','#4A2A17'],['Guasacaca','#8FAE45'],['Mermelada de cebolla','#5B2B23']];
-  var t=TAM[0],cs={},csa={};
+  var t=TAM[0],cs={},csa={},prev={n:0,cs:{},csa:{}};
   var tamanos=document.getElementById('tamanos'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas');
   TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.appendChild(el('b','','x'+x.n));b.appendChild(el('span','',x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;tamanos.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b?'true':'false')});pintarB();});tamanos.appendChild(b);});
   function fichas(box,lista,obj){
@@ -419,6 +444,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     document.getElementById('salsasInfo').textContent=t.salsas+' incluidas'+(exA?' · '+exA+' extra a REF 1':'');
     var total=t.p+exS*3+exA;
     document.getElementById('total').textContent=ref(total);
+    document.getElementById('totalBs').textContent=TASA?'≈ '+bs(total)+' a tasa BCV':'';
     var partes=['x'+t.n+' pinchos mixtos'];
     SIDES.forEach(function(s){if(cs[s[0]])partes.push(cs[s[0]]+' × '+s[0].toLowerCase())});
     SALSAS.forEach(function(s){if(csa[s[0]])partes.push(csa[s[0]]+' × salsa '+s[0].toLowerCase())});
@@ -428,11 +454,19 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
     var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
     zp.className='zona-pinchos'+(t.n>5?' muchos':'');
     var tipos=['pincho-carne','pincho-pollo','pincho-cerdo'];
-    for(var i=0;i<t.n;i++){var s=usar(tipos[i%3],'0 0 200 40');s.style.animationDelay=(i*25)+'ms';zp.appendChild(s);}
-    SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++)ze.appendChild(usar(sd[1],'0 0 60 60'));});
-    SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var s=usar('s-salsa','0 0 60 60','salsa');s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
+    var cambioN=t.n!==prev.n,hubo=false;
+    for(var i=0;i<t.n;i++){var s=usar(tipos[i%3],'0 0 200 40',cambioN?'nuevo':'');if(cambioN)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
+    SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++){var nv=j>=(prev.cs[sd[0]]||0);if(nv)hubo=true;ze.appendChild(usar(sd[1],'0 0 60 60',nv?'nuevo':''));}});
+    SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var nv=j>=(prev.csa[sa[0]]||0);if(nv)hubo=true;var s=usar('s-salsa','0 0 60 60','salsa'+(nv?' nuevo':''));s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
+    if((hubo||cambioN)&&prev.n){var bj=document.querySelector('.bandeja');bj.classList.remove('golpe');void bj.offsetWidth;bj.classList.add('golpe');if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}}
+    prev={n:t.n,cs:JSON.parse(JSON.stringify(cs)),csa:JSON.parse(JSON.stringify(csa))};
   }
   pintarB();
+
+  /* Tasa BCV del día para mostrar bolívares (dolarapi.com, dato público del BCV). Si no responde, solo se ven los REF. */
+  if(window.fetch)fetch('https://ve.dolarapi.com/v1/dolares/oficial').then(function(r){return r.json()}).then(function(j){if(!j||!j.promedio)return;TASA=j.promedio;var f=new Date(j.fechaActualizacion);
+    document.getElementById('tasaNota').textContent='En bolívares, a la tasa BCV del '+f.getDate()+'/'+(f.getMonth()+1)+': Bs. '+TASA.toLocaleString('es-VE',{maximumFractionDigits:2})+' por dólar.';
+    if(catActual)verCat(catActual);document.getElementById('totalBs').textContent='≈ '+bs(parseFloat(document.getElementById('total').textContent.replace('REF ','').replace(',','.')))+' a tasa BCV';}).catch(function(){});
 
   /* Horario real y estado en hora de Caracas */
   var HOR={0:[12,22],1:[11,22],2:[11,22],3:[11,23],4:[11,23],5:[11,24],6:[12,24]};
@@ -446,6 +480,15 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   var abre=hh<HOR[hoy][0]?HOR[hoy][0]:HOR[(hoy+1)%7][0];
   est.querySelector('span').textContent=(abierto?'Abierto ahora · cierra a las '+h12(HOR[hoy][1]):'Cerrado ahora · abre a las '+h12(abre))+' · 4,8 en Google';
   if(!abierto)est.classList.add('cerrado');
+
+  /* Happy hour: al tener el horario real se llena HAPPY, por ejemplo {dias:[1,2,3,4,5],desde:17,hasta:20}, y aparece la cuenta regresiva. */
+  var HAPPY=null;var hhEl=document.getElementById('hhCuenta');
+  function dur(m){m=Math.max(1,Math.round(m));var h=Math.floor(m/60),mm=m%60;return (h?h+' h ':'')+(mm?mm+' min':'')}
+  function happy(){if(!hhEl)return;if(!HAPPY){hhEl.innerHTML='';hhEl.appendChild(el('b','','Happy hour'));hhEl.appendChild(document.createTextNode('Días y horas por confirmar con el local'));return;}
+    var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'}));var d=n.getDay(),m=n.getHours()*60+n.getMinutes(),a=HAPPY.desde*60,b=HAPPY.hasta*60,txt;
+    if(HAPPY.dias.indexOf(d)>=0&&m>=a&&m<b)txt='Es ahora · termina en '+dur(b-m);else if(HAPPY.dias.indexOf(d)>=0&&m<a)txt='Empieza en '+dur(a-m);else{var k=1;while(k<8&&HAPPY.dias.indexOf((d+k)%7)<0)k++;txt='El próximo es el '+DN[(d+k)%7].toLowerCase()+' a las '+h12(HAPPY.desde);}
+    hhEl.innerHTML='';hhEl.appendChild(el('b','','Happy hour'));hhEl.appendChild(document.createTextNode(txt));}
+  happy();setInterval(happy,30000);
 
   /* Reserva tipo comanda */
   var R={n:4,dia:null,hora:null,oc:null};
@@ -488,6 +531,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   pintarGente();
 })();
 </script>
+<a class="flota" id="flota" href="#mesa">Reservar mesa</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
@@ -606,5 +650,15 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<script>
+(function(){
+  var f=document.getElementById('flota');if(!f)return;
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
+  var espera=null;
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
+})();
+</script>
 </body>
 </html>

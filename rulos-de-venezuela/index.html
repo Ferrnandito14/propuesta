@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- cabecera:fin -->
+<!-- compartir:inicio -->
+<meta property="og:url" content="https://ferrnandito14.github.io/propuesta/rulos-de-venezuela/">
+<meta property="og:image" content="https://ferrnandito14.github.io/propuesta/rulos-de-venezuela/f/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rulos de Venezuela">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HairSalon", "name": "Rulos de Venezuela", "description": "Peluquería y tienda especializada en cabello rizado y afro.", "address": {"@type": "PostalAddress", "streetAddress": "Edificio Lucerna, Av. Francisco de Miranda", "addressLocality": "Chacao", "addressRegion": "Miranda", "addressCountry": "VE"}, "geo": {"@type": "GeoCoordinates", "latitude": 10.4925486, "longitude": -66.8568466}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "19:00"}], "sameAs": ["https://www.instagram.com/rulosdevenezuela/"], "url": "https://ferrnandito14.github.io/propuesta/rulos-de-venezuela/", "image": "https://ferrnandito14.github.io/propuesta/rulos-de-venezuela/f/og.jpg"}</script>
+<!-- compartir:fin -->
 <!--
 Referencias (proceso-diseno.md y skill refero-design, segunda pasada del 2026-11-08):
 Candado. Principal: Marylou Faure (Refero Styles): galería blanca, estructura solo con líneas negras de 1 px, fotos a sangre unidas por líneas finas y sin esquinas, una sola familia de letra, el color lo ponen las imágenes y nunca la interfaz.
@@ -148,6 +157,35 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 @media(min-width:800px){.ag-fin .btn{grid-column:auto}}
 .ag-fin .btn[aria-disabled="true"]{opacity:.45;box-shadow:none}
 .ag-nota{color:var(--gris);font-size:.85rem;margin-top:12px}
+.flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 20px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s}
+.flota.ver{opacity:1;translate:0 0;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.flota{transition:none}}
+.flota{background:#0E0E0E;color:#fff;border-radius:999px;font-family:Outfit,system-ui,sans-serif;font-weight:700;box-shadow:5px 5px 0 #E9E6E1}
+.comparar{position:relative;aspect-ratio:4/5;max-height:80vh;overflow:hidden;border:1px solid var(--linea);background:var(--suave);touch-action:pan-y}
+@media(min-width:880px){.comparar{aspect-ratio:16/10}}
+.comparar>img{position:absolute;inset:0}
+.antes{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p,50%)) 0 0);background:repeating-linear-gradient(135deg,#F1EEEA 0 14px,#E6E2DC 14px 28px);display:grid;place-items:center start;padding-left:5%}
+.antes div{text-align:left;width:min(40%,230px);padding:14px;background:#fff;border:1px solid var(--tinta)}
+.antes b{display:block;font-weight:800;font-size:1.4rem}
+.antes span{color:var(--gris);font-size:.92rem}
+.linea-c{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:var(--tinta);translate:-1px 0;pointer-events:none}
+.linea-c i{position:absolute;top:50%;left:50%;width:46px;height:46px;border-radius:50%;background:var(--tinta);translate:-50% -50%;box-shadow:0 0 0 4px #fff}
+.linea-c i:before,.linea-c i:after{content:"";position:absolute;top:50%;width:0;height:0;border:6px solid transparent;translate:0 -50%}
+.linea-c i:before{left:8px;border-right-color:#fff}.linea-c i:after{right:8px;border-left-color:#fff}
+.comparar input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.comparar input:focus-visible+.tag-a{outline:3px solid var(--tinta)}
+.tag-a,.tag-d{position:absolute;top:14px;background:#fff;border:1px solid var(--tinta);border-radius:999px;padding:4px 12px;font-size:.8rem;font-weight:700;pointer-events:none}
+.tag-a{left:14px}.tag-d{right:14px}
+.prensa{list-style:none;padding:0;margin:0;border-top:1px solid var(--tinta)}
+.prensa a{display:grid;grid-template-columns:1fr auto;gap:2px 18px;padding:20px 0;border-bottom:1px solid var(--linea);text-decoration:none}
+@media(min-width:800px){.prensa a{grid-template-columns:12rem 1fr auto;align-items:baseline}}
+.prensa span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.prensa b{font-weight:700;font-size:1.25rem;letter-spacing:-.015em;grid-column:1}
+@media(min-width:800px){.prensa b{grid-column:auto}}
+.prensa i{font-style:normal;font-size:1.3rem;grid-row:1/span 2;grid-column:2;align-self:center;transition:translate .2s}
+@media(min-width:800px){.prensa i{grid-row:auto;grid-column:auto}}
+.prensa a:hover i{translate:3px -3px}
+.prensa a:hover b{text-decoration:underline;text-underline-offset:4px}
 </style>
 </head>
 <body>
@@ -183,9 +221,9 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <span class="dato"><b>4,9</b> en Google · 487 opiniones</span>
     </div>
     <div class="tira">
-      <div><img src="f/portada.jpg" alt="Clienta con rizos cortos definidos frente a la pared estampada del salón" width="788" height="1100"></div>
-      <div><img src="f/rizo.jpg" alt="Rizos largos con reflejos castaños después del servicio" width="508" height="1100" loading="lazy"></div>
-      <div><img src="f/afro.jpg" alt="Cabello afro con volumen, de espaldas, con la capa estampada de Rulos" width="825" height="1100" loading="lazy"></div>
+      <div><img src="f/portada.webp" alt="Clienta con rizos cortos definidos frente a la pared estampada del salón" width="788" height="1100"></div>
+      <div><img src="f/rizo.webp" alt="Rizos largos con reflejos castaños después del servicio" width="508" height="1100" loading="lazy"></div>
+      <div><img src="f/afro.webp" alt="Cabello afro con volumen, de espaldas, con la capa estampada de Rulos" width="825" height="1100" loading="lazy"></div>
     </div>
   </div>
 </header>
@@ -197,7 +235,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     <h2 id="tu-rizo">¿Cuál es tu rizo?</h2>
     <p class="lead">Cada tipo de rizo pide cuidados distintos. Elige el tuyo y mira por dónde empezar. En la primera cita el equipo lo confirma con un diagnóstico.</p>
     <div class="rizo">
-      <div class="rizo-foto"><img id="rizoImg" src="f/rizo.jpg" alt="Rizos abiertos y largos" width="508" height="1100" loading="lazy"></div>
+      <div class="rizo-foto"><img id="rizoImg" src="f/rizo.webp" alt="Rizos abiertos y largos" width="508" height="1100" loading="lazy"></div>
       <div class="rizo-texto">
         <div class="tipos" role="group" aria-label="Tipo de rizo">
           <button type="button" aria-pressed="true" data-t="abierto">Abierto</button>
@@ -240,6 +278,20 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   <svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg><svg viewBox="0 0 220 70" style="color:#fff"><use href="#e-espiral"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-sol"/></svg><svg viewBox="0 0 100 100" style="color:#fff"><use href="#e-flor"/></svg><svg viewBox="0 0 100 100" style="color:#fff;--hueco:#0E0E0E"><use href="#o-rizo"/></svg>
 </div></div>
 
+<section aria-labelledby="resultados">
+  <div class="wrap">
+    <p class="etq">Resultados</p>
+    <h2 id="resultados">Desliza y mira el cambio.</h2>
+    <p class="lead">Arrastra la barra para comparar antes y después. En esta propuesta el "antes" está pendiente: en la página final van fotos reales de clientas del salón, con su permiso.</p>
+    <div class="comparar" id="comparar">
+      <img src="f/rizo.webp" alt="Después: rizos definidos con reflejos castaños" width="508" height="1100" loading="lazy">
+      <div class="antes" id="antes"><div><b>Antes</b><span>Foto del antes que elija el salón</span></div></div>
+      <div class="linea-c" id="lineaC" aria-hidden="true"><i></i></div>
+      <input type="range" min="0" max="100" value="50" id="rango" aria-label="Comparar antes y después">
+      <span class="tag-a">Antes</span><span class="tag-d">Después</span>
+    </div>
+  </div>
+</section>
 <section aria-labelledby="salon">
   <div class="wrap">
     <p class="etq">El salón</p>
@@ -247,11 +299,24 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
     <p class="lead">Un espacio pensado para el cabello rizado, con su estampado en paredes y capas, y un equipo que trabaja cada rizo por separado.</p>
   </div>
   <div class="wrap"><div class="salon">
-    <div><img src="f/salon.jpg" alt="Estilista trabajando junto al carrito de productos del salón" width="825" height="1100" loading="lazy"></div>
-    <div><img src="f/peinando.jpg" alt="Estilista definiendo un cabello afro con un cintillo azul" width="1100" height="733" loading="lazy"></div>
+    <div><img src="f/salon.webp" alt="Estilista trabajando junto al carrito de productos del salón" width="825" height="1100" loading="lazy"></div>
+    <div><img src="f/peinando.webp" alt="Estilista definiendo un cabello afro con un cintillo azul" width="1100" height="733" loading="lazy"></div>
   </div></div>
 </section>
 
+<section aria-labelledby="cultura">
+  <div class="wrap">
+    <p class="etq">Cultura · Belleza real · Identidad</p>
+    <h2 id="cultura">Más que un salón.</h2>
+    <p class="lead">Rulos es un estudio especializado en cabello texturizado y también un movimiento: su proyecto Rulos Social y su trabajo sobre cabello e identidad han salido en medios.</p>
+    <ul class="prensa">
+      <li><a href="https://www.vozdeamerica.com/a/rulos-venezuela-un-movimiento-que-reivindica-a-la-comunidad-afro-/7007940.html" rel="noopener" target="_blank"><span>Voz de América</span><b>Rulos Venezuela, un movimiento que reivindica a la comunidad afro</b><i aria-hidden="true">↗</i></a></li>
+      <li><a href="https://tesonmagazine.com/edicion-2" rel="noopener" target="_blank"><span>Tesón Magazine</span><b>Café con leche, edición 2</b><i aria-hidden="true">↗</i></a></li>
+      <li><a href="https://www.instagram.com/reel/CvuS3U2rq7r/" rel="noopener" target="_blank"><span>Radio</span><b>Cabello e identidad, entrevista</b><i aria-hidden="true">↗</i></a></li>
+      <li><a href="https://www.instagram.com/rulosdevenezuela/" rel="noopener" target="_blank"><span>Rulos Social</span><b>El proyecto social de Rulos</b><i aria-hidden="true">↗</i></a></li>
+    </ul>
+  </div>
+</section>
 <section aria-labelledby="serv">
   <div class="wrap">
     <p class="etq">Servicios</p>
@@ -270,12 +335,12 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 
 <section aria-labelledby="tienda">
   <div class="wrap tienda">
-    <div class="foto"><img src="f/bolsa.jpg" alt="Clienta con cabello afro sosteniendo una bolsa de Rulos que dice Amo mis rulos" width="734" height="1100" loading="lazy"></div>
+    <div class="foto"><img src="f/bolsa.webp" alt="Clienta con cabello afro sosteniendo una bolsa de Rulos que dice Amo mis rulos" width="734" height="1100" loading="lazy"></div>
     <div>
-      <p class="etq">Tienda</p>
-      <h2 id="tienda">Amo mis rulos, también en casa.</h2>
-      <p class="lead">Hoy el catálogo vive en WhatsApp. En la página cada producto tendría su foto, para qué rizo sirve y su precio, y se pide con un toque.</p>
-      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20los%20productos">Ver el catálogo</a>
+      <p class="etq">La Tiendita</p>
+      <h2 id="tienda">La Tiendita: amo mis rulos, también en casa.</h2>
+      <p class="lead">Hoy La Tiendita vive en el catálogo de WhatsApp. En la página cada producto tendría su foto, para qué rizo sirve y su precio, y se pide con un toque.</p>
+      <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20los%20productos">Ver La Tiendita</a>
     </div>
   </div>
 </section>
@@ -310,9 +375,9 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 <script>
 (function(){
   var D={
-    abierto:{img:'f/rizo.jpg',alt:'Rizos abiertos y largos',tit:'Rizo abierto',txt:'Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Corte y definición']]},
-    cerrado:{img:'f/portada.jpg',alt:'Rizos cortos y cerrados',tit:'Rizo cerrado',txt:'Espirales pequeñas y marcadas que se resecan con facilidad. Suelen pedir hidratación y un corte que respete cada espiral.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación y corte']]},
-    afro:{img:'f/afro.jpg',alt:'Cabello afro con volumen',tit:'Afro',txt:'Rizo muy cerrado, con mucho volumen y necesidad de humedad. Suele pedir hidratación profunda y cuidado constante.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación profunda']]}
+    abierto:{img:'f/rizo.webp',alt:'Rizos abiertos y largos',tit:'Rizo abierto',txt:'Ondas y rizos amplios que tienden a perder forma con el peso. Suelen pedir definición sin apelmazar.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Corte y definición']]},
+    cerrado:{img:'f/portada.webp',alt:'Rizos cortos y cerrados',tit:'Rizo cerrado',txt:'Espirales pequeñas y marcadas que se resecan con facilidad. Suelen pedir hidratación y un corte que respete cada espiral.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación y corte']]},
+    afro:{img:'f/afro.webp',alt:'Cabello afro con volumen',tit:'Afro',txt:'Rizo muy cerrado, con mucho volumen y necesidad de humedad. Suele pedir hidratación profunda y cuidado constante.',l:[['Para empezar','Diagnóstico de rizo'],['Después','Hidratación profunda']]}
   };
   var img=document.getElementById('rizoImg'),tit=document.getElementById('rizoTit'),txt=document.getElementById('rizoTxt'),lista=document.getElementById('rizoLista');
   document.querySelectorAll('.tipos button').forEach(function(b){
@@ -327,6 +392,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
   });
 })();
 </script>
+<a class="flota" id="flota" href="#agenda">Reservar</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
@@ -476,5 +542,25 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<script>
+(function(){
+  var f=document.getElementById('flota');if(!f)return;
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
+  var espera=null;
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
+})();
+</script>
+<script>
+(function(){
+  var c=document.getElementById('comparar'),r=document.getElementById('rango');if(!c||!r)return;
+  function mover(){c.style.setProperty('--p',r.value+'%');}
+  r.addEventListener('input',mover);mover();
+  // Pequeña pista de movimiento la primera vez que se ve
+  if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+    var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();var t=0,id=setInterval(function(){t+=1;r.value=50+Math.sin(t/6)*18*(1-t/60);mover();if(t>=60){clearInterval(id);r.value=50;mover();}},16);}},{threshold:.5});o.observe(c);}
+})();
+</script>
 </body>
 </html>
