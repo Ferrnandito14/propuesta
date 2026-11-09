@@ -35,7 +35,8 @@ Candado. Principal: Augen Pro (Refero Styles): blanco clínico, tinta casi negra
 Prestado: selector visual del cuerpo para indicar molestias (apps de triaje) y preguntas frecuentes en acordeón.
 De la marca (su Instagram @odontologiagranccs y su ficha de Google): logo de diente en azul y celeste con "Odontología Gran Caracas"; lema "Tu sonrisa, nuestra prioridad"; "Agenda tu cita"; oferta "Panorámico por tan solo 10$"; Centro Perú Torre A, piso 7, oficina 76, Chacao; consultorio con paredes de mármol y sillón; equipo con uniforme azul.
 Orden pensado para un paciente: qué le pasa y dónde le duele, la oferta real, tratamientos, el consultorio, cómo es la primera visita, preguntas, cita, dónde.
-Momento memorable: el mapa de los dientes; tocas dónde te molesta y la clínica lo recibe en el mensaje.
+Momento memorable (tercera versión, 2026-11-09): la boca vista como en el espejo, en línea fina y con seis zonas grandes; el paciente toca dónde le molesta, dice qué siente con sus palabras y recibe una orientación (por dónde suele empezar la consulta y de qué tratamientos de la lista podría hablarle el odontólogo), sin diagnóstico. Con dolor fuerte o golpe aparece el acceso directo a WhatsApp.
+Descartado: el odontograma de 32 dientes (clínico, piezas muy pequeñas para el dedo) y el relleno negro en los dientes marcados (asusta); la selección va en borde azul.
 No se promete ningún resultado clínico. Fotos: de su ficha de Google, para esta propuesta.
 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -73,23 +74,50 @@ img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.85) b
 section{padding:100px 0}
 h2{font-size:clamp(34px,4.4vw,54px);margin:12px 0 16px}
 .lead{color:var(--acero);max-width:48ch;margin-bottom:36px;font-size:17px}
-.dientes{display:grid;gap:40px;align-items:center}
-@media(min-width:900px){.dientes{grid-template-columns:1fr 1fr;gap:64px}}
-.arcada{background:var(--panel);border-radius:54px;padding:28px;border:.5px solid var(--linea)}
-.arcada svg{width:100%;height:auto;display:block}
-.diente{cursor:pointer}
-.diente path{fill:var(--panel);stroke:#C9CBD1;stroke-width:1;transition:fill .2s}
-.diente:hover path{fill:#E8F1FC}
-.diente.on path{fill:var(--negro);stroke:var(--negro)}
-.diente:focus-visible{outline:none}
-.diente:focus-visible path{stroke:var(--azul);stroke-width:2.5}
-.arcada .lbl{font:400 10px 'Inter',sans-serif;fill:var(--ceniza);letter-spacing:.08em}
-.motivos{display:flex;flex-wrap:wrap;gap:8px}
-.motivos button{all:unset;cursor:pointer;border:.5px solid var(--negro);border-radius:999px;padding:9px 16px;font-weight:300;font-size:15px;background:transparent}
-.motivos button[aria-pressed="true"]{background:var(--negro);color:var(--panel)}
-.motivos button:focus-visible{outline:1px solid var(--azul);outline-offset:2px}
-.zona-txt{margin-top:18px;padding:16px 20px;border-radius:26px;background:var(--panel);border:.5px solid var(--linea);color:var(--negro);font-weight:300}
-.urgente{margin-top:10px;padding:14px 20px;border-radius:26px;border:.5px solid var(--azul);color:var(--azul);background:transparent;font-size:15px}
+.boca-panel{background:var(--panel);border:.5px solid var(--linea);border-radius:54px;padding:30px 22px 34px;display:grid;gap:8px}
+@media(min-width:900px){.boca-panel{grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:72px;padding:56px 60px;align-items:start}.boca-panel .boca{position:sticky;top:96px}}
+.boca-panel .paso:first-child,.boca-panel .col>.paso:first-child{margin-top:0}
+.boca svg{display:block;width:100%;max-width:360px;height:auto;margin:14px auto 0}
+.boca .labio{fill:var(--lienzo);stroke:#D3D5DB;stroke-width:1}
+.boca .lengua{fill:none;stroke:#D3D5DB;stroke-width:1;stroke-linecap:round}
+.boca .lbl{font:400 9.5px 'Inter',sans-serif;fill:var(--ceniza);letter-spacing:.09em}
+.zona{cursor:pointer;outline:none}
+.zona circle{fill:transparent}
+.zona rect{fill:var(--panel);stroke:#B4B8C0;stroke-width:1.2;transition:stroke .2s,stroke-width .2s}
+@media(hover:hover){.zona:hover rect{stroke:var(--negro)}}
+.zona[aria-pressed="true"] rect{stroke:var(--azul);stroke-width:2.4}
+.zona:focus-visible rect{stroke:var(--negro);stroke-width:2.4}
+.espejo{text-align:center;font-size:13px;color:var(--acero);margin-top:10px}
+.extras{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
+.extras button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:.5px solid var(--negro);border-radius:26px;font-size:14px}
+.extras button[aria-pressed="true"]{border-color:var(--azul);color:var(--azul)}
+.extras button:focus-visible,.lista button:focus-visible,.cuanto button:focus-visible{outline:1px solid var(--azul);outline-offset:2px}
+.zona-txt{margin-top:16px;text-align:center;font-size:15px;color:var(--acero);min-height:3em}
+.zona-txt b{font-weight:400;color:var(--negro)}
+.lista{margin-top:8px;border-top:.5px solid var(--linea)}
+.lista button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;width:100%;min-height:54px;padding:8px 0;border-bottom:.5px solid var(--linea);font-size:16px}
+.lista button:before{content:"";flex:none;width:14px;height:14px;border-radius:50%;border:.5px solid var(--negro);box-sizing:border-box}
+.lista button[aria-pressed="true"]{color:var(--azul)}
+.lista button[aria-pressed="true"]:before{border:4px solid var(--azul)}
+.cuanto{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px}
+.cuanto button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;min-height:52px;padding:6px 8px;text-align:center;border:.5px solid var(--linea);border-radius:18px;font-size:14px;line-height:1.25}
+.cuanto button[aria-pressed="true"]{background:var(--negro);border-color:var(--negro);color:var(--panel)}
+.orienta{margin-top:34px;padding-top:28px;border-top:.5px solid var(--linea)}
+.orienta .etq{color:var(--azul)}
+.orienta h3{font-weight:300;font-size:28px;line-height:1.15;letter-spacing:-.03em;margin-top:8px;color:var(--negro)}
+.orienta p{margin-top:10px;color:var(--acero);max-width:46ch}
+.orienta .vacio{margin-top:8px}
+.orienta .podria{margin-top:18px;font-size:13px;color:var(--acero)}
+.orienta ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.orienta li{border:.5px solid var(--azul);color:var(--azul);border-radius:26px;padding:5px 14px;font-size:14px}
+.orienta .nota{font-size:13px;margin-top:18px;max-width:62ch}
+.orienta .btn{margin-top:22px}
+.urgente{margin-top:22px;padding:22px 24px;border-radius:26px;border:.5px solid var(--azul);background:transparent;font-size:15px}
+.urgente b{display:block;font-weight:400;color:var(--azul);font-size:17px}
+.urgente p{margin-top:6px;color:var(--negro);max-width:none}
+.urgente .btn{margin-top:14px}
+.urgente small{display:block;margin-top:14px;font-size:13px;color:var(--acero)}
+@media(prefers-reduced-motion:no-preference){.orienta>div{animation:orienta .5s cubic-bezier(.25,.6,.3,1)}@keyframes orienta{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}}
 .oferta{background:var(--negro);color:var(--panel);border-radius:54px;display:grid;gap:0;overflow:hidden}
 @media(min-width:820px){.oferta{grid-template-columns:1.2fr .8fr}}
 .oferta .t{padding:48px 44px}
@@ -145,7 +173,6 @@ label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border
 .resumen dd{font-weight:400;text-align:right}
 .resumen .btn{width:100%;margin-top:22px}
 .resumen .pie{font-size:13px;color:var(--acero);margin-top:12px;text-align:center}
-#cita{background:var(--lienzo)!important}
 .marino{background:var(--negro);color:var(--panel)}
 .marino .etq{color:var(--ceniza)!important}
 .marino h2{color:var(--panel)!important}
@@ -189,20 +216,41 @@ dl div>dt{margin-top:0;align-self:baseline}
 </header>
 <main>
 <section id="molestia" aria-labelledby="mol-t">
-  <div class="wrap dientes">
-    <div>
-      <p class="etq">Antes de venir</p>
-      <h2 id="mol-t" class="serif">¿Dónde te molesta?</h2>
-      <p class="lead">Toca los dientes que te molestan y elige el motivo. Llega al odontólogo junto con tu cita, para que te reciban sabiendo qué pasa.</p>
-      <div class="motivos" id="motivos" role="group" aria-label="Motivo"></div>
-      <p class="zona-txt" id="zonaTxt" aria-live="polite">Ningún diente marcado.</p>
-      <p class="urgente" id="urgente" hidden>Si el dolor es fuerte o hubo un golpe, escribe de una vez y di que es urgente.</p>
+  <div class="wrap">
+    <p class="etq">Antes de venir</p>
+    <h2 id="mol-t" class="serif">¿Dónde te molesta?</h2>
+    <p class="lead">Toca la zona en el dibujo, como si te vieras en el espejo. No hace falta saber el nombre del diente: la clínica recibe lo que marques junto con tu cita.</p>
+    <div class="boca-panel">
+      <div class="paso boca">
+        <h3>Toca la zona</h3>
+        <svg viewBox="0 0 360 374" id="boca" role="group" aria-label="Dibujo de la boca abierta, vista como en un espejo">
+          <path class="labio" d="M180 14C274 14 336 88 336 187C336 292 268 360 180 360C92 360 24 292 24 187C24 88 86 14 180 14Z"/>
+          <path class="lengua" d="M128 234C128 206 232 206 232 234C232 276 210 300 180 300C150 300 128 276 128 234Z"/>
+          <path class="lengua" d="M180 226V268"/>
+          <text class="lbl" x="46" y="193">TU IZQUIERDA</text>
+          <text class="lbl" x="314" y="193" text-anchor="end">TU DERECHA</text>
+        </svg>
+        <p class="espejo">Como en el espejo: tu derecha queda a la derecha.</p>
+        <div class="extras" id="extras" role="group" aria-label="Otras zonas"></div>
+        <p class="zona-txt" id="zonaTxt" aria-live="polite"></p>
+      </div>
+      <div class="col">
+        <div class="paso">
+          <h3>¿Qué sientes?</h3>
+          <div class="lista" id="sens" role="group" aria-label="Qué sientes"></div>
+        </div>
+        <div class="paso" id="pCuanto" hidden>
+          <h3>¿Qué tanto molesta?</h3>
+          <div class="cuanto" id="cuanto" role="group" aria-label="Qué tanto molesta"></div>
+        </div>
+        <div class="orienta" id="orienta" aria-live="polite"></div>
+      </div>
     </div>
-    <div class="arcada"><svg viewBox="0 0 360 330" id="arcada" role="group" aria-label="Mapa de los dientes"><text class="lbl" x="180" y="20" text-anchor="middle">ARRIBA</text><text class="lbl" x="180" y="322" text-anchor="middle">ABAJO</text><text class="lbl" x="14" y="168">DERECHA</text><text class="lbl" x="346" y="168" text-anchor="end">IZQUIERDA</text></svg></div>
+    <p class="dolor" style="margin-top:22px"><a href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20tengo%20dolor%20fuerte%20y%20necesito%20que%20me%20atiendan%20lo%20antes%20posible.%20%C2%BFTienen%20espacio%20hoy%3F">¿Dolor fuerte ahora? No llenes nada, escríbenos de una vez →</a></p>
   </div>
 </section>
 
-<section id="cita" style="background:var(--hielo)" aria-labelledby="cita-t">
+<section id="cita" aria-labelledby="cita-t">
   <div class="wrap cita">
     <div>
       <p class="etq">Agenda tu cita</p>
@@ -213,10 +261,10 @@ dl div>dt{margin-top:0;align-self:baseline}
       <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Nombre del paciente<input id="cNombre" autocomplete="name"></label></div>
     </div>
     <aside class="resumen" aria-live="polite">
-      <h3>Tu cita</h3>
+      <h3>Lo que recibe la clínica</h3>
       <dl id="cRes"></dl>
       <a class="btn" id="cPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir cita por WhatsApp</a>
-      <p class="pie" id="cPie">Elige un motivo arriba y un día.</p>
+      <p class="pie" id="cPie"></p>
     </aside>
   </div>
 </section>
@@ -299,39 +347,100 @@ dl div>dt{margin-top:0;align-self:baseline}
 (function(){
   var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-  var NS='http://www.w3.org/2000/svg',svg=document.getElementById('arcada'),marcados={};
-  /* 16 arriba y 16 abajo sobre dos arcos; numeración simple por cuadrante */
-  function zona(i,arriba){var lado=i<8?'derecha':'izquierda',pos=i<8?7-i:i-8,tipo=pos<=1?'incisivo':pos===2?'canino':pos<=4?'premolar':'muela';return {lado:lado,tipo:tipo,arr:arriba};}
-  [true,false].forEach(function(arriba){for(var i0=0;i0<16;i0++)(function(i){var t=(i+.5)/16,ang=Math.PI*(1-t),rx=140,ry=arriba?110:105,cx=180,cy=arriba?160:170;var x=cx+rx*Math.cos(ang),y=arriba?cy-ry*Math.sin(ang)*0.95:cy+ry*Math.sin(ang)*0.95;
-    var z=zona(i,arriba),w=z.tipo==='muela'?24:z.tipo==='premolar'?19:15;var g=document.createElementNS(NS,'g');g.setAttribute('class','diente');g.setAttribute('tabindex','0');g.setAttribute('role','button');var id=(arriba?'a':'b')+i;g.dataset.id=id;
-    g.setAttribute('aria-label',z.tipo+' '+(arriba?'superior':'inferior')+' '+z.lado);var rot=(ang*180/Math.PI-90)*(arriba?-1:1);
-    var p=document.createElementNS(NS,'path');p.setAttribute('d','M'+(-w/2)+' -10 Q0 -16 '+(w/2)+' -10 L'+(w/2-2)+' 10 Q0 15 '+(-w/2+2)+' 10 Z');p.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+rot.toFixed(1)+')');g.appendChild(p);
-    function tog(){marcados[id]=marcados[id]?null:z;g.classList.toggle('on',!!marcados[id]);pintar();}
-    g.addEventListener('click',tog);g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});svg.appendChild(g);})(i0);});
-  var MOT=['Dolor','Sensibilidad','Limpieza','Revisión','Se partió un diente','Ortodoncia','Radiografía panorámica'],motivo=null;
-  var mb=document.getElementById('motivos');MOT.forEach(function(m){var b=el('button','',m);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){motivo=motivo===m?null:m;pintar();});mb.appendChild(b);});
-  document.querySelectorAll('[data-motivo]').forEach(function(a){a.addEventListener('click',function(){motivo=a.dataset.motivo;pintar();});});
-  function describe(){var zs=Object.keys(marcados).map(function(k){return marcados[k]}).filter(Boolean);if(!zs.length)return '';var g={};zs.forEach(function(z){var k=(z.arr?'arriba':'abajo')+' a la '+z.lado;g[k]=(g[k]||[]);g[k].push(z.tipo)});return Object.keys(g).map(function(k){var c=g[k].length;return c+(c>1?' dientes ':' diente ')+k+' ('+g[k].filter(function(v,i,a){return a.indexOf(v)===i}).join(', ')+')'}).join('; ');}
+  function $(id){return document.getElementById(id)}
+  var NS='http://www.w3.org/2000/svg',svg=$('boca');
+  function sv(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
+
+  /* La boca: dos arcos de 14 dientes, agrupados en seis zonas grandes (muelas a cada lado y dientes del frente).
+     Vista de espejo: la derecha del paciente queda a la derecha del dibujo. */
+  var zonas={},orden=[];
+  [true,false].forEach(function(arriba){
+    var lado=arriba?[30,30,23,23,23,23,26]:[30,30,23,23,21,19,19],W=lado.concat(lado.slice().reverse());
+    var total=W.reduce(function(a,b){return a+b},0),ac=0,cx=180,cy=arriba?176:204,rx=arriba?128:120,ry=arriba?126:120;
+    var grupos=[['izq','Muelas de '+(arriba?'arriba':'abajo')+' a la izquierda'],['fre','Dientes de '+(arriba?'arriba':'abajo')+' al frente'],['der','Muelas de '+(arriba?'arriba':'abajo')+' a la derecha']].map(function(d){
+      var id=(arriba?'a':'b')+d[0],g=sv('g',{'class':'zona',tabindex:'0',role:'button','aria-pressed':'false','aria-label':d[1]});
+      zonas[id]={g:g,txt:d[1].charAt(0).toLowerCase()+d[1].slice(1),on:false};orden.push(id);
+      function tog(){zonas[id].on=!zonas[id].on;if(zonas[id].on){extra.toda=extra.nose=false;}pintar();}
+      g.addEventListener('click',tog);g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+      return g;});
+    W.forEach(function(w,i){
+      var t=(ac+w/2)/total;ac+=w;var ang=(172-164*t)*Math.PI/180,x=cx+rx*Math.cos(ang),y=arriba?cy-ry*Math.sin(ang):cy+ry*Math.sin(ang);
+      var rot=(90-ang*180/Math.PI)*(arriba?1:-1),h=w>=30?28:w>=23?25:24,g=grupos[i<4?0:i<10?1:2];
+      g.appendChild(sv('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:22}));
+      g.appendChild(sv('rect',{x:(-(w-3)/2).toFixed(1),y:(-h/2).toFixed(1),width:w-3,height:h,rx:w>=30?9:7.5,transform:'translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+rot.toFixed(1)+')'}));
+    });
+    grupos.forEach(function(g){svg.appendChild(g)});
+  });
+
+  /* Zonas que no son un diente */
+  var extra={encias:false,toda:false,nose:false},EX=[['encias','Las encías'],['toda','Toda la boca'],['nose','No sé bien dónde']],xb=$('extras');
+  EX.forEach(function(o){var b=el('button','',o[1]);b.type='button';b.dataset.k=o[0];b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){extra[o[0]]=!extra[o[0]];if(extra[o[0]]&&o[0]!=='encias'){orden.forEach(function(k){zonas[k].on=false});extra.encias=false;extra[o[0]==='toda'?'nose':'toda']=false;}if(extra.encias){extra.toda=extra.nose=false;}pintar();});xb.appendChild(b);});
+
+  /* Qué siente el paciente, con sus palabras. La orientación solo nombra tratamientos de la lista de la página
+     y siempre queda en manos del odontólogo: aquí no se diagnostica. */
+  var SENS=[
+    {id:'frio',t:'Me molesta con frío, calor o dulce',o:'Suele empezar por una revisión para ver de dónde viene la sensibilidad.',p:['Limpieza dental','Restauración'],d:1},
+    {id:'morder',t:'Me duele al morder o masticar',o:'Suele empezar por una revisión de esa zona. A veces se pide una radiografía para ver mejor.',p:['Restauración','Endodoncia (tratamiento de conducto)'],d:1},
+    {id:'late',t:'Un dolor que late o no se quita',o:'Con un dolor así, lo habitual es que te revisen lo antes posible.',p:['Endodoncia (tratamiento de conducto)','Restauración'],d:1,u:1},
+    {id:'partio',t:'Se me partió algo o me di un golpe',o:'Lo habitual es que te revisen pronto para ver cómo quedó la pieza.',p:['Restauración'],d:1,u:1},
+    {id:'encia',t:'Me sangra o se me inflama la encía',o:'Suele empezar por una revisión de las encías.',p:['Limpieza dental'],d:1},
+    {id:'revision',t:'No me duele, quiero una revisión o limpieza',o:'Empieza con una consulta: te revisan y te explican cómo está tu boca.',p:['Limpieza dental']},
+    {id:'alinear',t:'Quiero alinear mis dientes',o:'Empieza con una consulta para ver tu caso. Puede que te pidan una radiografía panorámica ($10, según su Instagram).',p:['Ortodoncia','Radiografía panorámica']}
+  ],sens=null,libre=null,cuanto=null,sb=$('sens');
+  SENS.forEach(function(s){var b=el('button','',s.t);b.type='button';b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){sens=sens===s?null:s;libre=null;if(!sens||!sens.d)cuanto=null;pintar();});s.b=b;sb.appendChild(b);});
+  var CU=['Se aguanta','Molesta bastante','Fuerte, no me deja tranquilo'],cb=$('cuanto');
+  CU.forEach(function(c){var b=el('button','',c);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){cuanto=cuanto===c?null:c;pintar();});cb.appendChild(b);});
+  document.querySelectorAll('[data-motivo]').forEach(function(a){a.addEventListener('click',function(){libre=a.dataset.motivo;sens=null;cuanto=null;pintar();});});
+
+  function describe(){var p=orden.filter(function(k){return zonas[k].on}).map(function(k){return zonas[k].txt});
+    if(extra.encias)p.push('las encías');if(extra.toda)p.push('toda la boca');if(extra.nose)p.push('no sé bien dónde');return p.join('; ');}
+
   var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),dia=null,franja=null,DN=['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-  var cd=document.getElementById('cDias'),d=new Date(hoy);if(hoy.getHours()>=17)d.setDate(d.getDate()+1);
+  var cd=$('cDias'),d=new Date(hoy);if(hoy.getHours()>=17)d.setDate(d.getDate()+1);
   for(var n=0;n<7;n++){(function(f){var b=document.createElement('button');b.type='button';b.innerHTML=DN[f.getDay()]+'<b>'+f.getDate()+'</b>';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){dia=f;cd.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});cd.appendChild(b);})(new Date(d));d.setDate(d.getDate()+1);}
-  var cf=document.getElementById('cFranja');[['Mañana','8 a 12'],['Tarde','12 a 6']].forEach(function(o){var b=document.createElement('button');b.type='button';b.appendChild(document.createTextNode(o[0]));b.appendChild(el('small','',o[1]));b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){franja=o[0];cf.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});cf.appendChild(b);});
-  document.getElementById('cNombre').addEventListener('input',pintar);
+  var cf=$('cFranja');[['Mañana','8 a 12'],['Tarde','12 a 6']].forEach(function(o){var b=document.createElement('button');b.type='button';b.appendChild(document.createTextNode(o[0]));b.appendChild(el('small','',o[1]));b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){franja=o[0];cf.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});cf.appendChild(b);});
+  $('cNombre').addEventListener('input',pintar);
+
+  var clave='';
+  function orientar(z){
+    var urg=!!sens&&(sens.u||cuanto===CU[2]),k=(sens?sens.id:'')+'|'+(urg?1:0)+'|'+z;if(k===clave)return;clave=k;
+    var o=$('orienta');o.innerHTML='';var c=el('div');o.appendChild(c);
+    c.appendChild(el('p','etq','Orientación'));
+    if(!sens){c.appendChild(el('p','vacio','Marca la zona y qué sientes. Aquí verás por dónde suele empezar la consulta y de qué tratamientos podría hablarte el odontólogo.'));return;}
+    c.appendChild(el('h3','','Consulta y diagnóstico'));
+    c.appendChild(el('p','',sens.o));
+    c.appendChild(el('p','podria','Según lo que vea, el odontólogo podría hablarte de'));
+    var ul=el('ul');sens.p.forEach(function(t){ul.appendChild(el('li','',t))});c.appendChild(ul);
+    c.appendChild(el('p','nota','Esto es solo una orientación. Lo confirma el odontólogo cuando te revise. Tratamientos y costos, por confirmar con la clínica.'));
+    if(urg){var u=el('div','urgente');u.appendChild(el('b','','No esperes a elegir día'));u.appendChild(el('p','','Escribe ahora y di que es urgente. La clínica te dice si puede verte hoy.'));
+      var a=el('a','btn linea','Escribir por WhatsApp');a.href=WA+encodeURIComponent('Hola, tengo dolor fuerte y necesito que me atiendan lo antes posible. ¿Tienen espacio hoy?'+(z?'\n• Dónde: '+z:'')+'\n• Qué siento: '+sens.t);u.appendChild(a);
+      u.appendChild(el('small','','Si tienes la cara hinchada, fiebre o un sangrado que no para, busca atención de urgencia de inmediato.'));c.appendChild(u);}
+    var b=el('a','btn',urg?'O elegir el día de mi cita':'Elegir el día de mi cita');b.href='#cita';c.appendChild(b);
+  }
+
   function pintar(){
-    mb.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.textContent===motivo?'true':'false')});
-    var z=describe();document.getElementById('zonaTxt').textContent=z?'Marcaste: '+z+'.':'Ningún diente marcado.';
-    document.getElementById('urgente').hidden=!(motivo==='Dolor'||motivo==='Se partió un diente');
-    var nombre=document.getElementById('cNombre').value.trim();
-    var R=[['Motivo',motivo||'Por elegir']];if(z)R.push(['Dónde',z]);R.push(['Día',dia?DL[dia.getDay()]+' '+dia.getDate():'Por elegir'],['Momento',franja||'Por elegir']);if(nombre)R.push(['Paciente',nombre]);
-    var dl=document.getElementById('cRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
-    document.getElementById('cPie').textContent=motivo&&dia?'La clínica te responde con la hora exacta.':'Elige un motivo arriba y un día.';
-    document.getElementById('cPedir').href=WA+encodeURIComponent('Hola, quiero agendar una cita en Odontología Gran Caracas.\n• Motivo: '+(motivo||'por indicar')+(z?'\n• Dónde me molesta: '+z:'')+(dia?'\n• Día: '+DL[dia.getDay()]+' '+dia.getDate()+(franja?', en la '+franja.toLowerCase():''):'')+(nombre?'\nPaciente: '+nombre+'.':''));
+    orden.forEach(function(k){zonas[k].g.setAttribute('aria-pressed',zonas[k].on?'true':'false')});
+    xb.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',extra[b.dataset.k]?'true':'false')});
+    SENS.forEach(function(s){s.b.setAttribute('aria-pressed',s===sens?'true':'false')});
+    cb.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.textContent===cuanto?'true':'false')});
+    $('pCuanto').hidden=!(sens&&sens.d);
+    var z=describe(),zt=$('zonaTxt');zt.textContent='';
+    if(z){zt.appendChild(document.createTextNode('Marcaste: '));zt.appendChild(el('b','',z+'.'));}else zt.textContent='Nada marcado todavía.';
+    orientar(z);
+    var nombre=$('cNombre').value.trim(),motivo=sens?sens.t:libre;
+    var R=[['Dónde',z||'Por marcar'],[libre?'Motivo':'Qué siento',motivo||'Por elegir']];if(cuanto)R.push(['Qué tanto',cuanto]);
+    R.push(['Día',dia?DL[dia.getDay()]+' '+dia.getDate():'Por elegir'],['Momento',franja||'Por elegir']);if(nombre)R.push(['Paciente',nombre]);
+    var dl=$('cRes');dl.innerHTML='';R.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
+    $('cPie').textContent=motivo&&dia?'La clínica te responde con la hora exacta.':motivo?'Falta elegir el día.':'Marca arriba qué sientes y elige un día.';
+    $('cPedir').href=WA+encodeURIComponent('Hola, quiero agendar una cita en Odontología Gran Caracas.'+(z?'\n• Dónde me molesta: '+z:'')+'\n• '+(libre?'Motivo':'Qué siento')+': '+(motivo||'por indicar')+(cuanto?'\n• Qué tanto: '+cuanto:'')+(dia?'\n• Día: '+DL[dia.getDay()]+' '+dia.getDate()+(franja?', en la '+franja.toLowerCase():''):'')+(nombre?'\nPaciente: '+nombre+'.':''));
   }
   pintar();
-  var h=hoy.getHours()+hoy.getMinutes()/60;document.getElementById('estado').textContent=(h>=8&&h<18?'Abierto ahora, según Google':'Abre a las 8 a. m., según Google');
+  var h=hoy.getHours()+hoy.getMinutes()/60;$('estado').textContent=(h>=8&&h<18?'Abierto ahora, según Google':'Abre a las 8 a. m., según Google');
 })();
 </script>
-<a class="flota" id="flota" href="#cita">Pedir cita</a>
+<a class="btn flota" id="flota" href="#cita">Pedir cita</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b> · © 2026</div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>
@@ -341,10 +450,10 @@ a.textContent='En la versión final, este botón abre el WhatsApp de su negocio 
 a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
 (function(){
   var f=document.getElementById('flota');if(!f)return;
-  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer'),mol=document.querySelector('.boca-panel');
   function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
   var espera=null;
-  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot)&&!dentro(mol));}
   addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
 })();
 </script>
