@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="copyright" content="© 2026 Fernando Romero. Todos los derechos reservados.">
+<title>Arma tu tarta en 3D | Cakevana's (prueba)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+<!-- Prueba de "Arma tu tarta" en 3D. Misma dirección Phantom que la demo: berenjena, lavanda solo en acciones, Inter ligera. Un solo momento 3D: la tarta. -->
+<style>
+:root{--uva:#4A2266;--hondo:#2E1442;--lavanda:#ECE4FA;--lila:#8E6FC0;--miel:#FFF6C4;--blanco:#FDFCFE;--tinta:#1C1C1C}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--uva);color:var(--blanco);font:300 16px/1.5 Inter,system-ui,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+.top a{color:var(--lavanda);font-size:14px}
+.marca{font-weight:500;letter-spacing:.02em}
+.grid{display:grid;gap:28px}
+@media(min-width:900px){.grid{grid-template-columns:1.15fr .85fr;align-items:start}}
+.escena{position:relative;aspect-ratio:1/1;max-height:70svh;width:100%;border-radius:24px;background:radial-gradient(120% 90% at 50% 20%,#5B2E7C 0%,var(--hondo) 70%);overflow:hidden;touch-action:pan-y}
+.escena canvas{display:block;width:100%;height:100%;cursor:grab}
+.escena canvas:active{cursor:grabbing}
+.pista{position:absolute;left:16px;bottom:14px;font-size:13px;color:var(--lavanda);opacity:.85;pointer-events:none;transition:opacity .4s}
+.etiqueta{position:absolute;right:16px;top:14px;background:rgba(46,20,66,.72);border:1px solid rgba(236,228,250,.25);border-radius:14px;padding:8px 12px;font-size:14px;pointer-events:none}
+.etiqueta b{display:block;font-weight:500}
+.sin3d{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px}
+h1{font-weight:300;font-size:clamp(30px,4.4vw,44px);line-height:1.08;margin:0 0 10px;text-wrap:balance}
+.lead{color:var(--lavanda);margin:0 0 18px;max-width:52ch}
+.cont{font-size:15px;margin:0 0 14px}
+.cont b{font-weight:600;font-variant-numeric:tabular-nums}
+h3{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--lavanda);margin:18px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(236,228,250,.35);font-size:15px}
+.chips button i{width:14px;height:14px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.chips button small{color:var(--lavanda);font-size:12px}
+.chips button:hover{border-color:var(--lavanda)}
+.chips button:focus-visible,.atajos button:focus-visible,.btn:focus-visible{outline:2px solid var(--miel);outline-offset:2px}
+.atajos{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.atajos button{all:unset;cursor:pointer;min-height:44px;padding:0 14px;font-size:14px;color:var(--lavanda);text-decoration:underline;text-underline-offset:4px}
+.recibo{margin-top:22px;background:var(--blanco);color:var(--tinta);border-radius:24px;padding:20px}
+.recibo ul{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:4px;font-size:14px}
+.recibo li{display:flex;justify-content:space-between;gap:10px}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E6E0EF;padding-top:12px}
+.total b{font-size:28px;font-weight:500;font-variant-numeric:tabular-nums}
+.btn{display:block;text-align:center;margin-top:14px;background:var(--lavanda);color:var(--uva);text-decoration:none;font-weight:500;border-radius:999px;padding:14px 18px}
+.nota{font-size:12px;color:#6B6475;margin:10px 0 0}
+@media(prefers-reduced-motion:reduce){.pista{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="marca">Cakevana's</span><a href="./">Volver a la página</a></div>
+  <div class="grid">
+    <div class="escena" id="escena">
+      <div class="etiqueta" id="etq" aria-live="polite"><b id="etqN">Porción 1</b><span id="etqS">Elige un sabor</span></div>
+      <p class="pista" id="pista">Arrastra para girarla · toca una porción</p>
+    </div>
+    <div>
+      <h1>Arma tu tarta grande, porción por porción.</h1>
+      <p class="lead">8 porciones en la grande de 25 cm. Gírala, toca una porción y elige su sabor: los clásicos van incluidos y cada deluxe suma $2.</p>
+      <p class="cont" aria-live="polite"><b id="llenas">0</b>/8 porciones · <span id="cual">eligiendo la porción 1</span></p>
+      <h3>Clásicos · incluidos</h3><div class="chips" id="chC"></div>
+      <h3>Deluxe · +$2 c/u</h3><div class="chips" id="chD"></div>
+      <div class="atajos"><button type="button" id="todas">Toda la tarta de este sabor</button><button type="button" id="azar">Sorpréndeme</button><button type="button" id="vaciar">Empezar de nuevo</button></div>
+      <div class="recibo">
+        <ul id="lineas"></ul>
+        <div class="total"><span>Total aprox.</span><b id="total">$45</b></div>
+        <a class="btn" id="pedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a>
+        <p class="nota">Prueba de diseño. Precios de su carta, sin IVA; la disponibilidad la confirma Cakevana's.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+<script>
+(function(){
+  var CL=[['Tradicional','#F3D9A4',0],['Fresa','#C2273A',0],['Guayaba','#E3572B',0],['Arequipe','#A4652E',0]];
+  var DX=[['Chocolate Dubái','#5A3A22',1],['Pistacho','#9DB25B',1],['Nutella crunchy','#3E2418',1],['Frutos rojos','#7E1F3F',1],['Limón','#F4EDC2',1]];
+  var EXTRA={'Chocolate Dubái':['#9DB25B',14],'Pistacho':['#6F8A3A',18],'Nutella crunchy':['#C9A06A',16],'Frutos rojos':['#B0123A',9],'Fresa':['#E33B4E',6]};
+  var porc=[null,null,null,null,null,null,null,null],sel=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cont=document.getElementById('escena');
+
+  /* ---------- Panel ---------- */
+  function chip(c,o){var b=document.createElement('button');b.type='button';b.innerHTML='<i style="background:'+o[1]+'"></i>'+o[0]+(o[2]?' <small>+$2</small>':'');b.addEventListener('click',function(){poner(o)});c.appendChild(b);}
+  CL.forEach(function(o){chip(document.getElementById('chC'),o)});DX.forEach(function(o){chip(document.getElementById('chD'),o)});
+  var ultimo=CL[0];
+  function poner(o){porc[sel]=o;ultimo=o;actualizar(sel);var sig=porc.indexOf(null);if(sig>=0){var a=sel;setTimeout(function(){if(porc[sig]===null&&sel===a){sel=sig;pintar();}},reduce?0:900);}pintar();}
+  document.getElementById('todas').addEventListener('click',function(){for(var i=0;i<8;i++){porc[i]=ultimo;actualizar(i);}pintar();});
+  document.getElementById('azar').addEventListener('click',function(){var t=CL.concat(DX);for(var i=0;i<8;i++){porc[i]=t[Math.floor(Math.random()*t.length)];actualizar(i);}pintar();});
+  document.getElementById('vaciar').addEventListener('click',function(){for(var i=0;i<8;i++){porc[i]=null;actualizar(i);}sel=0;pintar();});
+  function pintar(){
+    var n=porc.filter(Boolean).length,dx=porc.filter(function(p){return p&&p[2]}).length;
+    document.getElementById('llenas').textContent=n;
+    document.getElementById('cual').textContent=n===8?'tarta completa':'eligiendo la porción '+(sel+1);
+    document.getElementById('etqN').textContent='Porción '+(sel+1);
+    document.getElementById('etqS').textContent=porc[sel]?porc[sel][0]:'Elige un sabor';
+    var cuenta={};porc.forEach(function(p){if(p)cuenta[p[0]]=(cuenta[p[0]]||0)+1});
+    var ul=document.getElementById('lineas');ul.innerHTML='';
+    var li=document.createElement('li');li.innerHTML='<span>Tarta grande, 25 cm</span><span>$45</span>';ul.appendChild(li);
+    Object.keys(cuenta).forEach(function(k){var d=DX.some(function(o){return o[0]===k});var l=document.createElement('li');l.innerHTML='<span>'+cuenta[k]+' × '+k+'</span><span>'+(d?'+$'+(2*cuenta[k]):'incluido')+'</span>';ul.appendChild(l);});
+    var tot=45+2*dx;document.getElementById('total').textContent='$'+tot;
+    var txt='Hola, quiero pedir una tarta grande armada en su página:\n'+porc.map(function(p,i){return '• Porción '+(i+1)+': '+(p?p[0]:'por elegir')}).join('\n')+'\nTotal aprox.: $'+tot;
+    document.getElementById('pedir').href='https://wa.me/PON_AQUI_EL_NUMERO?text='+encodeURIComponent(txt);
+    if(window.__marcar)window.__marcar();
+  }
+
+  /* ---------- 3D ---------- */
+  var gl=null;try{var t=document.createElement('canvas');gl=t.getContext('webgl')||t.getContext('experimental-webgl');}catch(e){}
+  if(!window.THREE||!gl){var d=document.createElement('div');d.className='sin3d';d.innerHTML='<p>Tu teléfono no muestra 3D.<br><a href="./#tarta" style="color:#ECE4FA">Usa la versión normal de Arma tu tarta</a></p>';cont.appendChild(d);pintar();return;}
+
+  var R=1.6,AL=0.62,N=8,PASO=Math.PI*2/N;
+  var renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.outputEncoding=THREE.sRGBEncoding;
+  cont.insertBefore(renderer.domElement,cont.firstChild);
+  var scene=new THREE.Scene();
+  var cam=new THREE.PerspectiveCamera(32,1,0.1,50);cam.position.set(0,4.4,6.6);cam.lookAt(0,0.2,0);
+  scene.add(new THREE.HemisphereLight(0xfff4e6,0x3a1c52,0.95));
+  var sol=new THREE.DirectionalLight(0xffffff,0.85);sol.position.set(2.5,5,3);scene.add(sol);
+  var relleno=new THREE.DirectionalLight(0xe8d8ff,0.35);relleno.position.set(-3,2,-2);scene.add(relleno);
+
+  function lienzo(w,h,f){var c=document.createElement('canvas');c.width=w;c.height=h;f(c.getContext('2d'),w,h);var tx=new THREE.CanvasTexture(c);tx.encoding=THREE.sRGBEncoding;tx.anisotropy=4;return tx;}
+  function ruido(g,w,h,n,col,rmax){for(var i=0;i<n;i++){g.fillStyle=col[Math.floor(Math.random()*col.length)];g.globalAlpha=Math.random()*.5+.15;g.beginPath();g.arc(Math.random()*w,Math.random()*h,Math.random()*rmax+1,0,7);g.fill();}g.globalAlpha=1;}
+  /* Superficie quemada: centro tostado y borde casi negro, como la tarta vasca */
+  var texTop=lienzo(512,512,function(g,w,h){var gr=g.createRadialGradient(w/2,h/2,10,w/2,h/2,w/2);gr.addColorStop(0,'#C88A45');gr.addColorStop(.45,'#9A5A24');gr.addColorStop(.8,'#4A2410');gr.addColorStop(1,'#22100A');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,900,['#2A140B','#5C3018','#D9A35E'],6);});
+  /* Costado: dorado con zonas tostadas */
+  var texLado=lienzo(1024,128,function(g,w,h){var gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#3A1C0E');gr.addColorStop(.25,'#7A4019');gr.addColorStop(1,'#C98E4E');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,700,['#2A140B','#E0B070','#6B3516'],5);});
+  /* Corte: crema por dentro, borde tostado arriba y base dorada */
+  var texCorte=lienzo(256,128,function(g,w,h){var gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#3A1C0E');gr.addColorStop(.1,'#B9773A');gr.addColorStop(.2,'#F6E2B4');gr.addColorStop(.8,'#F3D9A4');gr.addColorStop(.93,'#D9A866');gr.addColorStop(1,'#B37A3E');g.fillStyle=gr;g.fillRect(0,0,w,h);ruido(g,w,h,160,['#FFF3D6','#E9C98E'],3);});
+  var mTop=new THREE.MeshStandardMaterial({map:texTop,roughness:.7});
+  var mLado=new THREE.MeshStandardMaterial({map:texLado,roughness:.75});
+  var mBase=new THREE.MeshStandardMaterial({color:0xB37A3E,roughness:.9});
+  var mCorte=new THREE.MeshStandardMaterial({map:texCorte,roughness:.55,side:THREE.DoubleSide});
+
+  /* Papel de horno arrugado alrededor */
+  var papel=(function(){var g=new THREE.CylinderGeometry(R+.04,R+.02,AL+.1,96,4,true);var p=g.attributes.position;for(var i=0;i<p.count;i++){var x=p.getX(i),y=p.getY(i),z=p.getZ(i),a=Math.atan2(z,x);var arr=Math.sin(a*23)*.025+Math.sin(a*57)*.012;var sube=(y+(AL+.1)/2)/(AL+.1);var k=1+arr*sube+sube*sube*.05;p.setX(i,x*k);p.setZ(i,z*k);if(y>0)p.setY(i,y+Math.sin(a*11)*.035+Math.sin(a*31)*.018);}g.computeVertexNormals();
+    var tex=lienzo(512,64,function(c,w,h){c.fillStyle='#F4ECDD';c.fillRect(0,0,w,h);for(var i=0;i<60;i++){c.strokeStyle='rgba(160,130,90,'+(Math.random()*.25)+')';c.beginPath();var x=Math.random()*w;c.moveTo(x,0);c.lineTo(x+Math.random()*20-10,h);c.stroke();}});
+    var m=new THREE.MeshStandardMaterial({map:tex,roughness:.95,side:THREE.DoubleSide,transparent:true,opacity:.88});var me=new THREE.Mesh(g,m);me.position.y=(AL+.1)/2;return me;})();
+
+  /* Sombra suave bajo la tarta */
+  var sombra=new THREE.Mesh(new THREE.PlaneGeometry(5,5),new THREE.MeshBasicMaterial({map:lienzo(256,256,function(g,w,h){var gr=g.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);gr.addColorStop(0,'rgba(20,6,30,.55)');gr.addColorStop(.55,'rgba(20,6,30,.18)');gr.addColorStop(1,'rgba(20,6,30,0)');g.fillStyle=gr;g.fillRect(0,0,w,h);}),transparent:true,depthWrite:false}));
+  sombra.rotation.x=-Math.PI/2;sombra.position.y=-.001;
+
+  var tarta=new THREE.Group();scene.add(tarta);tarta.add(sombra);tarta.add(papel);
+  var piezas=[];
+  for(var i=0;i<N;i++)(function(i){
+    var t0=Math.PI/2-(i+1)*PASO;
+    var g=new THREE.Group();
+    var cuerpo=new THREE.Mesh(new THREE.CylinderGeometry(R,R*.985,AL,24,1,false,t0,PASO),[mLado,mTop,mBase]);cuerpo.position.y=AL/2;g.add(cuerpo);
+    /* Caras del corte (crema) */
+    [t0,t0+PASO].forEach(function(a){var pl=new THREE.Mesh(new THREE.PlaneGeometry(R,AL),mCorte);pl.position.set(Math.sin(a)*R/2,AL/2,Math.cos(a)*R/2);pl.rotation.y=a-Math.PI/2;g.add(pl);});
+    /* Cobertura del sabor */
+    var cob=new THREE.Mesh(new THREE.CylinderGeometry(R*.9,R*.92,.05,24,1,false,t0+.03,PASO-.06),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.25,metalness:0}));cob.position.y=AL+.03;cob.visible=false;g.add(cob);
+    /* Toppings (migas, frutos) */
+    var top=new THREE.InstancedMesh(new THREE.SphereGeometry(.045,10,8),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.5}),20);top.visible=false;g.add(top);
+    var bis=t0+PASO/2;
+    g.userData={i:i,dir:new THREE.Vector3(Math.sin(bis),0,Math.cos(bis)),cob:cob,top:top,t0:t0,sale:0,cae:0};
+    cuerpo.userData.pieza=g;
+    tarta.add(g);piezas.push(g);
+  })(i);
+
+  var tmp=new THREE.Object3D();
+  function actualizar(i){
+    var g=piezas&&piezas[i];if(!g)return;var p=porc[i],u=g.userData;
+    if(!p||p[0]==='Tradicional'){u.cob.visible=false;}else{u.cob.visible=true;u.cob.material.color.set(p[1]);u.cob.material.color.convertSRGBToLinear();}
+    var ex=p&&EXTRA[p[0]];
+    if(ex){var n=ex[1];u.top.count=n;u.top.material.color.set(ex[0]);u.top.material.color.convertSRGBToLinear();
+      for(var k=0;k<n;k++){var a=u.t0+.08+Math.random()*(PASO-.16),r=.25+Math.random()*(R*.8-.25);tmp.position.set(Math.sin(a)*r,AL+.07,Math.cos(a)*r);var s=(p[0]==='Frutos rojos'||p[0]==='Fresa')?1.6+Math.random()*.6:.6+Math.random()*.6;tmp.scale.set(s,s*.8,s);tmp.updateMatrix();u.top.setMatrixAt(k,tmp.matrix);}
+      u.top.instanceMatrix.needsUpdate=true;u.top.visible=true;}else u.top.visible=false;
+    u.cae=reduce?0:1;
+  }
+
+  /* Girar con el dedo o el ratón; tocar sin arrastrar elige porción */
+  var rotY=-.35,vel=0,arrastra=false,x0=0,y0=0,movio=0,ultimoToque=performance.now();
+  var cv=renderer.domElement,ray=new THREE.Raycaster(),pt=new THREE.Vector2();
+  cv.addEventListener('pointerdown',function(e){arrastra=true;x0=e.clientX;y0=e.clientY;movio=0;vel=0;ultimoToque=performance.now();});
+  addEventListener('pointermove',function(e){if(!arrastra)return;var dx=e.clientX-x0;if(Math.abs(e.clientY-y0)>Math.abs(dx)*1.4&&movio<6)return;movio+=Math.abs(dx);rotY+=dx*.008;vel=dx*.008;x0=e.clientX;ultimoToque=performance.now();document.getElementById('pista').style.opacity=0;});
+  addEventListener('pointerup',function(e){if(!arrastra)return;arrastra=false;if(movio<6){var r=cv.getBoundingClientRect();pt.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height)*2+1);ray.setFromCamera(pt,cam);var hit=ray.intersectObjects(piezas.map(function(g){return g.children[0]}),false)[0];if(hit){sel=hit.object.userData.pieza.userData.i;pintar();}}});
+  cv.setAttribute('role','img');cv.setAttribute('aria-label','Tarta vasca de 8 porciones en 3D. Usa los botones de sabores para armarla.');
+
+  function tam(){var w=cont.clientWidth,h=cont.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  addEventListener('resize',tam);tam();
+
+  var visible=true;if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(cont);
+  var antes=performance.now();
+  function cuadro(ahora){
+    requestAnimationFrame(cuadro);if(!visible)return;var dt=Math.min((ahora-antes)/1000,.05);antes=ahora;
+    if(!arrastra){rotY+=vel;vel*=.92;if(!reduce&&ahora-ultimoToque>2500)rotY+=dt*.18;}
+    tarta.rotation.y=rotY;
+    piezas.forEach(function(g){var u=g.userData,obj=(u.i===sel)?1:0;u.sale+= (obj-u.sale)*(reduce?1:Math.min(dt*8,1));
+      g.position.copy(u.dir).multiplyScalar(u.sale*.42);g.position.y=u.sale*.18;
+      if(u.cae>0){u.cae=Math.max(0,u.cae-dt*2.2);var c=u.cae;u.cob.position.y=AL+.03+c*c*.6;u.top.position.y=c*c*.8;}else{u.cob.position.y=AL+.03;u.top.position.y=0;}
+    });
+    renderer.render(scene,cam);
+  }
+  requestAnimationFrame(cuadro);
+  window.__marcar=function(){};
+  pintar();
+})();
+</script>
+</body>
+</html>
