@@ -29,131 +29,135 @@
 <!-- cabecera:fin -->
 <!--
 Referencias (proceso-diseno.md y skill refero-design, segunda versión del 2026-11-09):
-Candado. Principal: One Medical (salud tranquila): fondo claro, azul de confianza, frases cortas y pasos claros.
+Candado. Principal: Augen Pro (Refero Styles): blanco clínico, tinta casi negra, el azul solo como borde y texto de enlaces y etiquetas (nunca de relleno), letra liviana con interletra apretada, navegación flotante en píldora, paneles de 54 px de radio, sin sombras ni degradados, mucho aire.
 Prestado: selector visual del cuerpo para indicar molestias (apps de triaje) y preguntas frecuentes en acordeón.
 De la marca (su Instagram @odontologiagranccs y su ficha de Google): logo de diente en azul y celeste con "Odontología Gran Caracas"; lema "Tu sonrisa, nuestra prioridad"; "Agenda tu cita"; oferta "Panorámico por tan solo 10$"; Centro Perú Torre A, piso 7, oficina 76, Chacao; consultorio con paredes de mármol y sillón; equipo con uniforme azul.
 Orden pensado para un paciente: qué le pasa y dónde le duele, la oferta real, tratamientos, el consultorio, cómo es la primera visita, preguntas, cita, dónde.
 Momento memorable: el mapa de los dientes; tocas dónde te molesta y la clínica lo recibe en el mensaje.
 No se promete ningún resultado clínico. Fotos: de su ficha de Google, para esta propuesta.
 -->
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{--azul:#1F55B8;--marino:#1B2A47;--celeste:#7FC8E8;--hielo:#EEF5FB;--blanco:#FFFFFF;--tinta:#1B2A47;--gris:#5A6680;--borde:#D6E2EF}
+:root{--lienzo:#F2F2F4;--panel:#FDFDFD;--negro:#0F1012;--acero:#5E5E5E;--ceniza:#8F8F8F;--azul:#0071E3;--linea:rgba(15,16,18,.12)}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:clip}
-body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--blanco);color:var(--tinta);line-height:1.6;font-size:17px}
+body{font-family:'Inter',system-ui,sans-serif;font-weight:300;background:var(--lienzo);color:var(--negro);line-height:1.55;font-size:16px;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--celeste);outline-offset:3px}
-img{display:block;width:100%;height:100%;object-fit:cover}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.serif{font-family:'Lora',serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:999px;background:var(--azul);color:#fff;font-weight:700;font-size:.98rem;text-decoration:none;border:2px solid var(--azul);cursor:pointer;font-family:inherit}
-.btn.linea{background:#fff;color:var(--azul)}
-.etq{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--azul)}
-.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:1120px;margin:0 auto}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:1px solid var(--azul);outline-offset:3px}
+img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(1.03)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Inter',sans-serif;font-weight:300;line-height:1.08;letter-spacing:-.035em}
+.serif em{font-style:normal;color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:26px;background:var(--negro);color:var(--panel);font:400 15px 'Inter',sans-serif;letter-spacing:-.01em;text-decoration:none;border:1px solid var(--negro);cursor:pointer}
+.btn.linea{background:transparent;color:var(--azul);border-color:var(--azul)}
+.etq{font-size:13px;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--acero)}
+.top{position:sticky;top:12px;z-index:20;display:flex;justify-content:space-between;align-items:center;margin:12px auto 0;max-width:1160px;width:calc(100% - 32px);padding:8px 8px 8px 18px;background:rgba(253,253,253,.86);backdrop-filter:blur(12px);border-radius:999px;border:.5px solid var(--linea)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo svg{width:40px;height:40px}
-.logo span{font-family:'Lora',serif;font-style:italic;font-size:1.1rem;line-height:1}
-.logo span small{display:block;font-family:'Nunito Sans',sans-serif;font-style:normal;font-weight:800;font-size:.7rem;letter-spacing:.14em;color:var(--azul)}
-.top .btn{min-height:44px;padding:0 18px;font-size:.9rem}
-.portada{background:var(--hielo)}
-.p-grid{display:grid;gap:30px;align-items:center;padding:30px 0 60px}
-@media(min-width:900px){.p-grid{grid-template-columns:1.05fr .95fr}}
-.p-grid h1{font-size:clamp(2.6rem,8vw,4.6rem)}
-.p-grid h1 em{color:var(--azul)}
-.p-grid p.sub{color:var(--gris);margin-top:16px;max-width:42ch;font-size:1.1rem}
-.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.datos{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:var(--gris);font-size:.92rem}
-.datos b{color:var(--tinta)}
-.p-foto{border-radius:28px;overflow:hidden;aspect-ratio:4/5;max-height:560px;box-shadow:0 30px 50px -30px rgba(27,42,71,.5)}
-section{padding:84px 0}
-h2{font-size:clamp(2.1rem,6vw,3.4rem);margin:10px 0 14px}
-.lead{color:var(--gris);max-width:54ch;margin-bottom:30px}
-/* Dientes */
-.dientes{display:grid;gap:30px;align-items:center}
-@media(min-width:900px){.dientes{grid-template-columns:1fr 1fr}}
-.arcada{background:var(--hielo);border-radius:28px;padding:20px}
+.logo svg{width:28px;height:28px}
+.logo span{font-family:'Inter',sans-serif;font-style:normal;font-size:15px;font-weight:400;line-height:1.1}
+.logo span small{display:inline;font-weight:300;font-size:15px;letter-spacing:-.02em;color:var(--acero);margin-left:4px}
+.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.portada{background:var(--lienzo)}
+.p-grid{display:grid;gap:40px;align-items:center;padding:56px 0 80px}
+@media(min-width:900px){.p-grid{grid-template-columns:1fr 1fr;gap:64px}}
+.p-grid h1{font-size:clamp(44px,6.4vw,76px);margin-top:14px}
+.p-grid h1 em{font-style:normal;color:inherit}
+.p-grid p.sub{color:var(--acero);margin-top:20px;max-width:38ch;font-size:18px}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.datos{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-size:13px;color:var(--acero)}
+.datos span{border:.5px solid var(--azul);color:var(--azul);border-radius:999px;padding:6px 14px}
+.datos b{font-weight:400}
+.p-foto{border-radius:54px;overflow:hidden;aspect-ratio:4/5;max-height:600px;box-shadow:none}
+section{padding:100px 0}
+h2{font-size:clamp(34px,4.4vw,54px);margin:12px 0 16px}
+.lead{color:var(--acero);max-width:48ch;margin-bottom:36px;font-size:17px}
+.dientes{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.dientes{grid-template-columns:1fr 1fr;gap:64px}}
+.arcada{background:var(--panel);border-radius:54px;padding:28px;border:.5px solid var(--linea)}
 .arcada svg{width:100%;height:auto;display:block}
 .diente{cursor:pointer}
-.diente path{fill:#fff;stroke:#9DB6D3;stroke-width:1.5;transition:fill .2s}
-.diente:hover path{fill:#D6ECF8}
-.diente.on path{fill:var(--azul);stroke:var(--marino)}
+.diente path{fill:var(--panel);stroke:#C9CBD1;stroke-width:1;transition:fill .2s}
+.diente:hover path{fill:#E8F1FC}
+.diente.on path{fill:var(--negro);stroke:var(--negro)}
 .diente:focus-visible{outline:none}
-.diente:focus-visible path{stroke:var(--azul);stroke-width:3}
-.arcada .lbl{font:700 11px 'Nunito Sans',sans-serif;fill:var(--gris);letter-spacing:.1em}
+.diente:focus-visible path{stroke:var(--azul);stroke-width:2.5}
+.arcada .lbl{font:400 10px 'Inter',sans-serif;fill:var(--ceniza);letter-spacing:.08em}
 .motivos{display:flex;flex-wrap:wrap;gap:8px}
-.motivos button{all:unset;cursor:pointer;border:1.5px solid var(--borde);border-radius:999px;padding:9px 16px;font-weight:600;background:#fff}
-.motivos button[aria-pressed="true"]{background:var(--azul);color:#fff;border-color:var(--azul)}
-.motivos button:focus-visible{outline:3px solid var(--celeste);outline-offset:2px}
-.zona-txt{margin-top:16px;padding:14px 16px;border-radius:14px;background:var(--hielo);color:var(--marino);font-weight:600}
-.urgente{margin-top:12px;padding:12px 16px;border-radius:14px;background:#FFF4E5;color:#7A4B00;font-size:.95rem}
-/* Oferta */
-.oferta{background:var(--marino);color:#fff;border-radius:28px;display:grid;gap:0;overflow:hidden}
+.motivos button{all:unset;cursor:pointer;border:.5px solid var(--negro);border-radius:999px;padding:9px 16px;font-weight:300;font-size:15px;background:transparent}
+.motivos button[aria-pressed="true"]{background:var(--negro);color:var(--panel)}
+.motivos button:focus-visible{outline:1px solid var(--azul);outline-offset:2px}
+.zona-txt{margin-top:18px;padding:16px 20px;border-radius:26px;background:var(--panel);border:.5px solid var(--linea);color:var(--negro);font-weight:300}
+.urgente{margin-top:10px;padding:14px 20px;border-radius:26px;border:.5px solid var(--azul);color:var(--azul);background:transparent;font-size:15px}
+.oferta{background:var(--negro);color:var(--panel);border-radius:54px;display:grid;gap:0;overflow:hidden}
 @media(min-width:820px){.oferta{grid-template-columns:1.2fr .8fr}}
-.oferta .t{padding:36px 30px}
-.oferta .precio{font-family:'Lora',serif;font-size:clamp(3.6rem,10vw,5.6rem);line-height:1;color:var(--celeste)}
-.oferta p{color:#C9D6EA;max-width:40ch;margin:10px 0 22px}
-.oferta .f{min-height:260px;background:#fff}
+.oferta .t{padding:48px 44px}
+.oferta .etq{color:var(--ceniza)!important}
+.oferta h2{color:var(--panel)!important}
+.oferta .precio{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(72px,10vw,120px);line-height:1;letter-spacing:-.05em;color:var(--panel)}
+.oferta p{color:var(--ceniza);max-width:40ch;margin:12px 0 26px}
+.oferta .btn{background:var(--panel);color:var(--negro);border-color:var(--panel)}
+.oferta .f{min-height:280px;background:#fff}
 .oferta .f img{object-fit:contain}
-/* Tratamientos */
-.trat{display:grid;gap:14px}
+.trat{display:grid;gap:0;border-top:.5px solid var(--linea)}
 @media(min-width:820px){.trat{grid-template-columns:repeat(3,1fr)}}
-.trat div{border:1.5px solid var(--borde);border-radius:20px;padding:20px 22px}
-.trat h3{font-family:'Lora',serif;font-weight:600;font-size:1.3rem}
-.trat p{color:var(--gris);font-size:.95rem;margin-top:4px}
-.trat small{display:block;margin-top:10px;font-weight:700;color:var(--azul);font-size:.82rem}
-/* Consultorio */
+.trat div{border:0;border-bottom:.5px solid var(--linea);border-radius:0;padding:26px 24px 26px 0}
+.trat h3{font-family:'Inter',sans-serif;font-weight:400;font-size:20px;letter-spacing:-.02em}
+.trat p{color:var(--acero);font-size:15px;margin-top:4px}
+.trat small{display:inline-block;margin-top:12px;font-weight:300;color:var(--azul);font-size:13px;border:.5px solid var(--azul);border-radius:999px;padding:3px 12px}
 .consul{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:860px){.consul{grid-template-columns:1.3fr 1fr 1fr}}
-.consul div{border-radius:22px;overflow:hidden;aspect-ratio:3/4}
+.consul div{border-radius:54px;overflow:hidden;aspect-ratio:3/4}
 .consul div:first-child{grid-column:span 2;aspect-ratio:4/3}
 @media(min-width:860px){.consul div:first-child{grid-column:auto;aspect-ratio:3/4}}
-/* Pasos */
-.pasos{display:grid;gap:16px;counter-reset:p}
+.pasos{display:grid;gap:12px;counter-reset:p}
 @media(min-width:820px){.pasos{grid-template-columns:repeat(3,1fr)}}
-.pasos li{list-style:none;background:var(--hielo);border-radius:20px;padding:22px;counter-increment:p}
-.pasos li:before{content:counter(p);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--azul);color:#fff;font-weight:800;margin-bottom:12px}
-.pasos b{display:block;font-size:1.1rem}
-.pasos span{color:var(--gris);font-size:.95rem}
-details{border-bottom:1.5px solid var(--borde);padding:16px 0}
-summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary:after{content:"+";color:var(--azul);font-size:1.4rem;line-height:1}
+.pasos li{list-style:none;background:var(--panel);border-radius:54px;padding:36px 32px;counter-increment:p;border:.5px solid var(--linea)}
+.pasos li:before{content:"0" counter(p);display:block;width:auto;height:auto;background:none;color:var(--azul);font-weight:400;font-size:14px;margin-bottom:16px}
+.pasos b{display:block;font-size:20px;font-weight:400;letter-spacing:-.02em}
+.pasos span{color:var(--acero);font-size:15px}
+details{border-bottom:.5px solid var(--linea);padding:20px 0}
+summary{cursor:pointer;font-weight:400;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:12px;letter-spacing:-.02em}
+summary:after{content:"+";color:var(--azul);font-size:22px;line-height:1;font-weight:300}
 details[open] summary:after{content:"−"}
-details p{color:var(--gris);margin-top:8px}
-/* Cita */
-.cita{display:grid;gap:34px;align-items:start}
-@media(min-width:940px){.cita{grid-template-columns:1fr 380px}}
-.paso{margin-top:22px}
-.paso h3{font-weight:800;font-size:1.05rem}
-.dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:10px}
-.dias button{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--borde);border-radius:14px;padding:8px 0;text-align:center;font-size:.72rem;color:var(--gris);font-weight:700}
-.dias button b{display:block;font-family:'Lora',serif;font-size:1.4rem;color:var(--tinta)}
-.dias button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#D6E4F7}
-.dias button[aria-pressed="true"] b{color:#fff}
-.franjas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.franjas button{all:unset;cursor:pointer;border:1.5px solid var(--borde);border-radius:999px;padding:9px 16px;font-weight:600}
-.franjas button small{color:var(--gris);font-weight:400;margin-left:4px}
-.franjas button[aria-pressed="true"]{background:var(--azul);color:#fff;border-color:var(--azul)}
-.franjas button[aria-pressed="true"] small{color:#D6E4F7}
-label.campo{display:block;margin-top:10px;font-weight:700}
-label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border:1.5px solid var(--borde);border-radius:14px;padding:10px 14px;font:inherit;font-weight:400}
-.resumen{position:sticky;top:20px;background:var(--hielo);border-radius:24px;padding:26px 24px}
-.resumen h3{font-family:'Lora',serif;font-weight:600;font-size:1.5rem}
-.resumen dl div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--borde);font-size:.94rem}
-.resumen dt{color:var(--gris)}
-.resumen dd{font-weight:700;text-align:right}
-.resumen .btn{width:100%;margin-top:18px}
-.resumen .pie{font-size:.82rem;color:var(--gris);margin-top:10px;text-align:center}
-.marino{background:var(--marino);color:#fff}
-.marino .lead{color:#C9D6EA}
+details p{color:var(--acero);margin-top:10px}
+.cita{display:grid;gap:44px;align-items:start}
+@media(min-width:940px){.cita{grid-template-columns:1fr 380px;gap:64px}}
+.paso{margin-top:30px}
+.paso h3{font-weight:400;font-size:15px;color:var(--acero)}
+.dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:12px}
+.dias button{all:unset;box-sizing:border-box;cursor:pointer;border:.5px solid var(--linea);background:var(--panel);border-radius:18px;padding:10px 0;text-align:center;font-size:11px;color:var(--acero);font-weight:300}
+.dias button b{display:block;font-family:'Inter',sans-serif;font-weight:300;font-size:24px;color:var(--negro);letter-spacing:-.03em}
+.dias button[aria-pressed="true"]{background:var(--negro);border-color:var(--negro);color:var(--ceniza)}
+.dias button[aria-pressed="true"] b{color:var(--panel)}
+.franjas{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.franjas button{all:unset;cursor:pointer;border:.5px solid var(--negro);border-radius:999px;padding:9px 18px;font-weight:300}
+.franjas button small{color:var(--acero);font-weight:300;margin-left:6px}
+.franjas button[aria-pressed="true"]{background:var(--negro);color:var(--panel)}
+.franjas button[aria-pressed="true"] small{color:var(--ceniza)}
+label.campo{display:block;margin-top:12px;font-weight:300;font-size:14px;color:var(--acero)}
+label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border:.5px solid var(--linea);border-radius:26px;background:var(--panel);padding:10px 20px;font:300 16px 'Inter',sans-serif;color:var(--negro)}
+.resumen{position:sticky;top:90px;background:var(--panel);border-radius:54px;padding:40px 34px;border:.5px solid var(--linea)}
+.resumen h3{font-family:'Inter',sans-serif;font-weight:300;font-size:28px;letter-spacing:-.03em}
+.resumen dl div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:.5px solid var(--linea);font-size:15px}
+.resumen dt{color:var(--acero)}
+.resumen dd{font-weight:400;text-align:right}
+.resumen .btn{width:100%;margin-top:22px}
+.resumen .pie{font-size:13px;color:var(--acero);margin-top:12px;text-align:center}
+#cita{background:var(--lienzo)!important}
+.marino{background:var(--negro);color:var(--panel)}
+.marino .etq{color:var(--ceniza)!important}
+.marino h2{color:var(--panel)!important}
+.marino .btn{background:var(--panel);color:var(--negro);border-color:var(--panel)}
+.marino .btn.linea{background:transparent;color:var(--panel);border-color:var(--panel)}
 .cols{display:grid;gap:30px}
 @media(min-width:820px){.cols{grid-template-columns:1fr 1fr}}
-dt{font-weight:700;margin-top:14px}
-.marino dd{color:#C9D6EA}
-.mapa{margin-top:36px;border-radius:22px;overflow:hidden;height:320px}
-@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}
+dt{font-weight:400;margin-top:16px;font-size:13px;color:var(--ceniza)}
+.marino dd{color:var(--panel)}
+.mapa{margin-top:44px;border-radius:54px;overflow:hidden;height:320px;filter:grayscale(.6)}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/6}}
 .mapa iframe{display:block;width:100%;height:100%;border:0}
-footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
+footer{padding:32px 0 100px;font-size:13px;color:var(--acero)}
+dl div>dt{margin-top:0;align-self:baseline}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -161,7 +165,6 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;min-height:50px;padding:0 22px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s;box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .flota.ver{opacity:1;translate:0 0;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.flota{transition:none}}
-.flota{background:#1F55B8;color:#fff;border-radius:999px;font-weight:600;font-size:.92rem}
 dl div>dt{margin-top:0;align-self:baseline}
 </style>
 </head>
@@ -171,7 +174,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   <div class="wrap p-grid">
     <div>
       <p class="etq">Clínica odontológica · Centro Perú</p>
-      <h1 class="serif">Tu sonrisa, <em>nuestra prioridad.</em></h1>
+      <h1 class="serif">Tu sonrisa, nuestra prioridad.</h1>
       <p class="sub">Dinos qué te pasa y dónde te molesta, elige el día y te confirmamos tu cita en Torre A, piso 7.</p>
       <div class="acciones"><a class="btn" href="#molestia">¿Dónde te molesta?</a><a class="btn linea" href="#cita">Agendar cita</a></div>
       <div class="datos"><span><b>Panorámica</b> por $10</span><span id="estado">De 8 a. m. a 6 p. m.</span></div>
