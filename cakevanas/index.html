@@ -86,11 +86,10 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem);margin:10px 0 16px}
 .armar{display:grid;gap:34px;align-items:center}
 @media(min-width:940px){.armar{grid-template-columns:1fr 1fr}}
 .tarta-box{position:relative;max-width:460px;width:100%;margin:0 auto}
-.tarta-box svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))}
-.tarta-box .porcion{cursor:pointer;transition:transform .25s cubic-bezier(.34,1.5,.64,1)}
-.tarta-box .porcion:hover,.tarta-box .porcion.sel{transform:scale(1.04)}
+.tarta-box svg{width:100%;height:auto;display:block;overflow:visible}
+.tarta-box .porcion{cursor:pointer}
 .tarta-box .porcion:focus-visible{outline:none}
-.tarta-box .porcion:focus-visible path,.tarta-box .porcion.sel path{stroke:var(--miel);stroke-width:4}
+.tarta-box .porcion:focus-visible .corte{stroke:var(--miel);stroke-width:3;opacity:1}
 .desde{position:absolute;top:2%;left:2%;background:var(--miel);color:var(--tinta);border-radius:50%;width:84px;height:84px;display:grid;place-items:center;text-align:center;font-weight:800;line-height:1;font-size:1.5rem}
 .desde small{display:block;font-size:.62rem;letter-spacing:.1em}
 .sabores h3{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin:18px 0 8px;color:#E7DAF0}
@@ -233,7 +232,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.9rem}
 <section class="uva" id="tarta" aria-labelledby="tarta-t">
   <div class="wrap armar">
     <div class="tarta-box">
-      <svg viewBox="-120 -120 240 240" id="tartaSvg" role="group" aria-label="Tarta de 8 porciones"></svg>
+      <svg viewBox="-142 -142 284 284" id="tartaSvg" role="group" aria-label="Tarta de 8 porciones"></svg>
       <div class="desde" aria-hidden="true"><div><small>DESDE</small>$45</div></div>
       <figure class="vista" id="tVista"><div><img id="tVistaImg" src="f/m-p-tradicional.webp" alt=""></div><figcaption><b id="tVistaN">Porción 1</b><span id="tVistaS">Elige un sabor</span></figcaption></figure>
     </div>
@@ -344,17 +343,56 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.9rem}
   var CORTO={'Tradicional':'Tradic.','Chocolate Dubái':'Dubái','Nutella crunchy':'Nutella','Frutos rojos':'F. rojos','Arequipe':'Arequipe','Guayaba':'Guayaba','Pistacho':'Pistacho','Fresa':'Fresa','Limón':'Limón'};
   var porciones=[null,null,null,null,null,null,null,null],sel=0,ultimo=null;
   var svg=document.getElementById('tartaSvg'),NS='http://www.w3.org/2000/svg';
-  function sector(i){var a0=(i*45-90)*Math.PI/180,a1=((i+1)*45-90)*Math.PI/180,r=100;return 'M0 0 L'+(r*Math.cos(a0)).toFixed(2)+' '+(r*Math.sin(a0)).toFixed(2)+' A'+r+' '+r+' 0 0 1 '+(r*Math.cos(a1)).toFixed(2)+' '+(r*Math.sin(a1)).toFixed(2)+' Z';}
+  /* Dibujo: tarta vasca vista desde arriba, en su papel de horno, con la cobertura real de cada sabor */
+  var DEFS='<defs>'+
+   '<radialGradient id="tb-base" cx="0" cy="0" r="100" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E9C58C"/><stop offset=".55" stop-color="#D49A55"/><stop offset=".82" stop-color="#9A5524"/><stop offset=".94" stop-color="#5A2A0E"/><stop offset="1" stop-color="#3A1A08"/></radialGradient>'+
+   '<filter id="tb-quemado" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .22  0 0 0 0 .1  0 0 0 0 .03  0 0 0 -2.2 1.35"/><feComposite in2="SourceGraphic" operator="in"/></filter>'+
+   '<filter id="tb-grano" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 -.18"/><feComposite in2="SourceGraphic" operator="in"/></filter>'+
+   '<filter id="tb-sombra" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1A0E04" flood-opacity=".35"/></filter>'+
+   '<radialGradient id="tb-brillo" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></radialGradient>'+
+   '<radialGradient id="tb-papel" cx="0" cy="0" r="118" gradientUnits="userSpaceOnUse"><stop offset=".86" stop-color="#E9DFCF"/><stop offset="1" stop-color="#FBF6EC"/></radialGradient>'+
+   pat('fresa','#A3122A','<circle cx="6" cy="7" r="1.1" fill="#F2C14E" opacity=".75"/><circle cx="20" cy="15" r="1" fill="#F2C14E" opacity=".7"/><circle cx="12" cy="24" r="1.1" fill="#F2C14E" opacity=".7"/><path d="M4 18c4-3 8-3 12 0" stroke="#D9374A" stroke-width="2" fill="none" opacity=".6"/>')+
+   pat('guayaba','#D24A38','<circle cx="8" cy="8" r="1.4" fill="#9E2A1E" opacity=".45"/><circle cx="22" cy="20" r="1.2" fill="#9E2A1E" opacity=".45"/><path d="M2 24c6-4 12-4 20 0" stroke="#EE8A62" stroke-width="2.2" fill="none" opacity=".6"/>')+
+   pat('arequipe','#9B5A1C','<path d="M0 8c8-4 14 4 22 0s8-4 8-4M0 22c8-4 14 4 22 0" stroke="#C98A44" stroke-width="2.4" fill="none" opacity=".75"/>')+
+   pat('dubai','#3A2215','<path d="M3 4c6 8 2 14 9 20M14 2c-3 9 5 13 1 24M24 6c-5 6 2 12-3 20" stroke="#8DB255" stroke-width="1.4" fill="none"/><path d="M8 2c2 9-4 14 2 24M20 3c4 7-3 13 3 22" stroke="#6E8F3A" stroke-width="1.1" fill="none"/>')+
+   pat('pistacho','#B7C373','<circle cx="5" cy="6" r="2" fill="#6F8B2F"/><circle cx="17" cy="9" r="1.6" fill="#A4B95C"/><circle cx="25" cy="21" r="2.1" fill="#6F8B2F"/><circle cx="10" cy="20" r="1.4" fill="#D8D3A0"/><circle cx="20" cy="27" r="1.3" fill="#8DA347"/><circle cx="27" cy="4" r="1.2" fill="#D8D3A0"/>')+
+   pat('nutella','#3A1F14','<path d="M5 6l4-2 3 3-3 3z" fill="#A8763E"/><path d="M18 16l5-1 1 4-4 2z" fill="#C08A4C"/><path d="M8 22l3-1 2 3-3 2z" fill="#A8763E"/><circle cx="24" cy="6" r="1.2" fill="#C08A4C"/>')+
+   pat('frutos','#5E0C25','<circle cx="8" cy="9" r="4" fill="#3E0A1E"/><circle cx="7" cy="8" r="1.2" fill="#fff" opacity=".35"/><circle cx="22" cy="21" r="3.4" fill="#7A1434"/><circle cx="21" cy="20" r="1" fill="#fff" opacity=".35"/><circle cx="20" cy="6" r="2.2" fill="#2E0717"/>')+
+   pat('limon','#EBD77A','<path d="M3 6l7 2M15 20l8-2M6 24l6 1M20 6l5 3" stroke="#D8A92A" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="12" r="1.2" fill="#FFF6C9"/>')+
+   '</defs>';
+  function pat(id,fondo,dentro){return '<pattern id="tp-'+id+'" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="'+fondo+'"/>'+dentro+'</pattern>';}
+  var COB={'Tradicional':null,'Fresa':'fresa','Guayaba':'guayaba','Arequipe':'arequipe','Chocolate Dubái':'dubai','Pistacho':'pistacho','Nutella crunchy':'nutella','Frutos rojos':'frutos','Limón':'limon'};
+  var JUGOSO={'fresa':1,'guayaba':1,'arequipe':1,'frutos':1,'limon':1,'nutella':1,'dubai':1};
+  function polar(r,ang){return [(r*Math.cos(ang)).toFixed(2),(r*Math.sin(ang)).toFixed(2)];}
+  function sector(i,r,ins){var a0=(i*45-90+ (ins||0))*Math.PI/180,a1=((i+1)*45-90-(ins||0))*Math.PI/180,p0=polar(r,a0),p1=polar(r,a1);return 'M0 0 L'+p0[0]+' '+p0[1]+' A'+r+' '+r+' 0 0 1 '+p1[0]+' '+p1[1]+' Z';}
+  function papel(){var n=36,pts=[];for(var k=0;k<n;k++){var ang=k/n*Math.PI*2,r=114+((k*37)%7)-3;pts.push(polar(r,ang));}var d='M'+pts[0][0]+' '+pts[0][1];for(var k=1;k<=n;k++){var q=pts[k%n],ang=(k-.5)/n*Math.PI*2,c=polar(119+((k*13)%4),ang);d+='Q'+c[0]+' '+c[1]+' '+q[0]+' '+q[1];}return d+'Z';}
+  var PAPEL=papel(),PLIEGUES='';for(var k=0;k<24;k++){var ang=(k/24)*Math.PI*2+.07,q0=polar(104,ang),q1=polar(114,ang+.03);PLIEGUES+='M'+q0[0]+' '+q0[1]+'L'+q1[0]+' '+q1[1];}
+  function svgEl(t,at){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);return e;}
   function dibujar(){
-    svg.innerHTML='';
-    var borde=document.createElementNS(NS,'circle');borde.setAttribute('r','112');borde.setAttribute('fill','#C98A3E');svg.appendChild(borde);
-    var plato=document.createElementNS(NS,'circle');plato.setAttribute('r','104');plato.setAttribute('fill','#E7B46A');svg.appendChild(plato);
-    porciones.forEach(function(p,i){var g=document.createElementNS(NS,'g');g.setAttribute('class','porcion'+(i===sel?' sel':''));g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label','Porción '+(i+1)+': '+(p?p[0]:'sin elegir'));
-      var a=((i+.5)*45-90)*Math.PI/180;g.style.transformOrigin=(Math.cos(a)*30).toFixed(1)+'px '+(Math.sin(a)*30).toFixed(1)+'px';
-      var path=document.createElementNS(NS,'path');path.setAttribute('d',sector(i));path.setAttribute('fill',p?p[1]:'#FBEFD9');path.setAttribute('stroke','#FFF9F2');path.setAttribute('stroke-width','2');g.appendChild(path);
-      var tx=document.createElementNS(NS,'text');tx.setAttribute('x',(Math.cos(a)*64).toFixed(1));tx.setAttribute('y',(Math.sin(a)*64+4).toFixed(1));tx.setAttribute('text-anchor','middle');tx.setAttribute('font-size','11');tx.setAttribute('font-weight','700');tx.setAttribute('fill',p&&['#F3D9A4','#F4EDC2','#9DB25B'].indexOf(p[1])<0?'#fff':'#2A1E33');tx.setAttribute('pointer-events','none');tx.textContent=p?CORTO[p[0]]:(i+1);g.appendChild(tx);
-      if(p&&p[3]){var st=document.createElementNS(NS,'text');st.setAttribute('x',(Math.cos(a)*64).toFixed(1));st.setAttribute('y',(Math.sin(a)*64+16).toFixed(1));st.setAttribute('text-anchor','middle');st.setAttribute('font-size','8');st.setAttribute('font-weight','700');st.setAttribute('fill',tx.getAttribute('fill'));st.setAttribute('pointer-events','none');st.textContent='+$2';g.appendChild(st);}
-      g.addEventListener('click',function(){sel=i;dibujar();});g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel=i;dibujar();}});svg.appendChild(g);});
+    svg.innerHTML=DEFS;
+    svg.appendChild(svgEl('path',{d:PAPEL,fill:'url(#tb-papel)',stroke:'#D8CBB5','stroke-width':'.8',filter:'url(#tb-sombra)'}));
+    svg.appendChild(svgEl('path',{d:PLIEGUES,stroke:'#CDBFA6','stroke-width':'.8',fill:'none',opacity:'.8'}));
+    porciones.forEach(function(p,i){if(i===sel)return;svg.appendChild(porcion(p,i,false));});
+    svg.appendChild(porcion(porciones[sel],sel,true));
+    porciones.forEach(function(p,i){var a=((i+.5)*45-90)*Math.PI/180,q=polar(134,a);var t=svgEl('text',{x:q[0],y:(+q[1]+3).toFixed(1),'text-anchor':'middle','font-size':'8','font-weight':i===sel?'800':'600',fill:i===sel?'#F5B335':'#E7DAF0','pointer-events':'none'});t.textContent=p?CORTO[p[0]]+(p[3]?' +$2':''):String(i+1);svg.appendChild(t);});
+  }
+  function porcion(p,i,activa){
+    var a=((i+.5)*45-90)*Math.PI/180,mv=activa?polar(9,a):[0,0];
+    var g=svgEl('g',{'class':'porcion'+(activa?' sel':''),tabindex:'0',role:'button','aria-label':'Porción '+(i+1)+': '+(p?p[0]:'sin elegir'),transform:'translate('+mv[0]+' '+mv[1]+')'});
+    if(activa)g.setAttribute('filter','url(#tb-sombra)');
+    if(!p){g.appendChild(svgEl('path',{d:sector(i,100),fill:'#F6EEDF',stroke:'#D6C7AE','stroke-width':'1','stroke-dasharray':'3 3'}));var c=polar(58,a);var t=svgEl('text',{x:c[0],y:(+c[1]+5).toFixed(1),'text-anchor':'middle','font-size':'15','font-weight':'800',fill:'#C9B79A','pointer-events':'none'});t.textContent='+';g.appendChild(t);}
+    else{
+      g.appendChild(svgEl('path',{d:sector(i,100),fill:'url(#tb-base)'}));
+      g.appendChild(svgEl('path',{d:sector(i,100),fill:'#000',filter:'url(#tb-quemado)',opacity:'.9'}));
+      var cob=COB[p[0]];
+      if(cob){g.appendChild(svgEl('path',{d:sector(i,86,2.2),fill:'url(#tp-'+cob+')'}));if(JUGOSO[cob])g.appendChild(svgEl('path',{d:sector(i,86,2.2),fill:'url(#tb-brillo)'}));}
+      g.appendChild(svgEl('path',{d:sector(i,100),fill:'#000',filter:'url(#tb-grano)',opacity:'.5'}));
+    }
+    g.appendChild(svgEl('path',{d:sector(i,100),fill:'none',stroke:activa?'#FFF9F2':'#5A2D10','stroke-width':activa?'2.4':'.9',opacity:activa?'1':'.55','class':'corte'}));
+    g.addEventListener('click',function(){sel=i;dibujar();});g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel=i;dibujar();}});
+    return g;
+  }
+  function dibujarResto(){
     var llenas=porciones.filter(Boolean).length,faltan=8-llenas,ndx=porciones.filter(function(p){return p&&p[3]}).length;
     var del=document.querySelector('input[name=entrega]:checked').value==='delivery';
     var total=45+ndx*2+(del?3:0);
@@ -381,6 +419,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.9rem}
     var txt='Hola, quiero una tarta grande de 8 sabores:\n• '+orden.map(function(p){var c=cuenta[p[0]];return c+' × '+p[0]+(p[3]?' (deluxe)':'')}).join('\n• ')+(faltan?'\n• '+faltan+' por elegir':'')+'\nTotal aproximado '+usd(total)+'.\n'+(del?'Con delivery'+(zona?' a '+zona:'')+'.':'Para retirar en Chacao.')+(f2?'\n¿La pueden tener para el '+f2+'?':'')+(nombre?'\nA nombre de '+nombre+'.':'');
     document.getElementById('tPedir').href=WA+encodeURIComponent(txt);
   }
+  var dibujarSoloTarta=dibujar;dibujar=function(){dibujarSoloTarta();dibujarResto();};
   function poner(s,dx){porciones[sel]=[s[0],s[1],s[2],dx];ultimo=s[2];var sig=porciones.indexOf(null);if(sig>=0)sel=sig;dibujar();}
   function chips(box,arr,dx){arr.forEach(function(s){var b=document.createElement('button');b.type='button';b.dataset.s=s[0];var im=document.createElement('img');im.src='f/'+s[2]+'.webp';im.alt='';b.appendChild(im);b.appendChild(document.createTextNode(s[0]));if(dx)b.appendChild(el('small','','+$2'));b.addEventListener('click',function(){poner(s,dx);});box.appendChild(b);});}
   chips(document.getElementById('chClasicos'),CL,false);chips(document.getElementById('chDeluxe'),DX,true);
