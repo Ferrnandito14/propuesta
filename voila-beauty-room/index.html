@@ -29,140 +29,162 @@
 <!-- cabecera:fin -->
 <!--
 Referencias (proceso-diseno.md y skill refero-design, tercera versión del 2026-11-09):
-Candado. Principal: Aesop / Glossier editorial: tonos tierra, serifa fina, formas orgánicas y fotos con marco de arco.
-Prestado: menú de destacadas en círculos (su propio Instagram) y probador de color sobre foto real (apps de manicura).
+Candado. Principal: Aesop (Refero Styles, NGLORA): pergamino y carbón, esquinas rectas, sin sombras ni degradados, humanista para titulares moderados y sans neutra pequeña para todo lo funcional, mucho aire y composiciones centradas.
+Prestado: selector de tonos en lista con muestra cuadrada (tiendas de belleza) y franja oscura a pantalla completa para el salón de té. Descartado: botones en píldora, sombras, degradados, arcos, títulos gigantes y la palabra en cursiva.
 De la marca (Instagram @voilabeautyroom y ficha de Google): monograma V caligráfico taupe sobre crema; destacadas en círculos cacao y crema con iconos de línea (Cejas, Estilismo, Corporales, Faciales, Pestañas, Uñas, Salon de Thé); bio "Tu mejor versión comienza aquí" y "Se escribe Voilà pero se pronuncia «Vualá»"; "¡Agenda fácil vía WhatsApp!"; pasillo de arcos blancos; neón "Quelle couleur veux-tu aujourd'hui ?"; trabajos de uñas publicados: gris lechoso, microfrancesa, perla cromada, Espresso Martini, cereza, verde bosque.
 Orden pensado para un spa: el lugar, el menú de destacadas, probar un tono sobre una mano real, servicios, salón de té, armar la visita, opiniones, dónde.
 Momento memorable: el tono se pinta sobre la foto real de una mano en su barra de uñas, con brillo, cromado u ojo de gato según el acabado.
 Fotos: de su ficha de Google, para esta propuesta.
 -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
 <style>
-:root{--crema:#F4EFE8;--arena:#E9DFD3;--rosa:#E8D2C7;--cacao:#6E4B3A;--cacao2:#8A6552;--tinta:#2E2420;--suave:#7B6658;--linea:#DDCFC0}
+:root{--perg:#FAF7F1;--perg2:#F1ECE3;--carbon:#2F2A27;--tinta:#141210;--piedra:#6B635C;--cacao:#7A5240;--linea:rgba(47,42,39,.16)}
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:clip}
-body{font-family:'Jost',system-ui,sans-serif;font-weight:300;background:var(--crema);color:var(--tinta);line-height:1.7;font-size:17px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--perg);color:var(--carbon);line-height:1.6;font-size:15px;letter-spacing:.005em;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--cacao);outline-offset:3px}
-img{display:block;width:100%;height:100%;object-fit:cover}
-.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.01em;line-height:1}
-.firma{font-size:.74rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--cacao2)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;background:var(--cacao);color:var(--crema);font:400 .88rem 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cacao);cursor:pointer}
-.btn.linea{background:transparent;color:var(--cacao)}
-.arco{border-radius:999px 999px 18px 18px;overflow:hidden}
-.mono{font-family:'Sacramento',cursive;font-size:2.4rem;line-height:1;color:var(--cacao)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:1140px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo .circ{width:50px;height:50px;border-radius:50%;background:#EFE8DF;border:1px solid var(--linea);display:grid;place-items:center}
-.logo b{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:.32em;font-size:1.15rem;color:var(--cacao)}
-.nav .btn{min-height:42px;padding:0 18px;font-size:.78rem}
-.portada{position:relative;padding:20px 0 60px;overflow:hidden}
-.portada:before{content:"";position:absolute;width:620px;height:620px;right:-180px;top:-120px;background:radial-gradient(closest-side,#EAD6CB,transparent);border-radius:50%;z-index:-1}
-.p-grid{display:grid;gap:30px;align-items:center}
-@media(min-width:900px){.p-grid{grid-template-columns:1fr 1fr}}
-.p-foto{position:relative;max-width:440px;margin:0 auto;width:100%}
-.p-foto .arco{aspect-ratio:3/4;box-shadow:0 30px 60px -30px rgba(110,75,58,.45)}
-.p-foto .sello{position:absolute;left:-6px;bottom:30px;background:var(--crema);border:1px solid var(--linea);border-radius:999px;padding:10px 18px;font-size:.88rem;box-shadow:0 10px 20px -12px rgba(0,0,0,.2)}
-.p-foto .sello em{font-family:'Cormorant Garamond',serif;font-size:1.2rem}
-.p-texto h1{font-size:clamp(3.2rem,10vw,6rem);font-weight:400;margin-top:14px}
-.p-texto h1 i{font-style:italic;color:var(--cacao)}
-.p-texto p{color:var(--suave);max-width:40ch;margin-top:18px;font-size:1.08rem}
-.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.dato{margin-top:16px;font-size:.9rem;color:var(--suave)}
-.dest{display:flex;gap:18px;overflow-x:auto;padding:6px 20px 14px;scrollbar-width:none;max-width:1140px;margin:0 auto;justify-content:flex-start}
-@media(min-width:900px){.dest{justify-content:center}}
-.dest a{flex:none;display:grid;justify-items:center;gap:8px;text-decoration:none;font-size:.82rem;color:var(--tinta)}
-.dest .c{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 3px var(--crema),0 0 0 4px var(--linea);transition:transform .25s}
-.dest a:hover .c{transform:translateY(-3px)}
-.dest .c.osc{background:var(--cacao)}
-.dest .c.cla{background:#F7F2EC}
-.dest svg{width:38px;height:38px;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.dest .osc svg{stroke:#F4EFE8}.dest .cla svg{stroke:var(--cacao)}
-section{padding:90px 0}
-h2{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:400;margin:12px 0 16px}
-h2 i{color:var(--cacao)}
-.lead{color:var(--suave);max-width:52ch;margin-bottom:34px}
-.probador{background:var(--arena);border-radius:48px 48px 0 0}
-.neon{font-family:'Sacramento',cursive;font-size:clamp(2.2rem,7vw,4rem);line-height:1.1;color:#FFF6E3;text-shadow:0 0 5px #FFE0A3,0 0 14px #F4C26A,0 0 30px #E6A44A;text-align:center;margin-bottom:30px;background:radial-gradient(ellipse at 50% 40%,#4A3B33,#2A211C);border-radius:999px 999px 28px 28px;padding:30px 20px 26px;box-shadow:inset 0 0 0 1px rgba(255,230,180,.08)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:1px solid var(--carbon);outline-offset:4px}
+img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.03)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.hum{font-family:'Belleza',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.2;color:var(--tinta)}
+.mini{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--piedra)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;background:var(--carbon);color:var(--perg);font:500 13px 'Inter',sans-serif;letter-spacing:.06em;text-decoration:none;border:1px solid var(--carbon);border-radius:0;cursor:pointer}
+.btn:after{content:"→";font-size:14px}
+.btn.claro{background:transparent;color:inherit;border-color:currentColor}
+.btn.claro:after{content:none}
+.enlace{font-size:13px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+/* Cabecera */
+.cab{position:absolute;left:0;right:0;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;color:#fff}
+.cab .marca{text-decoration:none;font-family:'Belleza',sans-serif;font-size:18px;letter-spacing:.42em}
+.cab nav{display:none;gap:26px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.cab nav a{text-decoration:none}
+@media(min-width:900px){.cab nav{display:flex}}
+.cab .btn{min-height:38px;padding:0 16px;background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
+.cab .btn:after{content:none}
+/* Portada */
+.portada{position:relative;height:100svh;min-height:560px;max-height:920px;color:#fff;background:#3b302a;overflow:hidden}
+.portada img{position:absolute;inset:0;filter:saturate(.8) contrast(1.02) brightness(.88)}
+.portada:after{content:"";position:absolute;inset:0;background:rgba(20,16,14,.28)}
+.portada .centro{position:absolute;inset:auto 0 0 0;z-index:2;text-align:center;padding:0 24px 64px}
+.portada .mini{color:rgba(255,255,255,.85)}
+.portada h1{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(30px,4.6vw,48px);line-height:1.15;color:#fff;margin:14px auto 22px;max-width:16ch}
+.portada .btn{background:transparent;border-color:#fff;color:#fff}
+.portada .pie{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+/* Índice */
+.indice{border-bottom:1px solid var(--linea)}
+.indice ul{list-style:none;padding:0;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;max-width:1240px;margin:0 auto}
+.indice li{flex:1 0 auto}
+.indice a{display:block;padding:18px 22px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--piedra);border-right:1px solid var(--linea);white-space:nowrap;text-align:center}
+.indice li:last-child a{border-right:0}
+.indice a:hover{color:var(--tinta);background:var(--perg2)}
+section{padding:110px 0}
+.titulo{text-align:center;max-width:620px;margin:0 auto 56px}
+.titulo h2{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(26px,3.4vw,36px);line-height:1.2;color:var(--tinta);margin:12px 0 14px}
+.titulo p{color:var(--piedra)}
+/* Probador */
+.probador{background:var(--perg2)}
+.pr-grid{display:grid;gap:48px;align-items:start}
+@media(min-width:960px){.pr-grid{grid-template-columns:1.1fr .9fr;gap:72px}}
+.mano{position:relative}
+.mano .marco{background:#d8d2ca;overflow:hidden}
+.mano svg{display:block;width:100%;height:auto}
+.mano svg image{filter:saturate(.9)}
+.mano .una-c{transition:fill .45s ease,opacity .45s ease}
+.mano .etq-t{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:13px;color:var(--piedra)}
+.mano .etq-t i{width:14px;height:14px;display:inline-block}
+.neon{font-family:'Sacramento',cursive;font-size:clamp(28px,4vw,40px);line-height:1;color:#FFF5DF;text-shadow:0 0 4px #FFE0A3,0 0 12px #F2BF66,0 0 24px #E2A045;background:#2A2320;padding:26px 18px;text-align:center;margin-bottom:0}
 @media(prefers-reduced-motion:no-preference){.neon.prende{animation:prende 1.6s steps(1) 1}}
 @keyframes prende{0%,12%,24%{opacity:.35}6%,18%,30%,100%{opacity:1}}
-.pr-grid{display:grid;gap:34px;align-items:center}
-@media(min-width:900px){.pr-grid{grid-template-columns:1.05fr .95fr}}
-.mano{position:relative;max-width:480px;margin:0 auto;width:100%}
-.mano .marco{border-radius:999px 999px 26px 26px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(46,36,32,.55);background:#ccc}
-.mano svg{display:block;width:100%;height:auto}
-.mano .una-c{transition:fill .45s ease,opacity .45s ease}
-.mano .etq-t{position:absolute;left:50%;translate:-50% 0;top:18px;white-space:nowrap;background:var(--crema);border-radius:999px;padding:8px 16px 8px 8px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 24px -14px rgba(0,0,0,.35);font-size:.9rem}
-.mano .etq-t i{width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-.tonos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 10px}
-.tono{all:unset;cursor:pointer;display:grid;justify-items:center;gap:8px;text-align:center;font-size:.8rem;line-height:1.25;color:var(--suave)}
-.tono .gota{width:54px;height:54px;border-radius:50% 50% 50% 12%;rotate:-45deg;box-shadow:0 8px 14px -8px rgba(0,0,0,.45),inset 0 0 0 1px rgba(0,0,0,.06);position:relative;overflow:hidden;transition:transform .25s}
-.tono .gota:after{content:"";position:absolute;left:18%;top:14%;width:28%;height:46%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));rotate:45deg}
-.tono[aria-pressed="true"]{color:var(--tinta);font-weight:500}
-.tono[aria-pressed="true"] .gota{transform:scale(1.1);box-shadow:0 0 0 3px var(--arena),0 0 0 4px var(--cacao),0 10px 16px -8px rgba(0,0,0,.4)}
-.tono:focus-visible{outline:2px solid var(--cacao);outline-offset:4px;border-radius:12px}
-.tono small{display:block;font-size:.7rem;color:var(--cacao2);letter-spacing:.06em}
-.pr-nota{font-size:.84rem;color:var(--suave);margin-top:22px}
-.serv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
-@media(min-width:900px){.serv{grid-template-columns:repeat(3,1fr);gap:34px 26px}}
-.s-card .arco{aspect-ratio:3/4;background:var(--arena)}
-.s-card .arco.sin{display:grid;place-items:center;background:linear-gradient(160deg,#EAD6CB,#E9DFD3)}
-.s-card h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;margin-top:14px;line-height:1.05}
-.s-card p{color:var(--suave);font-size:.92rem;margin-top:4px}
-.s-card small{display:block;margin-top:6px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cacao2)}
-.te{background:var(--rosa);border-radius:48px}
-.te-grid{display:grid;gap:22px;align-items:center}
-@media(min-width:860px){.te-grid{grid-template-columns:1fr 1fr}}
-.te-fotos{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:end}
-.te-fotos .a{aspect-ratio:3/4}
-.te-fotos .b{aspect-ratio:3/5}
-.visita{display:grid;gap:36px;align-items:start}
-@media(min-width:940px){.visita{grid-template-columns:1fr 400px}}
-.paso{margin-top:26px}
-.paso h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.6rem}
-.paso h3 small{font-family:'Jost',sans-serif;font-size:.82rem;color:var(--suave);margin-left:8px}
-.ops{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.ops button{all:unset;cursor:pointer;border:1px solid var(--linea);background:#FBF8F4;border-radius:999px;padding:10px 18px;font-size:.95rem;line-height:1.2;text-align:center}
-.ops button small{display:block;font-size:.74rem;color:var(--suave)}
-.ops button[aria-pressed="true"]{background:var(--cacao);color:var(--crema);border-color:var(--cacao)}
-.ops button[aria-pressed="true"] small{color:#E5D6C9}
-.ops button:focus-visible{outline:2px solid var(--cacao);outline-offset:2px}
-.dias{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:12px}
-.dias button{all:unset;cursor:pointer;border:1px solid var(--linea);background:#FBF8F4;border-radius:999px 999px 14px 14px;padding:10px 0 8px;text-align:center;font-size:.74rem;color:var(--suave)}
-.dias button b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.6rem;color:var(--tinta);line-height:1.1}
-.dias button[aria-pressed="true"]{background:var(--cacao);color:#E5D6C9;border-color:var(--cacao)}
-.dias button[aria-pressed="true"] b{color:var(--crema)}
-.tono-chip{display:inline-flex;align-items:center;gap:10px;margin-top:12px;border:1px solid var(--linea);background:#FBF8F4;border-radius:999px;padding:6px 16px 6px 6px}
-.tono-chip i{width:30px;height:30px;border-radius:50%}
-label.campo{display:block;margin-top:12px;font-weight:400;font-size:.92rem}
-label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border:1px solid var(--linea);border-radius:999px;background:#FBF8F4;padding:10px 20px;font:inherit}
-.carta{position:sticky;top:20px;background:#FBF8F4;border-radius:999px 999px 24px 24px;padding:56px 30px 30px;text-align:center;box-shadow:0 24px 50px -28px rgba(110,75,58,.5);border:1px solid var(--linea)}
-.carta .mono{font-size:3rem}
-.carta .serif{font-size:1.9rem;font-style:italic;margin-top:4px}
-.carta dl{margin:20px 0 4px;text-align:left}
-.carta dl div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #EDE3D8;font-size:.95rem}
-.carta dt{color:var(--suave)}
-.carta dd{text-align:right;font-weight:400}
-.carta .btn{width:100%;margin-top:22px}
-.carta .nota{font-size:.8rem;color:var(--suave);margin-top:12px}
-.dicen{display:grid;gap:18px}
-@media(min-width:820px){.dicen{grid-template-columns:repeat(3,1fr)}}
-.dicen blockquote{font-family:'Cormorant Garamond',serif;font-size:1.6rem;line-height:1.25;background:#FBF8F4;border-radius:28px;padding:26px}
-.dicen cite{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cacao2);margin-top:14px}
-.donde{display:grid;gap:30px;align-items:center}
-@media(min-width:860px){.donde{grid-template-columns:.8fr 1.2fr}}
-.donde .arco{aspect-ratio:3/4;max-height:520px}
-dt{font-weight:500;margin-top:16px}
-dd{color:var(--suave)}
-dl div>dt{margin-top:0;align-self:baseline}
-.horario{list-style:none;padding:0;margin-top:8px}
-.horario li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--linea);color:var(--suave)}
-.horario li.hoy{color:var(--tinta);font-weight:500}
-.mapa{margin-top:36px;border-radius:28px;overflow:hidden;height:320px}
-@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/7}}
+.pr-txt h2{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);line-height:1.2;color:var(--tinta);margin:12px 0 14px}
+.pr-txt p.lead{color:var(--piedra);max-width:44ch}
+.tonos{margin:32px 0 10px;border-top:1px solid var(--linea)}
+.tono{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:16px;width:100%;padding:14px 4px;border-bottom:1px solid var(--linea);font-size:14px;color:var(--carbon)}
+.tono .gota{width:22px;height:22px;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.tono small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--piedra)}
+.tono:hover{background:rgba(255,255,255,.45)}
+.tono[aria-pressed="true"]{font-weight:600}
+.tono[aria-pressed="true"]:before{content:"";position:absolute}
+.tono[aria-pressed="true"] .gota{outline:1px solid var(--carbon);outline-offset:3px}
+.tono:focus-visible{outline:1px solid var(--carbon);outline-offset:-1px}
+.pr-nota{font-size:12px;color:var(--piedra);margin:16px 0 26px}
+/* Servicios */
+.serv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 20px}
+@media(min-width:900px){.serv{grid-template-columns:repeat(3,1fr);gap:56px 28px}}
+.s-card{text-align:center}
+.s-card .f{aspect-ratio:4/5;background:var(--perg2);overflow:hidden}
+.s-card .f.sin{display:grid;place-items:center}
+.s-card .f.sin span{font-family:'Sacramento',cursive;font-size:84px;color:var(--cacao);line-height:1}
+.s-card .mini{display:block;margin-top:18px}
+.s-card h3{font-family:'Belleza',sans-serif;font-weight:400;font-size:20px;color:var(--tinta);margin-top:6px}
+.s-card p{color:var(--piedra);font-size:14px;margin-top:6px;max-width:30ch;margin-inline:auto}
+/* Té */
+.te-band{display:grid;gap:0;background:var(--carbon);color:var(--perg)}
+@media(min-width:900px){.te-band{grid-template-columns:1fr 1fr}}
+.te-band .f{height:380px}
+@media(min-width:900px){.te-band .f{height:auto;min-height:420px;max-height:640px}}
+.te-band .t{padding:72px 40px;display:flex;flex-direction:column;justify-content:center;max-width:520px}
+.te-band .mini{color:rgba(250,247,241,.65)}
+.te-band h2{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);margin:12px 0 14px;color:#fff}
+.te-band p{color:rgba(250,247,241,.75)}
+/* Visita */
+.visita{display:grid;gap:56px;align-items:start}
+@media(min-width:960px){.visita{grid-template-columns:1fr 380px;gap:80px}}
+.v-intro h2{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);color:var(--tinta);margin:12px 0 14px}
+.v-intro p{color:var(--piedra)}
+.paso{margin-top:40px}
+.paso h3{display:flex;gap:14px;align-items:baseline;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);padding-bottom:12px;border-bottom:1px solid var(--linea)}
+.paso h3 span{color:var(--piedra);font-weight:400}
+.ops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:0}
+@media(min-width:620px){.ops{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ops button{all:unset;box-sizing:border-box;cursor:pointer;padding:16px 12px 16px 4px;border-bottom:1px solid var(--linea);font-size:14px;display:flex;justify-content:flex-start;align-items:center;gap:12px;line-height:1.25}
+.ops button:before{content:"";width:12px;height:12px;border:1px solid var(--piedra);flex:none}
+.ops button small{display:block;font-size:11px;color:var(--piedra)}
+.ops button[aria-pressed="true"]{font-weight:600}
+.ops button[aria-pressed="true"]:before{background:var(--carbon);border-color:var(--carbon);box-shadow:inset 0 0 0 2px var(--perg)}
+.ops button:focus-visible{outline:1px solid var(--carbon);outline-offset:-1px}
+.dias{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border-left:1px solid var(--linea)}
+.dias button{all:unset;box-sizing:border-box;cursor:pointer;padding:14px 0;text-align:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--piedra);border-right:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.dias button b{display:block;font-family:'Belleza',sans-serif;font-size:22px;font-weight:400;letter-spacing:0;color:var(--tinta);line-height:1.2}
+.dias button[aria-pressed="true"]{background:var(--carbon);color:rgba(250,247,241,.7)}
+.dias button[aria-pressed="true"] b{color:var(--perg)}
+.tono-chip{display:inline-flex;align-items:center;gap:12px;margin-top:14px;font-size:14px}
+.tono-chip i{width:16px;height:16px;display:inline-block}
+label.campo{display:block;margin-top:16px;font-size:12px;letter-spacing:.08em;color:var(--piedra)}
+label.campo input{display:block;width:100%;min-height:48px;margin-top:6px;border:0;border-bottom:1px solid var(--carbon);background:transparent;padding:8px 0;font:inherit;font-size:16px;color:var(--tinta);letter-spacing:0}
+label.campo input:focus{outline:none;border-bottom-width:2px}
+.carta{position:sticky;top:24px;border:1px solid var(--linea);background:#fff;padding:32px 28px}
+.carta .mini{display:block;text-align:center}
+.carta .serif{font-family:'Belleza',sans-serif;font-size:24px;text-align:center;color:var(--tinta);margin:8px 0 20px}
+.carta .mono{display:block;text-align:center;font-family:'Sacramento',cursive;font-size:44px;line-height:1;color:var(--cacao)}
+.carta dl div{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid var(--linea);font-size:14px}
+.carta dt{color:var(--piedra)}
+.carta dd{text-align:right;color:var(--tinta)}
+.carta .btn{width:100%;justify-content:center;margin-top:22px}
+.carta .nota{font-size:12px;color:var(--piedra);margin-top:12px;text-align:center}
+/* Opiniones */
+.dicen{display:grid;gap:40px;text-align:center}
+@media(min-width:900px){.dicen{grid-template-columns:repeat(3,1fr)}}
+.dicen blockquote{font-family:'Belleza',sans-serif;font-size:20px;line-height:1.45;color:var(--tinta)}
+.dicen cite{display:block;font-family:'Inter',sans-serif;font-style:normal;margin-top:16px}
+/* Dónde */
+.donde{display:grid;gap:48px;align-items:center}
+@media(min-width:900px){.donde{grid-template-columns:1fr 1fr;gap:80px}}
+.donde .f{aspect-ratio:4/5}
+.donde h2{font-family:'Belleza',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);color:var(--tinta);margin:12px 0 18px}
+dl.datos{border-top:1px solid var(--linea)}
+dl.datos div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--linea);font-size:14px}
+dl.datos dt{color:var(--piedra);margin:0}
+dl.datos dd{color:var(--tinta)}
+.horario{list-style:none;padding:0}
+.horario li{display:flex;justify-content:space-between;padding:2px 0}
+.horario li.hoy{font-weight:600}
+.acciones{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.mapa{margin-top:72px;height:340px;filter:grayscale(.7) contrast(1.05)}
+@media(min-width:800px){.mapa{height:auto;aspect-ratio:16/6}}
 .mapa iframe{display:block;width:100%;height:100%;border:0}
-footer{padding:30px 0 90px;color:var(--suave);font-size:.9rem}
+footer{border-top:1px solid var(--linea);padding:36px 0 100px;font-size:12px;color:var(--piedra)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+dl div>dt{margin-top:0;align-self:baseline}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -170,103 +192,83 @@ footer{padding:30px 0 90px;color:var(--suave);font-size:.9rem}
 .flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;min-height:50px;padding:0 22px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s;box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .flota.ver{opacity:1;translate:0 0;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.flota{transition:none}}
-.flota{background:#6E4B3A;color:#F4EFE8;border-radius:999px;font-family:"Instrument Sans",sans-serif;font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+.flota{background:#2F2A27;color:#FAF7F1;border-radius:0;font-family:Inter,sans-serif;font-weight:500;letter-spacing:.06em;font-size:13px;box-shadow:none}
 </style>
 </head>
 <body>
-<nav class="nav"><a class="logo" href="#inicio"><span class="circ"><span class="mono" style="font-size:2rem">V</span></span><b>VOILÀ</b></a><a class="btn" href="#visita">Agendar</a></nav>
-<header class="portada" id="inicio">
-  <div class="wrap p-grid">
-    <div class="p-texto">
-      <p class="firma">Belleza &amp; estética · Los Palos Grandes</p>
-      <h1 class="serif">Tu mejor versión <i>comienza aquí.</i></h1>
-      <p>Uñas, cejas, pestañas, estilismo, faciales y corporales, y antes o después una pausa en su Salon de Thé.</p>
-      <div class="acciones"><a class="btn" href="#visita">Armar mi visita</a><a class="btn linea" href="#tono">Probar un tono</a></div>
-      <p class="dato" id="estado">5,0 en Google · 57 opiniones</p>
-    </div>
-    <div class="p-foto"><div class="arco"><img src="f/pasillo.webp" alt="Pasillo de arcos blancos de Voilà con piso de madera" width="825" height="1100"></div><p class="sello">Se escribe Voilà, se pronuncia <em>«vualá»</em></p></div>
+<header class="cab"><a class="marca" href="#inicio">VOILÀ</a><nav aria-label="Secciones"><a href="#tono">Uñas</a><a href="#serv">Servicios</a><a href="#te">Salon de Thé</a><a href="#donde">Visítanos</a></nav><a class="btn" href="#visita">Agendar</a></header>
+<div class="portada" id="inicio">
+  <img src="f/salon-the.webp" alt="Salón de té de Voilà con tragaluz, sillones y mesas" width="1100" height="823">
+  <div class="centro">
+    <p class="mini">Belleza &amp; estética · Los Palos Grandes</p>
+    <h1>Tu mejor versión comienza aquí</h1>
+    <a class="btn" href="#visita">Agendar una visita</a>
   </div>
-</header>
+  <div class="pie" aria-hidden="true"><span>Se escribe Voilà, se pronuncia «vualá»</span><span id="estadoPie"></span></div>
+</div>
 
-<nav class="dest" aria-label="Destacadas">
-  <a href="#serv"><span class="c cla"><svg viewBox="0 0 40 40"><path d="M8 24c6-6 16-8 24-4"/></svg></span>Cejas</a>
-  <a href="#serv"><span class="c osc"><svg viewBox="0 0 40 40"><path d="M10 16h14l4-4v12l-4-4H10z"/><path d="M14 20v10M30 14h3M30 18h3"/></svg></span>Estilismo</a>
-  <a href="#serv"><span class="c osc"><svg viewBox="0 0 40 40"><path d="M14 8c-2 8 0 14 4 18M26 8c2 8 0 14-4 18M14 26c2 4 10 4 12 0"/></svg></span>Corporales</a>
-  <a href="#serv"><span class="c cla"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="11"/><path d="M15 18h2M23 18h2M16 25c2 2 6 2 8 0"/></svg></span>Faciales</a>
-  <a href="#serv"><span class="c cla"><svg viewBox="0 0 40 40"><path d="M8 18c6 6 18 6 24 0"/><path d="M12 22l-2 4M17 24l-1 4M23 24l1 4M28 22l2 4"/></svg></span>Pestañas</a>
-  <a href="#tono"><span class="c osc"><svg viewBox="0 0 40 40"><path d="M16 30V16c0-3 2-6 4-6s4 3 4 6v14"/><path d="M14 30h12"/></svg></span>Uñas</a>
-  <a href="#te"><span class="c cla"><svg viewBox="0 0 40 40"><path d="M10 18h16v4a8 8 0 0 1-16 0z"/><path d="M26 19h3a3 3 0 0 1 0 6h-3M15 10c0 2 2 2 2 4M20 10c0 2 2 2 2 4"/></svg></span>Salon de Thé</a>
+<nav class="indice" aria-label="Destacadas">
+  <ul><li><a href="#tono">Uñas</a></li><li><a href="#serv">Cejas</a></li><li><a href="#serv">Pestañas</a></li><li><a href="#serv">Faciales</a></li><li><a href="#serv">Corporales</a></li><li><a href="#serv">Estilismo</a></li><li><a href="#te">Salon de Thé</a></li></ul>
 </nav>
 
 <main>
 <section class="probador" id="tono" aria-labelledby="tono-t">
-  <div class="wrap">
-    <p class="neon" id="neon" aria-hidden="true">Quelle couleur veux-tu aujourd'hui ?</p>
-    <div class="pr-grid">
-      <div class="mano">
-        <div class="marco"><svg viewBox="250 300 600 760" id="manoSvg" role="img" aria-label="Mano en la barra de uñas de Voilà con el tono elegido">
-          <defs>
-            <linearGradient id="g-perla" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7EFF0"/><stop offset=".35" stop-color="#E9D9E2"/><stop offset=".55" stop-color="#FFFFFF"/><stop offset=".75" stop-color="#E3D3D8"/><stop offset="1" stop-color="#F3E6E4"/></linearGradient>
-            <linearGradient id="g-gato" x1="0" y1="0" x2="1" y2=".35"><stop offset="0" stop-color="#2B130B"/><stop offset=".35" stop-color="#4E2414"/><stop offset=".5" stop-color="#9C6A43"/><stop offset=".65" stop-color="#4E2414"/><stop offset="1" stop-color="#2B130B"/></linearGradient>
-            <linearGradient id="g-cereza" x1="0" y1="0" x2="1" y2=".35"><stop offset="0" stop-color="#3A0407"/><stop offset=".38" stop-color="#6E0A12"/><stop offset=".5" stop-color="#B32A32"/><stop offset=".62" stop-color="#6E0A12"/><stop offset="1" stop-color="#3A0407"/></linearGradient>
-            <filter id="f-borde"><feGaussianBlur stdDeviation="1.1"/></filter><filter id="f-suave"><feGaussianBlur stdDeviation="1.4"/></filter><radialGradient id="g-vol" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></radialGradient>
-          </defs>
-          <image href="f/pared-esmaltes.webp" x="0" y="0" width="1050" height="1400" preserveAspectRatio="none"/>
-          <g id="unasG"></g>
-        </svg></div>
-        <p class="etq-t" aria-live="polite"><i id="etqI"></i><span id="etqN">Gris leche</span></p>
-      </div>
-      <div>
-        <p class="firma">El momento Voilà</p>
-        <h2 id="tono-t" class="serif">Prueba tu tono <i>antes de llegar.</i></h2>
-        <p class="lead">Toca un color y mira cómo queda en una mano real de su barra de uñas. Son tonos y acabados que Voilà ha publicado; el esmalte exacto lo eliges en su pared de colores.</p>
-        <div class="tonos" role="group" aria-label="Tonos" id="tonos"></div>
-        <p class="pr-nota">El color en pantalla es una guía: cambia con el brillo de cada teléfono.</p>
-        <div class="acciones"><a class="btn" href="#visita">Reservar con este tono</a></div>
-      </div>
+  <div class="wrap pr-grid">
+    <div class="mano">
+      <p class="neon" id="neon" aria-hidden="true">Quelle couleur veux-tu aujourd'hui ?</p>
+      <div class="marco"><svg viewBox="250 300 600 760" id="manoSvg" role="img" aria-label="Mano en la barra de uñas de Voilà con el tono elegido">
+        <defs>
+          <linearGradient id="g-perla" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7EFF0"/><stop offset=".35" stop-color="#E9D9E2"/><stop offset=".55" stop-color="#FFFFFF"/><stop offset=".75" stop-color="#E3D3D8"/><stop offset="1" stop-color="#F3E6E4"/></linearGradient>
+          <linearGradient id="g-gato" x1="0" y1="0" x2="1" y2=".35"><stop offset="0" stop-color="#2B130B"/><stop offset=".35" stop-color="#4E2414"/><stop offset=".5" stop-color="#9C6A43"/><stop offset=".65" stop-color="#4E2414"/><stop offset="1" stop-color="#2B130B"/></linearGradient>
+          <linearGradient id="g-cereza" x1="0" y1="0" x2="1" y2=".35"><stop offset="0" stop-color="#3A0407"/><stop offset=".38" stop-color="#6E0A12"/><stop offset=".5" stop-color="#B32A32"/><stop offset=".62" stop-color="#6E0A12"/><stop offset="1" stop-color="#3A0407"/></linearGradient>
+          <filter id="f-borde"><feGaussianBlur stdDeviation="1.1"/></filter><filter id="f-suave"><feGaussianBlur stdDeviation="1.4"/></filter><radialGradient id="g-vol" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></radialGradient>
+        </defs>
+        <image href="f/pared-esmaltes.webp" x="0" y="0" width="1050" height="1400" preserveAspectRatio="none"/>
+        <g id="unasG"></g>
+      </svg></div>
+      <p class="etq-t" aria-live="polite"><i id="etqI"></i><span id="etqN">Gris leche</span></p>
+    </div>
+    <div class="pr-txt">
+      <p class="mini">Uñas · el probador</p>
+      <h2 id="tono-t">Prueba tu tono antes de llegar</h2>
+      <p class="lead">Elige un color y míralo en una mano real de su barra de uñas. Son tonos y acabados que Voilà ha publicado; el esmalte exacto lo eliges en su pared de colores.</p>
+      <div class="tonos" role="group" aria-label="Tonos" id="tonos"></div>
+      <p class="pr-nota">El color en pantalla es una guía: cambia con el brillo de cada teléfono.</p>
+      <a class="btn" href="#visita">Agendar con este tono</a>
     </div>
   </div>
 </section>
 
 <section id="serv" aria-labelledby="serv-t">
   <div class="wrap">
-    <p class="firma">Servicios</p>
-    <h2 id="serv-t" class="serif">Todo en <i>una misma casa.</i></h2>
-    <p class="lead">Las mismas categorías de sus destacadas de Instagram. Cada tratamiento, su duración y su precio los confirma Voilà por WhatsApp.</p>
+    <div class="titulo"><p class="mini">Servicios</p><h2 id="serv-t">Todo en una misma casa</h2><p>Las categorías de sus destacadas de Instagram. Cada tratamiento, su duración y su precio los confirma Voilà por WhatsApp.</p></div>
     <div class="serv">
-      <article class="s-card"><div class="arco"><img src="f/barra-unas.webp" alt="Barra de manicura con lámpara bajo el neón" loading="lazy" width="825" height="1100"></div><h3>Uñas</h3><p>Manicura y pedicura con una pared entera de colores.</p><small>Precio por confirmar</small></article>
-      <article class="s-card"><div class="arco sin" aria-hidden="true"><span class="mono" style="font-size:5rem">V</span></div><h3>Cejas y pestañas</h3><p>Diseño de cejas y pestañas.</p><small>Precio por confirmar</small></article>
-      <article class="s-card"><div class="arco"><img src="f/analisis-piel.webp" alt="Análisis facial en pantalla" loading="lazy" width="1100" height="508"></div><h3>Faciales</h3><p>Cuidado de la piel con análisis antes del tratamiento.</p><small>Precio por confirmar</small></article>
-      <article class="s-card"><div class="arco"><img src="f/equipo-corporal.webp" alt="Equipo de tratamientos corporales en cabina" loading="lazy" width="508" height="1100" style="object-position:50% 30%"></div><h3>Corporales</h3><p>Equipos de última generación en cabinas privadas.</p><small>Precio por confirmar</small></article>
-      <article class="s-card"><div class="arco"><img src="f/cabina.webp" alt="Cabina de tratamiento" loading="lazy" width="508" height="1100" style="object-position:50% 40%"></div><h3>Estilismo</h3><p>Corte, color y peinado.</p><small>Precio por confirmar</small></article>
-      <article class="s-card"><div class="arco"><img src="f/unas-flores.webp" alt="Manos con uñas rosadas entre flores" loading="lazy" width="825" height="1100"></div><h3>Chicas Voilà</h3><p>El equipo que te atiende, en sus destacadas.</p><small>Conócelas en Instagram</small></article>
+      <article class="s-card"><div class="f"><img src="f/barra-unas.webp" alt="Barra de manicura bajo el neón" loading="lazy" width="825" height="1100"></div><span class="mini">01</span><h3>Uñas</h3><p>Manicura y pedicura con una pared entera de colores.</p></article>
+      <article class="s-card"><div class="f sin" aria-hidden="true"><span>V</span></div><span class="mini">02</span><h3>Cejas y pestañas</h3><p>Diseño de cejas y pestañas.</p></article>
+      <article class="s-card"><div class="f"><img src="f/equipo-aurora.webp" alt="Equipo de tratamientos faciales" loading="lazy" width="508" height="1100" style="object-position:50% 25%"></div><span class="mini">03</span><h3>Faciales</h3><p>Cuidado de la piel con análisis antes del tratamiento.</p></article>
+      <article class="s-card"><div class="f"><img src="f/equipo-corporal.webp" alt="Equipo de tratamientos corporales en cabina" loading="lazy" width="508" height="1100" style="object-position:50% 30%"></div><span class="mini">04</span><h3>Corporales</h3><p>Equipos de última generación en cabinas privadas.</p></article>
+      <article class="s-card"><div class="f sin" aria-hidden="true"><span>V</span></div><span class="mini">05</span><h3>Estilismo</h3><p>Corte, color y peinado.</p></article>
+      <article class="s-card"><div class="f"><img src="f/unas-flores.webp" alt="Manos con uñas rosadas entre flores" loading="lazy" width="825" height="1100"></div><span class="mini">06</span><h3>Chicas Voilà</h3><p>El equipo que te atiende.</p></article>
     </div>
+    <p style="text-align:center;margin-top:48px" class="mini">Precios por confirmar con Voilà</p>
   </div>
 </section>
 
-<div class="wrap"><section class="te" id="te" aria-labelledby="te-t" style="padding:60px 24px">
-  <div class="te-grid">
-    <div class="te-fotos"><div class="arco a"><img src="f/salon-the.webp" alt="Salón de té con tragaluz" loading="lazy" width="1100" height="823"></div><div class="arco b"><img src="f/te-dulce.webp" alt="Taza con el monograma V y dulces" loading="lazy" width="508" height="1100"></div></div>
-    <div>
-      <p class="firma">Salon de Thé</p>
-      <h2 id="te-t" class="serif">Una pausa, <i>no solo una cita.</i></h2>
-      <p class="lead" style="margin-bottom:0">Quienes visitan Voilà cuentan que los reciben con una sonrisa y una bebida. Un salón con tragaluz para llegar antes, esperar a una amiga o quedarse después.</p>
-    </div>
-  </div>
-</section></div>
+<div class="te-band" id="te">
+  <div class="f"><img src="f/te-dulce.webp" alt="Taza con el monograma V y dulces sobre la mesa" loading="lazy" width="508" height="1100" style="object-position:50% 88%"></div>
+  <div class="t"><p class="mini">Salon de Thé</p><h2 id="te-t">Una pausa, no solo una cita</h2><p>Quienes visitan Voilà cuentan que los reciben con una sonrisa y una bebida. Un salón con tragaluz para llegar antes, esperar a una amiga o quedarse después.</p></div>
+</div>
 
 <section id="visita" aria-labelledby="visita-t">
   <div class="wrap visita">
     <div>
-      <p class="firma">¡Agenda fácil vía WhatsApp!</p>
-      <h2 id="visita-t" class="serif">Arma <i>tu visita.</i></h2>
-      <p class="lead" style="margin-bottom:0">Elige qué te haces, el día y el momento. Voilà te confirma la hora exacta.</p>
-      <div class="paso"><h3>¿Qué te haces? <small>puedes elegir varios</small></h3><div class="ops" id="vServ"></div></div>
-      <div class="paso" id="vTonoPaso" hidden><h3>Tu tono</h3><span class="tono-chip"><i id="vTonoI"></i><span id="vTonoN"></span></span> <a href="#tono" style="font-size:.9rem;color:var(--suave)">cambiar</a></div>
-      <div class="paso"><h3>¿Qué día? <small>lunes a sábado</small></h3><div class="dias" id="vDias"></div></div>
-      <div class="paso"><h3>¿En qué momento?</h3><div class="ops" id="vMom"></div></div>
-      <div class="paso"><h3>¿Una pausa en el Salon de Thé?</h3><div class="ops" id="vTe"></div></div>
-      <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="vNombre" autocomplete="given-name"></label></div>
+      <div class="v-intro"><p class="mini">Agenda fácil vía WhatsApp</p><h2 id="visita-t">Arma tu visita</h2><p>Elige qué te haces, el día y el momento. Voilà te confirma la hora exacta.</p></div>
+      <div class="paso"><h3>01 <span>·</span> Qué te haces <span>puedes elegir varios</span></h3><div class="ops" id="vServ"></div></div>
+      <div class="paso" id="vTonoPaso" hidden><h3>02 <span>·</span> Tu tono</h3><span class="tono-chip"><i id="vTonoI"></i><span id="vTonoN"></span></span> <a class="enlace" href="#tono">cambiar</a></div>
+      <div class="paso"><h3>03 <span>·</span> Día <span>lunes a sábado</span></h3><div class="dias" id="vDias"></div></div>
+      <div class="paso"><h3>04 <span>·</span> Momento</h3><div class="ops" id="vMom"></div></div>
+      <div class="paso"><h3>05 <span>·</span> Salon de Thé</h3><div class="ops" id="vTe"></div></div>
+      <div class="paso"><h3>06 <span>·</span> A nombre de</h3><label class="campo">Tu nombre<input id="vNombre" autocomplete="given-name"></label></div>
     </div>
     <aside class="carta" aria-live="polite">
       <span class="mono">V</span>
@@ -278,36 +280,36 @@ footer{padding:30px 0 90px;color:var(--suave);font-size:.9rem}
   </div>
 </section>
 
-<section style="padding-top:10px" aria-labelledby="dicen-t">
+<section style="padding-top:0" aria-labelledby="dicen-t">
   <div class="wrap">
-    <p class="firma">5,0 en Google · 57 opiniones</p>
-    <h2 id="dicen-t" class="serif">Lo que <i>cuentan.</i></h2>
+    <div class="titulo"><p class="mini">5,0 en Google · 57 opiniones</p><h2 id="dicen-t">Lo que cuentan</h2></div>
     <div class="dicen">
-      <blockquote>Un lugar precioso donde te reciben con una sonrisa y el equipo es puntual.<cite>Resumen de opiniones</cite></blockquote>
-      <blockquote>Productos y equipos de las mejores marcas, siempre a la vanguardia.<cite>Resumen de opiniones</cite></blockquote>
-      <blockquote>Un escape para dedicarte tiempo, sola o en compañía.<cite>Resumen de opiniones</cite></blockquote>
+      <blockquote>«Un lugar precioso donde te reciben con una sonrisa y el equipo es puntual.»<cite class="mini">Resumen de opiniones</cite></blockquote>
+      <blockquote>«Productos y equipos de las mejores marcas, siempre a la vanguardia.»<cite class="mini">Resumen de opiniones</cite></blockquote>
+      <blockquote>«Un escape para dedicarte tiempo, sola o en compañía.»<cite class="mini">Resumen de opiniones</cite></blockquote>
     </div>
   </div>
 </section>
 
-<section style="padding-top:10px" aria-labelledby="donde">
+<section style="padding-top:0" id="donde" aria-labelledby="donde-t">
   <div class="wrap donde">
-    <div class="arco"><img src="f/unas-flores.webp" alt="Uñas rosadas entre flores en Voilà" loading="lazy" width="825" height="1100"></div>
+    <div class="f"><img src="f/pasillo.webp" alt="Pasillo de arcos blancos de Voilà" loading="lazy" width="825" height="1100"></div>
     <div>
-      <p class="firma">Visítanos</p>
-      <h2 id="donde" class="serif">Los Palos <i>Grandes.</i></h2>
-      <dl>
-        <dt>Dirección</dt><dd>Los Palos Grandes, Caracas. Punto exacto en el mapa.</dd>
-        <dt>Accesibilidad</dt><dd>Entrada y estacionamiento accesibles, según su ficha de Google.</dd>
-        <dt>Horario</dt><dd><ul class="horario" id="horario"></ul></dd>
+      <p class="mini">Visítanos</p>
+      <h2 id="donde-t">Los Palos Grandes, Caracas</h2>
+      <dl class="datos">
+        <div><dt>Dirección</dt><dd>Los Palos Grandes. Punto exacto en el mapa.</dd></div>
+        <div><dt>Horario</dt><dd><ul class="horario" id="horario"></ul></dd></div>
+        <div><dt>Accesibilidad</dt><dd>Entrada y estacionamiento accesibles</dd></div>
+        <div><dt>Estado</dt><dd id="estado">5,0 en Google</dd></div>
       </dl>
-      <div class="acciones"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.5033407%2C-66.8421562&amp;destination_place_id=ChIJVUalIzpZKowRj1UxxWcKHb0">Cómo llegar</a><a class="btn linea" href="https://www.instagram.com/voilabeautyroom/">Instagram</a></div>
+      <div class="acciones"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.5033407%2C-66.8421562&amp;destination_place_id=ChIJVUalIzpZKowRj1UxxWcKHb0">Cómo llegar</a><a class="enlace" href="https://www.instagram.com/voilabeautyroom/">Instagram</a></div>
     </div>
   </div>
   <div class="wrap"><div class="mapa"><iframe title="Mapa de Voilà Beauty Room en Los Palos Grandes" src="https://maps.google.com/maps?q=Voil%C3%A0%20Beauty%20Room&amp;ll=10.5033407,-66.8421562&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </section>
 </main>
-<footer><div class="wrap">Voilà Beauty Room · Los Palos Grandes, Caracas<p style="margin-top:8px">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas del negocio. No es el sitio oficial.</p></div></footer>
+<footer><div class="wrap"><span>Voilà Beauty Room · Los Palos Grandes, Caracas</span><span>Propuesta de diseño de Fernando Romero con información y fotos públicas del negocio. No es el sitio oficial.</span></div></footer>
 <script>
 (function(){
   var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
@@ -365,7 +367,7 @@ footer{padding:30px 0 90px;color:var(--suave);font-size:.9rem}
   var ul=document.getElementById('horario'),DL=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
   [1,2,3,4,5,6,0].forEach(function(i){var li=el('li');li.appendChild(el('span','',(i===hoy.getDay()?'Hoy · ':'')+DL[i]));li.appendChild(el('span','',i===0?'Cerrado':'10 a. m. a 6 p. m.'));if(i===hoy.getDay())li.className='hoy';ul.appendChild(li);});
   var h=hoy.getHours()+hoy.getMinutes()/60,ab=hoy.getDay()!==0&&h>=10&&h<18;
-  document.getElementById('estado').textContent=(ab?'Abierto ahora · hasta las 6 p. m.':'Cerrado ahora · abre '+((hoy.getDay()===6&&h>=18)||hoy.getDay()===0?'el lunes':(h<10?'hoy':'mañana'))+' a las 10 a. m.')+' · 5,0 en Google';
+  var est=(ab?'Abierto ahora · hasta las 6 p. m.':'Cerrado ahora · abre '+((hoy.getDay()===6&&h>=18)||hoy.getDay()===0?'el lunes':(h<10?'hoy':'mañana'))+' a las 10 a. m.');document.getElementById('estado').textContent=est;document.getElementById('estadoPie').textContent=est;
 })();
 </script>
 <a class="flota" id="flota" href="#visita">Reservar mi visita</a>
