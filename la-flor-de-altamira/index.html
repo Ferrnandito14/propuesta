@@ -18,10 +18,10 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Bakery", "name": "La Flor de Altamira", "description": "Panadería y pastelería en Altamira: cachitos, tortas, dulces y pizza.", "address": {"@type": "PostalAddress", "streetAddress": "Av. Transversal 6, Altamira", "addressLocality": "Caracas", "addressRegion": "Miranda", "addressCountry": "VE"}, "geo": {"@type": "GeoCoordinates", "latitude": 10.5047804, "longitude": -66.8495686}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "06:00", "closes": "20:00"}], "url": "https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/", "image": "https://ferrnandito14.github.io/propuesta/la-flor-de-altamira/f/og.jpg", "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.5, "reviewCount": 4452}}</script>
 <!-- compartir:fin -->
 <title>La Flor de Altamira | Panadería y pastelería en Altamira</title>
-<meta name="description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Haz tu pedido en línea y pásalo a buscar.">
+<meta name="description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Llena tu bolsa desde el teléfono y muéstrala en la caja.">
 <!-- cabecera:inicio -->
 <meta property="og:title" content="La Flor de Altamira | Panadería y pastelería en Altamira">
-<meta property="og:description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Haz tu pedido en línea y pásalo a buscar.">
+<meta property="og:description" content="Cachitos, tortas, pizzas, charcutería y jugos en Altamira, Caracas. Llena tu bolsa desde el teléfono y muéstrala en la caja.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_VE">
 <meta name="theme-color" content="#1C48A0">
@@ -34,9 +34,10 @@ Referencias (proceso-diseno.md y skill refero-design, segunda versión del 2026-
 Candado. Principal: Redbrick Coffee (Refero Styles): fondo blanco, un solo hilo de color (aquí su azul) en enlaces, rótulos y contornos, titulares serif finos de gran tamaño, sans humanista con interletra positiva, rótulos monoespaciados de 10 px, tarjetas e imágenes de 25 px de radio sobre gris suave, botones solo con contorno, foto y texto mitad y mitad.
 Prestado: bolsa que se llena al agregar productos (tiendas de comida para llevar) y etiquetas de precio de vitrina.
 De la marca (ficha de Google): azul y dorado del local, vitrinas llenas de tortas y dulces, etiquetas "Cornetto de chocolate" y "Cornetto crema de Nutella", cachitos de jamón con malta, pizza, fachada con el Ávila detrás; 4,5 con más de 4.400 opiniones; todos los días de 6 a. m. a 8 p. m.
-Orden pensado para una panadería: qué hay en la vitrina, armar el pedido, encargos, dónde.
-Momento memorable: la bolsa de papel se llena con lo que eliges y el pedido sale listo para retirar.
-Sin precios: el pedido no muestra montos porque la carta con precios no es pública. Fotos: de su ficha de Google.
+Orden pensado para una panadería: llenar la bolsa, qué hay en la vitrina, encargos, dónde.
+Momento memorable: una vitrina que se recorre con el dedo. Al tocar un producto, su foto vuela a la bolsa de papel, asoma por la boca y queda anotada. Al cerrarla, la bolsa se dobla y se engrapa: es lo que se muestra en la caja.
+Sin WhatsApp: el teléfono de la ficha es fijo, así que el pedido termina en "muéstralo en la caja". Con un número (variable WA del script) aparecen la hora, el nombre y el envío; con ?wa=1 se enseña ese modo.
+Sin precios: cada producto dice "precio por confirmar" y el total lo da la caja, porque la carta con precios no es pública. Al escribir los precios en el script, la bolsa suma sola. Fotos: de su ficha de Google.
 -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
 <style>
@@ -87,21 +88,34 @@ h2{font-size:clamp(52px,7vw,105px);margin:14px 0 18px}
 .ped-sec{background:var(--gris);color:var(--tinta)}
 .ped-sec .etq{color:var(--azul)!important}
 .ped-sec .lead{color:var(--suave)}
-.pedido{display:grid;gap:48px;align-items:start}
-@media(min-width:960px){.pedido{grid-template-columns:1fr 400px;gap:64px}}
-.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media(min-width:620px){.prods{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.prod{background:var(--blanco);border:0;border-radius:25px;overflow:hidden;display:flex;flex-direction:column}
-.prod .f{aspect-ratio:4/3;background:var(--gris)}
-.prod .t{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.prod b{font-family:'Fraunces',serif;font-weight:400;font-size:20px;line-height:1.1}
-.prod small{color:var(--suave);font-size:13px}
-.cant{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px}
-.cant button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;border:1px solid var(--azul);color:var(--azul);display:grid;place-items:center;font-size:18px;background:transparent}
-.cant button:disabled{opacity:.25;cursor:not-allowed}
-.cant button:focus-visible{outline:1px solid var(--azul);outline-offset:2px}
-.cant output{font-family:'JetBrains Mono',monospace;font-size:16px}
-.prod.on{box-shadow:inset 0 0 0 1px var(--azul)}
+.pedido{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+@media(min-width:960px){.pedido{grid-template-columns:minmax(0,1fr) 400px;gap:64px}}
+.pedido>*{min-width:0}
+.vit-cab{display:flex;align-items:center;gap:14px;min-height:44px}
+.vit-cab .etq{margin-left:auto}
+.vit-nav{display:none;gap:8px}
+@media(hover:hover) and (min-width:700px){.vit-nav{display:flex}}
+.vit-nav button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid var(--azul);color:var(--azul);display:grid;place-items:center;font-size:16px;box-sizing:border-box}
+.vit-nav button:disabled{opacity:.25;cursor:default}
+.vit-nav button:focus-visible,.bolsa li button:focus-visible,.pz .menos:focus-visible{outline:1px solid var(--azul);outline-offset:2px}
+.riel{display:flex;gap:12px;margin:10px -24px 0;padding:0 24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+.riel::-webkit-scrollbar{display:none}
+.pz{flex:0 0 204px;scroll-snap-align:start;background:var(--blanco);border-radius:25px;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:620px){.pz{flex-basis:232px}}
+.pz .f{position:relative;aspect-ratio:1/1;background:var(--gris);overflow:hidden}
+.pz .mete{all:unset;position:absolute;inset:0;cursor:pointer}
+.pz .mete:focus-visible{outline:2px solid var(--azul);outline-offset:-6px;border-radius:22px}
+.pz .mas,.pz .menos{all:unset;position:absolute;bottom:10px;width:44px;height:44px;border-radius:50%;background:var(--blanco);border:1px solid var(--azul);color:var(--azul);display:grid;place-items:center;font-size:20px;box-sizing:border-box}
+.pz .mas{right:10px;pointer-events:none}
+.pz .menos{left:10px;cursor:pointer}
+.pz .menos[hidden],.pz .van[hidden]{display:none}
+.pz .van{position:absolute;left:10px;top:10px;background:var(--azul);color:var(--blanco);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:50px;pointer-events:none}
+.pz .van:after{content:" en la bolsa"}
+.pz .t{padding:14px 16px 16px}
+.pz b{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:19px;line-height:1.15}
+.pz small{display:block;color:var(--suave);font-size:13px;margin-top:4px}
+.pz .precio{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--azul)}
+.pz.on{box-shadow:inset 0 0 0 1px var(--azul)}
 .paso{margin-top:32px}
 .paso h3{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--azul)}
 .horas{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -111,23 +125,48 @@ h2{font-size:clamp(52px,7vw,105px);margin:14px 0 18px}
 label.campo{display:block;margin-top:12px;font-size:13px;color:var(--suave)}
 label.campo input{display:block;width:100%;min-height:50px;margin-top:6px;border:1px solid rgba(33,37,41,.2);border-radius:50px;background:var(--blanco);color:var(--tinta);padding:10px 20px;font:16px 'Instrument Sans',sans-serif}
 .bolsa-box{position:sticky;top:24px}
-.bolsa{position:relative;background:var(--kraft);border-radius:4px 4px 25px 25px;padding:48px 26px 26px;color:var(--carbon);box-shadow:none}
-.bolsa:before{content:"";position:absolute;left:0;right:0;top:0;height:18px;background:#B8906A;border-radius:4px 4px 0 0;clip-path:polygon(0 0,100% 0,100% 60%,95% 100%,90% 60%,85% 100%,80% 60%,75% 100%,70% 60%,65% 100%,60% 60%,55% 100%,50% 60%,45% 100%,40% 60%,35% 100%,30% 60%,25% 100%,20% 60%,15% 100%,10% 60%,5% 100%,0 60%)}
-.bolsa .sello{font-family:'Fraunces',serif;font-weight:400;font-size:30px;color:var(--azul);text-align:center;line-height:1}
-.bolsa .sello small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#6B4A2A;margin-top:6px}
-.bolsa ul{list-style:none;padding:0;margin:22px 0 0;min-height:60px;font-family:'JetBrains Mono',monospace}
-.bolsa li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(90,60,30,.4);font-size:13px;line-height:1.3;animation:entra .3s ease both}
-.bolsa li.vacio{font-family:'Instrument Sans',sans-serif;font-size:14px;color:#5A3E22;border:0;animation:none}
-@keyframes entra{from{opacity:0;translate:0 -6px}}
-@media(prefers-reduced-motion:reduce){.bolsa li{animation:none}}
-.bolsa dl{margin-top:14px;font-size:13px}
-.bolsa dl div{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
-.bolsa dt{color:#5A3E22}
-.bolsa dd{font-weight:500}
-.bolsa .btn{width:100%;margin-top:18px;background:var(--azul);color:var(--blanco);border-color:var(--azul)}
-.bolsa .pie{font-size:12px;color:#5A3E22;margin-top:10px;text-align:center}
-.bolsa.salta{animation:salta .3s ease}
+.bolsa{position:relative;padding-top:46px;color:var(--carbon);scroll-margin-top:16px}
+.boca{position:absolute;left:22px;right:22px;top:0;height:70px}
+.boca i{position:absolute;width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--blanco);border:2px solid var(--gris)}
+.boca i.nuevo{animation:cae .5s cubic-bezier(.34,1.4,.64,1) .4s both}
+@keyframes cae{from{opacity:0;translate:0 -34px}}
+.vuela{position:fixed;z-index:70;width:56px;height:56px;border-radius:50%;overflow:hidden;pointer-events:none;border:2px solid var(--blanco)}
+.papel{position:relative;z-index:1;background:var(--kraft);border-radius:4px 4px 25px 25px;padding:48px 22px 24px}
+.papel:before{content:"";position:absolute;left:0;right:0;top:0;height:18px;background:#B8906A;border-radius:4px 4px 0 0;transition:height .35s ease;clip-path:polygon(0 0,100% 0,100% 60%,95% 100%,90% 60%,85% 100%,80% 60%,75% 100%,70% 60%,65% 100%,60% 60%,55% 100%,50% 60%,45% 100%,40% 60%,35% 100%,30% 60%,25% 100%,20% 60%,15% 100%,10% 60%,5% 100%,0 60%)}
+.papel:after{content:"";position:absolute;left:50%;top:12px;width:26px;height:3px;margin-left:-13px;border-radius:1px;background:var(--carbon);opacity:0;transition:opacity .2s ease .3s}
+.papel.salta{animation:salta .3s ease .4s}
 @keyframes salta{40%{scale:1.015 .985}}
+.bolsa .sello{font-family:'Fraunces',serif;font-weight:400;font-size:30px;color:var(--azul);text-align:center;line-height:1}
+.bolsa .sello small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5A3E22;margin-top:6px}
+.pase{margin-top:22px;text-align:center}
+.pase[hidden]{display:none}
+.pase span{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--carbon)}
+.pase b{display:block;font-weight:300;font-size:52px;margin-top:8px}
+.bolsa ul{list-style:none;padding:0;margin:20px 0 0;font-family:'JetBrains Mono',monospace}
+.bolsa li{display:flex;align-items:center;gap:10px;min-height:54px;padding:4px 0;border-bottom:1px dashed rgba(90,60,30,.4);font-size:13px;line-height:1.3}
+.bolsa li .n{flex:0 0 auto;min-width:30px}
+.bolsa li .nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.bolsa li .ctl{display:flex;gap:6px;flex:0 0 auto}
+.bolsa li button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid var(--carbon);display:grid;place-items:center;font-size:18px;box-sizing:border-box}
+.bolsa li.vacio{font-family:'Instrument Sans',sans-serif;font-size:14px;color:#5A3E22;border:0;min-height:60px}
+.bolsa label.campo{color:#5A3E22;margin-top:16px}
+.bolsa label.campo[hidden]{display:none}
+.bolsa label.campo input{border-color:transparent}
+.bolsa dl{margin-top:16px;font-size:13px}
+.bolsa dl div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0}
+.bolsa dt{color:#5A3E22}
+.bolsa dd{font-weight:500;font-size:15px;text-align:right}
+.bolsa .btn{width:100%;margin-top:18px;min-height:50px;background:var(--azul);color:var(--blanco);border-color:var(--azul)}
+.bolsa .pie{font-size:13px;color:#5A3E22;margin-top:10px;text-align:center;min-height:20px}
+.bolsa .pie.ojo{color:var(--carbon);font-weight:500;animation:ojo .4s ease}
+@keyframes ojo{30%{translate:-4px 0}60%{translate:4px 0}}
+.bolsa.cerrada{padding-top:0}
+.bolsa.cerrada .boca{display:none}
+.bolsa.cerrada .papel{padding-top:64px}
+.bolsa.cerrada .papel:before{height:40px}
+.bolsa.cerrada .papel:after{opacity:1}
+.bolsa.cerrada li{min-height:40px}
+@media(prefers-reduced-motion:reduce){.boca i.nuevo,.papel.salta,.bolsa .pie.ojo{animation:none}.papel:before,.papel:after{transition:none}}
 .encargo{display:grid;gap:40px;align-items:center}
 @media(min-width:860px){.encargo{grid-template-columns:1fr 1fr;gap:64px}}
 .encargo .f{border-radius:25px;overflow:hidden;aspect-ratio:4/3}
@@ -149,6 +188,7 @@ dl div>dt{margin-top:0;align-self:baseline}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
 .flota{position:fixed;right:16px;bottom:64px;z-index:55;display:inline-flex;align-items:center;min-height:50px;padding:0 22px;text-decoration:none;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .25s,translate .25s;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.flota{background:var(--azul);color:var(--blanco);font-size:14px;letter-spacing:.017em}
 .flota.ver{opacity:1;translate:0 0;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.flota{transition:none}}
 dl div>dt{margin-top:0;align-self:baseline}
@@ -158,12 +198,12 @@ dl div>dt{margin-top:0;align-self:baseline}
 <body>
 <header class="portada" id="inicio">
   <img src="f/vitrina-tortas.webp" alt="Vitrinas de La Flor de Altamira llenas de tortas y dulces" width="1100" height="825">
-  <div class="top"><a class="marca" href="#inicio">La Flor <span>de Altamira</span></a><a class="btn" href="#pedido">Hacer pedido</a></div>
+  <div class="top"><a class="marca" href="#inicio">La Flor <span>de Altamira</span></a><a class="btn" href="#pedido">Llenar mi bolsa</a></div>
   <div class="p-texto">
-    <p class="etq" style="color:var(--oro)">Panadería y pastelería · Altamira</p>
+    <p class="etq">Panadería y pastelería · Altamira</p>
     <h1 class="serif">Cachitos, tortas <span>y pizza.</span></h1>
-    <p>La panadería de la Transversal 6, abierta todos los días desde las 6 de la mañana. Arma tu pedido y pásalo a buscar.</p>
-    <div class="acciones"><a class="btn" href="#pedido">Armar mi pedido</a><a class="btn linea" href="#vitrina">Ver la vitrina</a></div>
+    <p>La panadería de la Transversal 6, abierta todos los días desde las 6 de la mañana. Llena tu bolsa desde el teléfono y muéstrala en la caja.</p>
+    <div class="acciones"><a class="btn" href="#pedido">Llenar mi bolsa</a><a class="btn linea" href="#vitrina">Ver la vitrina</a></div>
     <p class="estado" id="estado"><i aria-hidden="true"></i><span>4,5 en Google · más de 4.400 opiniones</span></p>
   </div>
 </header>
@@ -171,20 +211,28 @@ dl div>dt{margin-top:0;align-self:baseline}
 <section class="ped-sec" id="pedido" aria-labelledby="ped-t">
   <div class="wrap pedido">
     <div>
-      <p class="etq" style="color:var(--oro)">Para retirar</p>
+      <p class="etq">Para llevar</p>
       <h2 id="ped-t" class="serif">Llena tu bolsa.</h2>
-      <p class="lead" style="margin-bottom:0">Elige qué y cuánto, y a qué hora pasas. La panadería te confirma el pedido y el total por WhatsApp.</p>
-      <div class="paso"><h3>¿Qué te llevas?</h3><div class="prods" id="prods"></div></div>
-      <div class="paso"><h3>¿A qué hora pasas?</h3><div class="horas" id="horas"></div></div>
-      <div class="paso"><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="pNombre" autocomplete="given-name"></label><label class="campo">Algo más <small style="font-weight:400">(opcional)</small><input id="pNota" autocomplete="off" placeholder="Ej.: una torta pequeña de chocolate"></label></div>
+      <p class="lead" id="pedLead" style="margin-bottom:0">Recorre la vitrina con el dedo y toca lo que te llevas. Cuando llegues, muestras la bolsa en la caja.</p>
+      <div class="paso" id="pasoVit">
+        <div class="vit-cab"><h3>¿Qué te llevas?</h3><span class="etq" id="vitPos" aria-hidden="true"></span><div class="vit-nav"><button type="button" id="vitAnt" aria-label="Ver lo anterior de la vitrina">←</button><button type="button" id="vitSig" aria-label="Ver más de la vitrina">→</button></div></div>
+        <div class="riel" id="riel" role="group" aria-label="Vitrina de la panadería"></div>
+      </div>
+      <div class="paso" id="pasoHora" hidden><h3>¿A qué hora pasas?</h3><div class="horas" id="horas"></div></div>
+      <div class="paso" id="pasoNombre" hidden><h3>¿A nombre de quién?</h3><label class="campo">Tu nombre<input id="pNombre" autocomplete="given-name"></label></div>
     </div>
     <div class="bolsa-box">
-      <div class="bolsa" id="bolsa" aria-live="polite">
-        <p class="sello">La Flor<small>DE ALTAMIRA</small></p>
-        <ul class="mano" id="lista"></ul>
-        <dl id="pRes"></dl>
-        <a class="btn azul" id="pPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a>
-        <p class="pie">El total y la disponibilidad los confirma la panadería.</p>
+      <div class="bolsa" id="bolsa">
+        <div class="boca" id="boca" aria-hidden="true"></div>
+        <div class="papel" id="papel">
+          <p class="sello">La Flor<small>DE ALTAMIRA</small></p>
+          <p class="pase" id="pase" hidden><span>Para mostrar en la caja</span><b class="serif"></b></p>
+          <ul class="mano" id="lista"></ul>
+          <label class="campo" id="pNotaCampo">¿Algo que no ves en la vitrina? Anótalo <small>(opcional)</small><input id="pNota" autocomplete="off" placeholder="Pan de jamón, jugo, charcutería"></label>
+          <dl id="pRes" aria-live="polite"></dl>
+          <a class="btn azul" id="pListo" href="#bolsa" role="button">Cerrar la bolsa</a>
+          <p class="pie" id="pPie" role="status"></p>
+        </div>
       </div>
     </div>
   </div>
@@ -212,8 +260,8 @@ dl div>dt{margin-top:0;align-self:baseline}
     <div>
       <p class="etq">Encargos</p>
       <h2 id="enc-t" class="serif">¿Una torta para el cumpleaños?</h2>
-      <p class="lead">Cuéntales el sabor, el tamaño y para cuándo. Si aceptan encargos y con cuánta anticipación, lo confirman por WhatsApp.</p>
-      <a class="btn azul" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20preguntar%20por%20el%20encargo%20de%20una%20torta">Preguntar por un encargo</a>
+      <p class="lead">Anota el sabor, el tamaño y para cuándo en tu bolsa, y pregúntalo en la caja. Si aceptan encargos y con cuánta anticipación está por confirmar.</p>
+      <a class="btn azul" id="encIr" href="#bolsa">Anotarlo en mi bolsa</a>
     </div>
   </div>
 </section>
@@ -234,32 +282,123 @@ dl div>dt{margin-top:0;align-self:baseline}
 <footer><div class="wrap">La Flor de Altamira · Altamira, Caracas<p style="margin-top:8px">Propuesta de diseño de Fernando Romero, preparada con información y fotos públicas del negocio. No es el sitio oficial.</p></div></footer>
 <script>
 (function(){
-  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  /* La panadería no tiene WhatsApp: la bolsa termina en "muéstrala en la caja".
+     Cuando tengan número, se escribe en WA (solo dígitos, con código de país) y aparecen la hora, el nombre y el envío.
+     Para enseñar ese modo en una visita: abrir la página con ?wa=1 al final de la dirección. */
+  var WA='';
+  var conWA=!!WA||/[?&]wa=1/.test(location.search),WAURL='https://wa.me/'+(WA||'PON_AQUI_EL_NUMERO')+'?text=';
+  /* Precios: la carta con precios no es pública. Al escribir el precio en la última casilla de cada producto, la bolsa suma sola. */
+  var MONEDA='';
+  /* nombre, detalle, foto, encuadre (object-position), zoom, punto del zoom, precio */
+  var P=[
+    ['Cachito de jamón','el favorito de la casa','cachito-malta','50% 100%',1.2,'30% 55%',null],
+    ['Pizza','por porción o entera','pizza','50% 100%',1,'50% 50%',null],
+    ['Cornetto de chocolate','de la vitrina','cornetos','0% 50%',1.9,'22% 30%',null],
+    ['Cornetto crema de Nutella','de la vitrina','cornetos','100% 50%',1.9,'72% 28%',null],
+    ['Porción de torta','sabor del día','cachitos-vitrina','60% 50%',1.5,'45% 90%',null],
+    ['Dulces surtidos','de la vitrina','vitrina-dulces','50% 50%',1.3,'50% 40%',null],
+    ['Malta','fría','cachito-malta','50% 0%',1.7,'95% 30%',null]
+  ];
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-  var P=[['Cachito de jamón','el favorito','cachito-malta'],['Pan de jamón','clásico','cachitos-vitrina'],['Pizza','por porción o entera','pizza'],['Cornetto de chocolate','de la vitrina','cornetos'],['Porción de torta','sabor del día','vitrina-tortas'],['Dulces surtidos','de la vitrina','vitrina-dulces'],['Malta','fría','cachito-malta'],['Jugo natural','para acompañar','interior'],['Charcutería','mortadela, pavo y más','cachitos-vitrina']];
-  var c={},box=document.getElementById('prods'),hora=null;
-  P.forEach(function(p){var d=el('div','prod');var f=el('div','f');var im=document.createElement('img');im.src='f/'+p[2]+'.webp';im.alt='';im.loading='lazy';f.appendChild(im);d.appendChild(f);var t=el('div','t');t.appendChild(el('b','',p[0]));t.appendChild(el('small','',p[1]));
-    var q=el('div','cant');var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+p[0]);var o=el('output','','0');var mas=el('button','','+');mas.type='button';mas.setAttribute('aria-label','Agregar '+p[0]);
-    m.addEventListener('click',function(){c[p[0]]=Math.max(0,(c[p[0]]||0)-1);pintar();});mas.addEventListener('click',function(){c[p[0]]=(c[p[0]]||0)+1;pintar(true);});
-    q.appendChild(m);q.appendChild(o);q.appendChild(mas);t.appendChild(q);d.appendChild(t);d._o=o;d._m=m;d._k=p[0];box.appendChild(d);});
-  var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),hh=hoy.getHours()+hoy.getMinutes()/60;
-  var hb=document.getElementById('horas');
-  function h12(h){var x=Math.floor(h);return (x>12?x-12:x)+':'+(h%1?'30':'00')+(x<12?' a. m.':' p. m.')}
-  var abiertoHoy=hh<19.5,ops=[];if(abiertoHoy){var ini=Math.max(6,Math.ceil((hh+0.5)*2)/2);for(var h=ini;h<=19.5;h+=.5)ops.push(['Hoy '+h12(h),h]);}else{for(var h2=6;h2<=11;h2+=1)ops.push(['Mañana '+h12(h2),h2]);}
-  ops.slice(0,12).forEach(function(o){var b=el('button','',o[0]);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){hora=o[0];hb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});hb.appendChild(b);});
-  ['pNombre','pNota'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){pintar()})});
-  function pintar(salto){
-    box.querySelectorAll('.prod').forEach(function(d){var n=c[d._k]||0;d._o.textContent=n;d._m.disabled=!n;d.classList.toggle('on',n>0);});
-    var ul=document.getElementById('lista');ul.innerHTML='';var items=P.filter(function(p){return c[p[0]]});
-    if(!items.length)ul.appendChild(el('li','vacio','Tu bolsa está vacía. Agrega algo de la vitrina.'));
-    items.forEach(function(p){var li=el('li');li.appendChild(el('span','',p[0]));li.appendChild(el('span','','× '+c[p[0]]));ul.appendChild(li);});
-    var nombre=document.getElementById('pNombre').value.trim(),nota=document.getElementById('pNota').value.trim(),total=items.reduce(function(s,p){return s+c[p[0]]},0);var fl=document.getElementById('flota');if(fl)fl.textContent=total?'Ver mi bolsa ('+total+')':'Hacer mi pedido';
-    var dl=document.getElementById('pRes');dl.innerHTML='';[['Productos',total?String(total):'0'],['Retiro',hora||'Por elegir']].concat(nombre?[['Nombre',nombre]]:[]).forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
-    if(salto){var b=document.getElementById('bolsa');b.classList.remove('salta');void b.offsetWidth;b.classList.add('salta');}
-    document.getElementById('pPedir').href=WA+encodeURIComponent('Hola, quiero hacer un pedido para retirar:\n'+(items.length?items.map(function(p){return '• '+c[p[0]]+' × '+p[0]}).join('\n'):'• (por elegir)')+(nota?'\n• '+nota:'')+'\nPaso a buscarlo: '+(hora||'por definir')+'.'+(nombre?'\nA nombre de '+nombre+'.':'')+'\n¿Cuánto sería el total?');
+  function foto(p){var im=document.createElement('img');im.src='f/'+p[2]+'.webp';im.alt='';im.style.objectPosition=p[3];im.style.transform='scale('+p[4]+')';im.style.transformOrigin=p[5];return im}
+  function dinero(n){return (MONEDA?MONEDA+' ':'')+n.toFixed(2).replace('.',',')}
+  var quieto=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var c={},orden=[],hora=null,cerrada=false,foco=null,cards=[];
+  var riel=document.getElementById('riel'),bolsa=document.getElementById('bolsa'),boca=document.getElementById('boca'),papel=document.getElementById('papel'),ul=document.getElementById('lista'),listo=document.getElementById('pListo'),pie=document.getElementById('pPie'),pase=document.getElementById('pase'),nota=document.getElementById('pNota'),nombre=document.getElementById('pNombre');
+
+  function piezas(){return orden.length}
+  function vuela(card){
+    if(quieto||!card.animate)return;
+    var r=card.querySelector('.f').getBoundingClientRect(),b=boca.getBoundingClientRect(),fl=document.getElementById('flota'),s=56;
+    var x1=b.left+b.width/2-s/2,y1=b.top;
+    if(b.top>innerHeight-s||b.bottom<0){var q=fl&&fl.classList.contains('ver')?fl.getBoundingClientRect():null;x1=q?q.left+q.width/2-s/2:innerWidth/2-s/2;y1=q?q.top-6:(b.top<0?-s:innerHeight);}
+    var x0=r.left+r.width/2-s/2,y0=r.top+r.height/2-s/2,g=el('div','vuela');g.appendChild(foto(P[card._i]));g.style.left=x0+'px';g.style.top=y0+'px';document.body.appendChild(g);
+    var a=g.animate([{transform:'translate(0,0) scale(2.2)',opacity:0},{transform:'translate('+(x1-x0)*.45+'px,'+((y1-y0)*.45-36)+'px) scale(1.4)',opacity:1,offset:.45},{transform:'translate('+(x1-x0)+'px,'+(y1-y0)+'px) scale(1)',opacity:1}],{duration:480,easing:'cubic-bezier(.3,.6,.3,1)'});
+    a.onfinish=a.oncancel=function(){g.remove()};
   }
-  pintar();
-  var ab=hh>=6&&hh<20,est=document.getElementById('estado');est.querySelector('span').textContent=(ab?'Abierto ahora · hasta las 8 p. m.':'Cerrado ahora · abre a las 6 a. m.')+' · 4,5 en Google, más de 4.400 opiniones';if(!ab)est.classList.add('cerrado');
+  function mete(i,card){if(cerrada)abrir();c[i]=(c[i]||0)+1;orden.push(i);if(card)vuela(card);pintar(true);}
+  function saca(i){if(!c[i])return;c[i]--;orden.splice(orden.lastIndexOf(i),1);pintar();}
+
+  P.forEach(function(p,i){
+    var d=el('div','pz'),f=el('div','f');f.appendChild(foto(p));
+    var b=el('button','mete');b.type='button';b.setAttribute('aria-label','Meter '+p[0]+' en la bolsa');
+    var mas=el('span','mas','+');mas.setAttribute('aria-hidden','true');
+    var menos=el('button','menos','−');menos.type='button';menos.setAttribute('aria-label','Sacar '+p[0]+' de la bolsa');menos.hidden=true;
+    var van=el('output','van','0');van.hidden=true;
+    b.addEventListener('click',function(){mete(i,d)});menos.addEventListener('click',function(){saca(i);if(!c[i])b.focus()});
+    f.appendChild(b);f.appendChild(mas);f.appendChild(menos);f.appendChild(van);d.appendChild(f);
+    var t=el('div','t');t.appendChild(el('b','',p[0]));t.appendChild(el('small','',p[1]));t.appendChild(el('span','precio',p[6]==null?'Precio por confirmar':dinero(p[6])));d.appendChild(t);
+    d._i=i;d._van=van;d._menos=menos;cards.push(d);riel.appendChild(d);
+  });
+
+  /* Vitrina: en qué parte vas y flechas para quien usa ratón */
+  var pos=document.getElementById('vitPos'),ant=document.getElementById('vitAnt'),sig=document.getElementById('vitSig');
+  function tramo(){return cards[0].offsetWidth+12}
+  function dondeVoy(){var fin=riel.scrollLeft+riel.clientWidth>=riel.scrollWidth-6,n=fin?P.length:Math.min(P.length,Math.round(riel.scrollLeft/tramo())+1);pos.textContent=n+' de '+P.length;ant.disabled=riel.scrollLeft<6;sig.disabled=fin;}
+  var esperaRiel=null;riel.addEventListener('scroll',function(){if(!esperaRiel)esperaRiel=setTimeout(function(){esperaRiel=null;dondeVoy()},60)},{passive:true});
+  ant.addEventListener('click',function(){riel.scrollBy({left:-tramo()*2,behavior:quieto?'auto':'smooth'})});
+  sig.addEventListener('click',function(){riel.scrollBy({left:tramo()*2,behavior:quieto?'auto':'smooth'})});
+  addEventListener('resize',function(){dondeVoy();pintar()});
+
+  /* Hora y nombre: solo cuando hay WhatsApp al que enviar el pedido */
+  if(conWA){
+    document.getElementById('pasoHora').hidden=false;document.getElementById('pasoNombre').hidden=false;
+    document.getElementById('pedLead').textContent='Recorre la vitrina con el dedo y toca lo que te llevas. Elige a qué hora pasas y envía la bolsa por WhatsApp.';
+    var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),hh=hoy.getHours()+hoy.getMinutes()/60,hb=document.getElementById('horas'),ops=[];
+    function h12(h){var x=Math.floor(h);return (x>12?x-12:x)+':'+(h%1?'30':'00')+(x<12?' a. m.':' p. m.')}
+    if(hh<19.5){for(var h=Math.max(6,Math.ceil((hh+0.5)*2)/2);h<=19.5;h+=.5)ops.push('Hoy '+h12(h));}else{for(var h2=6;h2<=11;h2+=1)ops.push('Mañana '+h12(h2));}
+    ops.slice(0,12).forEach(function(o){var b=el('button','',o);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){hora=o;hb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});hb.appendChild(b);});
+    nombre.addEventListener('input',function(){pintar()});
+  }
+  nota.addEventListener('input',function(){pintar()});
+
+  function fila(i){
+    var li=el('li');li.appendChild(el('span','n',c[i]+' ×'));li.appendChild(el('span','nm',P[i][0]));
+    if(!cerrada){var ctl=el('span','ctl');[['−','Sacar un ',-1],['+','Meter otro ',1]].forEach(function(o){var b=el('button','',o[0]);b.type='button';b.setAttribute('aria-label',o[1]+P[i][0]);b.addEventListener('click',function(){foco=[i,o[2]];if(o[2]>0)mete(i);else saca(i);});b._k=i+':'+o[2];ctl.appendChild(b);});li.appendChild(ctl);}
+    return li;
+  }
+  function aviso(t){pie.textContent=t;pie.classList.remove('ojo');void pie.offsetWidth;pie.classList.add('ojo');}
+  function pintar(nuevo){
+    cards.forEach(function(d){var n=c[d._i]||0;d._van.textContent=n;d._van.hidden=!n;d._menos.hidden=!n;d.classList.toggle('on',n>0);});
+    /* Lo que asoma por la boca de la bolsa */
+    boca.innerHTML='';var vis=orden.slice(-11),W=boca.clientWidth||300,s=56,st=vis.length>1?Math.min(42,(W-s)/(vis.length-1)):0,x0=(W-(s+st*(vis.length-1)))/2;
+    vis.forEach(function(i,k){var ch=el('i');ch.appendChild(foto(P[i]));ch.style.left=(x0+k*st)+'px';ch.style.top=((k*7)%11)+'px';ch.style.rotate=(((k*37)%17)-8)+'deg';if(nuevo&&k===vis.length-1)ch.className='nuevo';boca.appendChild(ch);});
+    if(nuevo&&!quieto){papel.classList.remove('salta');void papel.offsetWidth;papel.classList.add('salta');}
+    /* La lista escrita en la bolsa */
+    var items=P.map(function(p,i){return i}).filter(function(i){return c[i]}),n=piezas(),extra=nota.value.trim(),quien=nombre.value.trim();
+    ul.innerHTML='';
+    if(!items.length)ul.appendChild(el('li','vacio','Tu bolsa está vacía. Toca algo de la vitrina.'));
+    items.forEach(function(i){ul.appendChild(fila(i))});
+    if(cerrada&&extra){var x=el('li');x.appendChild(el('span','n','+'));x.appendChild(el('span','nm',extra));ul.appendChild(x);}
+    if(foco){[].some.call(ul.querySelectorAll('button'),function(b){if(b._k===foco[0]+':'+foco[1]){b.focus();return true}});foco=null;}
+    var falta=items.some(function(i){return P[i][6]==null}),monto=items.reduce(function(t,i){return t+c[i]*(P[i][6]||0)},0);
+    var filas=[['Piezas',String(n)],['Total',!n||falta?'Por confirmar en la caja':dinero(monto)]];
+    if(cerrada)filas.shift();
+    if(conWA){filas.push(['Retiro',hora||'Por elegir']);if(quien)filas.push(['Nombre',quien]);}
+    var dl=document.getElementById('pRes');dl.innerHTML='';filas.forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
+    pase.hidden=!cerrada;if(cerrada)pase.querySelector('b').textContent=n+(n===1?' pieza':' piezas');
+    document.getElementById('pNotaCampo').hidden=cerrada;
+    listo.textContent=cerrada?'Cambiar algo':conWA?'Enviar por WhatsApp':'Cerrar la bolsa';
+    listo.href=conWA&&!cerrada?WAURL+encodeURIComponent('Hola, quiero hacer un pedido para retirar:\n'+(items.length?items.map(function(i){return '• '+c[i]+' × '+P[i][0]}).join('\n'):'• (por elegir)')+(extra?'\n• '+extra:'')+'\nPaso a buscarlo: '+(hora||'por definir')+(quien?'\nA nombre de '+quien+'.':'')+'\n¿Cuánto sería el total?'):'#bolsa';
+    pie.classList.remove('ojo');pie.textContent=cerrada?'Muestra esta pantalla en la caja. El total te lo dan allí.':conWA?'El total y la disponibilidad los confirma la panadería.':'Al cerrarla queda lista para mostrar en la caja.';
+    var fl=document.getElementById('flota');if(fl)fl.textContent=n?'Ver mi bolsa ('+n+')':'Llenar mi bolsa';
+  }
+  function cerrar(){cerrada=true;bolsa.classList.add('cerrada');pintar();bolsa.scrollIntoView({block:'start',behavior:quieto?'auto':'smooth'});}
+  function abrir(){cerrada=false;bolsa.classList.remove('cerrada');pintar();}
+  listo.addEventListener('click',function(e){
+    if(cerrada){e.preventDefault();abrir();return;}
+    if(!piezas()){e.preventDefault();aviso('Primero toca algo de la vitrina.');riel.scrollIntoView({block:'center',behavior:quieto?'auto':'smooth'});return;}
+    if(conWA){
+      if(!hora){e.preventDefault();aviso('Falta elegir a qué hora pasas.');document.getElementById('pasoHora').scrollIntoView({block:'center',behavior:quieto?'auto':'smooth'});return;}
+      if(!nombre.value.trim()){e.preventDefault();aviso('Falta tu nombre.');nombre.focus();return;}
+      return;
+    }
+    e.preventDefault();cerrar();
+  });
+  /* Encargos: se anotan en la misma bolsa */
+  var enc=document.getElementById('encIr');if(enc)enc.addEventListener('click',function(e){e.preventDefault();if(cerrada)abrir();bolsa.scrollIntoView({block:'start',behavior:quieto?'auto':'smooth'});setTimeout(function(){nota.focus({preventScroll:true})},quieto?0:500);});
+  pintar();dondeVoy();
+  var ahora=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),hx=ahora.getHours()+ahora.getMinutes()/60,ab=hx>=6&&hx<20,est=document.getElementById('estado');est.querySelector('span').textContent=(ab?'Abierto ahora · hasta las 8 p. m.':'Cerrado ahora · abre a las 6 a. m.')+' · 4,5 en Google, más de 4.400 opiniones';if(!ab)est.classList.add('cerrado');
 })();
 </script>
 <a class="flota" id="flota" href="#bolsa">Hacer mi pedido</a>
