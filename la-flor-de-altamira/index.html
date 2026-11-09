@@ -543,6 +543,7 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 button{transition:transform .12s ease}
 button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.paso.ahora>h3:before,.vivo-cambio{animation:none}.vivo-foto img{transition:none}.vivo-oculta img{clip-path:none;transform:none}button:active{transform:none}}
+body.sin-flota .flota{opacity:0!important;pointer-events:none!important}
 /* auditoria-30 */ .nodo-franja,.flota{box-shadow:none!important} .nodo-franja,.flota{border-radius:2px!important}
 </style>
 <script>
@@ -562,5 +563,6 @@ button:active{transform:scale(.97)}
 })();
 </script>
 <!-- vivo:fin -->
+<script>(function(){var z=document.getElementById('pedido');if(!z||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('sin-flota',e[0].isIntersecting)},{rootMargin:'0px 0px -20% 0px'}).observe(z);})();</script>
 </body>
 </html>
