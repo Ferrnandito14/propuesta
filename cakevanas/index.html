@@ -183,6 +183,7 @@ dl div>dt{margin-top:0;align-self:baseline}
 @keyframes cae-cob{0%{opacity:0;transform:scale(.4)}60%{opacity:1}100%{transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.tarta-box .cae .cob{animation:none}}
 .desde{position:static!important;display:inline-block!important;margin:0 0 6px}
+.portada{min-height:72svh}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -208,17 +209,6 @@ dl div>dt{margin-top:0;align-self:baseline}
 <div class="cinta" aria-hidden="true"><span class="pista">Tarta vasca<i>✦</i>Pistacho<i>✦</i>Chocolate Dubái<i>✦</i>Nutella crunchy<i>✦</i>Guayaba<i>✦</i>Pumpkin Spice<i>✦</i>Delivery $3<i>✦</i>Tarta vasca<i>✦</i>Pistacho<i>✦</i>Chocolate Dubái<i>✦</i>Nutella crunchy<i>✦</i>Guayaba<i>✦</i>Pumpkin Spice<i>✦</i>Delivery $3<i>✦</i></span></div>
 
 <main>
-<section id="carta" aria-labelledby="carta-t">
-  <div class="wrap">
-    <p class="etq" style="color:var(--lila)">La carta</p>
-    <h2 id="carta-t" class="titular">Elige tu antojo.</h2>
-    <p class="lead">Toda la carta con fotos y precios, sin abrir el PDF. Precios en dólares a tasa BCV, sin IVA.</p>
-    <div class="pestanas" role="group" aria-label="Categorías" id="pestanas"></div>
-    <div class="panel" id="panel" aria-live="polite"></div>
-    <p class="aviso" id="aviso">Precios de su carta. No incluyen IVA. <span id="tasaNota"></span></p>
-  </div>
-</section>
-
 <section class="uva" id="tarta" aria-labelledby="tarta-t">
   <div class="wrap armar">
     <div class="tarta-box">
@@ -253,16 +243,14 @@ dl div>dt{margin-top:0;align-self:baseline}
   </div>
 </section>
 
-<section class="lav" aria-labelledby="eventos-t">
-  <div class="wrap eventos">
-    <div>
-      <p class="etq" style="color:var(--lila)">Para eventos</p>
-      <h2 id="eventos-t" class="titular">Tu evento, con tarta vasca.</h2>
-      <ul><li>Corporativos</li><li>Bodas</li><li>Catering</li><li>Fiestas</li></ul>
-      <p class="lead">Mini-kitas, cheese-kitas y tartas enteras para tu evento. Cuéntanos fecha y número de personas.</p>
-      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20cotizar%20postres%20para%20un%20evento">Cotizar mi evento</a>
-    </div>
-    <div class="foto-r"><img src="f/vitrina.webp" alt="Vitrina de Cakevana's con tartas vascas enteras" width="1100" height="1066" loading="lazy"></div>
+<section id="carta" aria-labelledby="carta-t">
+  <div class="wrap">
+    <p class="etq" style="color:var(--lila)">La carta</p>
+    <h2 id="carta-t" class="titular">Elige tu antojo.</h2>
+    <p class="lead">Toda la carta con fotos y precios, sin abrir el PDF. Precios en dólares a tasa BCV, sin IVA.</p>
+    <div class="pestanas" role="group" aria-label="Categorías" id="pestanas"></div>
+    <div class="panel" id="panel" aria-live="polite"></div>
+    <p class="aviso" id="aviso">Precios de su carta. No incluyen IVA. <span id="tasaNota"></span></p>
   </div>
 </section>
 
@@ -288,6 +276,19 @@ dl div>dt{margin-top:0;align-self:baseline}
       <div><h3 class="titular" style="font-size:1.8rem">Horario</h3><ul class="horario" id="horario"></ul></div>
     </div>
     <div class="mapa"><iframe title="Mapa de Cakevana's en Chacao" src="https://maps.google.com/maps?q=Cakevanas&amp;ll=10.494761,-66.8527139&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<section class="lav" aria-labelledby="eventos-t">
+  <div class="wrap eventos">
+    <div>
+      <p class="etq" style="color:var(--lila)">Para eventos</p>
+      <h2 id="eventos-t" class="titular">Tu evento, con tarta vasca.</h2>
+      <ul><li>Corporativos</li><li>Bodas</li><li>Catering</li><li>Fiestas</li></ul>
+      <p class="lead">Mini-kitas, cheese-kitas y tartas enteras para tu evento. Cuéntanos fecha y número de personas.</p>
+      <a class="btn" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20cotizar%20postres%20para%20un%20evento">Cotizar mi evento</a>
+    </div>
+    <div class="foto-r"><img src="f/vitrina.webp" alt="Vitrina de Cakevana's con tartas vascas enteras" width="1100" height="1066" loading="lazy"></div>
   </div>
 </section>
 </main>

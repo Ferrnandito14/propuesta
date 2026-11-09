@@ -140,6 +140,8 @@ dd{color:var(--tinta);font-size:17px}
 footer{padding:36px 0 100px;font-size:13px;color:#B9BCC0;background:var(--carbon)}
 .p-texto h1{margin-top:14px}
 dl div>dt{margin-top:0;align-self:baseline}
+@media(min-width:900px){.portada{min-height:64vh}}
+.portada>img{height:42vh}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -164,22 +166,6 @@ dl div>dt{margin-top:0;align-self:baseline}
   </div>
 </header>
 <main>
-<section id="vitrina" aria-labelledby="vit-t">
-  <div class="wrap">
-    <p class="etq">La vitrina</p>
-    <h2 id="vit-t" class="serif">Lo que más piden.</h2>
-    <p class="lead">Según más de 4.400 opiniones en Google. La panadería completa la lista con su carta y sus precios.</p>
-    <div class="vitrina">
-      <figure class="v-item ancho"><img src="f/cachito-malta.webp" alt="Cachitos de jamón con una malta" loading="lazy" width="825" height="1100" style="object-position:50% 60%"><figcaption class="tag mano">Cachitos<small>el favorito de la casa</small></figcaption></figure>
-      <figure class="v-item"><img src="f/tortas.webp" alt="Tortas enteras en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Tortas</figcaption></figure>
-      <figure class="v-item"><img src="f/cornetos.webp" alt="Cornetos de chocolate y de Nutella en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Cornettos<small>chocolate y Nutella</small></figcaption></figure>
-      <figure class="v-item"><img src="f/pizza.webp" alt="Pizza con jamón, maíz y queso" loading="lazy" width="825" height="1100"><figcaption class="tag mano">Pizza</figcaption></figure>
-      <figure class="v-item"><img src="f/vitrina-dulces.webp" alt="Dulces y pasteles pequeños en bandejas" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Dulces</figcaption></figure>
-      <figure class="v-item ancho"><img src="f/tortas-2.webp" alt="Tortas decoradas con frutas y chocolate" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Para celebrar<small>encargos por confirmar</small></figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <section class="ped-sec" id="pedido" aria-labelledby="ped-t">
   <div class="wrap pedido">
     <div>
@@ -202,6 +188,22 @@ dl div>dt{margin-top:0;align-self:baseline}
   </div>
 </section>
 
+<section id="vitrina" aria-labelledby="vit-t">
+  <div class="wrap">
+    <p class="etq">La vitrina</p>
+    <h2 id="vit-t" class="serif">Lo que más piden.</h2>
+    <p class="lead">Según más de 4.400 opiniones en Google. La panadería completa la lista con su carta y sus precios.</p>
+    <div class="vitrina">
+      <figure class="v-item ancho"><img src="f/cachito-malta.webp" alt="Cachitos de jamón con una malta" loading="lazy" width="825" height="1100" style="object-position:50% 60%"><figcaption class="tag mano">Cachitos<small>el favorito de la casa</small></figcaption></figure>
+      <figure class="v-item"><img src="f/tortas.webp" alt="Tortas enteras en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Tortas</figcaption></figure>
+      <figure class="v-item"><img src="f/cornetos.webp" alt="Cornetos de chocolate y de Nutella en la vitrina" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Cornettos<small>chocolate y Nutella</small></figcaption></figure>
+      <figure class="v-item"><img src="f/pizza.webp" alt="Pizza con jamón, maíz y queso" loading="lazy" width="825" height="1100"><figcaption class="tag mano">Pizza</figcaption></figure>
+      <figure class="v-item"><img src="f/vitrina-dulces.webp" alt="Dulces y pasteles pequeños en bandejas" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Dulces</figcaption></figure>
+      <figure class="v-item ancho"><img src="f/tortas-2.webp" alt="Tortas decoradas con frutas y chocolate" loading="lazy" width="1100" height="825"><figcaption class="tag mano">Para celebrar<small>encargos por confirmar</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="enc-t">
   <div class="wrap encargo">
     <div class="f"><img src="f/tortas-2.webp" alt="Tortas decoradas en la vitrina" loading="lazy" width="1100" height="825"></div>
@@ -214,7 +216,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   </div>
 </section>
 
-<section style="padding-top:0" aria-labelledby="donde">
+<section aria-labelledby="donde">
   <div class="wrap cols">
     <div>
       <p class="etq">Dónde</p>
@@ -249,7 +251,7 @@ dl div>dt{margin-top:0;align-self:baseline}
     var ul=document.getElementById('lista');ul.innerHTML='';var items=P.filter(function(p){return c[p[0]]});
     if(!items.length)ul.appendChild(el('li','vacio','Tu bolsa está vacía. Agrega algo de la vitrina.'));
     items.forEach(function(p){var li=el('li');li.appendChild(el('span','',p[0]));li.appendChild(el('span','','× '+c[p[0]]));ul.appendChild(li);});
-    var nombre=document.getElementById('pNombre').value.trim(),nota=document.getElementById('pNota').value.trim(),total=items.reduce(function(s,p){return s+c[p[0]]},0);
+    var nombre=document.getElementById('pNombre').value.trim(),nota=document.getElementById('pNota').value.trim(),total=items.reduce(function(s,p){return s+c[p[0]]},0);var fl=document.getElementById('flota');if(fl)fl.textContent=total?'Ver mi bolsa ('+total+')':'Hacer mi pedido';
     var dl=document.getElementById('pRes');dl.innerHTML='';[['Productos',total?String(total):'0'],['Retiro',hora||'Por elegir']].concat(nombre?[['Nombre',nombre]]:[]).forEach(function(r){var x=el('div');x.appendChild(el('dt','',r[0]));x.appendChild(el('dd','',r[1]));dl.appendChild(x);});
     if(salto){var b=document.getElementById('bolsa');b.classList.remove('salta');void b.offsetWidth;b.classList.add('salta');}
     document.getElementById('pPedir').href=WA+encodeURIComponent('Hola, quiero hacer un pedido para retirar:\n'+(items.length?items.map(function(p){return '• '+c[p[0]]+' × '+p[0]}).join('\n'):'• (por elegir)')+(nota?'\n• '+nota:'')+'\nPaso a buscarlo: '+(hora||'por definir')+'.'+(nombre?'\nA nombre de '+nombre+'.':'')+'\n¿Cuánto sería el total?');
@@ -258,7 +260,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   var ab=hh>=6&&hh<20,est=document.getElementById('estado');est.querySelector('span').textContent=(ab?'Abierto ahora · hasta las 8 p. m.':'Cerrado ahora · abre a las 6 a. m.')+' · 4,5 en Google, más de 4.400 opiniones';if(!ab)est.classList.add('cerrado');
 })();
 </script>
-<a class="flota" id="flota" href="#pedido">Hacer mi pedido</a>
+<a class="flota" id="flota" href="#bolsa">Hacer mi pedido</a>
 <div class="nodo-franja" aria-hidden="true">Propuesta de diseño · <b>Fernando Romero</b></div>
 <div class="nodo-aviso" id="nodoAviso" role="status" aria-live="polite"></div>
 <script>

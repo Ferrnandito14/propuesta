@@ -143,6 +143,13 @@ dl div>dt{margin-top:0;align-self:baseline}
 @media(min-width:620px){.ops.tres{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 .paso.destello h3{animation:destello 1s ease}
 @keyframes destello{0%,100%{color:#9A9A9A}30%{color:#fff}}
+.vista svg#esquema{background:#EDEDED;max-width:340px;width:100%;margin:0 0 12px;filter:none}
+.vista svg .rot text{fill:#6B6B6B}
+.vista svg .rot.foco text,.vista svg .rot.listo text{fill:#111;font-weight:500}
+.vista svg #lados.foco,.vista svg #arriba.foco,.vista svg #barba.foco{stroke:#111;stroke-width:1.6}
+.vista svg #barba.foco{opacity:.25}
+.ops button .mini{width:56px;height:76px;background:#EDEDED;border-radius:0}
+.ops button[aria-pressed="true"] .mini{outline:1px solid #fff;outline-offset:3px}
 .nodo-franja{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;background:rgba(17,17,17,.88);color:#fff;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.02em;padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
@@ -166,44 +173,6 @@ dl div>dt{margin-top:0;align-self:baseline}
   <div class="p-foto"><img src="f/studio.webp" alt="Studio de Bravos con silla negra y dorada, espejo con luz y sillones de terciopelo" width="508" height="1100"></div>
 </header>
 <main>
-<section id="ficha" aria-labelledby="ficha-t">
-  <div class="wrap ficha">
-    <div>
-      <p class="etq">La ficha</p>
-      <h2 id="ficha-t" class="ancha">Tu corte, por escrito.</h2>
-      <p class="lead" style="margin-bottom:0">Así no hay que explicarlo dos veces. Si tienes una foto de referencia, mándala en el mismo chat.</p>
-      <div class="paso" id="pLados"><h3>01 · Lados <span class="ayuda">qué tan alto sube el degradado</span></h3><div class="ops cuatro" id="fLados"></div></div>
-      <div class="paso" id="pArriba"><h3>02 · Arriba <span class="ayuda">el largo encima de la cabeza</span></h3><div class="ops cuatro" id="fArriba"></div></div>
-      <div class="paso" id="pBarba"><h3>03 · Barba <span class="ayuda">si la quieres y cómo</span></h3><div class="ops tres" id="fBarba"></div></div>
-      <div class="paso"><h3>04 · Día</h3><div class="dias" id="fDias"></div></div>
-      <div class="paso"><h3>05 · Hora</h3><div class="horas" id="fHoras"></div></div>
-      <div class="paso"><h3>06 · Nombre</h3><label class="campo">Tu nombre<input id="fNombre" autocomplete="given-name"></label></div>
-    </div>
-    <aside class="vista" aria-live="polite">
-      <p class="t">FICHA DEL CORTE</p>
-      <svg viewBox="0 0 250 260" id="esquema" role="group" aria-label="Esquema del corte: toca una zona para elegirla">
-        <defs><linearGradient id="fade" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop id="fadeStop" offset=".35" stop-color="#fff" stop-opacity="0"/><stop id="fadeTop" offset=".7" stop-color="#fff" stop-opacity=".8"/></linearGradient>
-        <pattern id="rayado" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="1.1" height="4" fill="#fff"/></pattern></defs>
-        <path d="M84 196 C84 214 80 222 74 236 M156 196 C156 214 160 222 166 236" stroke="#fff" stroke-width="1.2" fill="none"/>
-        <ellipse cx="120" cy="120" rx="62" ry="74" fill="none" stroke="#fff" stroke-width="1.2"/>
-        <path d="M58 112 C50 112 48 136 58 140 M182 112 C190 112 192 136 182 140" stroke="#fff" stroke-width="1.2" fill="none"/>
-        <path id="lados" d="M58 120 C58 80 70 62 84 56 L156 56 C170 62 182 80 182 120 L172 120 C170 96 160 86 150 84 L90 84 C80 86 70 96 68 120 Z" fill="url(#fade)"/>
-        <path id="arriba" d="M64 92 C62 56 88 36 120 36 C152 36 178 56 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z" fill="url(#rayado)" stroke="#fff" stroke-width="1.2"/>
-        <path id="barba" d="M64 132 C66 176 92 196 120 196 C148 196 174 176 176 132 C168 150 160 160 150 162 C140 152 100 152 90 162 C80 160 72 150 64 132 Z" fill="url(#rayado)" stroke="#fff" stroke-width="1.2" opacity="0"/>
-        <path d="M120 112 L120 136" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="2 4"/>
-        <g class="rotulos" font-family="Inter,sans-serif" font-size="11" fill="#9A9A9A">
-          <g class="rot" data-z="arriba"><line x1="160" y1="46" x2="196" y2="30" stroke="#9A9A9A" stroke-width=".8"/><text x="200" y="33">Arriba</text></g>
-          <g class="rot" data-z="lados"><line x1="180" y1="104" x2="206" y2="96" stroke="#9A9A9A" stroke-width=".8"/><text x="210" y="99">Lados</text></g>
-          <g class="rot" data-z="barba"><line x1="164" y1="172" x2="200" y2="186" stroke="#9A9A9A" stroke-width=".8"/><text x="204" y="190">Barba</text></g>
-        </g>
-      </svg>
-      <dl id="fRes"></dl>
-      <a class="btn" id="fPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Enviar ficha y pedir turno</a>
-      <p class="pie" id="fPie">Elige lados, arriba y barba.</p>
-    </aside>
-  </div>
-</section>
-
 <section id="studio" aria-labelledby="studio-t">
   <div class="wrap">
     <p class="etq">El studio</p>
@@ -219,6 +188,42 @@ dl div>dt{margin-top:0;align-self:baseline}
       <div><b>Sin apuro</b>Técnica y el tiempo necesario en cada corte.</div>
       <div><b>Para todos</b>Atienden bien también a los niños.</div>
     </div>
+  </div>
+</section>
+
+<section id="ficha" aria-labelledby="ficha-t">
+  <div class="wrap ficha">
+    <div>
+      <p class="etq">La ficha</p>
+      <h2 id="ficha-t" class="ancha">Tu corte, por escrito.</h2>
+      <p class="lead" style="margin-bottom:0">Así no hay que explicarlo dos veces. Si tienes una foto de referencia, mándala en el mismo chat.</p>
+      <div class="paso" id="pLados"><h3>01 · Lados <span class="ayuda">mira el costado de la cabeza en el dibujo</span></h3><div class="ops cuatro" id="fLados"></div></div>
+      <div class="paso" id="pArriba"><h3>02 · Arriba <span class="ayuda">el largo encima de la cabeza</span></h3><div class="ops cuatro" id="fArriba"></div></div>
+      <div class="paso" id="pBarba"><h3>03 · Barba <span class="ayuda">si la quieres y cómo</span></h3><div class="ops tres" id="fBarba"></div></div>
+      <div class="paso"><h3>04 · Día</h3><div class="dias" id="fDias"></div></div>
+      <div class="paso"><h3>05 · Hora</h3><div class="horas" id="fHoras"></div></div>
+      <div class="paso"><h3>06 · Nombre</h3><label class="campo">Tu nombre<input id="fNombre" autocomplete="given-name"></label></div>
+    </div>
+    <aside class="vista" aria-live="polite">
+      <p class="t">FICHA DEL CORTE</p>
+      <svg viewBox="-30 0 290 260" id="esquema" role="group" aria-label="Tu corte de perfil: toca una zona para elegirla">
+        <defs><linearGradient id="fade" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C9C9C9"/><stop id="fadeStop" offset=".35" stop-color="#C9C9C9"/><stop id="fadeTop" offset=".7" stop-color="#111"/></linearGradient></defs>
+        <path d="M70 70 C70 30 120 15 155 30 C180 42 190 70 188 95 L192 110 C196 118 204 128 200 134 L192 136 C194 142 193 148 190 150 C193 156 190 164 184 166 C182 178 172 186 156 188 C146 189 138 196 134 210 L134 252 L84 252 L86 205 C70 196 62 176 62 150 C58 130 62 96 70 70 Z" fill="#C9C9C9"/>
+        <path id="lados" d="M68 76 C86 68 106 62 128 60 L130 104 C116 104 106 110 100 112 L88 150 C80 170 80 190 90 205 C72 196 62 176 62 150 C58 128 60 98 68 76 Z" fill="url(#fade)"/>
+        <ellipse cx="100" cy="128" rx="10" ry="16" fill="#B5B5B5" stroke="#9A9A9A" stroke-width="1.2"/>
+        <path id="arriba" d="M68 76 C66 30 120 8 160 26 C182 38 190 58 188 76 C172 62 150 58 128 60 C106 62 86 68 68 76 Z" fill="#111"/>
+        <path id="barba" d="M104 146 C112 170 130 184 156 188 C172 186 182 178 184 166 C186 160 184 156 182 154 C170 160 150 160 136 150 C126 144 116 140 104 146 Z" fill="#111" opacity="0"/>
+        <circle cx="172" cy="106" r="2.6" fill="#555"/>
+        <g class="rotulos" font-family="Inter,sans-serif" font-size="12" fill="#6B6B6B">
+          <g class="rot" data-z="arriba"><line x1="168" y1="30" x2="200" y2="16" stroke="#9A9A9A" stroke-width=".8"/><text x="204" y="19">Arriba</text></g>
+          <g class="rot" data-z="lados"><line x1="64" y1="128" x2="22" y2="128" stroke="#9A9A9A" stroke-width=".8"/><text x="-26" y="132">Lados</text></g>
+          <g class="rot" data-z="barba"><line x1="170" y1="178" x2="204" y2="198" stroke="#9A9A9A" stroke-width=".8"/><text x="208" y="202">Barba</text></g>
+        </g>
+      </svg>
+      <dl id="fRes"></dl>
+      <a class="btn" id="fPedir" href="https://wa.me/PON_AQUI_EL_NUMERO">Enviar ficha y pedir turno</a>
+      <p class="pie" id="fPie">Elige lados, arriba y barba.</p>
+    </aside>
   </div>
 </section>
 
@@ -241,16 +246,11 @@ dl div>dt{margin-top:0;align-self:baseline}
   var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
   var LADOS=[['Degradado bajo','.15','.4'],['Degradado medio','.35','.65'],['Degradado alto','.6','.9'],['A tijera','0','0']];
-  var ARRIBA=[['Corto','M64 92 C62 66 88 52 120 52 C152 52 178 66 176 92 C160 82 140 78 120 78 C100 78 80 82 64 92 Z'],['Medio','M64 92 C62 56 88 36 120 36 C152 36 178 56 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z'],['Largo','M60 100 C56 44 88 22 120 22 C152 22 184 44 180 100 C164 80 140 74 120 74 C100 74 76 80 60 100 Z'],['Texturizado','M64 92 C60 58 74 40 86 44 C92 30 106 34 112 40 C118 26 134 30 138 40 C148 30 162 38 160 50 C176 56 180 74 176 92 C160 80 140 76 120 76 C100 76 80 80 64 92 Z']];
+  var ARRIBA=[['Corto','M70 76 C74 40 120 22 156 34 C174 44 182 58 184 72 C168 64 150 60 128 62 C108 64 86 70 70 76 Z'],['Medio','M68 76 C66 30 120 8 160 26 C182 38 190 58 188 76 C172 62 150 58 128 60 C106 62 86 68 68 76 Z'],['Largo','M66 80 C62 26 120 2 164 22 C190 36 198 62 194 92 C186 80 178 72 170 70 C150 62 128 62 108 66 C90 70 78 74 66 80 Z'],['Texturizado','M68 76 C66 40 92 20 112 22 L118 10 L126 22 L136 8 L142 24 L154 14 L158 30 C176 40 188 58 186 74 C170 62 150 58 128 60 C106 62 86 68 68 76 Z']];
   var BARBA=[['Sin barba',0],['Perfilar',.55],['Completa',1]];
   var s={lados:null,arriba:null,barba:null},dia=null,hora=null;
-  var NOTA={'Degradado bajo':'empieza cerca de la oreja','Degradado medio':'sube a media altura','Degradado alto':'casi hasta arriba','A tijera':'sin máquina, parejo','Corto':'casi al ras','Medio':'se puede peinar','Largo':'cae sobre la frente','Texturizado':'con movimiento','Sin barba':'afeitado','Perfilar':'contorno limpio','Completa':'barba tupida'};
-  var nMini=0;function mini(k,o){var L=k==='lados'?o:LADOS[1],A=k==='arriba'?o[1]:ARRIBA[1][1],B=k==='barba'?o[1]:0,id='mf'+(nMini++);
-    return '<svg viewBox="40 20 160 200" class="mini" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="'+(L[1]==='0'?0:L[1])+'" stop-color="#fff" stop-opacity="0"/><stop offset="'+(L[2]==='0'?0:L[2])+'" stop-color="#fff" stop-opacity=".85"/></linearGradient></defs>'+
-      '<ellipse cx="120" cy="120" rx="62" ry="74" fill="none" stroke="currentColor" stroke-width="4"/>'+
-      '<path d="M58 120 C58 80 70 62 84 56 L156 56 C170 62 182 80 182 120 L172 120 C170 96 160 86 150 84 L90 84 C80 86 70 96 68 120 Z" fill="url(#'+id+')"/>'+
-      '<path d="'+A+'" fill="currentColor" opacity="'+(k==='arriba'?1:.35)+'"/>'+
-      '<path d="M64 132 C66 176 92 196 120 196 C148 196 174 176 176 132 C168 150 160 160 150 162 C140 152 100 152 90 162 C80 160 72 150 64 132 Z" fill="currentColor" opacity="'+(k==='barba'?B:0)+'"/></svg>';}
+  var NOTA={'Degradado bajo':'corto solo cerca de la oreja y la nuca','Degradado medio':'se aclara hasta la mitad del costado','Degradado alto':'costados casi a piel, bien marcado','A tijera':'costados con largo, sin máquina','Corto':'se ve el cuero cabelludo de cerca','Medio':'alcanza para peinarlo','Largo':'llega a la frente','Texturizado':'puntas despeinadas, con volumen','Sin barba':'cara afeitada','Perfilar':'barba corta con bordes limpios','Completa':'barba tupida y pareja'};
+  var nMini=0;function mini(k,o){var L=k==='lados'?o:LADOS[1],A=k==='arriba'?o[1]:ARRIBA[1][1],B=k==='barba'?o[1]:0,id='mf'+(nMini++);return '<svg viewBox="50 0 160 220" class="mini" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C9C9C9"/><stop offset="'+(L[1]==='0'?0:L[1])+'" stop-color="#C9C9C9"/><stop offset="'+(L[2]==='0'?0:L[2])+'" stop-color="#111"/></linearGradient></defs>'+'<path d="M70 70 C70 30 120 15 155 30 C180 42 190 70 188 95 L192 110 C196 118 204 128 200 134 L192 136 C194 142 193 148 190 150 C193 156 190 164 184 166 C182 178 172 186 156 188 C146 189 138 196 134 210 L134 252 L84 252 L86 205 C70 196 62 176 62 150 C58 130 62 96 70 70 Z" fill="#C9C9C9"/><path d="M68 76 C86 68 106 62 128 60 L130 104 C116 104 106 110 100 112 L88 150 C80 170 80 190 90 205 C72 196 62 176 62 150 C58 128 60 98 68 76 Z" fill="url(#'+id+')"/><ellipse cx="100" cy="128" rx="10" ry="16" fill="#B5B5B5"/>'+'<path d="'+A+'" fill="#111"/>'+'<path d="M104 146 C112 170 130 184 156 188 C172 186 182 178 184 166 C186 160 184 156 182 154 C170 160 150 160 136 150 C126 144 116 140 104 146 Z" fill="#111" opacity="'+(k==='barba'?B:0)+'"/></svg>';}
   function grupo(id,arr,k){var c=document.getElementById(id);arr.forEach(function(o){var b=el('button','');b.innerHTML=mini(k,o);var tx=el('span','txt');tx.appendChild(el('b','',o[0]));tx.appendChild(el('small','',NOTA[o[0]]||''));b.appendChild(tx);b.type='button';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){s[k]=o;c.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});c.appendChild(b);});}
   grupo('fLados',LADOS,'lados');grupo('fArriba',ARRIBA,'arriba');grupo('fBarba',BARBA,'barba');
   var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Caracas'})),DN=['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'],DL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
