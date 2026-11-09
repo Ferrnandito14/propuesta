@@ -233,6 +233,45 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .extra-p button:disabled{opacity:.35;cursor:not-allowed}
 .extra-p button:focus-visible{outline:3px solid var(--crema);outline-offset:2px}
 .extra-p output{font-family:'Bowlby One',sans-serif;min-width:1.2em;text-align:center}
+.progreso{list-style:none;padding:0;display:flex;gap:6px;margin-top:24px}
+.progreso li{flex:1;min-width:0;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:.55;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.progreso li:before{content:"";display:block;height:6px;border-radius:3px;background:rgba(241,228,207,.22);margin-bottom:6px;transition:background .3s}
+.progreso li.ok,.progreso li.ahora{opacity:1}
+.progreso li.ok:before{background:var(--crema)}
+.progreso li.ahora:before{background:linear-gradient(90deg,var(--crema) 45%,rgba(241,228,207,.22) 45%)}
+.cuantos{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cuantos button{all:unset;box-sizing:border-box;cursor:pointer;min-width:54px;height:54px;padding:0 14px;border:2px solid var(--crema);border-radius:7px;display:inline-grid;place-items:center;font-family:'Bowlby One',sans-serif;font-size:1.25rem;transition:box-shadow .15s,translate .15s}
+.cuantos button:hover{box-shadow:4px 4px 0 var(--tinta);translate:-2px -2px}
+.cuantos button:focus-visible{outline:3px solid var(--crema);outline-offset:3px}
+.cuantos button[aria-pressed="true"]{background:var(--crema);color:var(--verde2)}
+.g-hint{margin-top:10px;font-size:.92rem;opacity:.9}
+.tamanos button{position:relative}
+.tamanos button.reco:after{content:"Para ustedes";position:absolute;top:-11px;left:50%;translate:-50% 0;background:var(--tinta);color:var(--crema);font-size:.62rem;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:999px;white-space:nowrap}
+#proteina,#entrega{margin-top:14px}
+.ficha i.dot{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(241,228,207,.85);flex:none}
+.ficha svg.mini{width:24px;height:24px;flex:none;margin:-2px -2px -2px -6px}
+.ficha.inc{border-color:var(--crema)}
+.campos-b{display:grid;gap:12px;margin-top:14px}
+@media(min-width:560px){.campos-b{grid-template-columns:1fr 1fr}.campos-b .ancho{grid-column:1/-1}}
+.campos-b label{font-weight:600;font-size:.9rem}
+.campos-b label small{font-weight:400;opacity:.75}
+.campos-b input{display:block;width:100%;min-height:48px;border:2px solid rgba(241,228,207,.7);border-radius:7px;background:rgba(0,0,0,.08);color:var(--crema);padding:10px 12px;font:inherit;font-weight:400;margin-top:6px}
+.campos-b input::placeholder{color:rgba(241,228,207,.55)}
+.campos-b input:focus-visible{outline:3px solid var(--crema);outline-offset:2px}
+.peso{position:absolute;top:11%;right:11%;z-index:4;background:var(--tinta);color:var(--crema);font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:999px}
+.ticket.comanda-b{position:static;margin-top:26px}
+.comanda-b ul{list-style:none;padding:0;margin-top:16px;border-top:2px dashed #CFC6B5}
+.comanda-b li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 0;border-bottom:1px dashed #E2DACB;font-size:.92rem;animation:cae .3s ease both}
+.comanda-b li b{font-weight:600}
+.comanda-b li span{grid-column:1;color:var(--gris);font-size:.82rem}
+.comanda-b li em{font-style:normal;font-weight:600;grid-row:1;grid-column:2;white-space:nowrap;text-align:right}
+.comanda-b li em.inc{color:var(--verde);font-weight:500;font-size:.82rem}
+.t-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;font-weight:600}
+.t-total>div{text-align:right}
+.t-total b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:1.8rem;line-height:1;color:var(--verde)}
+.t-bs{display:block;font-size:.8rem;color:var(--gris);font-weight:400;margin-top:2px}
+.falta{font-size:.86rem;color:#9A3B1E;margin-top:10px;min-height:1px}
+.falta:empty{display:none}
 </style>
 </head>
 <body>
@@ -288,21 +327,39 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
   <div class="wrap armar">
     <div class="ar-a">
       <h2 id="armar" class="display">Arma tu bandeja.</h2>
-      <p class="lead" style="margin-bottom:0">Elige cuántos pinchos, tus sides y tus salsas. La bandeja se llena mientras eliges y te dice el total.</p>
+      <p class="lead" style="margin-bottom:0">Cinco pasos, con las medidas y los precios de su carta. La bandeja se llena mientras eliges y la comanda te va sumando cada cosa.</p>
+      <ol class="progreso" id="progreso" aria-label="Pasos"><li>Cuántos</li><li>Bandeja</li><li>Sides</li><li>Salsas</li><li>Entrega</li></ol>
     </div>
     <div class="ar-c">
-      <div class="paso"><h3>1. ¿Qué bandeja? <small>las medidas de su carta</small></h3>
+      <div class="paso"><h3>1. ¿Cuántos compinches?</h3>
+        <div class="cuantos" role="group" aria-label="Cuántas personas" id="bCompas"></div>
+        <p class="g-hint" id="gHint" aria-live="polite">Te decimos qué bandeja les alcanza.</p></div>
+      <div class="paso"><h3>2. ¿Qué bandeja? <small>las medidas de su carta</small></h3>
         <div class="tamanos" role="group" aria-label="Tamaño de la bandeja" id="tamanos"></div>
-        <p class="combo-incl" id="comboIncluye" hidden></p></div>
-      <div class="paso"><h3>2. ¿Qué pinchos?</h3><div class="proteina" role="group" aria-label="Tipo de pinchos" id="proteina"></div>
+        <p class="combo-incl" id="comboIncluye" hidden></p>
+        <div class="proteina" role="group" aria-label="Tipo de pinchos" id="proteina"></div>
         <div class="extra-p" id="extraP"><span>Pinchos adicionales (REF 2 c/u)</span><button type="button" id="pMenos" aria-label="Quitar un pincho adicional">−</button><output id="pCuantos" aria-live="polite">0</output><button type="button" id="pMas" aria-label="Agregar un pincho adicional">+</button></div></div>
       <div class="paso" id="pasoSides"><h3>3. Sides <small id="sidesInfo"></small></h3><div class="fichas" id="sides"></div></div>
       <div class="paso" id="pasoSalsas"><h3>4. Salsas de la casa <small id="salsasInfo"></small></h3><div class="fichas" id="salsas"></div></div>
-      <p class="aparte">Las burgers, alitas y demás platos de la carta no van en la bandeja: se piden aparte. Escríbelos en el mensaje. A domicilio lo llevan ellos mismos, y también están en Yummy y PedidosYa.</p>
-      <div class="total"><div><b id="total" aria-live="polite">REF 13</b><small class="bs-total" id="totalBs"></small><p id="resumen">x5 pinchos mixtos.</p></div><a class="btn" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a></div>
+      <div class="paso"><h3>5. ¿Cómo la quieres?</h3>
+        <div class="proteina" role="group" aria-label="Entrega" id="entrega"></div>
+        <div class="campos-b">
+          <label>Tu nombre <small>opcional</small><input id="bNombre" autocomplete="given-name" placeholder="Para la comanda"></label>
+          <label id="bZonaL" hidden>Zona o urbanización<input id="bZona" placeholder="Ej.: Los Palos Grandes"></label>
+          <label class="ancho">Algo más <small>opcional</small><input id="bNota" placeholder="Ej.: las papas bien crujientes"></label>
+        </div></div>
+      <p class="aparte">Las burgers, alitas y demás platos de la carta no van en la bandeja: se piden aparte. Escríbelos en "Algo más". También están en Yummy y PedidosYa.</p>
+      <div class="ticket comanda-b">
+        <p class="display">Comanda</p><p class="sub">ARMA TU BANDEJA</p>
+        <ul id="lineas"></ul>
+        <div class="t-total"><span>Total aprox.</span><div><b id="total" aria-live="polite">REF 13</b><small class="t-bs" id="totalBs"></small></div></div>
+        <p class="falta" id="falta" aria-live="polite"></p>
+        <a class="btn verde" id="pedirBandeja" href="https://wa.me/PON_AQUI_EL_NUMERO">Pedir por WhatsApp</a>
+        <p class="nota" id="resumen">Te llega como mensaje listo para enviar. El local confirma el pedido y el envío.</p>
+      </div>
     </div>
     <div class="ar-b">
-      <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="foto-combo" id="fotoCombo" hidden><img src="f/c-bandeja-compin.webp" alt=""></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div></div>
+      <div class="bandeja" aria-hidden="true"><div class="papelito"></div><div class="foto-combo" id="fotoCombo" hidden><img src="f/c-bandeja-compin.webp" alt=""></div><div class="zona-pinchos" id="zonaP"></div><div class="zona-extra" id="zonaE"></div><span class="peso" id="pesoB"></span></div>
       <p class="pie-bandeja" id="pieBandeja">x5 pinchos · 1 persona</p>
     </div>
   </div>
@@ -463,68 +520,109 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 
   /* Arma tu bandeja: solo lo que permite su carta de febrero 2026.
      Medidas fijas x5, x9, x15 o la Bandeja Compin (combo cerrado). Pinchos mixtos; todos de carne solo con precio a consultar.
+     Pinchos adicionales REF 2, side extra REF 3, salsa extra REF 1. El envío y el retiro se confirman con el local.
      Las burgers y demás platos no van en la bandeja: se piden aparte. */
-  var TAM=[{t:'x5',n:5,p:13,personas:'1 persona',sides:1,salsas:2},{t:'x9',n:9,p:22,personas:'2 personas',sides:2,salsas:3},{t:'x15',n:15,p:35,personas:'3 o 4 personas',sides:3,salsas:4},
+  var TAM=[{t:'x5',n:5,g:250,p:13,personas:'1 persona',sides:1,salsas:2},{t:'x9',n:9,g:450,p:22,personas:'2 personas',sides:2,salsas:3},{t:'x15',n:15,g:750,p:35,personas:'3 o 4 personas',sides:3,salsas:4},
            {t:'Compin',n:9,p:30,personas:'3 personas',combo:true}];
   var COMBO_INCL='9 pinchos mixtos, mini tenders de pollo, aros de cebolla, papas fritas, ensalada César y coleslaw.';
   var SIDES=[['Papas fritas','s-papas'],['Aros de cebolla','s-aros'],['Ensalada César','s-cesar'],['Coleslaw','s-coleslaw']];
   var SALSAS=[['BBQ','#5A2E1A'],['Ajo','#F1EAD2'],['Mojo criollo','#E08A2E'],['Tocineta','#D9C79A'],['Ranch','#EDEBDD'],['Parrillera','#C2421E'],['Alemana','#E6E3C8'],['Mermelada de pimentón','#8E1B1B'],['Cheddar','#F2B33D'],['Teriyaki','#4A2A17'],['Guasacaca','#8FAE45'],['Mermelada de cebolla','#5B2B23']];
-  var t=TAM[0],prot='mixtos',cs={},csa={},extra=0,prev={k:'',cs:{},csa:{}};
+  var GENTE=[[1,'1'],[2,'2'],[3,'3'],[4,'4'],[5,'5+']];
+  var RECO={1:[0],2:[1],3:[2,3],4:[2],5:[2]};
+  var HINT={1:'Para 1: la x5, con 1 side y 2 salsas.',2:'Para 2: la x9, con 2 sides y 3 salsas.',3:'Para 3: la x15 (3 o 4 personas) o la Bandeja Compin, que ya trae sides.',4:'Para 4: la x15, con 3 sides y 4 salsas.',5:'Para 5 o más: la x15 con pinchos adicionales (REF 2 c/u), o pide dos bandejas.'};
+  var ENTREGA=[['domicilio','A domicilio','con su reparto · el envío lo confirman'],['buscar','Paso a buscarla','se pregunta a qué hora está lista']];
+  var t=TAM[0],prot='mixtos',cs={},csa={},extra=0,compas=0,entrega='',prev={k:'',cs:{},csa:{}};
   document.getElementById('pMas').addEventListener('click',function(){extra=Math.min(10,extra+1);pintarB();});
   document.getElementById('pMenos').addEventListener('click',function(){extra=Math.max(0,extra-1);pintarB();});
-  var tamanos=document.getElementById('tamanos'),protBox=document.getElementById('proteina'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas');
-  TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.appendChild(el('b','',x.combo?'Compin':x.t));b.appendChild(el('span','',(x.combo?'Bandeja · ':'')+x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;if(x.combo)prot='mixtos';tamanos.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b?'true':'false')});pintarB();});tamanos.appendChild(b);});
-  var PROT=[['mixtos','Mixtos','carne, cerdo y pollo'],['carne','Todos de carne','precio a consultar']];
+  var tamanos=document.getElementById('tamanos'),protBox=document.getElementById('proteina'),sidesBox=document.getElementById('sides'),salsasBox=document.getElementById('salsas'),bCuantos=document.getElementById("bCompas"),entBox=document.getElementById('entrega');
+  ['bNombre','bZona','bNota'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){pintarB(true);});});
+  function pintarTam(){tamanos.innerHTML='';var rc=RECO[compas]||[];TAM.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',x===t?'true':'false');if(rc.indexOf(i)>=0)b.className='reco';b.appendChild(el('b','',x.combo?'Compin':x.t));b.appendChild(el('span','',(x.combo?'Bandeja · ':'')+x.personas+' · '+ref(x.p)));b.addEventListener('click',function(){t=x;if(x.combo)prot='mixtos';pintarB();});tamanos.appendChild(b);});}
+  function pintarCompas(){bCuantos.innerHTML='';GENTE.forEach(function(g){var b=document.createElement('button');b.type='button';b.textContent=g[1];b.setAttribute('aria-label',g[0]===5?'5 o más personas':g[0]+(g[0]>1?' personas':' persona'));b.setAttribute('aria-pressed',compas===g[0]?'true':'false');b.addEventListener('click',function(){compas=g[0];t=TAM[RECO[compas][0]];document.getElementById('gHint').textContent=HINT[compas];pintarB();});bCuantos.appendChild(b);});}
+  function pintarEnt(){entBox.innerHTML='';ENTREGA.forEach(function(p){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',entrega===p[0]?'true':'false');b.appendChild(el('b','',p[1]));b.appendChild(el('span','',p[2]));b.addEventListener('click',function(){entrega=p[0];pintarB();});entBox.appendChild(b);});document.getElementById('bZonaL').hidden=entrega!=='domicilio';}
+  var PROT=[['mixtos','Pinchos mixtos','carne, cerdo y pollo'],['carne','Todos de carne','precio a consultar']];
   function pintarProt(){protBox.innerHTML='';PROT.forEach(function(p){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',prot===p[0]?'true':'false');b.appendChild(el('b','',p[1]));b.appendChild(el('span','',p[2]));if(t.combo&&p[0]==='carne'){b.disabled=true;b.title='La Bandeja Compin viene con pinchos mixtos';}b.addEventListener('click',function(){prot=p[0];pintarB();});protBox.appendChild(b);});}
-  function fichas(box,lista,obj){
+  function fichas(box,lista,obj,incl){
     box.innerHTML='';
-    lista.forEach(function(it){var k=it[0],n=obj[k]||0;var f=el('span','ficha'+(n?' on':''));f.appendChild(document.createTextNode(k));var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+k);m.disabled=!n;var p=el('button','','+');p.type='button';p.setAttribute('aria-label','Agregar '+k);
+    lista.forEach(function(it){var k=it[0],n=obj[k]||0;var f=el('span','ficha'+(n?' on':''));
+      if(it[1].charAt(0)==='#'){var d=el('i','dot');d.style.background=it[1];f.appendChild(d);}else{f.appendChild(usar(it[1],'0 0 60 60','mini'));}
+      f.appendChild(document.createTextNode(k));var m=el('button','','−');m.type='button';m.setAttribute('aria-label','Quitar '+k);m.disabled=!n;var p=el('button','','+');p.type='button';p.setAttribute('aria-label','Agregar '+k);
       m.addEventListener('click',function(){obj[k]=Math.max(0,(obj[k]||0)-1);pintarB();});p.addEventListener('click',function(){obj[k]=(obj[k]||0)+1;pintarB();});
       f.appendChild(m);if(n)f.appendChild(el('output','',String(n)));f.appendChild(p);box.appendChild(f);});
   }
   function suma(o){var s=0;for(var k in o)s+=o[k];return s}
-  function pintarB(){
-    pintarProt();
+  function unidades(lista,obj){var u=[];lista.forEach(function(it){for(var j=0;j<(obj[it[0]]||0);j++)u.push(it[0]);});return u}
+  function agrupa(arr,may){var m={},o=[];arr.forEach(function(x){if(!m[x]){m[x]=0;o.push(x);}m[x]++;});return o.map(function(x){return (m[x]>1?m[x]+' × ':'')+(may?x:x.toLowerCase())}).join(', ')}
+  function pintarB(soloTexto){
     var combo=!!t.combo;
-    if(combo)extra=0;document.getElementById('extraP').hidden=combo;document.getElementById('pCuantos').textContent=extra;document.getElementById('pMenos').disabled=!extra;document.getElementById('fotoCombo').hidden=!combo;
-    document.getElementById('pasoSides').hidden=combo;document.getElementById('pasoSalsas').hidden=combo;
-    var ci=document.getElementById('comboIncluye');ci.hidden=!combo;ci.textContent=combo?'Incluye: '+COMBO_INCL+' Las salsas se eligen al pedir.':'';
-    if(combo){cs={};csa={};}
-    fichas(sidesBox,SIDES,cs);fichas(salsasBox,SALSAS,csa);
+    if(combo){extra=0;cs={};csa={};}
     var ns=suma(cs),na=suma(csa),exS=combo?0:Math.max(0,ns-t.sides),exA=combo?0:Math.max(0,na-t.salsas);
-    if(!combo){
-      document.getElementById('sidesInfo').textContent=t.sides+(t.sides>1?' incluidos':' incluido')+(exS?' · '+exS+' extra a REF 3':'');
-      document.getElementById('salsasInfo').textContent=t.salsas+' incluidas'+(exA?' · '+exA+' extra a REF 1':'');
-    }
     var carne=prot==='carne'&&!combo;
-    var total=t.p+exS*3+exA+extra*2;
-    document.getElementById('total').textContent=carne?'Precio a consultar':ref(total);
+    var total=t.p+exS*3+exA+extra*2+0;
+    var faltaS=combo?0:Math.max(0,t.sides-ns),faltaA=combo?0:Math.max(0,t.salsas-na);
+    var nombre=document.getElementById('bNombre').value.trim(),zona=document.getElementById('bZona').value.trim(),nota=document.getElementById('bNota').value.trim();
+    if(!soloTexto){
+      pintarCompas();pintarTam();pintarProt();pintarEnt();
+      document.getElementById('extraP').hidden=combo;document.getElementById('pCuantos').textContent=extra;document.getElementById('pMenos').disabled=!extra;document.getElementById('fotoCombo').hidden=!combo;
+      document.getElementById('pasoSides').hidden=combo;document.getElementById('pasoSalsas').hidden=combo;
+      var ci=document.getElementById('comboIncluye');ci.hidden=!combo;ci.textContent=combo?'Incluye: '+COMBO_INCL+' Las salsas se eligen al pedir.':'';
+      fichas(sidesBox,SIDES,cs);fichas(salsasBox,SALSAS,csa);
+      if(!combo){
+        document.getElementById('sidesInfo').textContent=(faltaS?'elige '+faltaS+' de '+t.sides+' incluidos':t.sides+(t.sides>1?' incluidos ✓':' incluido ✓'))+(exS?' · '+exS+' extra a REF 3':'');
+        document.getElementById('salsasInfo').textContent=(faltaA?'elige '+faltaA+' de '+t.salsas+' incluidas':t.salsas+' incluidas ✓')+(exA?' · '+exA+' extra a REF 1':'');
+      }
+      /* Progreso */
+      var ok=[compas>0,compas>0||prev.k!=='',combo||faltaS===0,combo||faltaA===0,!!entrega],primero=ok.indexOf(false);
+      document.querySelectorAll('#progreso li').forEach(function(li,i){li.className=ok[i]?'ok':(i===primero?'ahora':'');});
+      /* Bandeja dibujada */
+      document.getElementById('pieBandeja').textContent=(combo?'Bandeja Compin':t.t+' pinchos'+(extra?' + '+extra:''))+' · '+t.personas;
+      document.getElementById('pesoB').textContent=combo?'9 pinchos + tenders':(t.g+' g'+(extra?' + '+extra+' adic.':''));
+      var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
+      var tipos=carne?['pincho-carne']:['pincho-carne','pincho-pollo','pincho-cerdo'];
+      var clave=t.t+prot,cambio=clave!==prev.k,hubo=false;
+      var nP=t.n+extra;zp.className='zona-pinchos'+(nP>5?' muchos':'');
+      for(var i=0;i<nP;i++){var nv=cambio||i>=(prev.n||0);if(!cambio&&nv)hubo=true;var s=usar(tipos[i%tipos.length],'0 0 200 40',nv?'nuevo':'');if(cambio)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
+      if(combo){['s-papas','s-aros','s-cesar','s-coleslaw'].forEach(function(id,j){var s=usar(id,'0 0 60 60',cambio?'nuevo':'');if(cambio)s.style.animationDelay=(200+j*60)+'ms';ze.appendChild(s);});}
+      SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++){var nv=j>=(prev.cs[sd[0]]||0);if(nv)hubo=true;ze.appendChild(usar(sd[1],'0 0 60 60',nv?'nuevo':''));}});
+      SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var nv=j>=(prev.csa[sa[0]]||0);if(nv)hubo=true;var s=usar('s-salsa','0 0 60 60','salsa'+(nv?' nuevo':''));s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
+      if((hubo||cambio)&&prev.k){var bj=document.querySelector('.bandeja');bj.classList.remove('golpe');void bj.offsetWidth;bj.classList.add('golpe');if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}}
+      prev={k:clave,n:nP,cs:JSON.parse(JSON.stringify(cs)),csa:JSON.parse(JSON.stringify(csa))};
+    }
+    /* Comanda línea por línea */
+    var L=[],msg=[];
+    if(combo){L.push(['Bandeja Compin','9 pinchos mixtos, tenders, aros, papas, César y coleslaw · '+t.personas,ref(t.p)]);msg.push('Bandeja Compin ('+ref(t.p)+')');}
+    else{L.push(['Bandeja '+t.t+' · pinchos '+(carne?'de carne':'mixtos'),t.g+' g de proteína · '+t.personas,carne?'a consultar':ref(t.p)]);msg.push(t.t+' pinchos '+(carne?'todos de carne':'mixtos')+(carne?'':' ('+ref(t.p)+')'));}
+    if(extra){L.push([extra+(extra>1?' pinchos adicionales':' pincho adicional'),'REF 2 c/u',ref(extra*2)]);msg.push(extra+(extra>1?' pinchos adicionales':' pincho adicional')+' ('+ref(extra*2)+')');}
+    if(!combo){
+      var us=unidades(SIDES,cs),ua=unidades(SALSAS,csa);
+      var si=us.slice(0,t.sides),se=us.slice(t.sides),ai=ua.slice(0,t.salsas),ae=ua.slice(t.salsas);
+      L.push(['Sides incluidos',si.length?agrupa(si):'Sin elegir todavía',si.length+' de '+t.sides,'inc']);
+      if(se.length)L.push(['Sides extra',agrupa(se),ref(se.length*3)]);
+      L.push(['Salsas incluidas',ai.length?agrupa(ai,1):'Sin elegir todavía',ai.length+' de '+t.salsas,'inc']);
+      if(ae.length)L.push(['Salsas extra',agrupa(ae,1),ref(ae.length)]);
+      if(us.length)msg.push('Sides: '+agrupa(us)+(se.length?' ('+se.length+' extra)':''));
+      if(ua.length)msg.push('Salsas: '+agrupa(ua,1)+(ae.length?' ('+ae.length+' extra)':''));
+    }else{L.push(['Salsas','Se eligen al pedir','por confirmar','inc']);}
+    if(entrega==='domicilio'){L.push(['A domicilio',zona||'Zona por indicar','envío a confirmar','inc']);}
+    else if(entrega==='buscar'){L.push(['Paso a buscarla','En el local de Altamira','sin costo','inc']);}
+    var lin=document.getElementById('lineas');lin.innerHTML='';
+    L.forEach(function(x){var li=el('li');li.appendChild(el('b','',x[0]));li.appendChild(el('em',x[3]||'',x[2]));if(x[1])li.appendChild(el('span','',x[1]));lin.appendChild(li);});
+    document.getElementById('total').textContent=carne?'A consultar':ref(total);
     document.getElementById('totalBs').textContent=(!carne&&TASA)?'≈ '+bs(total)+' a tasa BCV':(carne?'El local te dice el precio de los pinchos de carne':'');
-    var partes=[combo?'Bandeja Compin':(t.t+' pinchos '+(carne?'todos de carne':'mixtos'))];if(extra)partes.push(extra+(extra>1?' pinchos adicionales':' pincho adicional'));
-    SIDES.forEach(function(s){if(cs[s[0]])partes.push(cs[s[0]]+' × '+s[0].toLowerCase())});
-    SALSAS.forEach(function(s){if(csa[s[0]])partes.push(csa[s[0]]+' × salsa '+s[0].toLowerCase())});
-    var faltan=combo?0:Math.max(0,t.sides-ns);
-    document.getElementById('resumen').textContent=partes.join(', ')+'.'+(faltan?' Te falta elegir '+faltan+(faltan>1?' sides incluidos.':' side incluido.'):'');
-    document.getElementById('pedirBandeja').href=WA+encodeURIComponent('Hola, quiero pedir: '+partes.join(', ')+'. '+(carne?'¿Qué precio tiene con todos los pinchos de carne?':'Total aproximado '+ref(total)+'.'));
-    document.getElementById('pieBandeja').textContent=(combo?'Bandeja Compin':t.t+' pinchos')+' · '+t.personas;
-    var zp=document.getElementById('zonaP'),ze=document.getElementById('zonaE');zp.innerHTML='';ze.innerHTML='';
-    zp.className='zona-pinchos'+(t.n>5?' muchos':'');
-    var tipos=carne?['pincho-carne']:['pincho-carne','pincho-pollo','pincho-cerdo'];
-    var clave=t.t+prot,cambio=clave!==prev.k,hubo=false;
-    var nP=t.n+extra;zp.className='zona-pinchos'+(nP>5?' muchos':'');
-    for(var i=0;i<nP;i++){var nv=cambio||i>=(prev.n||0);if(!cambio&&nv)hubo=true;var s=usar(tipos[i%tipos.length],'0 0 200 40',nv?'nuevo':'');if(cambio)s.style.animationDelay=(i*22)+'ms';zp.appendChild(s);}
-    if(combo){['s-papas','s-aros','s-cesar','s-coleslaw'].forEach(function(id,j){var s=usar(id,'0 0 60 60',cambio?'nuevo':'');if(cambio)s.style.animationDelay=(200+j*60)+'ms';ze.appendChild(s);});}
-    SIDES.forEach(function(sd){for(var j=0;j<(cs[sd[0]]||0);j++){var nv=j>=(prev.cs[sd[0]]||0);if(nv)hubo=true;ze.appendChild(usar(sd[1],'0 0 60 60',nv?'nuevo':''));}});
-    SALSAS.forEach(function(sa){for(var j=0;j<(csa[sa[0]]||0);j++){var nv=j>=(prev.csa[sa[0]]||0);if(nv)hubo=true;var s=usar('s-salsa','0 0 60 60','salsa'+(nv?' nuevo':''));s.style.setProperty('--c',sa[1]);ze.appendChild(s);}});
-    if((hubo||cambio)&&prev.k){var bj=document.querySelector('.bandeja');bj.classList.remove('golpe');void bj.offsetWidth;bj.classList.add('golpe');if(navigator.vibrate)try{navigator.vibrate(12)}catch(e){}}
-    prev={k:clave,n:nP,cs:JSON.parse(JSON.stringify(cs)),csa:JSON.parse(JSON.stringify(csa))};
+    var falta=[];if(faltaS)falta.push(faltaS+(faltaS>1?' sides':' side'));if(faltaA)falta.push(faltaA+(faltaA>1?' salsas':' salsa'));
+    document.getElementById('falta').textContent=(falta.length?'Te '+(faltaS+faltaA>1?'faltan ':'falta ')+falta.join(' y ')+(faltaS+faltaA>1?' incluidos':' incluido')+', sin costo.':'')+(!entrega?(falta.length?' ':'')+'Elige cómo la quieres.':'');
+    var texto='Hola, quiero armar una bandeja:\n• '+msg.join('\n• ')+'\n'+(carne?'¿Qué precio tiene con todos los pinchos de carne?':'Total aproximado '+ref(total)+'.');
+    if(entrega==='domicilio')texto+='\nA domicilio'+(zona?' en '+zona:'')+'. ¿Cuánto es el envío?';
+    if(entrega==='buscar')texto+='\nPaso a buscarla. ¿A qué hora estaría lista?';
+    if(nota)texto+='\nAlgo más: '+nota;
+    if(nombre)texto+='\nA nombre de '+nombre+'.';
+    document.getElementById('pedirBandeja').href=WA+encodeURIComponent(texto);
   }
   pintarB();
 
   /* Tasa BCV del día para mostrar bolívares (dolarapi.com, dato público del BCV). Si no responde, solo se ven los REF. */
   if(window.fetch)fetch('https://ve.dolarapi.com/v1/dolares/oficial').then(function(r){return r.json()}).then(function(j){if(!j||!j.promedio)return;TASA=j.promedio;var f=new Date(j.fechaActualizacion);
     document.getElementById('tasaNota').textContent='En bolívares, a la tasa BCV del '+f.getDate()+'/'+(f.getMonth()+1)+': Bs. '+TASA.toLocaleString('es-VE',{maximumFractionDigits:2})+' por dólar.';
-    if(catActual)verCat(catActual);document.getElementById('totalBs').textContent='≈ '+bs(parseFloat(document.getElementById('total').textContent.replace('REF ','').replace(',','.')))+' a tasa BCV';}).catch(function(){});
+    if(catActual)verCat(catActual);pintarB();}).catch(function(){});
 
   /* Horario real y estado en hora de Caracas */
   var HOR={0:[12,22],1:[11,22],2:[11,22],3:[11,23],4:[11,23],5:[11,24],6:[12,24]};
@@ -597,6 +695,16 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 document.addEventListener('click',function(e){var l=e.target.closest('a[href*="wa.me/"]');if(!l)return;e.preventDefault();
 a.textContent='En la versión final, este botón abre el WhatsApp de su negocio con el mensaje listo para el cliente.';
 a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remove('ver')},3800);});})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('flota');if(!f)return;
+  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
+  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
+  var espera=null;
+  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
+  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
+})();
 </script>
 <!-- vida:inicio -->
 <script>window.VIDA = {"caracter": "calido"};</script>
@@ -708,15 +816,5 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
-<script>
-(function(){
-  var f=document.getElementById('flota');if(!f)return;
-  var meta=document.querySelector(f.getAttribute('href')),foot=document.querySelector('footer');
-  function dentro(e){if(!e)return false;var r=e.getBoundingClientRect();return r.top<innerHeight*0.9&&r.bottom>innerHeight*0.1}
-  var espera=null;
-  function act(){espera=null;var abajo=scrollY>innerHeight*0.7;f.classList.toggle('ver',abajo&&!dentro(meta)&&!dentro(foot));}
-  addEventListener('scroll',function(){if(!espera)espera=setTimeout(act,80)},{passive:true});addEventListener('resize',act);act();
-})();
-</script>
 </body>
 </html>
