@@ -112,6 +112,21 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.filtros{display:flex;gap:6px 22px;flex-wrap:wrap;border-bottom:1px solid var(--linea);margin-bottom:18px}
+.filtros button{all:unset;cursor:pointer;padding:12px 0;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);border-bottom:2px solid transparent;margin-bottom:-1px}
+.filtros button[aria-pressed="true"]{color:var(--tinta);border-bottom-color:var(--verde)}
+.filtros button:focus-visible{outline:3px solid var(--naranja);outline-offset:2px}
+.filtros sup{font-size:.7em;margin-left:3px;color:var(--gris)}
+.orden{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;color:var(--gris);font-size:.9rem}
+.orden button{all:unset;cursor:pointer;font-weight:600;color:var(--tinta);border-bottom:1px solid var(--tinta)}
+.orden button[aria-pressed="true"]{color:var(--verde);border-color:var(--verde)}
+.mont .fila{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px}
+.mont .apartar{font-size:.85rem;font-weight:600;color:var(--verde);text-decoration:none;border-bottom:1px solid currentColor}
+.mont .tipo{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:14px}
+.mont .tipo+b{margin-top:2px}
+.mont.vacio .img{background:var(--blanco);border:1px dashed #BDBDBD;display:grid;place-items:center;text-align:center;padding:16px;color:var(--gris);font-size:.92rem}
+.mapa{margin-top:40px;border:1px solid var(--tinta);aspect-ratio:16/7;min-height:300px}
+.mapa iframe{display:block;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
@@ -169,16 +184,13 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 
 <section aria-labelledby="mont">
   <div class="wrap">
-    <p class="etq">Vitrina</p>
+    <p class="etq">Catálogo</p>
     <h2 id="mont">Elige tu montura antes de venir.</h2>
-    <p class="lead">Las monturas que hoy se publican en Instagram, ordenadas con su precio. Se aparta con un toque y se prueba en la óptica.</p>
-    <div class="rejilla">
-      <div class="mont"><div class="img"><img src="f/m717.jpg" alt="Montura redonda de carey con puente dorado, modelo M717" width="860" height="458" loading="lazy"></div><b>Redonda carey · M717</b><small>$35</small></div>
-      <div class="mont"><div class="img"><img src="f/m40.jpg" alt="Montura ojo de gato negra y morada, marca Monetti" width="804" height="418" loading="lazy"></div><b>Ojo de gato · Monetti</b><small>$40</small></div>
-      <div class="mont"><div class="img"><img src="f/enox.jpg" alt="Montura cuadrada azul oscuro de la marca ENOX" width="1100" height="880" loading="lazy"></div><b>Cuadrada · ENOX</b><small>$120</small></div>
-      <a class="mont mas" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20monturas"><div class="img">Ver más modelos →</div><b>Catálogo completo</b><small>Por WhatsApp</small></a>
-    </div>
-    <p class="nota">Precios tal como aparecen en sus publicaciones; la óptica los confirma.</p>
+    <p class="lead">Todas las monturas de la óptica, separadas por tipo y con su precio. Aparta la que te guste y pruébatela en el local.</p>
+    <div class="filtros" role="group" aria-label="Tipo de montura" id="filtros"></div>
+    <div class="orden"><span id="cuantas" aria-live="polite"></span><button type="button" id="ordenar" aria-pressed="false">Ordenar por precio</button></div>
+    <div class="rejilla" id="catalogo"></div>
+    <p class="nota">En esta propuesta están las monturas que aparecen con precio en sus fotos públicas. En la página final se cargan todas las del catálogo de la óptica, con su foto, tipo y precio.</p>
   </div>
 </section>
 
@@ -381,9 +393,10 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
         <dt>Horario</dt><dd>Lunes a jueves y sábado, de 11 a. m. a 5 p. m. Viernes, de 11 a. m. a 4 p. m.</dd>
         <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
       </dl>
-      <div class="acciones" style="justify-content:flex-start"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%93ptica+Plus+Chaca%C3%ADto">Cómo llegar</a></div>
+      <div class="acciones" style="justify-content:flex-start"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4916974%2C-66.867631&amp;destination_place_id=ChIJa59GlzxZKowRHr2YblwnLIw">Cómo llegar</a></div>
     </div>
   </div>
+  <div class="wrap"><div class="mapa"><iframe title="Mapa de Plus Óptica en el Centro Doral, Chacaíto" src="https://maps.google.com/maps?q=%C3%93ptica%20Plus%20Chaca%C3%ADto&amp;ll=10.4916974,-66.867631&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </section>
 </main>
 
@@ -528,5 +541,47 @@ a.classList.add('ver');clearTimeout(t);t=setTimeout(function(){a.classList.remov
 })();
 </script>
 <!-- vida:fin -->
+<script>
+(function(){
+  var WA='https://wa.me/PON_AQUI_EL_NUMERO?text=';
+  var TIPOS=[['todas','Todas'],['redondas','Redondas'],['ojo-de-gato','Ojo de gato'],['cuadradas','Cuadradas'],['metalicas','Metálicas'],['ninos','Niños'],['sol','De sol']];
+  // Cada montura: nombre, tipos, precio en dólares y foto. En la versión final esta lista sale del catálogo de la óptica.
+  var MONTURAS=[
+    {n:'Redonda carey · M717',t:['redondas','metalicas'],p:35,f:'f/m717.jpg',a:'Montura redonda de carey con puente dorado, modelo M717'},
+    {n:'Ojo de gato · Monetti',t:['ojo-de-gato'],p:40,f:'f/m40.jpg',a:'Montura ojo de gato negra y morada, marca Monetti'},
+    {n:'Cuadrada · ENOX',t:['cuadradas'],p:120,f:'f/enox.jpg',a:'Montura cuadrada azul oscuro de la marca ENOX'}
+  ];
+  var actual='todas',porPrecio=false;
+  var fil=document.getElementById('filtros'),cat=document.getElementById('catalogo'),cuantas=document.getElementById('cuantas'),ord=document.getElementById('ordenar');
+  function nombreTipo(k){for(var i=0;i<TIPOS.length;i++)if(TIPOS[i][0]===k)return TIPOS[i][1];return k}
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e}
+  TIPOS.forEach(function(t){
+    var n=t[0]==='todas'?MONTURAS.length:MONTURAS.filter(function(m){return m.t.indexOf(t[0])>=0}).length;
+    var b=el('button');b.type='button';b.textContent=t[1];b.appendChild(el('sup','',String(n)));
+    b.setAttribute('aria-pressed',t[0]===actual?'true':'false');
+    b.addEventListener('click',function(){actual=t[0];fil.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});pintar();});
+    fil.appendChild(b);
+  });
+  ord.addEventListener('click',function(){porPrecio=!porPrecio;ord.setAttribute('aria-pressed',porPrecio?'true':'false');ord.textContent=porPrecio?'Menor precio primero':'Ordenar por precio';pintar();});
+  function pintar(){
+    var lista=MONTURAS.filter(function(m){return actual==='todas'||m.t.indexOf(actual)>=0});
+    if(porPrecio)lista=lista.slice().sort(function(a,b){return a.p-b.p});
+    cat.innerHTML='';
+    cuantas.textContent=lista.length+(lista.length===1?' montura':' monturas');
+    lista.forEach(function(m){
+      var d=el('div','mont');var im=el('div','img');var i=document.createElement('img');i.src=m.f;i.alt=m.a;i.loading='lazy';im.appendChild(i);d.appendChild(im);
+      d.appendChild(el('span','tipo',m.t.map(nombreTipo).join(' · ')));d.appendChild(el('b','',m.n));
+      var f=el('div','fila');f.appendChild(el('small','','$'+m.p));var a=el('a','apartar','Apartar');a.href=WA+encodeURIComponent('Hola, quiero apartar la montura '+m.n);f.appendChild(a);d.appendChild(f);
+      cat.appendChild(d);
+    });
+    if(actual!=='todas'&&lista.length<2){
+      var txt=actual==='ninos'?'para niños':actual==='sol'?'de sol':nombreTipo(actual).toLowerCase();
+      var v=el('div','mont vacio');v.appendChild(el('div','img','Aquí van los demás modelos '+txt+' de la óptica.'));v.appendChild(el('b','','Más modelos'));v.appendChild(el('small','','Al cargar su catálogo'));cat.appendChild(v);
+    }
+    var mas=document.createElement('a');mas.className='mont mas';mas.href=WA+encodeURIComponent('Hola, quiero ver más monturas');mas.appendChild(el('div','img','Pregunta por otros modelos →'));mas.appendChild(el('b','','¿Buscas algo distinto?'));mas.appendChild(el('small','','Por WhatsApp'));cat.appendChild(mas);
+  }
+  pintar();
+})();
+</script>
 </body>
 </html>

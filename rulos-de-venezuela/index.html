@@ -115,6 +115,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.mapa{margin-top:44px;border:1px solid var(--linea);aspect-ratio:16/7;min-height:300px}.mapa iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1)}
 </style>
 </head>
 <body>
@@ -412,7 +413,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
         <dt>Horario</dt><dd>Lunes a sábado, de 9 a. m. a 7 p. m.</dd>
         <dt>Citas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp</dd>
       </dl>
-      <div class="acciones" style="justify-content:flex-start;padding:0"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rulos+de+Venezuela+Chacao">Cómo llegar</a></div>
+      <div class="acciones" style="justify-content:flex-start;padding:0"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4925486%2C-66.8568466&amp;destination_place_id=ChIJLdCv8-1ZKowRW4cPtfOLTjk">Cómo llegar</a></div>
     </div>
     <div>
       <h2 style="font-size:2rem">Tu próxima cita, en un minuto</h2>
@@ -420,6 +421,7 @@ footer{padding:30px 0 90px;color:var(--gris);font-size:.92rem}
       <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
     </div>
   </div>
+  <div class="wrap"><div class="mapa"><iframe title="Mapa de Rulos de Venezuela en el Edificio Lucerna, Chacao" src="https://maps.google.com/maps?q=Rulos%20de%20Venezuela&amp;ll=10.4925486,-66.8568466&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </section>
 </main>
 

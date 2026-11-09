@@ -129,6 +129,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
 .nodo-franja b{color:#8FD3FF}
 .nodo-aviso{position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:60;max-width:min(92vw,420px);background:#fff;color:#111;font:500 15px/1.4 system-ui,sans-serif;padding:14px 18px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
 .nodo-aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.mapa{margin-top:44px;border:2px solid var(--crema);border-radius:7px;overflow:hidden;aspect-ratio:16/7;min-height:300px}.mapa iframe{display:block;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
@@ -396,7 +397,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
         <dt>Horario</dt><dd>Lunes y martes, de 11 a. m. a 10 p. m. Miércoles y jueves, hasta las 11 p. m. Viernes, hasta medianoche. Sábado, de 12 m. a medianoche. Domingo, de 12 m. a 10 p. m.</dd>
         <dt>Reservas</dt><dd><a href="#reserva-web">En línea</a> o por WhatsApp. Asientos accesibles para silla de ruedas y delivery</dd>
       </dl>
-      <div class="abajo" style="justify-content:flex-start;padding:26px 0 0"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Compincher%C3%ADa+Altamira+Caracas">Cómo llegar</a></div>
+      <div class="abajo" style="justify-content:flex-start;padding:26px 0 0"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=10.4970816%2C-66.8495393&amp;destination_place_id=ChIJ9ZN0kf5ZKowRyIP-59v2XB0">Cómo llegar</a></div>
     </div>
     <div>
       <h2 class="display" style="font-size:2.2rem">La mesa te espera</h2>
@@ -404,6 +405,7 @@ footer{padding:30px 0 90px;font-size:.9rem;color:var(--gris)}
       <a class="btn linea" href="https://wa.me/PON_AQUI_EL_NUMERO?text=Hola%2C%20quiero%20reservar%20una%20mesa">Reservar por WhatsApp</a>
     </div>
   </div>
+  <div class="wrap"><div class="mapa"><iframe title="Mapa de Compinchería en el Edificio El Parque, Altamira" src="https://maps.google.com/maps?q=Compincher%C3%ADa&amp;ll=10.4970816,-66.8495393&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </section>
 </main>
 
