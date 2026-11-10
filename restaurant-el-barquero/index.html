@@ -32,10 +32,10 @@
 <!--
 Referencias (proceso-diseno.md y skill refero-design, segunda versión del 2026-11-09):
 Candado. Principal: Limón (Refero Styles): brasserie a la luz de velas; fondo casi negro, verde profundo (aquí el de sus manteles) para texto sobre crema, un solo color encendido (aquí su dorado) solo en botones rellenos, letras con interletra amplia, esquinas de 1 px, platos a gran tamaño de borde a borde.
-Prestado: plano de sala de los sistemas de reserva de mesas, reducido a tres zonas, y la mesa vista desde arriba como en un plano de montaje de banquetes.
+Prestado: la mesa vista desde arriba como en un plano de montaje de banquetes.
 De la marca (ficha de Google): fachada de piedra con el escudo y "La Embajada de los Mares en Caracas"; servicio en la mesa con carrito y fuego; manteles verdes, vigas de madera y platos de cerámica en la pared; arroces, gambas al ajillo, langostinos, ceviche y sopas de mar; 4,5 con 2.287 opiniones; horario por día de su ficha.
 Orden: los platos, música y baile, armar la mesa y reservar, dónde y horario.
-Momento memorable: la mesa se arma a la vista. Mantel verde con cubremantel claro como los suyos, un puesto por cada persona, la zona del salón (junto a la pista, centro o rincón tranquilo) y los platos de la página al centro. Termina en el mensaje de WhatsApp tal como le llega al restaurante. El plano es de referencia: la distribución real está por confirmar.
+Momento memorable: la mesa se arma a la vista. Mantel verde con cubremantel claro como los suyos, un puesto por cada persona, y los platos de la página al centro. Termina en el mensaje de WhatsApp tal como le llega al restaurante. El plano es de referencia: la distribución real está por confirmar.
 Los nombres de los platos describen lo que se ve en las fotos; la carta con precios la carga el restaurante.
 Fotos: de su ficha de Google, para esta propuesta.
 -->
@@ -234,16 +234,6 @@ dl div>dt{margin-top:0;align-self:baseline}
     </aside>
     <div>
       <div class="paso"><h3>¿Cuántos son?</h3><div class="cuantos"><button type="button" id="mMenos" aria-label="Una persona menos">&minus;</button><output id="mNum" aria-live="polite">2</output><button type="button" id="mMas" aria-label="Una persona más">+</button><span>personas</span></div><p class="apunte" id="mGrande" hidden>Para grupos de más de 16, consulte la reunión por WhatsApp.</p></div>
-      <div class="paso"><h3>¿En qué parte del salón?</h3>
-        <div class="plano" id="mPlano">
-          <div class="pl-mus">Música</div>
-          <div class="pl-pista">Pista</div>
-          <button type="button" class="pl-z za" data-z="Junto a la pista" aria-pressed="false"><i></i><i></i><i></i><i></i><b>Junto a la pista</b><small>Música y baile al lado</small></button>
-          <button type="button" class="pl-z zb" data-z="Centro del salón" aria-pressed="false"><i></i><i></i><i></i><b>Centro del salón</b><small>En medio del ambiente</small></button>
-          <button type="button" class="pl-z zc" data-z="Rincón tranquilo" aria-pressed="false"><i></i><i></i><i></i><b>Rincón tranquilo</b><small>Para conversar</small></button>
-        </div>
-        <p class="apunte">Plano de referencia: la distribución real del salón está por confirmar con el restaurante. La zona va como preferencia.</p>
-      </div>
       <div class="paso"><h3>¿Qué día?</h3><div class="dias" id="mDias"></div></div>
       <div class="paso"><h3>¿A qué hora?</h3><div class="horas" id="mHoras"></div></div>
       <div class="paso"><h3>¿Celebran algo?</h3><div class="ops" id="mOcas"></div></div>
@@ -289,7 +279,7 @@ dl div>dt{margin-top:0;align-self:baseline}
   function cuantos(d){var v=Math.min(16,Math.max(1,pers+d));if(v===pers)return;pers=v;$('mNum').textContent=v;$('mMenos').disabled=v===1;$('mMas').disabled=v===16;$('mGrande').hidden=v<16;pintar();}
   $('mMenos').addEventListener('click',function(){cuantos(-1)});$('mMas').addEventListener('click',function(){cuantos(1)});
   /* Plano: la zona es una preferencia; tocar la misma la quita */
-  var pl=$('mPlano');pl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var ya=b.getAttribute('aria-pressed')==='true';zona=ya?null:b.getAttribute('data-z');pl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b&&!ya?'true':'false')});pintar();});});
+  var pl=$('mPlano');if(pl)pl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var ya=b.getAttribute('aria-pressed')==='true';zona=ya?null:b.getAttribute('data-z');pl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b&&!ya?'true':'false')});pintar();});});
   /* Platos de esta misma página, sin precios: van al centro de la mesa */
   var PL=[['Arroz con mariscos','arroz'],['Gambas al ajillo','gambas'],['Langostinos a la plancha','langostinos'],['Ceviche','ceviche'],['Sopas de mar','sopa']],mp=$('mPlatos');
   PL.forEach(function(p){var b=el('button');b.type='button';b.setAttribute('aria-pressed','false');var i=new Image();i.src='f/'+p[1]+'.webp';i.alt='';i.width=44;i.height=44;b.appendChild(i);b.appendChild(el('span','',p[0]));b.addEventListener('click',function(){var k=antojos.indexOf(p);if(k<0)antojos.push(p);else antojos.splice(k,1);b.setAttribute('aria-pressed',k<0?'true':'false');pintar();});mp.appendChild(b);});
