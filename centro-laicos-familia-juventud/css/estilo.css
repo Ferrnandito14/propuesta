@@ -329,3 +329,8 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 .cab-img img{max-height:none;object-fit:contain;height:auto;background:var(--papel)}
 .cab-img{max-width:900px}
 .cab-img.cab-logo{max-width:520px}
+
+/* Miniaturas completas: afiches con título y fecha sin recorte */
+.ev .th img{object-fit:contain;background:var(--papel)}
+.mini img{object-fit:contain}
+.tarjeta img{object-fit:contain;background:var(--papel)}
