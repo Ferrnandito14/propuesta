@@ -322,3 +322,10 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 /* Respaldo si el reproductor no carga: miniatura y enlace a YouTube */
 .vid.vid-fallo{background-size:cover;background-position:center}
 .vid.vid-fallo .vid-enlace{background:rgba(0,16,96,.6)}
+
+/* Fotos completas, sin recortar */
+.galeria img{aspect-ratio:auto;object-fit:contain;height:auto;background:var(--papel)}
+.galeria{align-items:start}
+.cab-img img{max-height:none;object-fit:contain;height:auto;background:var(--papel)}
+.cab-img{max-width:900px}
+.cab-img.cab-logo{max-width:520px}
