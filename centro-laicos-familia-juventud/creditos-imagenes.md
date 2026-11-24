@@ -165,3 +165,46 @@ Otras notas:
 - `fotos/hero-equipo-abrazo-en-familia-camisas-azules.webp` (1600 x 1200, 140 KB).
 
 Alternativas de formato horizontal: `asesores-grupo-casa-de-encuentros` (1200 x 675) y `secretariado-permanente-reunion` (1200 x 600).
+
+## Segunda tanda: equipo, Centro, juventud, laicos y logos
+
+Autorización de uso declarada por el usuario, pendiente de archivar por escrito con el Centro. Aplica a los retratos del equipo y a las fotos con posibles menores de esta tanda. Un retrato solo lleva nombre si la página del original lo nombra junto a la foto.
+
+| Archivo | Ancho x alto | KB | Origen | Crédito sugerido | Persona | Posibles menores |
+|---|---|---|---|---|---|---|
+| `equipo/retrato-saritza-roque.webp` | 600 x 600 | 39.6 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/08/13-scaled.png) | Centro de Laicos, Familia y Juventud, CEV | Saritza Roque | no |
+| `equipo/retrato-genesis-martinez.webp` | 600 x 600 | 59.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/geneiss.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez | no |
+| `equipo/retrato-genesis-martinez-2025.webp` | 500 x 500 | 22.0 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/genesis.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez | no |
+| `equipo/retrato-jannet-y-pedro-2025.webp` | 500 x 500 | 21.2 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/1.png) | Centro de Laicos, Familia y Juventud, CEV | Jannet García (de Rivas) y Pedro Rivas, coordinadores de Familia (foto de la pareja, sin distinguir quién es quién) | no |
+| `fotos/equipo-centro-selfie-grupal-jardin.webp` | 864 x 1080 | 82.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00004.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `fotos/equipo-centro-selfie-portal.webp` | 667 x 889 | 83.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00002.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `fotos/equipo-centro-selfie-tres.webp` | 667 x 889 | 87.4 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00001.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `fotos/equipo-centro-sesion-de-trabajo-salon.webp` | 858 x 1144 | 82.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00003.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `fotos/equipo-centro-sesion-de-trabajo-mesa.webp` | 789 x 1052 | 86.1 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00005.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `fotos/multitud-jovenes-corazones-escenario.webp` | 1200 x 675 | 63.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2024/09/IMG-20240323-WA0006.webp) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `fotos/procesion-con-cruz-juventud-plaza.webp` | 1104 x 828 | 87.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0216-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `fotos/jovenes-escuchando-obispo-sala.webp` | 1200 x 900 | 82.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0861-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `fotos/jovenes-grupo-frente-a-casa-con-banderas.webp` | 1015 x 761 | 84.1 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/Imagen-de-WhatsApp-2025-09-17-a-las-08.53.05_6100aa73.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `fotos/v-enajo-2023-jovenes-llevando-cruz.webp` | 1104 x 662 | 86.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/02/enajo-2023-2.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `fotos/laicos-procesion-imagen-mariana-patio.webp` | 1200 x 396 | 78.0 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/3-1-scaled.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
+| `logos/logo-dicasterio-laicos-familia-vida.webp` | 800 x 453 | 86.5 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/dicasterio.png) | Dicasterio para los Laicos, la Familia y la Vida |  | no |
+| `logos/logo-pastoral-familiar.webp` | 600 x 600 | 54.5 | [/familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/07.png) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `logos/logo-pastoral-juvenil-de-venezuela.webp` | 600 x 600 | 66.9 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/5.png) | Centro de Laicos, Familia y Juventud, CEV |  | no |
+| `logos/logo-jubileo-2025-peregrinos-de-esperanza.webp` | 800 x 480 | 18.1 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/jubileo.jpg) | Dicasterio para la Evangelización (Jubileo 2025) |  | no |
+
+### Equipo: quién tiene foto verificada
+
+- Saritza Roque: sí (`equipo/retrato-saritza-roque.webp`, tarjeta de /centro/ con su nombre).
+- Génesis Martínez: sí (`equipo/retrato-genesis-martinez.webp` en /centro/ y `retrato-genesis-martinez-2025.webp` en /miembros-2/).
+- Jannet García (el equipo indica Jannet de Rivas) y Pedro Rivas: solo foto de la pareja, con ambos nombres juntos (`fotos/pareja-camisas-abrazo-en-familia.webp` y `equipo/retrato-jannet-y-pedro-2025.webp`). No hay foto individual de cada uno: en su página usar iniciales o la foto de la pareja.
+- No se publicó `2025/02/2.png` (en /miembros-2/ aparece junto al nombre de Saritza Roque, pero la persona no coincide a simple vista con la foto de /centro/): consultar con el Centro antes de usarla.
+
+### Paquetes de eventos (`paquetes/eventos_*.md`, `areas_equipo_videos.md`): no descargados
+
+Las 202 imágenes de esos paquetes están en `conferenciaepiscopalvenezolana.com`, cuyo certificado HTTPS figura como revocado (Windows: CRYPT_E_REVOKED). No se descargó nada de ese sitio ni se desactivó la comprobación. Pendiente: que el Centro entregue esas imágenes o que la CEV corrija el certificado. `cev.org.ve` no resuelve el nombre desde este entorno. Sin 429 en el sitio original.
+
+### Descartado en esta tanda
+
+- Gráficas con rótulos de texto ("Laicos", "Familia", "Juventud") y fondos degradados: las fotos de base ya estaban incluidas (`asamblea-nacional-pastoral-familiar-2025`, `asamblea-juventud-grupo-capilla`); solo se recortó la de Laicos, que no tenía otra versión.
+- Piezas de Diálogos con capturas de videollamada (rostros pequeños con nombres de organizaciones en mosaico): no se usan.
+- Captura de video con un religioso de perfil (Red Mundial de Oración del Papa), íconos, botones y fondos de tema.
