@@ -208,3 +208,38 @@ Las 202 imágenes de esos paquetes están en `conferenciaepiscopalvenezolana.com
 - Gráficas con rótulos de texto ("Laicos", "Familia", "Juventud") y fondos degradados: las fotos de base ya estaban incluidas (`asamblea-nacional-pastoral-familiar-2025`, `asamblea-juventud-grupo-capilla`); solo se recortó la de Laicos, que no tenía otra versión.
 - Piezas de Diálogos con capturas de videollamada (rostros pequeños con nombres de organizaciones en mosaico): no se usan.
 - Captura de video con un religioso de perfil (Red Mundial de Oración del Papa), íconos, botones y fondos de tema.
+
+
+## Eventos sin foto propia (24 de noviembre de 2026)
+
+Las fotos de estas notas están en conferenciaepiscopalvenezolana.com, cuyo certificado HTTPS aparece revocado (CRYPT_E_REVOKED); no se omitió la comprobación de seguridad. Mientras el Centro entrega los archivos o la CEV corrige el certificado, estas páginas muestran el logotipo del área o el escudo CEV y SPEV como imagen alternativa (crédito en `catalogo.json`). Eventos afectados:
+
+- Encuentro Nacional de Laicos «Unidos en la Misión 2026» (encuentro-nacional-de-laicos-2026)
+- Asamblea Nacional de Pastoral Familiar 2026 (asamblea-nacional-pastoral-familiar-2026)
+- Año Jubilar Coromotano (ano-jubilar-coromotano)
+- Campaña de Adviento 2025: «¿A quién esperamos?» (adviento-2025-a-quien-esperamos)
+- Jubileo de los Movimientos de Apostolado y clausura del Año Jubilar de Guanare (jubileo-movimientos-guanare-2025)
+- Kairós Joven, bloque 1: «Abrir el corazón» y «Organizar es participar» (kairos-joven-bloque-1-2025)
+- Ciclo de cuatro encuentros sobre prevención de abusos y cultura del buen trato (ciclo-buen-trato-movimientos-2025)
+- Diplomado de Pastoral Familiar, módulo III (diplomado-pastoral-familiar-modulo-iii-2025)
+- Abrazo en Familia 2024: «Familia, lugar de oración y reconciliación» (abrazo-en-familia-2024)
+- Asamblea Nacional de Pastoral Familiar 2024: «Sinodalidad y comunión por las familias» (asamblea-pastoral-familiar-2024)
+- Congreso Internacional de Pastoral Juvenil, Roma 2024 (congreso-pastoral-juvenil-roma-2024)
+- Semana por la Vida 2024 y Caminata Huellas de Ternura: «Cero violencias, 100% ternura» (semana-por-la-vida-2024)
+- XVIII Jornada Nacional de la Juventud: «Joven venezolano, vive alegre en la esperanza» (jornada-nacional-juventud-2024)
+- Abrazo en Familia 2023: «Familia, renueva tu misión para el mundo de hoy» (abrazo-en-familia-2023)
+- 17.ª Jornada Nacional de la Juventud: «Joven venezolano, ¡cree en las promesas del Señor!» (jornada-nacional-juventud-2023)
+- Abrazo en Familia 2022: «Familia, vive con alegría y santidad la vocación al amor» (abrazo-en-familia-2022)
+- Asamblea Nacional de Pastoral Familiar, segundo semestre de 2022 (asamblea-pastoral-familiar-2022-septiembre)
+- III Jornada Nacional de Líderes Juveniles: «Juventud venezolana, defensora de la vida y de la paz» (jornada-lideres-juveniles-2022)
+- Semana por la Vida 2022: «Custodiar toda la vida» (semana-por-la-vida-2022)
+- 35.ª Asamblea Nacional de Pastoral Juvenil: «Caminemos juntos, firmes en la esperanza» (asamblea-nacional-pastoral-juvenil-2022)
+- 16.ª Jornada Nacional de la Juventud: «Joven venezolano, ¡eres valiente y creativo!» (jornada-nacional-juventud-2022)
+- Asamblea Nacional de Pastoral Familiar e Infancia: «Amor familiar, vocación y camino de santidad» (asamblea-pastoral-familiar-2022-enero)
+- Formación misionera «Uno en Cristo, unidos en la misión» (formacion-misionera-omp-2026)
+- Retiro de Parejas «Un Encuentro de amor en Cristo Rey» (retiro-de-parejas-2026)
+- II Encuentro de Parejas, «Amarse en lo cotidiano» (ii-encuentro-de-parejas-2026)
+- I Encuentro Provincial de Pastoral Familiar, Provincia Eclesiástica de Barquisimeto (encuentro-provincial-pastoral-familiar-barquisimeto-2026)
+- Retiros provinciales de Pastoral Juvenil (Valencia y Cumaná) (retiros-provinciales-pastoral-juvenil-2026)
+- Jornada de formación y diálogo ecuménico, «Caminamos juntos hacia la unidad en la diversidad» (jornada-de-dialogo-ecumenico-2026)
+- Jornada formativa «Liderazgo con rostro de servicio» (jornada-liderazgo-con-rostro-de-servicio-2026)

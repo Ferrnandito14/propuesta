@@ -26,13 +26,13 @@
       b.appendChild(ifr);
     };
     o.play = function(){ o.crear(); quiere = true; if (listo) cmd(ifr, 'playVideo'); if (boton) boton.hidden = false; };
-    o.pausa = function(){ quiere = false; if (ifr && listo) { cmd(ifr, 'pauseVideo'); if (sonando) { cmd(ifr, 'mute'); sonando = false; if (boton) { boton.textContent = 'Activar sonido'; boton.setAttribute('aria-pressed', 'false'); } } } };
+    o.pausa = function(){ quiere = false; if (ifr && listo) { cmd(ifr, 'pauseVideo'); if (sonando) { cmd(ifr, 'mute'); sonando = false; if (boton) { boton.setAttribute('aria-label', 'Activar sonido'); boton.setAttribute('aria-pressed', 'false'); } } } };
     if (boton) boton.addEventListener('click', function(){
       if (!ifr) return;
       sonando = !sonando;
       cmd(ifr, sonando ? 'unMute' : 'mute');
       if (sonando) cmd(ifr, 'setVolume', [80]);
-      boton.textContent = sonando ? 'Silenciar' : 'Activar sonido';
+      boton.setAttribute('aria-label', sonando ? 'Silenciar' : 'Activar sonido');
       boton.setAttribute('aria-pressed', sonando ? 'true' : 'false');
     });
     estado.push(o);

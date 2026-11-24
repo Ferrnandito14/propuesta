@@ -282,3 +282,38 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 @media (max-width:640px){.ev .th{width:112px}}
 .ev h3 a{display:inline-flex;align-items:center;min-height:44px}
 .vid-pie{min-height:52px}
+.cab-logo .px,.cab-logo{max-width:520px}.cab-logo img{object-fit:contain!important;background:var(--papel);max-height:200px;width:auto;max-width:100%;padding:16px}
+
+/* Galería de Quiénes somos: cada foto completa, sin recortes */
+.galeria-c{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px;align-items:start}
+.galeria-c figure{margin:0}
+.galeria-c img{width:100%;height:auto;background:var(--linea)}
+.galeria-c figcaption{font-size:15px;color:var(--gris);margin-top:8px}
+@media (max-width:640px){.galeria-c{grid-template-columns:1fr}}
+.texto a,.lista-p a,.fuentes a,.datos a{display:inline-block;min-height:24px;line-height:1.6}
+.lista-p li a{display:inline-flex;align-items:center;min-height:44px}
+
+/* Botón de sonido: icono pequeño sobre el video */
+.vid-pie{display:block;margin:0;min-height:0}
+.vid-pie .etiqueta{margin:8px 0 0}
+.vid-bloque{position:relative}
+.vid-son{position:absolute;right:10px;bottom:56px;z-index:3;width:44px;height:44px;min-width:44px;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(0,16,96,.82);color:#fff;border:1px solid #fff}
+.vid-son .on{opacity:0}
+.vid-son[aria-pressed="true"] .on{opacity:1}
+.vid-son[aria-pressed="true"]{background:#fff;color:var(--marino)}
+.vid-son[hidden]{display:flex;visibility:hidden}
+
+/* Misión de los laicos: trazo que se dibuja con el scroll; sin JS o con movimiento reducido, lista fija */
+.mision-lista{list-style:none;margin:20px 0 24px;padding:0 0 0 34px;position:relative;max-width:640px}
+.mision-lista::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;background:var(--linea)}
+.mision-lista::after{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--ocre),var(--celeste),var(--vivo));transform-origin:top;transform:scaleY(1)}
+.mision-lista li{position:relative;padding:10px 0 14px;font-size:20px}
+.mision-lista li::before{content:"";position:absolute;left:-34px;top:20px;width:19px;height:19px;border:3px solid var(--azul);background:var(--lienzo)}
+.mision-lista strong{display:block;color:var(--marino)}
+.mision-cierre{max-width:64ch}
+.mision-anim .mision-lista::after{transform:scaleY(var(--p,0))}
+.mision-anim .mision-lista li{opacity:.25;translate:0 10px;transition:opacity .6s,translate .6s}
+.mision-anim .mision-lista li::before{background:var(--lienzo)}
+.mision-anim .mision-lista li.en{opacity:1;translate:0 0}
+.mision-anim .mision-lista li.en::before{background:var(--azul)}
+@media (prefers-reduced-motion:reduce){.mision-anim .mision-lista li{opacity:1;translate:0 0;transition:none}.mision-anim .mision-lista::after{transform:scaleY(1)}}
