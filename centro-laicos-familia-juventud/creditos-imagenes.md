@@ -243,3 +243,8 @@ Las fotos de estas notas están en conferenciaepiscopalvenezolana.com, cuyo cert
 - Retiros provinciales de Pastoral Juvenil (Valencia y Cumaná) (retiros-provinciales-pastoral-juvenil-2026)
 - Jornada de formación y diálogo ecuménico, «Caminamos juntos hacia la unidad en la diversidad» (jornada-de-dialogo-ecumenico-2026)
 - Jornada formativa «Liderazgo con rostro de servicio» (jornada-liderazgo-con-rostro-de-servicio-2026)
+
+
+## Tercera tanda: fotos de eventos de la CEV (entregadas por la directora el 24 de noviembre de 2026)
+
+Descargadas por la directora desde conferenciaepiscopalvenezolana.com y convertidas a WebP (máx. 1200 px). El detalle de cada una (evento, URL de origen, alt, crédito, bandera de menor) está en `img/catalogo.json`. Crédito general: «CEV Medios, fuente: conferenciaepiscopalvenezolana.com». Autor individual de cada foto: no consta. Permiso de reutilización de la CEV: pendiente (P24). Fotos con menores: autorización declarada por el usuario, pendiente de archivar por escrito con el Centro.

@@ -8,7 +8,7 @@
 
   /* Aparición suave: solo se marcan los bloques que empiezan fuera de la primera pantalla */
   if (!quieto && 'IntersectionObserver' in window) {
-    var sel = '.sec h2,.tarjetas>li,.galeria>li,.ev,.datos,.fig,.texto>p,.texto>ul,.fuentes,.migas+*';
+    var sel = '.sec h2,.tarjetas>li,.galeria>li,.ev,.datos,.fig,.texto>p,.texto>ul,.fuentes';
     var pendientes = [];
     var obs = new IntersectionObserver(function(es){
       es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('en'); obs.unobserve(e.target); } });

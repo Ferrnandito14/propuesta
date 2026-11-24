@@ -318,3 +318,7 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 .mision-anim .mision-lista li.en::before{background:var(--azul)}
 @media (prefers-reduced-motion:reduce){.mision-anim .mision-lista li{opacity:1;translate:0 0;transition:none}.mision-anim .mision-lista::after{transform:scaleY(1)}}
 .texto .anclas a,.anclas a{display:inline-flex;align-items:center;min-height:44px}
+
+/* Respaldo si el reproductor no carga: miniatura y enlace a YouTube */
+.vid.vid-fallo{background-size:cover;background-position:center}
+.vid.vid-fallo .vid-enlace{background:rgba(0,16,96,.6)}
