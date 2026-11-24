@@ -31,15 +31,15 @@ Referencia pedida por el usuario: Weblogic Webdesign, https://weblogicwebdesign.
 Referencia pedida por el usuario: Intch, https://get.intch.org/ (consultada 23 nov 2026, solo lectura).
   Se toma: separar al visitante por público desde la primera pantalla (dos entradas: profesionales y empleadores). Aquí son tres entradas: Jóvenes, Familias, Laicos.
   Se descarta: azul índigo, botones en píldora, maqueta de teléfono, cifras de usuarios, reseñas y premios. Ninguna cifra ni prueba de confianza se traslada.
-Descartado: carruseles que avanzan solos, avisos de cookies encima del contenido, tarjetas por todas partes, serif editorial por defecto.
+Descartado: carruseles de imágenes que avanzan solos sin control (la franja de eventos rota cada 9 s, con Pausar, Anterior y Siguiente, y se detiene con cursor, foco o movimiento reducido), avisos de cookies encima del contenido, tarjetas por todas partes, serif editorial por defecto.
 Refero Styles, https://styles.refero.design/style/c57ba3f8-1d76-4660-8ba4-48ddce26e759 (Google for Education, consultado 23 nov 2026). Se toma: lienzo casi blanco, un solo acento y líneas finas como único separador. Se descarta: radios grandes, controles en píldora y títulos de 80 px. Las reglas de la casa (esquinas rectas, sin sombras ni degradados, una familia de letra) salen de las notas de memoria del repo.
 Godly redirige a recent.design y su movimiento es expresivo (startups); no se tomó nada.
 Identidad: colores y letra salen de los logos reales CEV y SPEV del sitio actual. Marino #001060 (CEV), azul #183888 (SPEV), ocre #c06000 (V del CEV; se usa #a85300 en el texto por contraste), celeste #48a8e0, naranja de la cruz #f06830.
 Letra: Fira Sans, una sola familia. El rótulo "Centro Laicos, Familia y Juventud" del logo SPEV es un sans humanista de trazo firme; Fira Sans es de la misma familia de formas.
-Pendiente (rotulado): og:image, og:url y canonical con la URL por definir; política de privacidad y términos que redacta el Centro; subtítulos de los videos.
+Pendiente (rotulado): política de privacidad y términos que redacta el Centro; subtítulos de los videos.
 Propuesta pendiente: eslogan, teléfono o WhatsApp, cuentas de administrador (todo por confirmar con el Centro).
 Reformulación 23 nov 2026: una sola página con secciones, sin rutas por público, porque 13 páginas del menú del sitio original están vacías y la CEE agrupa por área en lugar de ramificar. La franja de eventos y el acceso rápido a Agenda, Quiénes somos y Contacto siguen el criterio de acceso rápido de la USCCB. Weblogic Webdesign e Intch: solo claridad de mensajes; no se toma ninguna cifra, reseña ni premio.
-Pendiente (rotulado): og:image, og:url y canonical con la URL por definir; privacidad, cookies y términos son borradores con [POR CONFIRMAR]; subtítulos de los videos; apellido de la coordinadora de Familia; sede del I Encuentro de Asesores.
+Pendiente (rotulado): privacidad, cookies y términos son borradores con [POR CONFIRMAR]; subtítulos de los videos; apellido de la coordinadora de Familia; sede del I Encuentro de Asesores.
 -->
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@ a:hover{color:var(--marino)}
 .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
 .skip{position:absolute;left:-999px;top:0;background:var(--blanco);padding:10px 14px;z-index:20}
 .skip:focus{left:8px;top:8px}
-.rotulo{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ocre);margin:0 0 10px}
+font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ocre);margin:0 0 10px}
 h1,h2,h3{font-weight:600;color:var(--marino);line-height:1.2;margin:0}
 h1{font-size:clamp(26px,3.6vw,36px)}
 h2{font-size:clamp(22px,2.6vw,28px);margin-bottom:20px}
@@ -158,7 +158,7 @@ nav li:hover>.sub,nav li:focus-within>.sub{display:flex}
 .nota-item h3 a{display:block;padding:11px 0;color:var(--marino);text-decoration:none}
 .nota-item h3 a:hover{text-decoration:underline}
 .nota-fecha{font-size:14px;color:var(--gris);margin-left:6px}
-.nota-item .tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ocre);margin:0 0 6px;display:block}
+.nota-item font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ocre);margin:0 0 6px;display:block}
 .mas{margin-top:20px}
 .mas a,.quienes p:last-child a{display:inline-flex;align-items:center;min-height:44px}
 
@@ -294,7 +294,7 @@ a,button{transition:color 150ms ease-out,background-color 150ms ease-out,border-
 .franja li{margin:0;padding:4px 0;line-height:1.4}
 .js .franja li{display:none}
 .js .franja li.act{display:block}
-.fe{display:inline-block;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--blanco);padding:0 6px;margin-right:8px}
+font-size:14px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--blanco);padding:0 6px;margin-right:8px}
 .fe.prox{background:var(--blanco);color:var(--marino)}
 .fe.real{background:none;color:#cfd6ee;border-color:#cfd6ee}
 .fc{display:none;align-items:center;gap:6px}
