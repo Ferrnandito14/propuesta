@@ -252,3 +252,5 @@ Descargadas por la directora desde conferenciaepiscopalvenezolana.com y converti
 ## Fotos retiradas del sitio tras la verificación independiente (24 de noviembre de 2026)
 
 Siguen en `img/` y en `catalogo.json`, pero no se muestran: capturas de Zoom con nombres de participantes (afiches de Kairós Joven, Semana por la Vida 2026, Formación misionera, Diálogos y dos tarjetas del ciclo de buen trato), una foto con el evento equivocado (jóvenes en sala), tres fotos con sello de usuario del fotógrafo, un primer plano de una persona joven, tres fotos de baja resolución de la Asamblea de Familia 2025, tres fotos de la campaña Abrazo en Familia 2026 con niños o adolescentes en primer plano, una panorámica con nombre legible en una prenda y una multitud cuyo evento no se pudo verificar.
+
+Actualización (24 de noviembre de 2026): el usuario autorizó en el chat borrar las 24 fotos retiradas y sus miniaturas (28 archivos) del repositorio. Se borraron con `git rm`, así que se pueden recuperar del historial de git si hiciera falta. Las entradas siguen en `catalogo.json` solo como registro.
