@@ -312,8 +312,9 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 .mision-lista strong{display:block;color:var(--marino)}
 .mision-cierre{max-width:64ch}
 .mision-anim .mision-lista::after{transform:scaleY(var(--p,0))}
-.mision-anim .mision-lista li{opacity:.25;translate:0 10px;transition:opacity .6s,translate .6s}
+.mision-anim .mision-lista li{translate:0 10px;transition:translate .6s}
 .mision-anim .mision-lista li::before{background:var(--lienzo)}
-.mision-anim .mision-lista li.en{opacity:1;translate:0 0}
+.mision-anim .mision-lista li.en{translate:0 0}
 .mision-anim .mision-lista li.en::before{background:var(--azul)}
 @media (prefers-reduced-motion:reduce){.mision-anim .mision-lista li{opacity:1;translate:0 0;transition:none}.mision-anim .mision-lista::after{transform:scaleY(1)}}
+.texto .anclas a,.anclas a{display:inline-flex;align-items:center;min-height:44px}
