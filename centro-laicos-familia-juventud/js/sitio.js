@@ -1,5 +1,58 @@
 (function(){
+  var ahorro = !!(navigator.connection && navigator.connection.saveData);
   var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var quieto = reducido || ahorro;
+  if (ahorro) document.documentElement.classList.add('quieto');
+  var viewH = window.innerHeight || document.documentElement.clientHeight;
+
+  /* Aparición suave: solo se marcan los bloques que empiezan fuera de la primera pantalla */
+  if (!quieto && 'IntersectionObserver' in window) {
+    var sel = '.sec h2,.tarjetas>li,.galeria>li,.ev,.datos,.fig,.texto>p,.texto>ul,.fuentes,.migas+*';
+    var pendientes = [];
+    var obs = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('en'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
+    [].slice.call(document.querySelectorAll(sel)).forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top < viewH) return;
+      var k = [].indexOf.call(el.parentNode.children, el) % 4;
+      el.style.setProperty('--k', k);
+      el.classList.add('rv'); obs.observe(el); pendientes.push(el);
+    });
+    /* Si se salta de golpe (ancla, scroll rápido), lo que quedó arriba se muestra igual */
+    var barrido = function(){ pendientes = pendientes.filter(function(el){
+      if (el.classList.contains('en')) return false;
+      if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add('en'); obs.unobserve(el); return false; }
+      return true; }); };
+    addEventListener('scroll', function(){ requestAnimationFrame(barrido); }, { passive: true });
+  }
+
+  /* Parallax leve (máx. 24 px) en imágenes grandes */
+  if (!quieto) {
+    var pxs = [];
+    [].slice.call(document.querySelectorAll('.cab-img img,.hero img,.fig img')).forEach(function(im){
+      var w = document.createElement('div'); w.className = 'px on';
+      im.parentNode.insertBefore(w, im); w.appendChild(im); pxs.push(w);
+    });
+    if (pxs.length) {
+      var pend = false;
+      var pinta = function(){
+        pend = false; var h = window.innerHeight;
+        pxs.forEach(function(w){
+          var r = w.getBoundingClientRect(); if (r.bottom < -50 || r.top > h + 50) return;
+          var t = ((r.top + r.height / 2) - h / 2) / h;
+          var max = Math.min(24, r.height * 0.05);
+          w.style.setProperty('--py', Math.max(-max, Math.min(max, -t * max * 2)).toFixed(1) + 'px');
+        });
+      };
+      var pide = function(){ if (!pend) { pend = true; requestAnimationFrame(pinta); } };
+      addEventListener('scroll', pide, { passive: true }); addEventListener('resize', pide); pinta();
+    }
+  }
+
+  /* Con ahorro de datos no hay transición entre páginas */
+  addEventListener('pagereveal', function(e){ if (ahorro && e.viewTransition) e.viewTransition.skipTransition(); });
 
   /* Menú móvil */
   var mb = document.querySelector('.menu-btn'), nav = document.getElementById('menu');
@@ -13,7 +66,7 @@
     });
   }
 
-  /* Franja de eventos: rota sola cada 9,5 s; se detiene con cursor y foco; Pausar y flechas son ayuda */
+  /* Franja de eventos: rota sola cada 3 s (decisión del usuario; WCAG 2.2.2: Pausar y Reanudar visibles, pausa con cursor y foco, lista estática con movimiento reducido o sin JS); se detiene con cursor y foco; Pausar y flechas son ayuda */
   var fr = document.querySelector('.franja');
   if (fr) {
     var items = [].slice.call(fr.querySelectorAll('li'));
@@ -27,7 +80,7 @@
         if (cuenta) cuenta.textContent = (i + 1) + ' de ' + items.length;
       };
       var activo = function(){ return !pausaManual && !encima && !conFoco; };
-      var arranca = function(){ clearInterval(timer); timer = setInterval(function(){ if (activo()) mostrar(i + 1); }, 9500); };
+      var arranca = function(){ clearInterval(timer); timer = setInterval(function(){ if (activo()) mostrar(i + 1); }, 3000); };
       mostrar(0); arranca();
       fr.addEventListener('mouseenter', function(){ encima = true; });
       fr.addEventListener('mouseleave', function(){ encima = false; });
