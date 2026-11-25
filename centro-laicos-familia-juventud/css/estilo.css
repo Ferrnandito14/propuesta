@@ -352,4 +352,4 @@ body{font-family:"Fira Sans","Fira Respaldo",system-ui,sans-serif}
 .tarjeta img{aspect-ratio:16/9!important;object-fit:contain}
 .mini img{aspect-ratio:1/1!important;object-fit:contain}
 .vid iframe{transition:opacity .3s}
-@media (max-width:640px){.fuentes.recursos li a{flex-wrap:wrap}.fuentes.recursos li a>span:nth-child(2){flex:1 1 calc(100% - 100px)}.fuentes.recursos .ir{margin-left:88px;padding-left:0;flex:0 0 100%}}
+@media (max-width:640px){.fuentes.recursos li a{flex-wrap:wrap}.fuentes.recursos li a>span:nth-child(2){flex:1 1 calc(100% - 100px)}.fuentes.recursos .ir{margin-left:88px;padding-left:0;flex:0 0 calc(100% - 88px);min-width:0}}
