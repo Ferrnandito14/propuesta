@@ -232,3 +232,7 @@ Actualización (24 de noviembre de 2026): el usuario autorizó en el chat borrar
 
 
 La lista de fotos con posibles menores y las notas de revisión se conservan de forma interna, fuera del sitio público.
+
+## Cuarta tanda: capturas de videollamada de adultos (24 de noviembre de 2026)
+
+Entregadas por la directora (descarga desde la nube de las notas de la CEV, WebP). Se publican dos capturas donde solo se ven adultos: asamblea-pastoral-familiar-2022-enero (recortadas las franjas negras) y encuentro-provincial-pastoral-familiar-barquisimeto-2026. Crédito: CEV Medios, fuente: sitio de la Conferencia Episcopal Venezolana. Autorización de uso declarada por el usuario para capturas con nombres de adultos; permiso de la CEV pendiente (P24). No se publican las capturas de asamblea-pastoral-familiar-2022-septiembre, jornada-liderazgo-con-rostro-de-servicio-2026 ni las tres de kairos-joven-bloque-1-2025, por criterio de prudencia con las personas que aparecen. semana-por-la-vida-2024 queda con el logotipo del área: su única imagen es una tarjeta con un enlace de Zoom impreso.

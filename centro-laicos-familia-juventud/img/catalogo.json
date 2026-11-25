@@ -3574,5 +3574,31 @@
   "credito": "CEV Medios, fuente: Centro de Laicos Familia y Juventud",
   "contenido_personas": "ninguna",
   "nota": ""
+ },
+ {
+  "archivo": "ev/asamblea-pastoral-familiar-2022-enero/01-captura-videollamada-asamblea-pastoral-familiar-enero-2022.webp",
+  "ancho": 800,
+  "alto": 470,
+  "kb": 54.1,
+  "tipo": "foto",
+  "area": "asamblea-pastoral-familiar-2022-enero",
+  "evento_slug": "asamblea-pastoral-familiar-2022-enero",
+  "url_origen": "https://conferenciaepiscopalvenezolana.com/wp-content/uploads/2022/01/familia-1.jpg",
+  "pagina_origen": "https://conferenciaepiscopalvenezolana.com/wp-content/uploads/2022/01/familia-1.jpg",
+  "alt": "Captura de videollamada de la Asamblea Nacional de Pastoral Familiar e Infancia de enero de 2022, con unos treinta participantes en cuadrícula, matrimonios y sacerdotes, con sus nombres a la vista",
+  "credito": "CEV Medios, fuente: Centro de Laicos, Familia y Juventud"
+ },
+ {
+  "archivo": "ev/encuentro-provincial-pastoral-familiar-barquisimeto-2026/01-captura-videollamada-encuentro-provincial-barquisimeto.webp",
+  "ancho": 1012,
+  "alto": 670,
+  "kb": 31.4,
+  "tipo": "foto",
+  "area": "encuentro-provincial-pastoral-familiar-barquisimeto-2026",
+  "evento_slug": "encuentro-provincial-pastoral-familiar-barquisimeto-2026",
+  "url_origen": "https://conferenciaepiscopalvenezolana.com/wp-content/uploads/2026/06/Pastoral-Familiar-6.jpeg",
+  "pagina_origen": "https://conferenciaepiscopalvenezolana.com/wp-content/uploads/2026/06/Pastoral-Familiar-6.jpeg",
+  "alt": "Captura de videollamada del encuentro provincial de Pastoral Familiar de Barquisimeto, con tres parejas sonrientes y dos participantes con imagen de perfil, con sus nombres a la vista",
+  "credito": "CEV Medios, fuente: Área de Familia del Centro"
  }
 ]
