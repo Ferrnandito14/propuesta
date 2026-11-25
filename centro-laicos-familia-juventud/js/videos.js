@@ -19,7 +19,9 @@
       b.classList.remove('vid-listo'); b.classList.add('vid-fallo');
       if (boton) boton.hidden = true;
     };
-    o.vivo = function(){ vivo = true; clearTimeout(reloj); };
+    o.vivo = function(){ vivo = true; clearTimeout(reloj); if (ifr) { ifr.style.opacity = '1'; b.classList.add('vid-listo'); } };
+    o.espera = function(){ if (vivo || fallo) return; clearTimeout(reloj); reloj = setTimeout(function(){ if (!vivo) o.fallar(); }, 8000); };
+    o.desmonta = function(){ clearTimeout(reloj); if (ifr && ifr.parentNode) ifr.parentNode.removeChild(ifr); ifr = null; listo = false; vivo = false; quiere = false; b.classList.remove('vid-listo'); if (boton) boton.hidden = true; };
     o.ifr = function(){ return ifr; };
     o.crear = function(){
       if (ifr || fallo) return;
@@ -35,13 +37,12 @@
         try { ifr.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), ORIGEN); } catch(e){}
         if (quiere) cmd(ifr, 'playVideo');
       });
-      b.classList.add('vid-listo');
       b.appendChild(ifr);
-      reloj = setTimeout(function(){ if (!vivo) o.fallar(); }, 8000);
+      ifr.style.opacity = '0';
       ifr.addEventListener('error', function(){ o.fallar(); });
     };
-    o.play = function(){ if (fallo) return; o.crear(); quiere = true; if (listo) cmd(ifr, 'playVideo'); if (boton) boton.hidden = false; };
-    o.pausa = function(){ quiere = false; if (ifr && listo) { cmd(ifr, 'pauseVideo'); if (sonando) { cmd(ifr, 'mute'); sonando = false; if (boton) { boton.setAttribute('aria-label', 'Activar sonido'); boton.setAttribute('aria-pressed', 'false'); } } } };
+    o.play = function(){ if (fallo) return; o.crear(); quiere = true; o.espera(); if (listo) cmd(ifr, 'playVideo'); if (boton) boton.hidden = false; };
+    o.pausa = function(){ quiere = false; clearTimeout(reloj); if (ifr && listo) { cmd(ifr, 'pauseVideo'); if (sonando) { cmd(ifr, 'mute'); sonando = false; if (boton) { boton.setAttribute('aria-label', 'Activar sonido'); boton.setAttribute('aria-pressed', 'false'); } } } };
     if (boton) boton.addEventListener('click', function(){
       if (!ifr) return;
       sonando = !sonando;
@@ -59,11 +60,12 @@
     if (!d) return;
     estado.forEach(function(o){
       var f = o.ifr(); if (!f || f.contentWindow !== ev.source) return;
-      if (d.event === 'onError') o.fallar(); else o.vivo();
+      if (d.event === 'onError') o.fallar();
+      else if ((d.event === 'onStateChange' && d.info === 1) || (d.event === 'infoDelivery' && d.info && d.info.playerState === 1)) o.vivo();
     });
   });
 
-  var cerca = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { var o = estado.filter(function(x){ return x.b === e.target; })[0]; if (o) o.crear(); } }); }, { rootMargin: '0px' });
+  var cerca = new IntersectionObserver(function(es){ es.forEach(function(e){ var o = estado.filter(function(x){ return x.b === e.target; })[0]; if (!o) return; if (e.isIntersecting) o.crear(); else o.desmonta(); }); }, { rootMargin: '0px' });
   bloques.forEach(function(b){ cerca.observe(b); });
 
   var vis = new IntersectionObserver(function(es){

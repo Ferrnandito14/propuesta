@@ -339,3 +339,17 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 .vid{background-size:cover;background-position:center}
 .etiqueta a,figcaption a,#equipo a{display:inline-block;min-height:24px;padding:3px 0;line-height:1.5}
 .quieto .franja li{transition:none}
+
+/* Recursos: fila con miniatura, texto y botón (pisa la regla de enlaces pequeños) */
+.fuentes.recursos li a{display:flex;align-items:center;justify-content:flex-start;gap:16px;min-height:48px;padding:12px 0}
+.fuentes.recursos .mini{flex:none}
+.fuentes.recursos .ir{margin-left:auto;padding-left:12px}
+/* Fuente de respaldo con métricas cercanas a Fira Sans para evitar saltos al cargar */
+@font-face{font-family:"Fira Respaldo";src:local("Arial"),local("Helvetica Neue"),local("Segoe UI");size-adjust:100%;ascent-override:93%;descent-override:25%;line-gap-override:0%}
+body{font-family:"Fira Sans","Fira Respaldo",system-ui,sans-serif}
+/* Miniaturas con la misma proporción en listas y tarjetas */
+.ev .th img{aspect-ratio:4/3!important;object-fit:contain}
+.tarjeta img{aspect-ratio:16/9!important;object-fit:contain}
+.mini img{aspect-ratio:1/1!important;object-fit:contain}
+.vid iframe{transition:opacity .3s}
+@media (max-width:640px){.fuentes.recursos li a{flex-wrap:wrap}.fuentes.recursos li a>span:nth-child(2){flex:1 1 calc(100% - 100px)}.fuentes.recursos .ir{margin-left:88px;padding-left:0;flex:0 0 100%}}
