@@ -72,7 +72,7 @@
     var items = [].slice.call(fr.querySelectorAll('li'));
     var cuenta = fr.querySelector('.f-cuenta'), bPausa = fr.querySelector('.f-pausa');
     var i = 0, pausaManual = false, encima = false, conFoco = false, timer = null;
-    if (reducido) { document.documentElement.classList.add('sin-rot'); }
+    if (reducido || ahorro) { document.documentElement.classList.add('sin-rot'); }
     else if (items.length > 1) {
       var mostrar = function(n){
         i = (n + items.length) % items.length;

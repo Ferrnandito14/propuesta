@@ -17,7 +17,6 @@
       if (fallo) return; fallo = true; quiere = false; clearTimeout(reloj);
       if (ifr && ifr.parentNode) ifr.parentNode.removeChild(ifr);
       b.classList.remove('vid-listo'); b.classList.add('vid-fallo');
-      b.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + b.getAttribute('data-id') + '/hqdefault.jpg)';
       if (boton) boton.hidden = true;
     };
     o.vivo = function(){ vivo = true; clearTimeout(reloj); };
@@ -38,6 +37,8 @@
       });
       b.classList.add('vid-listo');
       b.appendChild(ifr);
+      reloj = setTimeout(function(){ if (!vivo) o.fallar(); }, 8000);
+      ifr.addEventListener('error', function(){ o.fallar(); });
     };
     o.play = function(){ if (fallo) return; o.crear(); quiere = true; if (listo) cmd(ifr, 'playVideo'); if (boton) boton.hidden = false; };
     o.pausa = function(){ quiere = false; if (ifr && listo) { cmd(ifr, 'pauseVideo'); if (sonando) { cmd(ifr, 'mute'); sonando = false; if (boton) { boton.setAttribute('aria-label', 'Activar sonido'); boton.setAttribute('aria-pressed', 'false'); } } } };
@@ -62,7 +63,7 @@
     });
   });
 
-  var cerca = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { var o = estado.filter(function(x){ return x.b === e.target; })[0]; if (o) o.crear(); } }); }, { rootMargin: '300px 0px' });
+  var cerca = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { var o = estado.filter(function(x){ return x.b === e.target; })[0]; if (o) o.crear(); } }); }, { rootMargin: '0px' });
   bloques.forEach(function(b){ cerca.observe(b); });
 
   var vis = new IntersectionObserver(function(es){

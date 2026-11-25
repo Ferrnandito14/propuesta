@@ -334,3 +334,8 @@ nav.principal a[aria-current="page"]{text-decoration:underline;text-decoration-t
 .ev .th img{object-fit:contain;background:var(--papel)}
 .mini img{object-fit:contain}
 .tarjeta img{object-fit:contain;background:var(--papel)}
+
+/* Miniatura local del video y enlaces cortos */
+.vid{background-size:cover;background-position:center}
+.etiqueta a,figcaption a,#equipo a{display:inline-block;min-height:24px;padding:3px 0;line-height:1.5}
+.quieto .franja li{transition:none}
