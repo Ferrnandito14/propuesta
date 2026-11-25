@@ -12,7 +12,7 @@ Rama remota `claude/confident-hypatia-onl35f`: no trae la carpeta `research_note
 
 | Archivo | Ancho x alto | KB | Origen | Crédito sugerido | Hero |
 |---|---|---|---|---|---|
-| `fotos/hero-equipo-abrazo-en-familia-camisas-azules.webp` | 1600 x 1200 | 140.0 | [/familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/09/IMG-20260616-WA0058.jpg.jpeg) | Centro de Laicos, Familia y Juventud, CEV | sí |
+| `fotos/hero-equipo-abrazo-en-familia-camisas-azules.webp` | 1600 x 1200 | 140.0 | [/familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/09/IMG-20260616-WA0058.jpg.jpeg) | Centro de Laicos, Familia y Juventud, CEV |
 | `fotos/pareja-camisas-abrazo-en-familia.webp` | 1200 x 1200 | 83.5 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/08/22-scaled.png) | Centro de Laicos, Familia y Juventud, CEV |  |
 | `fotos/cartel-abrazo-en-familia-2026.webp` | 1200 x 1536 | 81.2 | [/abrazo-familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/Imagen-Oficial-2026-scaled.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
 | `fotos/cartel-35-anos-abrazo-en-familia.webp` | 1200 x 1500 | 84.8 | [/campanas-familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/Imagen-Oficial-scaled.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
@@ -28,7 +28,7 @@ Rama remota `claude/confident-hypatia-onl35f`: no trae la carpeta `research_note
 
 | Archivo | Ancho x alto | KB | Origen | Crédito sugerido | Hero |
 |---|---|---|---|---|---|
-| `fotos/hero-asamblea-nacional-pastoral-juvenil-2026.webp` | 1296 x 972 | 134.9 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/ANPJ2026.jpeg) | Centro de Laicos, Familia y Juventud, CEV | sí |
+| `fotos/hero-asamblea-nacional-pastoral-juvenil-2026.webp` | 1296 x 972 | 134.9 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/ANPJ2026.jpeg) | Centro de Laicos, Familia y Juventud, CEV |
 | `fotos/asamblea-juventud-grupo-capilla.webp` | 1200 x 900 | 80.8 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/02/4945467271988490040.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
 | `fotos/asamblea-juventud-grupo-exterior.webp` | 707 x 864 | 84.6 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/02/4945467271988490039.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
 
@@ -134,31 +134,6 @@ Rama remota `claude/confident-hypatia-onl35f`: no trae la carpeta `research_note
 | `fotos/cartel-semana-por-la-vida-2026.webp` | 1080 x 1440 | 87.2 | [/campanas-familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/semana-por-la-vida2026.jpeg) | Centro de Laicos, Familia y Juventud, CEV |  |
 | `logos/logo-semana-por-la-vida-2026.webp` | 600 x 800 | 52.8 | [/campanas-familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/Logo-semana-por-la-vida.png) | Centro de Laicos, Familia y Juventud, CEV |  |
 
-## Para consultar con el Centro
-
-Quedaron fuera de la carpeta por posibles menores, por tratarse de datos personales o por derechos dudosos. Ninguna se descargó a `img/`.
-
-Posibles menores (primer plano o rostros reconocibles):
-
-- `ELIAD-PCN.jpeg`: cartel de la Escuela de Liderazgo ELIAD de la Centralidad de la Niñez, con niños en la foto.
-- `PCN-TERNURA.jpeg`: cartel con niños y adolescentes sentados en un grupo.
-- `1787935093121.png`: cartel del mensaje por el Día del Niño, con niños de fondo difuminados (sirve si el Centro lo autoriza).
-- `Venezuela-en-la-vigilia-JMJ.jpg`: selfi grupal de jóvenes en la vigilia de la JMJ, en primer plano.
-- `IMG-20230724-WA0009.jpg`: jóvenes con la bandera de Venezuela, rostros cercanos.
-- `IMG-20260615-WA0127.jpg.jpeg`: grupo con adolescentes arrodillados al frente.
-- `photo_2024-05-03_10-31-41.jpg` y `jovenes-venezolanos-958x559-1.jpeg`: grupos de jóvenes, edades no verificables.
-- `WhatsApp-Image-2026-09-10-at-10.02.59-PM.jpeg`, `WhatsApp-Image-2026-09-10-at-9.58.10-PM.jpeg`: grupos de jóvenes con camisetas, de cerca.
-
-Retratos individuales de personas concretas (datos personales, requieren su autorización): `Foto-Yvan.png`, `IMG_7024.jpeg`, `13-scaled.png`, `geneiss.png`, `WhatsApp-Image-2026-08-25-at-5.32.53-PM.jpeg`, `WhatsApp-Image-2026-09-12-at-1.00.54-PM.jpeg`, y la serie `WhatsApp-Image-2026-10-02/03-*.jpeg` (ocho retratos). El sitio original los publica, pero para la propuesta conviene preguntar a cada persona.
-
-Derechos dudosos (imágenes de terceros que el sitio reutiliza): `papa-francisco.jpg` y `simbolos_jmj_8f73270eda.jpeg` (fotos de agencia o Vaticano), `INOCENTES-PW.jpg` (pintura, además es una escena violenta), `Leo_XIV_13_October_2025.jpg` y `WYD_Featured_Image-*.jpg` (no se descargaron). El logotipo de la JMJ Seúl 2027 sí se incluyó como logotipo oficial del evento, pero el Centro debe confirmar su uso.
-
-Otras notas:
-
-- Las fotos de grupo incluidas se revisaron una por una: son adultos o adultos jóvenes vistos a cierta distancia. Aun así, el Centro debe confirmar que no hay menores identificables, sobre todo en `asamblea-juventud-*`, `hero-asamblea-nacional-pastoral-juvenil-2026` y `equipo-juventud-camisetas-negras`.
-- Los carteles `cartel-35-anos-abrazo-en-familia` y `cartel-jornada-abuelos-2026` muestran figuras de familia o de personas mayores en ilustración o foto de archivo; la niña del cartel de 35 años aparece de espaldas.
-- Plantillas, fondos de papel rasgado, íconos de redes y fotos de banco de imágenes del tema WordPress se descartaron.
-
 ## Héroes candidatas
 
 - `fotos/hero-asamblea-nacional-pastoral-juvenil-2026.webp` (1296 x 972, 135 KB; no llegó a 1600 px sin pasar de 150 KB).
@@ -170,27 +145,27 @@ Alternativas de formato horizontal: `asesores-grupo-casa-de-encuentros` (1200 x 
 
 Autorización de uso declarada por el usuario, pendiente de archivar por escrito con el Centro. Aplica a los retratos del equipo y a las fotos con posibles menores de esta tanda. Un retrato solo lleva nombre si la página del original lo nombra junto a la foto.
 
-| Archivo | Ancho x alto | KB | Origen | Crédito sugerido | Persona | Posibles menores |
+| Archivo | Ancho x alto | KB | Origen | Crédito sugerido | Persona |
 |---|---|---|---|---|---|---|
-| `equipo/retrato-saritza-roque.webp` | 600 x 600 | 39.6 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/08/13-scaled.png) | Centro de Laicos, Familia y Juventud, CEV | Saritza Roque | no |
-| `equipo/retrato-genesis-martinez.webp` | 600 x 600 | 59.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/geneiss.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez | no |
-| `equipo/retrato-genesis-martinez-2025.webp` | 500 x 500 | 22.0 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/genesis.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez | no |
-| `equipo/retrato-jannet-y-pedro-2025.webp` | 500 x 500 | 21.2 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/1.png) | Centro de Laicos, Familia y Juventud, CEV | Jannet García (de Rivas) y Pedro Rivas, coordinadores de Familia (foto de la pareja, sin distinguir quién es quién) | no |
-| `fotos/equipo-centro-selfie-grupal-jardin.webp` | 864 x 1080 | 82.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00004.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `fotos/equipo-centro-selfie-portal.webp` | 667 x 889 | 83.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00002.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `fotos/equipo-centro-selfie-tres.webp` | 667 x 889 | 87.4 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00001.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `fotos/equipo-centro-sesion-de-trabajo-salon.webp` | 858 x 1144 | 82.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00003.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `fotos/equipo-centro-sesion-de-trabajo-mesa.webp` | 789 x 1052 | 86.1 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00005.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `fotos/multitud-jovenes-corazones-escenario.webp` | 1200 x 675 | 63.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2024/09/IMG-20240323-WA0006.webp) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `fotos/procesion-con-cruz-juventud-plaza.webp` | 1104 x 828 | 87.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0216-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `fotos/jovenes-escuchando-obispo-sala.webp` | 1200 x 900 | 82.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0861-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `fotos/jovenes-grupo-frente-a-casa-con-banderas.webp` | 1015 x 761 | 84.1 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/Imagen-de-WhatsApp-2025-09-17-a-las-08.53.05_6100aa73.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `fotos/v-enajo-2023-jovenes-llevando-cruz.webp` | 1104 x 662 | 86.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/02/enajo-2023-2.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `fotos/laicos-procesion-imagen-mariana-patio.webp` | 1200 x 396 | 78.0 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/3-1-scaled.jpg) | Centro de Laicos, Familia y Juventud, CEV |  | sí |
-| `logos/logo-dicasterio-laicos-familia-vida.webp` | 800 x 453 | 86.5 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/dicasterio.png) | Dicasterio para los Laicos, la Familia y la Vida |  | no |
-| `logos/logo-pastoral-familiar.webp` | 600 x 600 | 54.5 | [/familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/07.png) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `logos/logo-pastoral-juvenil-de-venezuela.webp` | 600 x 600 | 66.9 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/5.png) | Centro de Laicos, Familia y Juventud, CEV |  | no |
-| `logos/logo-jubileo-2025-peregrinos-de-esperanza.webp` | 800 x 480 | 18.1 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/jubileo.jpg) | Dicasterio para la Evangelización (Jubileo 2025) |  | no |
+| `equipo/retrato-saritza-roque.webp` | 600 x 600 | 39.6 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/08/13-scaled.png) | Centro de Laicos, Familia y Juventud, CEV | Saritza Roque |
+| `equipo/retrato-genesis-martinez.webp` | 600 x 600 | 59.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/10/geneiss.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez |
+| `equipo/retrato-genesis-martinez-2025.webp` | 500 x 500 | 22.0 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/genesis.png) | Centro de Laicos, Familia y Juventud, CEV | Génesis Martínez |
+| `equipo/retrato-jannet-y-pedro-2025.webp` | 500 x 500 | 21.2 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/1.png) | Centro de Laicos, Familia y Juventud, CEV | Jannet García (de Rivas) y Pedro Rivas, coordinadores de Familia (foto de la pareja, sin distinguir quién es quién) |
+| `fotos/equipo-centro-selfie-grupal-jardin.webp` | 864 x 1080 | 82.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00004.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/equipo-centro-selfie-portal.webp` | 667 x 889 | 83.9 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00002.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/equipo-centro-selfie-tres.webp` | 667 x 889 | 87.4 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00001.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/equipo-centro-sesion-de-trabajo-salon.webp` | 858 x 1144 | 82.0 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00003.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/equipo-centro-sesion-de-trabajo-mesa.webp` | 789 x 1052 | 86.1 | [/centro/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/00005.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/multitud-jovenes-corazones-escenario.webp` | 1200 x 675 | 63.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2024/09/IMG-20240323-WA0006.webp) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/procesion-con-cruz-juventud-plaza.webp` | 1104 x 828 | 87.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0216-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/jovenes-escuchando-obispo-sala.webp` | 1200 x 900 | 82.3 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/0861-scaled-1.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/jovenes-grupo-frente-a-casa-con-banderas.webp` | 1015 x 761 | 84.1 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/Imagen-de-WhatsApp-2025-09-17-a-las-08.53.05_6100aa73.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/v-enajo-2023-jovenes-llevando-cruz.webp` | 1104 x 662 | 86.0 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/02/enajo-2023-2.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `fotos/laicos-procesion-imagen-mariana-patio.webp` | 1200 x 396 | 78.0 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2026/01/3-1-scaled.jpg) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `logos/logo-dicasterio-laicos-familia-vida.webp` | 800 x 453 | 86.5 | [/miembros-2/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/dicasterio.png) | Dicasterio para los Laicos, la Familia y la Vida |  |
+| `logos/logo-pastoral-familiar.webp` | 600 x 600 | 54.5 | [/familia/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/07.png) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `logos/logo-pastoral-juvenil-de-venezuela.webp` | 600 x 600 | 66.9 | [/juventud/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/5.png) | Centro de Laicos, Familia y Juventud, CEV |  |
+| `logos/logo-jubileo-2025-peregrinos-de-esperanza.webp` | 800 x 480 | 18.1 | [/laicos/](https://laicosfamiliayjuventudspev.com/wp-content/uploads/2025/02/jubileo.jpg) | Dicasterio para la Evangelización (Jubileo 2025) |  |
 
 ### Equipo: quién tiene foto verificada
 
@@ -254,3 +229,6 @@ Descargadas por la directora desde conferenciaepiscopalvenezolana.com y converti
 Siguen en `img/` y en `catalogo.json`, pero no se muestran: capturas de Zoom con nombres de participantes (afiches de Kairós Joven, Semana por la Vida 2026, Formación misionera, Diálogos y dos tarjetas del ciclo de buen trato), una foto con el evento equivocado (jóvenes en sala), tres fotos con sello de usuario del fotógrafo, un primer plano de una persona joven, tres fotos de baja resolución de la Asamblea de Familia 2025, tres fotos de la campaña Abrazo en Familia 2026 con niños o adolescentes en primer plano, una panorámica con nombre legible en una prenda y una multitud cuyo evento no se pudo verificar.
 
 Actualización (24 de noviembre de 2026): el usuario autorizó en el chat borrar las 24 fotos retiradas y sus miniaturas (28 archivos) del repositorio. Se borraron con `git rm`, así que se pueden recuperar del historial de git si hiciera falta. Las entradas siguen en `catalogo.json` solo como registro.
+
+
+La lista de fotos con posibles menores y las notas de revisión se conservan de forma interna, fuera del sitio público.
